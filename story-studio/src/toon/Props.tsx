@@ -210,11 +210,17 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
             {txt(p.b) || "THE MOUNTAIN POST"}
           </text>
           <line x1={-380} y1={-420} x2={380} y2={-420} stroke="#1d1d22" strokeWidth={6} />
-          {lines(p.a).map((l, i) => (
-            <text key={i} x={0} y={-310 + i * 100} textAnchor="middle" fontSize={92} fill="#1d1d22" {...Font}>
-              {l}
-            </text>
-          ))}
+          {(() => {
+            // headline fits the page: wrap at 13 chars, shrink if a single word is still too long
+            const hl = lines(p.a).flatMap((l) => wrap(l, 13)).slice(0, 3);
+            const longest = Math.max(...hl.map((l) => l.length), 1);
+            const fs = Math.min(92, Math.floor(1300 / longest), hl.length > 2 ? 78 : 92);
+            return hl.map((l, i) => (
+              <text key={i} x={0} y={-320 + i * (fs + 10)} textAnchor="middle" fontSize={fs} fill="#1d1d22" {...Font}>
+                {l}
+              </text>
+            ));
+          })()}
           <rect x={-380} y={-40} width={420} height={320} fill="#9aa0aa" />
           {Array.from({ length: 12 }).map((_, i) => (
             <rect key={i} x={70} y={-40 + i * 34} width={300 - (i % 3) * 40} height={14} fill="#9a9a9a" />
