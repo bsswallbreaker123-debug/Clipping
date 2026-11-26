@@ -107,7 +107,7 @@ def whisper_words(wav: Path, text: str, frames: int) -> list[dict]:
     """Exact word timings for captions; falls back to an estimate if Whisper is unavailable."""
     cache = wav.with_suffix(".words.json")
     if cache.exists():
-        return json.loads(cache.read_text())
+        return align_to_script(json.loads(cache.read_text()), text, frames)
     global _whisper
     try:
         import soundfile as sf
@@ -133,7 +133,35 @@ def whisper_words(wav: Path, text: str, frames: int) -> list[dict]:
         print(f"  (word timing estimated: {e})")
         words = word_timing(text, frames)
     cache.write_text(json.dumps(words))
-    return words
+    return align_to_script(words, text, frames)
+
+
+def align_to_script(heard: list[dict], text: str, frames: int) -> list[dict]:
+    """Keep Whisper's timing but always show the script's words (Whisper sometimes mishears)."""
+    import difflib
+
+    script = text.split()
+    norm = lambda w: re.sub(r"[^a-z0-9']", "", w.lower())  # noqa: E731
+    sm = difflib.SequenceMatcher(a=[norm(w) for w in script], b=[norm(w["text"]) for w in heard], autojunk=False)
+    times: list[tuple[int, int] | None] = [None] * len(script)
+    for tag, i1, i2, j1, j2 in sm.get_opcodes():
+        if tag in ("equal", "replace") and heard[j1:j2]:
+            span = heard[j1:j2]
+            n = i2 - i1
+            start, end = span[0]["start"], span[-1]["end"]
+            for k in range(n):
+                times[i1 + k] = (round(start + (end - start) * k / n), round(start + (end - start) * (k + 1) / n))
+    # fill gaps by interpolating between known neighbours
+    for i, t in enumerate(times):
+        if t is None:
+            prev_end = next((times[j][1] for j in range(i - 1, -1, -1) if times[j]), 0)
+            nxt = next((j for j in range(i + 1, len(times)) if times[j]), None)
+            next_start = times[nxt][0] if nxt is not None else frames
+            gap = [j for j in range(i, nxt if nxt is not None else len(times)) if times[j] is None]
+            step = max(1, (next_start - prev_end) / max(1, len(gap)))
+            for k, j in enumerate(gap):
+                times[j] = (round(prev_end + step * k), round(prev_end + step * (k + 1)))
+    return [{"text": w, "start": t[0], "end": t[1]} for w, t in zip(script, times)]
 
 
 # ---------------- TTS ----------------
