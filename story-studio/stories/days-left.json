@@ -1825,6 +1825,22 @@
           "camera": {
             "focus": "kai"
           },
+          "vo": "Yesterday, his mom had fourteen thousand days. This morning, she had one. Every number had changed overnight.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 9,
+          "camera": {
+            "focus": "kai"
+          },
           "who": "kai",
           "vo": "This isn't about Mia moving. Something is going to happen to the whole town.",
           "chars": [
@@ -1896,6 +1912,24 @@
               "expr": "sad",
               "action": "sit",
               "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "The night before that storm, every number in town rewrote itself. Mine went from thousands to one.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left",
+              "tag": "1"
             }
           ]
         },
