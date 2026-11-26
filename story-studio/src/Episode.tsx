@@ -116,6 +116,14 @@ const ShotView: React.FC<{ shot: TimedShot; story: EpisodeProps["story"]; index:
               >
                 <ellipse cx={8} cy={6} rx={105} ry={16} fill="rgba(0,0,0,0.22)" style={{ filter: "blur(6px)" }} />
                 <Character spec={{ ...c, facing: charFacing(c) }} member={story.cast[c.id]} talking={talking} shotDur={shot.dur} seed={index * 7 + i} />
+                {c.tag && (
+                  <g transform={`translate(0 ${-640 + Math.sin(f / 9 + i) * 6})`} opacity={interpolate(f, [0, 6], [0, 1], clamp)}>
+                    <rect x={-(c.tag.length * 19 + 34)} y={-44} width={c.tag.length * 38 + 68} height={72} rx={36} fill="rgba(10,10,20,0.82)" stroke={c.tagColor ?? "#ff4d5e"} strokeWidth={5} />
+                    <text x={0} y={10} textAnchor="middle" fontFamily="Montserrat" fontWeight={900} fontSize={48} fill={c.tagColor ?? "#ff4d5e"}>
+                      {c.tag}
+                    </text>
+                  </g>
+                )}
               </g>
             );
           })}

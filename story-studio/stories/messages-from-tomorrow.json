@@ -1,0 +1,3440 @@
+{
+  "id": "messages-from-tomorrow",
+  "title": "What If Your Phone Showed Messages From Tomorrow?",
+  "mood": "trend",
+  "narrator": "am_michael",
+  "stat": {
+    "name": "Messages from tomorrow",
+    "start": 0,
+    "decimals": 0
+  },
+  "cast": {
+    "ryan": {
+      "name": "Ryan",
+      "voice": "am_liam",
+      "hair": "cap",
+      "hairColor": "#1d3557",
+      "shirt": "#e63946",
+      "shirtStyle": "hoodie"
+    },
+    "jake": {
+      "name": "Jake",
+      "voice": "am_puck",
+      "hair": "afro",
+      "shirt": "#ffb703",
+      "shirtStyle": "tee",
+      "height": 1.05
+    },
+    "lily": {
+      "name": "Lily",
+      "voice": "af_bella",
+      "hair": "bob",
+      "hairColor": "#6d3b1f",
+      "shirt": "#8338ec",
+      "shirtStyle": "jacket",
+      "accessories": [
+        "earrings"
+      ]
+    },
+    "mom": {
+      "name": "Mom",
+      "voice": "af_sarah",
+      "hair": "bun",
+      "shirt": "#2a9d8f"
+    },
+    "brooks": {
+      "name": "Coach Brooks",
+      "voice": "bm_george",
+      "hair": "none",
+      "shirt": "#f4a261",
+      "shirtStyle": "tee",
+      "height": 1.12
+    },
+    "owen": {
+      "name": "Owen",
+      "voice": "am_echo",
+      "hair": "slick",
+      "hairColor": "#2b2b2b",
+      "shirt": "#6c757d",
+      "shirtStyle": "hoodie",
+      "accessories": [
+        "headphones"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Ryan's phone started getting messages. Sent tomorrow.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "MONDAY, 6:58 AM",
+          "camera": "slowzoom",
+          "vo": "It started with one buzz. Two minutes before his alarm.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "sleepy",
+              "fx": [
+                "zzz"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "vo": "Unknown number. Sent: Tuesday, 12:14 PM. That was tomorrow.",
+          "stat": {
+            "delta": 1
+          },
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "6:58",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Sent: Tue 12:14 PM"
+              },
+              {
+                "from": "them",
+                "text": "Don't eat the cafeteria pizza."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "confused",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Sent tomorrow? That's not how phones work.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "label": "TUESDAY, LUNCH",
+          "transition": "whip",
+          "crowd": 7,
+          "camera": "wide",
+          "vo": "The next day was pizza day. Ryan's favorite. He ate a salad. Just in case.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 7,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "Bro, you're eating a salad? On pizza day? Are you sick?",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 7,
+          "camera": "wide",
+          "vo": "Jake. Best friend since kindergarten. Ate four slices.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "grin",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "label": "12:14 PM",
+          "crowd": 7,
+          "camera": "shake",
+          "vo": "At exactly twelve fourteen, half the cafeteria ran for the bathrooms.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "cringe",
+              "action": "run",
+              "to": 0.95,
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "shocked",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 7,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Twelve fourteen. Exactly like the message said.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "TUESDAY NIGHT",
+          "time": "night",
+          "transition": "fade",
+          "vo": "That night, a second message arrived.",
+          "stat": {
+            "delta": 1
+          },
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "11:02",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Sent: Wed 4:30 PM"
+              },
+              {
+                "from": "them",
+                "text": "Bet on the Hawks. Trust me."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "confused",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "WEDNESDAY",
+          "transition": "whip",
+          "crowd": 8,
+          "camera": "wide",
+          "vo": "The Hawks were the worst basketball team in the league. Zero wins all season.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "brooks",
+              "x": 0.65,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 8,
+          "camera": {
+            "focus": "brooks"
+          },
+          "who": "brooks",
+          "vo": "You want to bet the Hawks win? Kid, I'll give you your lunch money back ten times.",
+          "chars": [
+            {
+              "id": "brooks",
+              "x": 0.65,
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 8,
+          "camera": "punch",
+          "vo": "The Hawks won by one point. On a shot from half court.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "grin",
+              "action": "celebrate"
+            },
+            {
+              "id": "brooks",
+              "x": 0.65,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 8,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Whoever is texting me... I love you.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.42,
+              "expr": "grin",
+              "action": "phone",
+              "fx": [
+                "sparkle"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "WEDNESDAY NIGHT",
+          "time": "night",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Ryan couldn't sleep. He just stared at his phone. Waiting.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "happy",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": "punch",
+          "vo": "Buzz. Message number three.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "grin",
+              "action": "phone",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "But this one wasn't a tip.",
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "11:47",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Sent: Thu 8:02 AM"
+              },
+              {
+                "from": "them",
+                "text": "Don't trust Jake."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Jake. His best friend for eleven years.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.5,
+              "expr": "happy"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "The messages had been right every single time.",
+          "banner": {
+            "text": "DON'T TRUST JAKE",
+            "style": "stamp"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Ryan gets texts from tomorrow. They've never been wrong. The last one said: don't trust Jake.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "THURSDAY",
+          "crowd": 8,
+          "camera": "wide",
+          "who": "jake",
+          "vo": "Yo, Ryan! You look like you saw a ghost. You good?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.65,
+              "expr": "happy",
+              "action": "wave",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Yeah. Totally good. Normal. Very normal.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "cringe",
+              "facing": "right",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": "slowzoom",
+          "vo": "For the first time in eleven years, Ryan watched his best friend like a stranger.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.65,
+              "expr": "happy",
+              "action": "phone",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "transition": "whip",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "And Jake was acting weird. Whispering into his phone. Hiding the screen.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "nervous",
+              "action": "phone",
+              "facing": "left"
+            },
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "confused",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "No, he can't find out. Not until Friday. Yeah. I'll handle it.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.6,
+              "expr": "nervous",
+              "action": "phone",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Who can't find out? Me?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": "wide",
+          "who": "ryan",
+          "vo": "Hey Jake. Who was that?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "Who? Oh. My grandma. She's... into crypto now.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "cringe",
+              "facing": "left",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "ryan"
+          },
+          "vo": "Jake's grandma died two years ago. Ryan was at the funeral.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "label": "AFTER SCHOOL",
+          "transition": "whip",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "After school, Jake said he had a dentist appointment. Ryan followed him.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.55,
+              "expr": "neutral",
+              "action": "walk",
+              "to": 0.8
+            },
+            {
+              "id": "ryan",
+              "x": 0.2,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.35
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "whip",
+          "camera": "panright",
+          "vo": "Jake didn't go to the dentist. He went to the mall. To the jewelry store.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.7
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "time": "evening",
+          "camera": "wide",
+          "vo": "And waiting for him there was Lily.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.4,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "time": "evening",
+          "camera": {
+            "focus": "lily"
+          },
+          "vo": "Lily. The girl Ryan had liked since ninth grade. And Jake knew it.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "time": "evening",
+          "camera": "slowzoom",
+          "vo": "They laughed. Then she hugged him. A long hug.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.45,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.56,
+              "expr": "happy",
+              "facing": "left",
+              "fx": [
+                "hearts"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "time": "evening",
+          "camera": {
+            "focus": "ryan"
+          },
+          "vo": "Ryan stood behind a pillar. He felt sick.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.2,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "time": "evening",
+          "camera": "punch",
+          "vo": "Then his phone buzzed.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.2,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "vo": "Message number four.",
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "5:41",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Sent: Fri 7:00 PM"
+              },
+              {
+                "from": "them",
+                "text": "Jake will take everything from you on Friday."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "angry",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "Friday. Tomorrow. Whatever Jake was planning, it was happening tomorrow.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Ryan caught his best friend with the girl he likes. And tomorrow's message says Jake will take everything.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "angry",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "label": "THURSDAY NIGHT",
+          "camera": "slowzoom",
+          "who": "ryan",
+          "vo": "Okay. If you're texting from tomorrow... you can read what I send, right?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "He typed back. For the first time.",
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "me",
+                "text": "who are you??"
+              },
+              {
+                "from": "them",
+                "text": "You. From tomorrow."
+              },
+              {
+                "from": "them",
+                "text": "I'm trying to save you from the worst day of your life."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Me? I'm texting myself? From the future?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "He asked what Jake was going to do. The answer came in seconds.",
+          "stat": {
+            "delta": 1
+          },
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "me",
+                "text": "what does jake do"
+              },
+              {
+                "from": "them",
+                "text": "Friday 7 PM. The gym."
+              },
+              {
+                "from": "them",
+                "text": "Everyone you care about will be there. You'll lose all of them."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Then tell me how to stop it.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "One last text. Three words.",
+          "banner": {
+            "text": "CUT HIM OFF.",
+            "style": "stamp"
+          },
+          "chars": []
+        },
+        {
+          "bg": "school",
+          "label": "FRIDAY MORNING",
+          "transition": "whip",
+          "crowd": 8,
+          "camera": "wide",
+          "who": "jake",
+          "vo": "Ryan! Bro! What are you doing tonight around seven?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.65,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "ryan"
+          },
+          "vo": "Seven. The exact time from the message.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Nothing that involves you. I know about you and Lily. I saw you at the mall.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "Wait, what? No, man, it's not what you think. Just come to the gym at seven and—",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.65,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": "punch",
+          "who": "ryan",
+          "vo": "We're done, Jake. Eleven years. Done.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "angry",
+              "facing": "right",
+              "fx": [
+                "anger"
+              ]
+            },
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": "wide",
+          "vo": "Half the school heard it. Jake just stood there.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "angry",
+              "action": "exit-left"
+            },
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": "wide",
+          "who": "lily",
+          "vo": "Ryan! What did you just say to Jake? He's crying in the bathroom!",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.65,
+              "action": "enter-right",
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Ask your boyfriend.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "My what? Jake is not my... oh my god. You have no idea, do you?",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.65,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": "slowzoom",
+          "vo": "She shook her head and walked away. Ryan felt like he'd won. So why did it feel so bad?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "sad"
+            },
+            {
+              "id": "lily",
+              "x": 0.65,
+              "expr": "sad",
+              "action": "exit-right"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Buzz. A new message. And this one made his blood run cold.",
+          "stat": {
+            "delta": 1
+          },
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "1:12",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Good. Now Lily. Cut her off too."
+              }
+            ]
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Ryan ended an eleven year friendship because of a text from himself. Now it wants him to cut off Lily too.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "label": "FRIDAY, 1 PM",
+          "crowd": 4,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Why Lily? She didn't do anything.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "vo": "The reply came fast. Too fast.",
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "me",
+                "text": "why lily"
+              },
+              {
+                "from": "them",
+                "text": "She's in on it."
+              },
+              {
+                "from": "them",
+                "text": "Don't think. Just do what I say."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "camera": "slowzoom",
+          "vo": "Don't think. Just do what I say. Ryan read it again. Something about it felt wrong.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "I would never say that. I hate when people tell me not to think.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "vo": "So he tested it. A question only he would know.",
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "me",
+                "text": "if ur me. whats the name of my first dog"
+              },
+              {
+                "from": "them",
+                "text": "..."
+              },
+              {
+                "from": "them",
+                "text": "Biscuit."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Biscuit. That's right. Nobody knows that. Not even Jake.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "FRIDAY, 5 PM",
+          "transition": "whip",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Ryan, honey. Jake's mom just called me. Jake hasn't stopped crying since lunch.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "She said he spent all his savings on something for you. For tonight.",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "For me? What do you mean, for me?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Sweetheart. What's the date today?",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.65,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "punch",
+          "vo": "Ryan looked at his phone. Friday, the fourteenth.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.35,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "His birthday. He had been so busy reading messages from tomorrow, he forgot what today was.",
+          "banner": {
+            "text": "HAPPY BIRTHDAY RYAN",
+            "style": "chapter"
+          },
+          "chars": []
+        },
+        {
+          "bg": "livingroom",
+          "transition": "fade",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "The jewelry store. Lily. The gym at seven. It's a party. It's a surprise party.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "slowzoom",
+          "vo": "Jake wasn't stealing his life. Jake was planning his birthday.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "punch",
+          "vo": "Then the phone buzzed. Again.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "vo": "And for the first time, the message from tomorrow sounded scared.",
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "5:31",
+            "messages": [
+              {
+                "from": "them",
+                "text": "DON'T GO TO THE GYM."
+              },
+              {
+                "from": "them",
+                "text": "Whatever happens. Don't go."
+              }
+            ]
+          },
+          "chars": []
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "If the messages were from Ryan... why was he trying so hard to keep himself away from his own party?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "The mystery texts aren't saving Ryan. They're isolating him. And they know the name of his first dog.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "FRIDAY, 5:45 PM",
+          "camera": "slowzoom",
+          "vo": "Ryan scrolled through every message. All seven of them. Looking for a clue.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Pizza. Hawks. Don't trust Jake. Cut him off. Cut Lily off. Don't go.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "The first two made me trust it. Everything after made me alone.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "vo": "He typed one more message.",
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "me",
+                "text": "what happens at the party"
+              },
+              {
+                "from": "them",
+                "text": "You lose everything."
+              },
+              {
+                "from": "me",
+                "text": "what EXACTLY"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "punch",
+          "vo": "No reply. One minute. Five minutes. Nothing.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "phone",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "slowzoom",
+          "vo": "Then the typing dots appeared. And disappeared. And appeared again.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "vo": "Finally, the answer.",
+          "stat": {
+            "delta": 1
+          },
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "them",
+                "text": "At the party, you find out the truth."
+              },
+              {
+                "from": "them",
+                "text": "About me."
+              },
+              {
+                "from": "them",
+                "text": "And I can't let that happen."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "The truth about you? You're me. What truth?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "angry"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "vo": "Ryan grabbed his jacket. Six fifteen. Forty five minutes to the party.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "exit-right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "whip",
+          "camera": "panright",
+          "vo": "He ran. And with every step, his phone buzzed. Again. And again.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.2,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.65
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "vo": "The messages were getting desperate.",
+          "stat": {
+            "delta": 3
+          },
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "6:31",
+            "messages": [
+              {
+                "from": "them",
+                "text": "STOP"
+              },
+              {
+                "from": "them",
+                "text": "TURN AROUND"
+              },
+              {
+                "from": "them",
+                "text": "you'll regret this forever"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "wide",
+          "who": "lily",
+          "vo": "Ryan? What are you doing here? You're not supposed to know about—",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.64,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "The party. I know. Lily, I'm so sorry. I thought you and Jake were together.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "sad",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "Jake? Ryan, Jake was helping me pick a gift. For you. Because I... I like you, idiot.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.64,
+              "expr": "love",
+              "facing": "left",
+              "fx": [
+                "blush"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "slowzoom",
+          "vo": "Ryan forgot how to breathe for a second.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "love",
+              "facing": "right",
+              "fx": [
+                "hearts"
+              ]
+            },
+            {
+              "id": "lily",
+              "x": 0.6,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "punch",
+          "vo": "Then Lily's phone buzzed. She looked at the screen. And went pale.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.6,
+              "expr": "shocked",
+              "action": "phone",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "who": "lily",
+          "vo": "Ryan... why am I getting messages from tomorrow? From you?",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Lily just confessed she likes Ryan. And now she's getting messages from tomorrow too.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "vo": "Lily showed him her screen.",
+          "phone": {
+            "app": "chat",
+            "title": "Unknown (tomorrow)",
+            "messages": [
+              {
+                "from": "them",
+                "text": "It's Ryan. From tomorrow."
+              },
+              {
+                "from": "them",
+                "text": "Don't come to the party."
+              },
+              {
+                "from": "them",
+                "text": "I never liked you. Stay away from me."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.3,
+              "expr": "sad",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "I didn't send that. I would never send that.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "So who did? Who else knows everything about you?",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "slowzoom",
+          "vo": "Then Ryan remembered something. Something small.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Three weeks ago, a new kid sat next to him in computer science. Quiet. Always on his laptop.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "neutral",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "Ryan had let him borrow his phone. To make one call. Just one.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "fade",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Owen. The new kid. He had my phone for ten minutes.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "Ten minutes is enough to read every message you've ever sent. Every photo. Every note.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Including the dog. Biscuit. It's my password.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "wide",
+          "who": "lily",
+          "vo": "But the pizza. The basketball game. How could he know those before they happened?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "slowzoom",
+          "vo": "That was the part Ryan couldn't explain. Unless...",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "punch",
+          "vo": "Unless Owen didn't predict them. Unless he caused them.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Who works in the cafeteria kitchen after school? Owen. Who's the Hawks' team manager? Owen.",
+          "popup": {
+            "title": "OWEN",
+            "lines": [
+              "CAFETERIA HELPER",
+              "HAWKS TEAM MANAGER"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "fade",
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "But why? Why would anyone do all this to you?",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "wide",
+          "vo": "Ryan's phone buzzed one more time. The number wasn't unknown anymore.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "vo": "It just said: Owen.",
+          "phone": {
+            "app": "chat",
+            "title": "Owen",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Took you long enough."
+              },
+              {
+                "from": "them",
+                "text": "I'm already at the gym."
+              },
+              {
+                "from": "them",
+                "text": "Happy birthday, Ryan."
+              }
+            ]
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "The messages from tomorrow were fake. A new kid named Owen sent them. And he's at Ryan's party.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "label": "6:52 PM",
+          "camera": "panright",
+          "vo": "Ryan and Lily ran. Eight minutes until seven.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.2,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.55
+            },
+            {
+              "id": "lily",
+              "x": 0.1,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.42
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Jake's in there. Everyone's in there. And I have no idea what Owen wants.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "run",
+              "to": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "transition": "whip",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "The gym was dark. Balloons everywhere. A huge banner. And fifty people hiding.",
+          "banner": {
+            "text": "HAPPY 17TH RYAN",
+            "style": "ad"
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "nervous"
+            },
+            {
+              "id": "lily",
+              "x": 0.55,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Surprise!",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.65,
+              "expr": "grin",
+              "action": "celebrate",
+              "facing": "left"
+            },
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "You came! I thought... after today... I thought you weren't coming.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "who": "ryan",
+          "vo": "Jake. I'm so sorry. I'll explain everything. But right now, have you seen a kid named Owen?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.38,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "Owen? Yeah. He offered to run the music. Super helpful guy.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.62,
+              "expr": "happy",
+              "action": "point",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "punch",
+          "vo": "Ryan looked up at the giant screen above the stage. It just turned on.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "On the screen were Ryan's private messages. His notes. His search history.",
+          "popup": {
+            "title": "RYAN'S PHONE",
+            "lines": [
+              "NOTES: 'things i like about lily'",
+              "SEARCH: 'how to talk to girls'"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "cringe",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "panleft",
+          "vo": "Fifty people. Reading every private thought he ever typed. And they started laughing.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Behind the DJ table, a quiet kid smiled.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Owen! Why? I don't even know you!",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "angry",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Owen leaned into the microphone. His voice filled the gym.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "You don't know me, Ryan. That's exactly the problem. But I know you. We met nine years ago.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "Nine years ago. Ryan was eight. And he had no idea what Owen was talking about.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Owen just exposed Ryan's private messages to the whole party. And he says they met nine years ago.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "neutral"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Owen put a new picture on the screen. A birthday party. Eight year old kids. Paper hats.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "That's my eighth birthday. At the pizza place.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "In the corner of the picture, a small kid sat alone. Holding a present nobody opened.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "scale": 0.7,
+              "expr": "sad",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "transition": "fade",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "I was new in town. My mom made me come. You said, who invited the weird kid? And everyone laughed.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "My family moved away a week later. I thought about that party every birthday since. So I came back for yours.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "vo": "Ryan didn't remember it. That was the worst part. He didn't even remember.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.42,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Owen wanted Ryan to feel exactly what he had felt. Alone at his own party.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Fifty faces were turned toward Ryan. Some laughing. Some waiting. This was the moment Owen planned.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.42,
+              "expr": "nervous",
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "owen",
+              "x": 0.72,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "punch",
+          "vo": "Ryan could yell. He could run. Or he could do the one thing Owen didn't plan for.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.42,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "He walked up to the stage. Took the microphone. And looked straight at Owen.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.55
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Owen. I don't remember that day. And that's the worst thing I could say. Because you never forgot it.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.55,
+              "expr": "sad",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "I was a stupid eight year old. I'm sorry. I'm really, really sorry.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.55,
+              "expr": "crying",
+              "facing": "right",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "The gym went completely quiet. Nobody laughed anymore.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "owen",
+              "x": 0.72,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "He means it, Owen. I know him. He means every word.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.3,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Owen's hand was shaking over the laptop. One more button. One more secret ready to go on the screen.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "nervous",
+              "facing": "left",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Then he pressed it.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Ryan apologized in front of everyone. Owen had one last secret ready. And he pressed the button.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Everyone looked at the screen. Waiting for the next humiliation.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "punch",
+          "vo": "But it wasn't Ryan's secret. It was a video. Of Owen. Recorded three weeks ago.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "If you're watching this, Ryan, it means you didn't run. It means you said sorry.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "I made two endings. One where I destroy you. And one where I don't have to.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "neutral"
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "I didn't want revenge. I wanted to know if you'd changed. You did.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.5,
+              "expr": "happy",
+              "fx": [
+                "tears"
+              ]
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "transition": "fade",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "The video ended. Owen stood behind the DJ table, not sure what to do with his hands.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "nervous",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "So everything this week was a test?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Owen nodded. He'd wanted to see if Ryan would choose fear over the people he loved.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.7,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "I did, though. I chose fear. I hurt Jake. I hurt Lily.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "sad",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "lily"
+          },
+          "who": "lily",
+          "vo": "And then you came anyway. Even when you were scared. That counts.",
+          "chars": [
+            {
+              "id": "lily",
+              "x": 0.6,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Ryan walked over to the DJ table. Owen flinched, like he expected a punch.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "neutral",
+              "action": "walk",
+              "to": 0.6
+            },
+            {
+              "id": "owen",
+              "x": 0.72,
+              "expr": "nervous",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Nine years late. But... want some cake?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.58,
+              "expr": "happy",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Owen laughed. A real laugh. For the first time all night.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.58,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "owen",
+              "x": 0.72,
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "punch",
+          "vo": "The music came back on. The party started for real. Jake cried again. Happy tears this time.",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.4,
+              "expr": "happy",
+              "action": "celebrate",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "Then, at exactly midnight, Ryan's phone buzzed.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Owen was standing right next to him. Phone in his pocket. Not typing.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.42,
+              "expr": "shocked",
+              "action": "phone"
+            },
+            {
+              "id": "owen",
+              "x": 0.6,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "Unknown number. Sent: tomorrow.",
+          "phone": {
+            "app": "notification",
+            "title": "Unknown",
+            "big": "0:00",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Sent: Sat 9:12 AM"
+              },
+              {
+                "from": "them",
+                "text": "That wasn't Owen. Not all of it."
+              }
+            ]
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Owen confessed to sending the messages. But at midnight, a new one arrived. And Owen didn't send it.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "ryan",
+          "vo": "Owen. Did you send this?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "phone",
+              "facing": "right"
+            },
+            {
+              "id": "owen",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Owen looked at the screen. Then at Ryan. He looked scared.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.62,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 6,
+          "camera": "punch",
+          "vo": "I only sent five. Pizza, Hawks, Jake, Lily, and the gym. I never sent anything about your dog.",
+          "chars": [
+            {
+              "id": "owen",
+              "x": 0.62,
+              "expr": "nervous",
+              "facing": "left",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ],
+          "who": "owen"
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Then who answered Biscuit?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "SATURDAY, 9:11 AM",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "The next morning, Ryan sat on his bed. Staring at his phone. One minute before nine twelve.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "9:12 AM",
+          "camera": "punch",
+          "vo": "At exactly nine twelve, he picked up a pen. And without thinking, he wrote something down.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "That wasn't Owen. Not all of it.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "slowzoom",
+          "vo": "The exact words from the message. In his own handwriting. At the exact time.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Some of the messages really were from tomorrow. From him. Helping him the whole time.",
+          "popup": {
+            "title": "MESSAGES FROM TOMORROW",
+            "lines": [
+              "SENDER: RYAN"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "transition": "fade",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "Biscuit was me. I was checking that I could still reach myself. That's why it took so long to answer.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "label": "ONE WEEK LATER",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "One week later. Ryan, Jake, Lily and Owen. Same table. Every lunch.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.28,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "lily",
+              "x": 0.42,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "jake",
+              "x": 0.58,
+              "expr": "grin",
+              "action": "sit",
+              "facing": "left"
+            },
+            {
+              "id": "owen",
+              "x": 0.74,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "jake"
+          },
+          "who": "jake",
+          "vo": "So you're telling me future you can text you. And you're using it to... ask about homework?",
+          "chars": [
+            {
+              "id": "jake",
+              "x": 0.58,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "ryan"
+          },
+          "who": "ryan",
+          "vo": "No. I stopped reading them. Some things you're supposed to find out on the day.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.28,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": "slowzoom",
+          "vo": "Lily took his hand under the table. Owen pretended not to see. Jake did not pretend.",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.28,
+              "expr": "love",
+              "action": "sit",
+              "facing": "right",
+              "fx": [
+                "blush"
+              ]
+            },
+            {
+              "id": "lily",
+              "x": 0.42,
+              "expr": "love",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "hearts"
+              ]
+            },
+            {
+              "id": "jake",
+              "x": 0.58,
+              "expr": "grin",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "label": "THAT NIGHT",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "That night, one last message arrived. Ryan almost didn't open it.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.45,
+              "expr": "neutral",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "Sent: ten years from tomorrow.",
+          "phone": {
+            "app": "chat",
+            "title": "Ryan (2036)",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Thanks for not listening to me."
+              },
+              {
+                "from": "them",
+                "text": "Best decision we ever made."
+              },
+              {
+                "from": "them",
+                "text": "Say hi to Lily. She says hi back."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.3,
+              "expr": "happy",
+              "action": "phone",
+              "fx": [
+                "hearts"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "If your phone showed messages from tomorrow... would you read them?",
+          "chars": [
+            {
+              "id": "ryan",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "phone"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

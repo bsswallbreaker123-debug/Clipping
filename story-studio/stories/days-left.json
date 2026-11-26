@@ -1,0 +1,3836 @@
+{
+  "id": "days-left",
+  "title": "What If You Could See How Many Days Everyone Has Left?",
+  "mood": "trend",
+  "narrator": "am_michael",
+  "stat": {
+    "name": "Mia",
+    "start": 3,
+    "decimals": 0,
+    "suffix": " days"
+  },
+  "cast": {
+    "kai": {
+      "name": "Kai",
+      "voice": "am_puck",
+      "hair": "curly",
+      "shirt": "#4361ee",
+      "shirtStyle": "hoodie"
+    },
+    "mia": {
+      "name": "Mia",
+      "voice": "af_sky",
+      "hair": "ponytail",
+      "hairColor": "#4a2c1a",
+      "shirt": "#ffb703",
+      "shirtStyle": "jacket",
+      "accessories": [
+        "earrings"
+      ]
+    },
+    "mom": {
+      "name": "Mom",
+      "voice": "af_sarah",
+      "hair": "bob",
+      "hairColor": "#2a1a12",
+      "shirt": "#e76f51"
+    },
+    "grandpa": {
+      "name": "Grandpa",
+      "voice": "bm_lewis",
+      "hair": "none",
+      "shirt": "#8d6e63",
+      "shirtStyle": "jacket",
+      "accessories": [
+        "glasses"
+      ],
+      "height": 0.96
+    },
+    "jace": {
+      "name": "Jace",
+      "voice": "am_liam",
+      "hair": "slick",
+      "hairColor": "#d4a017",
+      "shirt": "#2a9d8f",
+      "shirtStyle": "jacket",
+      "height": 1.06
+    },
+    "theo": {
+      "name": "Theo",
+      "voice": "am_echo",
+      "hair": "cap",
+      "hairColor": "#e63946",
+      "shirt": "#8ecae6",
+      "height": 0.72
+    }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "On his seventeenth birthday, Kai woke up and saw a number above everyone's head.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "BIRTHDAY, 7:00 AM",
+          "camera": "slowzoom",
+          "vo": "It started with a headache. A sharp one. Right behind his eyes.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "cringe",
+              "action": "facepalm"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Happy birthday, sweetheart! Seventeen! How does it feel?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "sleepy",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "action": "enter-right",
+              "expr": "happy",
+              "facing": "left",
+              "tag": "14,892",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "mom",
+            "zoom": 1.7
+          },
+          "vo": "Floating above his mom's head was a number. Fourteen thousand eight hundred ninety two.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "14,892",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Mom... is there something above your head?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "confused",
+              "facing": "right",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Just my hair, honey. Breakfast in five.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "happy",
+              "action": "exit-right",
+              "tag": "14,892",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "label": "WALKING TO SCHOOL",
+          "transition": "whip",
+          "crowd": 5,
+          "camera": "panright",
+          "vo": "Outside, it was everywhere. Every single person had a number.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.25,
+              "expr": "shocked",
+              "action": "walk",
+              "to": 0.5
+            },
+            {
+              "id": "extra",
+              "x": 0.72,
+              "tag": "21,330",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "The old man at the bus stop had nine hundred. The baby in the stroller had thirty thousand.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.3,
+              "tag": "900",
+              "tagColor": "#ffffff"
+            },
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "nervous"
+            },
+            {
+              "id": "extra",
+              "x": 0.78,
+              "scale": 0.7,
+              "tag": "30,114",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 5,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Old people have small numbers. Babies have big ones. These are days. Days until they die.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "He could see exactly how much time everyone had left.",
+          "popup": {
+            "title": "DAYS REMAINING",
+            "lines": [
+              "VISIBLE TO: KAI"
+            ],
+            "style": "system"
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "SCHOOL",
+          "transition": "whip",
+          "crowd": 8,
+          "camera": "wide",
+          "vo": "At school, he tried not to look up. It didn't work.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.45
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "jace",
+          "vo": "Yo, birthday boy! Why are you staring at my forehead?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "jace",
+              "x": 0.68,
+              "expr": "smug",
+              "facing": "left",
+              "tag": "3",
+              "tagColor": "#ffd400"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": {
+            "focus": "jace",
+            "zoom": 1.7
+          },
+          "vo": "Jace. The most annoying guy in school. His number said three.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "jace",
+              "x": 0.68,
+              "expr": "smug",
+              "facing": "left",
+              "tag": "3",
+              "tagColor": "#ffd400"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Three? Three days?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Kai! Happy birthday! I got you something!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.68,
+              "action": "enter-right",
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Mia. His best friend since they were six. The girl he'd never told how he felt.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "happy",
+              "facing": "right",
+              "fx": [
+                "blush"
+              ]
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": "punch",
+          "vo": "Then he looked up.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 6,
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Earth to Kai? Why do you look like you've seen a ghost?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Above Mia's head was the smallest number he had seen all day.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "happy",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "His best friend had three days left to live.",
+          "banner": {
+            "text": "3 DAYS",
+            "style": "stamp"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Kai can see how many days everyone has left. His best friend Mia has three.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "happy",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "label": "DAY 1",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "Kai didn't hear a single word in class. He just watched Mia.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.32,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.66,
+              "expr": "neutral",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Three days. What happens in three days? A car? A disease? Some freak accident?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Okay, you're being weird. Like, weirder than usual.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Can I walk you home today? And tomorrow? And... the day after that?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "smug",
+              "facing": "left",
+              "tag": "3",
+              "fx": [
+                "blush"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "label": "AFTER SCHOOL",
+          "transition": "whip",
+          "camera": "panright",
+          "vo": "He walked between her and the street. He checked every corner twice.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.25,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.45
+            },
+            {
+              "id": "mia",
+              "x": 0.45,
+              "expr": "happy",
+              "action": "walk",
+              "to": 0.65,
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Are you my bodyguard now? Should I pay you?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "grin",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Then Mia stepped off the curb. And a bus came around the corner.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "neutral",
+              "action": "walk",
+              "to": 0.7,
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "punch",
+          "who": "kai",
+          "vo": "Mia! No!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "angry",
+              "action": "run",
+              "to": 0.62
+            },
+            {
+              "id": "mia",
+              "x": 0.7,
+              "expr": "shocked",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "wide",
+          "vo": "He yanked her back. The bus missed her by an inch.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.55,
+              "expr": "shocked",
+              "action": "fall",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Okay. Okay. You just saved my life. How did you know?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "shocked",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "kai"
+          },
+          "vo": "Kai looked up. He'd saved her. The number should have changed.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "punch",
+          "vo": "It hadn't. It still said three.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "label": "THAT NIGHT",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "That night, he couldn't sleep. If the bus wasn't it, then what was?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "sad",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Okay. If I can see everyone's number... what's mine?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "He walked to the mirror. He had never been this scared of his own reflection.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.55,
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": {
+            "focus": "kai",
+            "zoom": 1.6
+          },
+          "vo": "Above his own head, the number glowed red.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "shocked",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Three. The same as Mia.",
+          "banner": {
+            "text": "KAI: 3 DAYS",
+            "style": "stamp"
+          },
+          "chars": []
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "Whatever was coming in three days... it was coming for both of them.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "shocked",
+              "tag": "3"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "neutral",
+              "tag": "3"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Kai and Mia both have three days left. And Kai is the only one who knows.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "tag": "3"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "happy",
+              "tag": "3"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "label": "DAY 2",
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Mia, I need to tell you something. And you're going to think I'm crazy.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right",
+              "tag": "2"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "neutral",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": "slowzoom",
+          "vo": "He told her everything. The headache. The numbers. The bus.",
+          "stat": {
+            "set": 2
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "sad",
+              "action": "talk",
+              "facing": "right",
+              "tag": "2"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "So we're both going to die tomorrow. Cool. Very romantic birthday story, Kai.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "smug",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "I can prove it. Pick anyone. I'll tell you their number.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "crowd": 4,
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Fine. Her. The girl with the dog.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.3,
+              "expr": "smug",
+              "action": "point",
+              "facing": "right",
+              "tag": "2"
+            },
+            {
+              "id": "extra",
+              "x": 0.75,
+              "facing": "left",
+              "tag": "0",
+              "tagColor": "#38f28a"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "crowd": 4,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Zero. Her number is zero. Mia, she's going to die today.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "crowd": 4,
+          "camera": "punch",
+          "vo": "They watched her, terrified. And then a guy ran up and got down on one knee.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.6,
+              "facing": "right",
+              "tag": "0",
+              "tagColor": "#38f28a"
+            },
+            {
+              "id": "extra",
+              "x": 0.72,
+              "facing": "left",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "crowd": 4,
+          "camera": "wide",
+          "vo": "She said yes. The whole park clapped.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.6,
+              "facing": "right",
+              "action": "celebrate",
+              "fx": [
+                "hearts"
+              ]
+            },
+            {
+              "id": "kai",
+              "x": 0.25,
+              "expr": "confused",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "kai"
+          },
+          "vo": "Her number hit zero. And she didn't die. She got engaged.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "So... your death numbers are actually proposal numbers?",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "grin",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "GRANDPA'S HOUSE",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "Kai needed answers. And there was one person who always had them.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "determined",
+              "facing": "right"
+            },
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left",
+              "tag": "406",
+              "tagColor": "#ffffff"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "You turned seventeen. Headache behind the eyes. Numbers everywhere. Am I right?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Grandpa... you can see them too?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "Every man in our family. Since my grandfather. Sit down, kid.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "who": "grandpa",
+          "vo": "Those numbers aren't death, Kai. They're the days until your life changes forever.",
+          "popup": {
+            "title": "TRUE MEANING",
+            "lines": [
+              "DAYS UNTIL YOUR LIFE CHANGES"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.5,
+              "expr": "neutral"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "who": "grandpa",
+          "vo": "But listen to me. Sometimes the change is the best day of your life. And sometimes it's the worst.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "transition": "fade",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "So how do I know which one it is?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "You don't. My number hit zero twice. Once when I met your grandmother. Once when I lost her.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Kai and Mia had two days left. Best day of their lives. Or the worst.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "tag": "2"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "neutral",
+              "tag": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "The numbers aren't death. They count down to the day your life changes forever.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "DAY 2, AFTERNOON",
+          "crowd": 7,
+          "camera": "wide",
+          "vo": "Kai had a new theory. Him and Mia. Same day. Same change.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "happy",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 7,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "What if it's us? What if the big change is... us?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "love",
+              "fx": [
+                "blush"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 7,
+          "camera": "panleft",
+          "vo": "Then he saw Jace. Walking with Mia. His number also said two.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.55,
+              "expr": "smug",
+              "facing": "right",
+              "tag": "2"
+            },
+            {
+              "id": "mia",
+              "x": 0.72,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 7,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "No. No no no. Not Jace. Anyone but Jace.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "angry",
+              "fx": [
+                "anger"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "label": "LUNCH",
+          "transition": "whip",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "So Kai did something stupid. He sat down right between them.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.3,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "right",
+              "tag": "2"
+            },
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "sit"
+            },
+            {
+              "id": "mia",
+              "x": 0.7,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Fun fact, Mia. Jace still sleeps with a night light. Shaped like a duck.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Bro, what is wrong with you? I was asking her about a school project.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.3,
+              "expr": "angry",
+              "action": "sit",
+              "facing": "right",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Kai. Seriously. You're embarrassing yourself.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.7,
+              "expr": "angry",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "She grabbed her tray and left. She didn't look back.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "sad",
+              "action": "sit"
+            },
+            {
+              "id": "mia",
+              "x": 0.7,
+              "expr": "angry",
+              "action": "exit-right",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Dude. Just tell her you like her. Everybody knows. Except her.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "sit",
+              "facing": "left"
+            },
+            {
+              "id": "jace",
+              "x": 0.3,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "right",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "label": "THAT EVENING",
+          "transition": "fade",
+          "camera": "panright",
+          "vo": "Kai went to Mia's house to apologize. And to finally tell her.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.25,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.55,
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "evening",
+          "camera": "wide",
+          "vo": "But Mia was already crying when she opened the door.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.65,
+              "expr": "crying",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ],
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "evening",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Mia, I'm sorry about lunch. I was an idiot. I just—",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "sad",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "evening",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "It's not about lunch, Kai. My dad got a job. In Canada.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.65,
+              "expr": "crying",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ],
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "evening",
+          "camera": "punch",
+          "who": "mia",
+          "vo": "We're moving. In two days.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.65,
+              "expr": "crying",
+              "facing": "left",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Two days. That was the change. Mia was leaving forever.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "And Kai had forty eight hours to stop it. Or to finally tell her the truth.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "tag": "2"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Mia is moving to Canada in two days. Kai has one plan. It's a terrible plan.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "grin",
+              "tag": "2"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "11 PM",
+          "camera": "slowzoom",
+          "who": "kai",
+          "vo": "Step one. No moving truck, no move.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "At midnight, Kai snuck over to Mia's driveway with a bag of potatoes.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "smug",
+              "action": "walk",
+              "to": 0.5
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "One potato in the exhaust pipe. Works in every movie.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "grin"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Then the porch light turned on.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Kai. Why are you holding a potato?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "cringe",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.68,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "This? This is... a goodbye potato. It's a tradition.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "cringe",
+              "facing": "right",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "Mia laughed so hard she cried. For a second, everything felt normal.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.42,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "grin",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "punch",
+          "vo": "But Kai saw it. The number above her head had changed. One.",
+          "stat": {
+            "set": 1
+          },
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "DAY 3",
+          "transition": "whip",
+          "crowd": 9,
+          "camera": "wide",
+          "vo": "The next morning, Kai walked into school. And froze.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "neutral",
+              "action": "walk",
+              "to": 0.45,
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 9,
+          "camera": "panright",
+          "vo": "Every single student. Every teacher. Every number said one.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.2,
+              "tag": "1"
+            },
+            {
+              "id": "extra",
+              "x": 0.4,
+              "tag": "1"
+            },
+            {
+              "id": "kai",
+              "x": 0.6,
+              "expr": "shocked",
+              "tag": "1"
+            },
+            {
+              "id": "extra",
+              "x": 0.8,
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 9,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "This isn't about Mia moving. Something is going to happen to the whole town.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.6,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "GRANDPA'S HOUSE",
+          "transition": "whip",
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Grandpa! Everyone in town has the same number! What does that mean?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right",
+              "tag": "1"
+            },
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "vo": "Grandpa went quiet. Then he took out an old newspaper.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "punch",
+          "who": "grandpa",
+          "vo": "Nineteen eighty seven. The whole town hit zero. That was the night of the great storm.",
+          "banner": {
+            "text": "1987: STORM DESTROYS TOWN",
+            "style": "news"
+          },
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "But the weather says sunny all week.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "It said sunny in nineteen eighty seven too.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "determined",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "One day left. A storm nobody saw coming. And only Kai knew.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "tag": "1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "The whole town has one day left. A storm is coming. Nobody believes it.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "label": "DAY 3, 9 AM",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "Kai stood up in the middle of history class.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Everybody listen! A huge storm is hitting the town tonight. We need to get ready!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "angry",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": "wide",
+          "vo": "Silence. Then the whole class burst out laughing.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "cringe",
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "jace",
+              "x": 0.75,
+              "expr": "grin",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 5,
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Bro checked the weather app and chose violence.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.72,
+              "expr": "grin",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "label": "PRINCIPAL'S OFFICE",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "Ten minutes later, Kai was in the principal's office. Suspended for causing panic.",
+          "popup": {
+            "title": "SUSPENDED",
+            "lines": [
+              "1 DAY"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "sad",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "label": "NOON",
+          "transition": "fade",
+          "camera": "panright",
+          "vo": "So he went door to door. He warned neighbors. Shop owners. Strangers.",
+          "crowd": 4,
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.55,
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": "wide",
+          "vo": "Most of them shut the door in his face. Some called his mom.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "sad",
+              "tag": "1"
+            },
+            {
+              "id": "extra",
+              "x": 0.75,
+              "facing": "left",
+              "action": "exit-right",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Kai! I heard you got suspended for yelling about a storm?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "sad",
+              "facing": "right",
+              "tag": "1"
+            },
+            {
+              "id": "mia",
+              "x": 0.68,
+              "action": "enter-right",
+              "expr": "confused",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Mia. Everyone has a one. Everyone. Something terrible happens tonight. Please believe me.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "sad",
+              "facing": "right",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "slowzoom",
+          "vo": "Mia looked at him for a long time. Then she took out her phone.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "determined",
+              "action": "phone",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "My cousin works at the weather station. I'm asking her.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "determined",
+              "action": "phone",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "wide",
+          "vo": "Three minutes later, her phone buzzed.",
+          "phone": {
+            "app": "chat",
+            "title": "Cousin Dana",
+            "messages": [
+              {
+                "from": "them",
+                "text": "weird you ask"
+              },
+              {
+                "from": "them",
+                "text": "a system just formed off the coast"
+              },
+              {
+                "from": "them",
+                "text": "if it turns it hits us TONIGHT"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Okay. I believe you. What do we do?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.62,
+              "expr": "determined",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "4 PM",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "They made a plan. The school gym had no windows and a basement. It was the safest place in town.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "determined",
+              "facing": "right",
+              "tag": "1"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "determined",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "camera": "wide",
+          "who": "jace",
+          "vo": "So you're actually serious about this storm thing?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "jace",
+              "x": 0.68,
+              "action": "enter-right",
+              "expr": "confused",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Then you need way more people. My team has a group chat with two thousand members.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.66,
+              "expr": "smug",
+              "action": "phone",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "camera": "punch",
+          "vo": "Then the lights flickered. Outside, the sky turned green.",
+          "time": "evening",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "tag": "1"
+            },
+            {
+              "id": "jace",
+              "x": 0.68,
+              "expr": "shocked",
+              "facing": "left",
+              "tag": "1"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "shake",
+          "vo": "Every number in town dropped to zero. The storm was here.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "tag": "0"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Every number just hit zero. The storm nobody believed in is here.",
+          "stat": {
+            "set": 0
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "shocked",
+              "tag": "0"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "label": "THE STORM",
+          "camera": "shake",
+          "crowd": 6,
+          "vo": "Wind tore through the streets. Trash cans flew like paper.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Everyone to the school gym! Go! Go!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "angry",
+              "action": "wave"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "transition": "whip",
+          "crowd": 9,
+          "camera": "panright",
+          "vo": "Thanks to Jace's group chat, hundreds of people made it inside.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "wave"
+            },
+            {
+              "id": "kai",
+              "x": 0.6,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Kai! Oh thank god. I'm so sorry I didn't believe you.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.6,
+              "expr": "crying",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Grandpa was there. Jace's family. Half the school. But someone was missing.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.35,
+              "expr": "neutral"
+            },
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "crowd": 9,
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Where's Mia? She was right behind me!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "vo": "He called her. Once. Twice. Then a text came through.",
+          "phone": {
+            "app": "chat",
+            "title": "Mia",
+            "messages": [
+              {
+                "from": "them",
+                "text": "theo is still at home"
+              },
+              {
+                "from": "them",
+                "text": "going back for him"
+              },
+              {
+                "from": "them",
+                "text": "dont follow me"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "vo": "Theo. Mia's little brother. Eight years old. Alone in the storm.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "time": "night",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Kai, don't you dare go out there!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "exit-left"
+            },
+            {
+              "id": "mom",
+              "x": 0.65,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "transition": "flash",
+          "camera": "shake",
+          "vo": "But he was already gone.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.2,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.75
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "shake",
+          "vo": "The rain hit like needles. A street sign spun past his head.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "angry",
+              "action": "shake"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "who": "jace",
+          "vo": "Kai! Wait up! You're not doing this alone!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "shocked",
+              "facing": "left"
+            },
+            {
+              "id": "jace",
+              "x": 0.25,
+              "action": "run",
+              "to": 0.38,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Jace? Why?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Because you were right and I laughed at you. Now move!",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.4,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "label": "MIA'S HOUSE",
+          "transition": "whip",
+          "camera": "shake",
+          "vo": "Mia's front door was ripped off its hinges.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked"
+            },
+            {
+              "id": "jace",
+              "x": 0.55,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "wide",
+          "who": "theo",
+          "vo": "Kai! Down here! Mia's stuck!",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.6,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "left"
+            },
+            {
+              "id": "kai",
+              "x": 0.3,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "punch",
+          "vo": "Mia was pinned under a fallen bookshelf. And she wasn't moving.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "sleepy",
+              "action": "fall"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Grandpa's words echoed in his head. Sometimes it's the best day of your life. And sometimes the worst.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Mia is trapped under a bookshelf in the middle of the storm. And she isn't moving.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "sleepy",
+              "action": "fall"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "shake",
+          "who": "kai",
+          "vo": "Jace! Grab that side! On three!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "angry",
+              "facing": "right"
+            },
+            {
+              "id": "jace",
+              "x": 0.62,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "punch",
+          "vo": "They lifted with everything they had. The shelf moved an inch. Then two.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "angry",
+              "action": "shake",
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "jace",
+              "x": 0.62,
+              "expr": "angry",
+              "action": "shake",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Theo pulled his sister free.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.4,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            },
+            {
+              "id": "mia",
+              "x": 0.55,
+              "expr": "sleepy",
+              "action": "fall"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "theo",
+            "zoom": 1.6
+          },
+          "who": "theo",
+          "vo": "She came back for me. She wouldn't leave without me.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Mia. Mia, please. Open your eyes.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "Nothing. Then she coughed.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.55,
+              "expr": "sleepy",
+              "action": "fall"
+            },
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Did you... bring a potato?",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.55,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Kai laughed and cried at the same time.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "happy",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.58,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "You came back for me. You idiot. You actually came back.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.58,
+              "expr": "crying",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "I'll always come back for you. Always.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Then the roof groaned. The whole house was about to give.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.6,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "We have to go. Now!",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.6,
+              "expr": "angry",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "transition": "whip",
+          "camera": "shake",
+          "vo": "Jace carried Theo. Kai carried Mia. They ran into the storm.",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.3,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.55
+            },
+            {
+              "id": "kai",
+              "x": 0.15,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.4
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "vo": "They could see the gym. Two hundred meters. One hundred.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "jace"
+          },
+          "who": "jace",
+          "vo": "Kai! They're closing the gym doors because of the wind!",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.55,
+              "expr": "shocked",
+              "action": "run",
+              "to": 0.65
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Then run faster!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "angry",
+              "action": "run",
+              "to": 0.55
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "punch",
+          "vo": "Then a huge branch tore off a tree. Right above Kai.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.55,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "shake",
+          "vo": "He had one second. He pushed Mia forward.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "point"
+            },
+            {
+              "id": "mia",
+              "x": 0.65,
+              "expr": "shocked",
+              "action": "fall"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "In the last second, Kai saw his own reflection in a car window.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "sad",
+              "tag": "0"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "His number said zero.",
+          "banner": {
+            "text": "0",
+            "style": "stamp"
+          },
+          "chars": []
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "And then everything went black.",
+          "hold": 2.2,
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Kai saved Mia from the storm. Then everything went black.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "sleepy",
+              "action": "fall"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "label": "THREE DAYS LATER",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Beep. Beep. Beep. Kai opened his eyes.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "sleepy",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "He's awake! Doctor! He's awake!",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "confused",
+              "action": "sit"
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "expr": "crying",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Mom? Where's Mia? Is she okay? Is Theo okay?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Everyone's okay, sweetheart. Because of you. Nobody in town got seriously hurt.",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.68,
+              "expr": "happy",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "vo": "On the TV, the news was playing his story.",
+          "banner": {
+            "text": "TEEN WHO PREDICTED THE STORM SAVED HUNDREDS",
+            "style": "news"
+          },
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.45,
+              "expr": "shocked",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "slowzoom",
+          "vo": "Kai looked up at his mom. And something was wrong.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.68,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mom",
+            "zoom": 1.7
+          },
+          "vo": "There was no number above her head. Nothing.",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.68,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "vo": "He looked at the doctor. The nurse. The people in the hallway. Nothing. Nothing. Nothing.",
+          "crowd": 3,
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "shocked",
+              "action": "sit"
+            },
+            {
+              "id": "extra",
+              "x": 0.75,
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "They're gone. The numbers are gone.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "sad",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Mom... is there something above my head?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.68,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Just your hair, honey. And it really needs a wash.",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.68,
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "label": "LATER",
+          "transition": "fade",
+          "camera": "wide",
+          "who": "grandpa",
+          "vo": "Of course they are. Your number hit zero. Your life changed. That's how it works.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "grandpa",
+              "x": 0.68,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "So I'll never see them again?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "Not everyone's. When I met your grandmother, I stopped seeing everyone's number. Except one.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.68,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "Hers?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "confused",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "Hers. For forty years. Every morning.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.68,
+              "expr": "sad",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "vo": "Then there was a knock on the door.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "neutral",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Hey, hero. I brought you something.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "shocked",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.68,
+              "action": "enter-right",
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "punch",
+          "vo": "Kai looked up at her. And for the first time in three days, he saw a number.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.68,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "?",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Only one. Above Mia. And it wasn't a number he expected.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "happy",
+              "tag": "?",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "The numbers are gone. Kai can only see one now. Mia's.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.5,
+              "expr": "happy",
+              "tag": "?",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mia",
+            "zoom": 1.7
+          },
+          "vo": "The number above her head was glowing pink. Twenty three thousand.",
+          "stat": {
+            "set": 23000
+          },
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.66,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "wide",
+          "who": "mia",
+          "vo": "Why are you staring at my forehead again? Do I have something on my face?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.66,
+              "expr": "confused",
+              "facing": "left",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "No. It's just... are you still moving to Canada?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.38,
+              "expr": "nervous",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "Dad turned the job down. He said this town needs everyone right now. So... I'm staying.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.66,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "punch",
+          "who": "kai",
+          "vo": "Mia. I have to tell you something. I should have told you years ago.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": {
+            "focus": "mia"
+          },
+          "who": "mia",
+          "vo": "That you like me? Kai, you were holding a potato at midnight. Everyone knows.",
+          "chars": [
+            {
+              "id": "mia",
+              "x": 0.66,
+              "expr": "smug",
+              "facing": "left",
+              "fx": [
+                "blush"
+              ],
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "hospital",
+          "camera": "slowzoom",
+          "who": "mia",
+          "vo": "For the record... I like you too. Since we were six.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.42,
+              "expr": "love",
+              "action": "sit",
+              "facing": "right",
+              "fx": [
+                "hearts"
+              ]
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "love",
+              "facing": "left",
+              "fx": [
+                "blush"
+              ],
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "label": "ONE MONTH LATER",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "One month later, the town was rebuilt. Kai and Mia were inseparable.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "happy",
+              "facing": "left",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "camera": "wide",
+          "who": "jace",
+          "vo": "Yo, lovebirds! Theo wants a rematch at basketball!",
+          "chars": [
+            {
+              "id": "jace",
+              "x": 0.3,
+              "expr": "grin",
+              "action": "wave"
+            },
+            {
+              "id": "theo",
+              "x": 0.5,
+              "expr": "determined"
+            },
+            {
+              "id": "kai",
+              "x": 0.7,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "GRANDPA'S HOUSE",
+          "transition": "whip",
+          "camera": "wide",
+          "who": "kai",
+          "vo": "Grandpa. Her number is twenty three thousand. What happens then?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "Twenty three thousand days. That's about sixty years. Your grandmother's number was the same, once.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "kai"
+          },
+          "who": "kai",
+          "vo": "So that's... the rest of her life?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "grandpa"
+          },
+          "who": "grandpa",
+          "vo": "No, kid. That's how long you two get together. Go check your own.",
+          "chars": [
+            {
+              "id": "grandpa",
+              "x": 0.66,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "THAT NIGHT",
+          "time": "night",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "That night, Kai stood in front of the mirror again. Not scared this time.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "neutral"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": {
+            "focus": "kai",
+            "zoom": 1.6
+          },
+          "vo": "There it was. Glowing pink. Twenty three thousand. The exact same number.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "happy",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5",
+              "fx": [
+                "sparkle"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Some numbers count down to the worst day of your life. Some count down to forever.",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.4,
+              "expr": "love",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            },
+            {
+              "id": "mia",
+              "x": 0.6,
+              "expr": "love",
+              "tag": "23,000",
+              "tagColor": "#ff6fa5"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "If you could see your number... would you look?",
+          "chars": [
+            {
+              "id": "kai",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

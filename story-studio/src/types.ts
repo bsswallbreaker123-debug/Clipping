@@ -95,6 +95,8 @@ export interface ShotChar {
   scale?: number;
   glow?: boolean; // aura + sparkles (level up)
   fade?: number; // 0..1 how invisible the character is (flickers slightly)
+  tag?: string; // floating label above the head (e.g. days left, strength)
+  tagColor?: string;
   fx?: ("sweat" | "tears" | "blush" | "anger" | "sparkle" | "hearts" | "question" | "exclaim" | "zzz" | "stars")[];
   talking?: boolean; // override; defaults to true when this char voices the shot
 }
