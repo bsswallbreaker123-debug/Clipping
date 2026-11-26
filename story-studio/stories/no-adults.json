@@ -472,20 +472,6 @@
         {
           "bg": "stage",
           "crowd": 10,
-          "camera": "wide",
-          "vo": "Blake stood on the stage like he'd been waiting for this his whole life.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.5,
-              "expr": "smug",
-              "action": "wave"
-            }
-          ]
-        },
-        {
-          "bg": "stage",
-          "crowd": 10,
           "camera": {
             "focus": "blake"
           },
@@ -553,28 +539,6 @@
         {
           "bg": "gym",
           "crowd": 10,
-          "camera": "wide",
-          "who": "lena",
-          "vo": "Exactly what I was thinking. Hi. Lena. I do the math club. This is a disaster.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "neutral",
-              "facing": "right"
-            },
-            {
-              "id": "lena",
-              "x": 0.62,
-              "action": "enter-right",
-              "expr": "nervous",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
           "camera": {
             "focus": "lena"
           },
@@ -608,43 +572,6 @@
         {
           "bg": "store",
           "crowd": 8,
-          "camera": "wide",
-          "vo": "Kids threw eggs. Ate ice cream for lunch. Took TVs they couldn't even carry.",
-          "chars": [
-            {
-              "id": "extra",
-              "x": 0.3,
-              "action": "run",
-              "to": 0.6
-            },
-            {
-              "id": "extra",
-              "x": 0.7,
-              "action": "celebrate"
-            }
-          ]
-        },
-        {
-          "bg": "store",
-          "crowd": 8,
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Rico! Put the cake down! Help me grab rice and canned food!",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "angry",
-              "action": "point",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "store",
-          "crowd": 8,
           "camera": {
             "focus": "rico"
           },
@@ -672,23 +599,6 @@
               "x": 0.4,
               "expr": "determined"
             },
-            {
-              "id": "sam",
-              "x": 0.6,
-              "expr": "neutral",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "street",
-          "time": "evening",
-          "camera": {
-            "focus": "sam"
-          },
-          "who": "sam",
-          "vo": "Sam. I don't talk much. But I can drive. Kind of. I've played a lot of racing games.",
-          "chars": [
             {
               "id": "sam",
               "x": 0.6,
@@ -750,146 +660,6 @@
               "expr": "shocked"
             }
           ]
-        }
-      ]
-    },
-    {
-      "part": 3,
-      "shots": [
-        {
-          "bg": "void",
-          "camera": "punch",
-          "transition": "flash",
-          "vo": "Two thousand kids. No adults. And an invisible wall around the whole town.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "nervous"
-            }
-          ]
-        },
-        {
-          "bg": "street",
-          "label": "DAY 2",
-          "camera": "wide",
-          "stat": {
-            "set": 2
-          },
-          "vo": "By day two, the town looked like a party that never ended. And not in a good way.",
-          "crowd": 6,
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "sad"
-            }
-          ]
-        },
-        {
-          "bg": "street",
-          "crowd": 6,
-          "camera": "panright",
-          "vo": "Fireworks at noon. Kids driving their parents' cars into mailboxes. Trash everywhere.",
-          "chars": [
-            {
-              "id": "extra",
-              "x": 0.3,
-              "action": "run",
-              "to": 0.7
-            },
-            {
-              "id": "extra",
-              "x": 0.6,
-              "action": "celebrate"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "label": "ZOE'S HOUSE",
-          "transition": "whip",
-          "camera": "wide",
-          "vo": "Zoe turned her house into something else. A daycare.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "determined"
-            },
-            {
-              "id": "theo",
-              "x": 0.55,
-              "expr": "happy"
-            },
-            {
-              "id": "extra",
-              "x": 0.7,
-              "scale": 0.7,
-              "expr": "happy"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "camera": "slowzoom",
-          "vo": "Twenty three little kids. Their siblings had gone partying. Nobody was watching them.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "nervous",
-              "fx": [
-                "sweat"
-              ]
-            },
-            {
-              "id": "extra",
-              "x": 0.6,
-              "scale": 0.7
-            },
-            {
-              "id": "extra",
-              "x": 0.75,
-              "scale": 0.7
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "camera": {
-            "focus": "theo"
-          },
-          "who": "theo",
-          "vo": "Zoe, I'm hungry. Are we having real dinner? Or cereal again?",
-          "chars": [
-            {
-              "id": "theo",
-              "x": 0.55,
-              "expr": "sad"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "camera": "wide",
-          "who": "rico",
-          "vo": "Okay. I may have been wrong about the awesome part. I brought pasta.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "happy",
-              "facing": "right"
-            },
-            {
-              "id": "rico",
-              "x": 0.65,
-              "action": "enter-right",
-              "expr": "cringe",
-              "facing": "left"
-            }
-          ]
         },
         {
           "bg": "store",
@@ -930,40 +700,6 @@
               "id": "blake",
               "x": 0.65,
               "action": "enter-right",
-              "expr": "smug",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "store",
-          "crowd": 6,
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Yesterday you said everything was free!",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "angry",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "store",
-          "crowd": 6,
-          "camera": {
-            "focus": "blake"
-          },
-          "who": "blake",
-          "vo": "Yesterday it was. Then people wasted it. I'm protecting it. You're welcome.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.65,
               "expr": "smug",
               "facing": "left"
             }
@@ -1071,18 +807,11 @@
             "style": "warning"
           },
           "chars": []
-        },
-        {
-          "bg": "void",
-          "camera": "slowzoom",
-          "vo": "Somewhere in the dark, someone screamed.",
-          "hold": 2.0,
-          "chars": []
         }
       ]
     },
     {
-      "part": 4,
+      "part": 3,
       "shots": [
         {
           "bg": "void",
@@ -1392,7 +1121,7 @@
       ]
     },
     {
-      "part": 5,
+      "part": 4,
       "shots": [
         {
           "bg": "void",
@@ -1407,38 +1136,6 @@
               "id": "zoe",
               "x": 0.5,
               "expr": "nervous"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "label": "DAY 4",
-          "crowd": 10,
-          "camera": "wide",
-          "vo": "By morning, the whole town had seen it. And everyone had a theory.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "nervous"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": "panleft",
-          "vo": "Aliens. A government test. The end of the world. A kid in a dinosaur costume said it was a video game.",
-          "chars": [
-            {
-              "id": "extra",
-              "x": 0.4,
-              "action": "talk"
-            },
-            {
-              "id": "extra",
-              "x": 0.65,
-              "action": "shrug"
             }
           ]
         },
@@ -1514,23 +1211,6 @@
           ]
         },
         {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "He doesn't know what it means. He's guessing. And he's using it to scare everyone.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "angry",
-              "facing": "right"
-            }
-          ]
-        },
-        {
           "bg": "livingroom",
           "label": "THAT EVENING",
           "transition": "fade",
@@ -1549,22 +1229,6 @@
               "expr": "sad",
               "facing": "left",
               "action": "sit"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Rico. What's wrong? You haven't made a single joke in an hour.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "confused",
-              "facing": "right"
             }
           ]
         },
@@ -1637,22 +1301,6 @@
         },
         {
           "bg": "livingroom",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Then we stay awake. All night. Together. If something happens, it happens to both of us.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.38,
-              "expr": "determined",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
           "time": "night",
           "label": "11:59 PM",
           "transition": "fade",
@@ -1699,27 +1347,6 @@
               "expr": "nervous"
             }
           ]
-        }
-      ]
-    },
-    {
-      "part": 6,
-      "shots": [
-        {
-          "bg": "void",
-          "camera": "punch",
-          "transition": "flash",
-          "vo": "It's midnight. Rico just turned eighteen. And everyone is holding his hand.",
-          "stat": {
-            "set": 5
-          },
-          "chars": [
-            {
-              "id": "rico",
-              "x": 0.5,
-              "expr": "nervous"
-            }
-          ]
         },
         {
           "bg": "livingroom",
@@ -1739,48 +1366,10 @@
               "expr": "nervous",
               "facing": "left"
             }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "time": "night",
-          "camera": {
-            "focus": "rico"
-          },
-          "who": "rico",
-          "vo": "I'm still here. I'm still here! Blake was wrong! Happy birthday to me!",
-          "chars": [
-            {
-              "id": "rico",
-              "x": 0.58,
-              "expr": "grin",
-              "action": "celebrate",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "time": "night",
-          "camera": "wide",
-          "vo": "Everyone laughed. Theo hugged him. For ten seconds, the world felt normal.",
-          "chars": [
-            {
-              "id": "rico",
-              "x": 0.55,
-              "expr": "happy"
-            },
-            {
-              "id": "theo",
-              "x": 0.45,
-              "expr": "happy"
-            },
-            {
-              "id": "zoe",
-              "x": 0.3,
-              "expr": "happy"
-            }
-          ]
+          ],
+          "stat": {
+            "set": 5
+          }
         },
         {
           "bg": "livingroom",
@@ -1795,23 +1384,6 @@
               "x": 0.55,
               "expr": "happy",
               "fade": 0.3
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "time": "night",
-          "camera": {
-            "focus": "rico"
-          },
-          "who": "rico",
-          "vo": "Zoe? Why are you looking at me like that?",
-          "chars": [
-            {
-              "id": "rico",
-              "x": 0.55,
-              "expr": "confused",
-              "fade": 0.45
             }
           ]
         },
@@ -1911,45 +1483,6 @@
         {
           "bg": "livingroom",
           "time": "night",
-          "camera": {
-            "focus": "theo"
-          },
-          "who": "theo",
-          "vo": "Where did he go, Zoe? Is he with Mom and Dad?",
-          "chars": [
-            {
-              "id": "theo",
-              "x": 0.6,
-              "expr": "crying",
-              "fx": [
-                "tears"
-              ]
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "time": "night",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "I don't know, buddy. I don't know.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.45,
-              "expr": "crying",
-              "action": "sit",
-              "fx": [
-                "tears"
-              ]
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "time": "night",
           "label": "3:14 AM",
           "transition": "fade",
           "camera": "wide",
@@ -2010,7 +1543,7 @@
       ]
     },
     {
-      "part": 7,
+      "part": 5,
       "shots": [
         {
           "bg": "void",
@@ -2312,7 +1845,7 @@
       ]
     },
     {
-      "part": 8,
+      "part": 6,
       "shots": [
         {
           "bg": "void",
@@ -2365,24 +1898,6 @@
           ]
         },
         {
-          "bg": "void",
-          "transition": "fade",
-          "camera": "slowzoom",
-          "vo": "The adults. Frozen. Eyes open. Not moving. Like statues.",
-          "chars": [
-            {
-              "id": "mom",
-              "x": 0.4,
-              "expr": "neutral"
-            },
-            {
-              "id": "dad",
-              "x": 0.6,
-              "expr": "neutral"
-            }
-          ]
-        },
-        {
           "bg": "office",
           "time": "night",
           "transition": "fade",
@@ -2400,39 +1915,6 @@
               "fx": [
                 "tears"
               ]
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "night",
-          "camera": {
-            "focus": "sam"
-          },
-          "who": "sam",
-          "vo": "There's a file here. On the main computer. It's called the agreement.",
-          "chars": [
-            {
-              "id": "sam",
-              "x": 0.5,
-              "expr": "determined",
-              "action": "phone"
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "night",
-          "camera": {
-            "focus": "lena"
-          },
-          "who": "lena",
-          "vo": "Open it. Open it now.",
-          "chars": [
-            {
-              "id": "lena",
-              "x": 0.62,
-              "expr": "nervous"
             }
           ]
         },
@@ -2542,43 +2024,6 @@
             "focus": "blake"
           },
           "who": "blake",
-          "vo": "I found it on day two. Before the wall. Before the countdown. Before anyone.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.25,
-              "expr": "smug",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "night",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "And you didn't tell anyone? Kids are crying for their parents every night!",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "angry",
-              "facing": "left",
-              "fx": [
-                "anger"
-              ]
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "night",
-          "camera": {
-            "focus": "blake"
-          },
-          "who": "blake",
           "vo": "Because some of us don't want our parents back, Zoe.",
           "chars": [
             {
@@ -2612,41 +2057,6 @@
           ]
         },
         {
-          "bg": "void",
-          "transition": "flash",
-          "camera": "slowzoom",
-          "vo": "The person who wanted to keep the adults frozen forever had just taken them prisoner.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.5,
-              "expr": "smug",
-              "glow": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "part": 9,
-      "shots": [
-        {
-          "bg": "void",
-          "camera": "punch",
-          "transition": "flash",
-          "vo": "Blake knew where the adults were all along. And he doesn't want them back.",
-          "stat": {
-            "set": 7
-          },
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.5,
-              "expr": "smug"
-            }
-          ]
-        },
-        {
           "bg": "office",
           "label": "SCHOOL OFFICE",
           "camera": "wide",
@@ -2658,29 +2068,10 @@
               "expr": "angry",
               "action": "sit"
             }
-          ]
-        },
-        {
-          "bg": "office",
-          "camera": "wide",
-          "who": "blake",
-          "vo": "You want to know why? Fine. I'll tell you.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "angry",
-              "action": "sit",
-              "facing": "right"
-            },
-            {
-              "id": "blake",
-              "x": 0.65,
-              "action": "enter-right",
-              "expr": "neutral",
-              "facing": "left"
-            }
-          ]
+          ],
+          "stat": {
+            "set": 7
+          }
         },
         {
           "bg": "void",
@@ -2702,19 +2093,6 @@
               "expr": "sad",
               "facing": "right",
               "scale": 0.85
-            }
-          ]
-        },
-        {
-          "bg": "void",
-          "camera": "slowzoom",
-          "who": "blake",
-          "vo": "Straight A's? Should be A plus. Captain? Should be MVP. Every day. My whole life.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.5,
-              "expr": "sad"
             }
           ]
         },
@@ -2754,19 +2132,6 @@
         },
         {
           "bg": "office",
-          "camera": "slowzoom",
-          "vo": "For a second, Blake looked like he might cry. Then he locked the door again.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.65,
-              "expr": "sad",
-              "action": "exit-right"
-            }
-          ]
-        },
-        {
-          "bg": "office",
           "time": "evening",
           "label": "DAY 7, EVENING",
           "transition": "fade",
@@ -2796,23 +2161,6 @@
               "expr": "smug",
               "facing": "left"
             },
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "happy",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "evening",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Sam! How did you—never mind. Where's Lena?",
-          "chars": [
             {
               "id": "zoe",
               "x": 0.4,
@@ -2890,22 +2238,6 @@
         {
           "bg": "office",
           "time": "evening",
-          "camera": "slowzoom",
-          "vo": "He was eight. Ten whole years away from eighteen. He couldn't have vanished.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.42,
-              "expr": "crying",
-              "fx": [
-                "tears"
-              ]
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "time": "evening",
           "camera": {
             "focus": "zoe"
           },
@@ -2939,7 +2271,7 @@
       ]
     },
     {
-      "part": 10,
+      "part": 7,
       "shots": [
         {
           "bg": "void",
@@ -3261,7 +2593,7 @@
       ]
     },
     {
-      "part": 11,
+      "part": 8,
       "shots": [
         {
           "bg": "void",
@@ -3316,22 +2648,6 @@
           ]
         },
         {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": "shake",
-          "vo": "The gym went wild. Shouting. Crying. Questions from every direction.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "nervous",
-              "fx": [
-                "sweat"
-              ]
-            }
-          ]
-        },
-        {
           "bg": "stage",
           "crowd": 10,
           "camera": "wide",
@@ -3372,20 +2688,6 @@
           ]
         },
         {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": "panleft",
-          "vo": "Nobody raised their hand. Some kids laughed. Blake smiled.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.6,
-              "expr": "smug",
-              "glow": true
-            }
-          ]
-        },
-        {
           "bg": "office",
           "label": "THE CAMPAIGN",
           "transition": "whip",
@@ -3402,43 +2704,6 @@
               "id": "blake",
               "x": 0.7,
               "expr": "smug",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "party",
-          "crowd": 9,
-          "transition": "whip",
-          "camera": "wide",
-          "vo": "Blake threw parties every night. Free pizza. Music. Fireworks.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.5,
-              "expr": "grin",
-              "action": "celebrate",
-              "glow": true
-            }
-          ]
-        },
-        {
-          "bg": "livingroom",
-          "transition": "whip",
-          "camera": "wide",
-          "vo": "Zoe went door to door. Talking to kids. Listening. One house at a time.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "happy",
-              "action": "talk",
-              "facing": "right"
-            },
-            {
-              "id": "extra",
-              "x": 0.62,
-              "expr": "sad",
               "facing": "left"
             }
           ]
@@ -3530,91 +2795,6 @@
           ]
         },
         {
-          "bg": "office",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Then everyone sees their parents. Frozen. Waiting for them.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "determined"
-            }
-          ]
-        },
-        {
-          "bg": "void",
-          "transition": "flash",
-          "camera": "slowzoom",
-          "vo": "Six days left. Twelve hundred kids to convince. And one broadcast that could change everything.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "determined",
-              "glow": true
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "part": 12,
-      "shots": [
-        {
-          "bg": "void",
-          "camera": "punch",
-          "transition": "flash",
-          "vo": "Zoe is losing the vote twelve hundred to eight hundred. Her last chance is one broadcast.",
-          "stat": {
-            "set": 13
-          },
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "determined"
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "label": "DAY 13, 8 PM",
-          "camera": "wide",
-          "who": "sam",
-          "vo": "Every TV, every phone, every screen in town. On my signal. Ready?",
-          "chars": [
-            {
-              "id": "sam",
-              "x": 0.55,
-              "expr": "determined",
-              "action": "phone"
-            },
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "nervous"
-            }
-          ]
-        },
-        {
-          "bg": "office",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Ready.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "determined"
-            }
-          ]
-        },
-        {
           "bg": "livingroom",
           "transition": "whip",
           "camera": "wide",
@@ -3626,7 +2806,10 @@
               "action": "sit",
               "expr": "shocked"
             }
-          ]
+          ],
+          "stat": {
+            "set": 13
+          }
         },
         {
           "bg": "void",
@@ -3645,24 +2828,6 @@
               "id": "dad",
               "x": 0.6,
               "expr": "sad"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
-          "transition": "fade",
-          "camera": "wide",
-          "vo": "In the gym, the party stopped. Kids pointed at the screen. That's my dad. That's my grandma.",
-          "chars": [
-            {
-              "id": "extra",
-              "x": 0.4,
-              "expr": "crying",
-              "action": "point",
-              "fx": [
-                "tears"
-              ]
             }
           ]
         },
@@ -3722,22 +2887,6 @@
         },
         {
           "bg": "office",
-          "camera": {
-            "focus": "lena"
-          },
-          "who": "lena",
-          "vo": "It's working! It's working! We're ahead!",
-          "chars": [
-            {
-              "id": "lena",
-              "x": 0.6,
-              "expr": "grin",
-              "action": "celebrate"
-            }
-          ]
-        },
-        {
-          "bg": "office",
           "camera": "shake",
           "transition": "flash",
           "vo": "Then every screen in town went black.",
@@ -3769,25 +2918,6 @@
         {
           "bg": "street",
           "time": "night",
-          "transition": "whip",
-          "camera": "wide",
-          "vo": "In the dark, Blake's Guard went house to house. Collecting every phone. Every laptop.",
-          "chars": [
-            {
-              "id": "extra",
-              "x": 0.4,
-              "expr": "angry"
-            },
-            {
-              "id": "extra",
-              "x": 0.6,
-              "expr": "angry"
-            }
-          ]
-        },
-        {
-          "bg": "street",
-          "time": "night",
           "camera": "wide",
           "who": "blake",
           "vo": "That broadcast was fake. Zoe's trying to scare you. The adults aren't coming back. Ever.",
@@ -3797,19 +2927,6 @@
               "x": 0.5,
               "expr": "angry",
               "action": "point"
-            }
-          ]
-        },
-        {
-          "bg": "street",
-          "time": "night",
-          "camera": "punch",
-          "vo": "Some kids believed him. Some didn't. Nobody knew anymore.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "sad"
             }
           ]
         },
@@ -3842,7 +2959,7 @@
       ]
     },
     {
-      "part": 13,
+      "part": 9,
       "shots": [
         {
           "bg": "void",
@@ -3904,23 +3021,6 @@
           "bg": "rooftop",
           "time": "night",
           "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "I saw him.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.35,
-              "expr": "sad",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "rooftop",
-          "time": "night",
-          "camera": {
             "focus": "blake"
           },
           "who": "blake",
@@ -3949,64 +3049,6 @@
               "id": "blake",
               "x": 0.6,
               "expr": "sad",
-              "action": "sit",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "rooftop",
-          "time": "night",
-          "camera": "wide",
-          "vo": "Zoe sat down next to him. For a long time, neither of them said anything.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.45,
-              "expr": "sad",
-              "action": "sit",
-              "facing": "right"
-            },
-            {
-              "id": "blake",
-              "x": 0.6,
-              "expr": "sad",
-              "action": "sit",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "rooftop",
-          "time": "night",
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "You know what Rico said before he disappeared? Don't let Blake win.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.45,
-              "expr": "neutral",
-              "action": "sit",
-              "facing": "right"
-            }
-          ]
-        },
-        {
-          "bg": "rooftop",
-          "time": "night",
-          "camera": {
-            "focus": "blake"
-          },
-          "who": "blake",
-          "vo": "Great. Thanks. Very helpful.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.6,
-              "expr": "cringe",
               "action": "sit",
               "facing": "left"
             }
@@ -4051,21 +3093,6 @@
         {
           "bg": "rooftop",
           "time": "night",
-          "camera": "slowzoom",
-          "vo": "Blake wiped his eyes. He looked at the dark town. At the radio tower on the hill.",
-          "chars": [
-            {
-              "id": "blake",
-              "x": 0.6,
-              "expr": "neutral",
-              "action": "sit",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "rooftop",
-          "time": "night",
           "camera": {
             "focus": "blake"
           },
@@ -4104,19 +3131,6 @@
           ]
         },
         {
-          "bg": "rooftop",
-          "time": "night",
-          "camera": "punch",
-          "vo": "And every dark screen in town turned on by itself. All showing the same thing.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.45,
-              "expr": "shocked"
-            }
-          ]
-        },
-        {
           "bg": "void",
           "transition": "flash",
           "camera": "punch",
@@ -4129,45 +3143,6 @@
             "style": "warning"
           },
           "chars": []
-        },
-        {
-          "bg": "void",
-          "camera": "slowzoom",
-          "who": "zoe",
-          "vo": "It knows. It knows Blake changed his mind. It's ending now.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "shocked"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "part": 14,
-      "shots": [
-        {
-          "bg": "void",
-          "camera": "punch",
-          "transition": "flash",
-          "vo": "The countdown jumped. Two thousand kids have one hour to vote. And everyone has to agree.",
-          "stat": {
-            "set": 18
-          },
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.4,
-              "expr": "determined"
-            },
-            {
-              "id": "blake",
-              "x": 0.6,
-              "expr": "determined"
-            }
-          ]
         },
         {
           "bg": "gym",
@@ -4187,7 +3162,10 @@
               "x": 0.6,
               "expr": "nervous"
             }
-          ]
+          ],
+          "stat": {
+            "set": 18
+          }
         },
         {
           "bg": "stage",
@@ -4218,21 +3196,6 @@
               "expr": "determined"
             }
           ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": "panleft",
-          "vo": "On the big screen, the vote counter appeared. Every kid had a button on their phone. Yes. Or no.",
-          "popup": {
-            "title": "THE CHOICE",
-            "lines": [
-              "BRING THEM BACK?",
-              "YES / NO"
-            ],
-            "style": "system"
-          },
-          "chars": []
         },
         {
           "bg": "gym",
@@ -4280,25 +3243,6 @@
               "id": "zoe",
               "x": 0.5,
               "expr": "shocked"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": {
-            "focus": "zoe"
-          },
-          "who": "zoe",
-          "vo": "Who is it? Who voted no?",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.5,
-              "expr": "nervous",
-              "fx": [
-                "sweat"
-              ]
             }
           ]
         },
@@ -4356,27 +3300,6 @@
         {
           "bg": "gym",
           "crowd": 10,
-          "camera": "slowzoom",
-          "vo": "Zoe knelt down. Four minutes left.",
-          "chars": [
-            {
-              "id": "zoe",
-              "x": 0.42,
-              "expr": "sad",
-              "action": "sit",
-              "facing": "right"
-            },
-            {
-              "id": "theo",
-              "x": 0.56,
-              "expr": "crying",
-              "facing": "left"
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
           "camera": {
             "focus": "zoe"
           },
@@ -4392,23 +3315,6 @@
               "fx": [
                 "tears"
               ]
-            }
-          ]
-        },
-        {
-          "bg": "gym",
-          "crowd": 10,
-          "camera": {
-            "focus": "theo"
-          },
-          "who": "theo",
-          "vo": "Promise?",
-          "chars": [
-            {
-              "id": "theo",
-              "x": 0.56,
-              "expr": "sad",
-              "facing": "left"
             }
           ]
         },
@@ -4462,7 +3368,7 @@
       ]
     },
     {
-      "part": 15,
+      "part": 10,
       "shots": [
         {
           "bg": "void",
