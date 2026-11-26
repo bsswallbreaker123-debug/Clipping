@@ -1,6 +1,6 @@
 title: Left Behind
 id: left-behind
-narrator: am_puck
+narrator: bm_george
 music: festive
 accent: #ffd23a
 tempo: 1.05

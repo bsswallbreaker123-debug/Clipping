@@ -1,6 +1,6 @@
 title: The Lodge
 id: the-lodge
-narrator: af_nicole
+narrator: bm_george
 music: eerie
 accent: #7ad0ff
 tempo: 1.06

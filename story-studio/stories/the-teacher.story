@@ -1,6 +1,6 @@
 title: The Teacher
 id: the-teacher
-narrator: af_heart
+narrator: bm_george
 music: heist
 accent: #ff4a3a
 tempo: 1.06

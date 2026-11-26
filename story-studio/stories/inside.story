@@ -1,6 +1,6 @@
 title: Inside
 id: inside
-narrator: am_michael
+narrator: bm_george
 music: tension
 accent: #ffb020
 tempo: 1.07

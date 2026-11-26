@@ -1,6 +1,6 @@
 title: The Last Game
 id: the-last-game
-narrator: am_onyx
+narrator: bm_george
 music: tension
 accent: #ff3b6b
 tempo: 1.07

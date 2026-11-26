@@ -1,6 +1,6 @@
 title: The Impostor
 id: the-impostor
-narrator: af_sky
+narrator: bm_george
 music: synth80s
 accent: #3ad1ff
 tempo: 1.06

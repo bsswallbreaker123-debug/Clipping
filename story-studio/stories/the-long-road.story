@@ -1,6 +1,6 @@
 title: The Long Road
 id: the-long-road
-narrator: am_fenrir
+narrator: bm_george
 music: emotional
 accent: #e0b84a
 tempo: 1.04

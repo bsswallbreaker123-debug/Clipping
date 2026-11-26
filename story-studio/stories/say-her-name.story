@@ -1,6 +1,6 @@
 title: Say Her Name
 id: say-her-name
-narrator: af_bella
+narrator: bm_george
 music: eerie
 accent: #ff3b6b
 tempo: 1.06

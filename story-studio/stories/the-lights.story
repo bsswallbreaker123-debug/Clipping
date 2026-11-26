@@ -1,6 +1,6 @@
 title: The Lights
 id: the-lights
-narrator: am_echo
+narrator: bm_george
 music: synth80s
 accent: #ff4a3a
 tempo: 1.06
