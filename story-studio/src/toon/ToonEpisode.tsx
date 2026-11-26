@@ -235,7 +235,7 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
             </Layer>
           )}
           <Layer cam={cam} depth={0.7} ox={ox} oy={oy}>
-            <rect x={-300} y={scene.floorY - 40} width={1680} height={1300} fill={groundCol} />
+            {scene.ground !== "none" && <rect x={-300} y={scene.floorY - 40} width={1680} height={1300} fill={groundCol} />}
             {scene.ground === "snow" && <rect x={-300} y={scene.floorY - 40} width={1680} height={60} fill="#fff" opacity={night ? 0.12 : 0.5} />}
             {(scene.ground === "road" || scene.ground === "asphalt") && (
               <g>
@@ -287,6 +287,7 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
       {(scene.weather === "fog" || fx.includes("fog")) && <Fog f={f} />}
       {(scene.weather === "dust" || fx.includes("dust")) && <Dust f={f} />}
       {fx.includes("embers") && <Embers f={f} />}
+      {(scene.weather === "money" || fx.includes("money")) && <Money f={f} />}
       {fx.includes("lightning") && Math.floor(f / 2) % 9 === 0 && <rect width={1080} height={1920} fill="#dfe8ff" opacity={0.6} />}
       {fx.includes("torch") && <TorchMask f={f} />}
       {fx.includes("cctv") && <Cctv f={f} label={story.title} />}
@@ -332,6 +333,22 @@ const Dust: React.FC<{ f: number }> = ({ f }) => (
       const x = (rnd(i) * 1080 + Math.sin(f / 50 + i) * 40) % 1080;
       const y = (rnd(i * 3) * 1920 - f * 0.4 * (0.5 + rnd(i * 5))) % 1920;
       return <circle key={i} cx={x} cy={y < 0 ? y + 1920 : y} r={1.5 + rnd(i * 9) * 2.5} fill="#ffe8c0" opacity={0.25 + 0.25 * Math.sin(f / 20 + i)} />;
+    })}
+  </g>
+);
+
+const Money: React.FC<{ f: number }> = ({ f }) => (
+  <g>
+    {Array.from({ length: 34 }).map((_, i) => {
+      const x = (rnd(i) * 1180 + Math.sin(f / 18 + i) * 60) % 1180 - 50;
+      const y = ((rnd(i * 3) * 2100 + f * (5 + rnd(i * 5) * 4)) % 2100) - 90;
+      const r = Math.sin(f / 10 + i) * 40;
+      return (
+        <g key={i} transform={`translate(${x} ${y}) rotate(${r}) scale(${0.7 + rnd(i * 7) * 0.6} ${Math.cos(f / 8 + i)})`}>
+          <rect x={-44} y={-22} width={88} height={44} rx={4} fill="#7fb07a" stroke="#3a6a3a" strokeWidth={3} />
+          <circle cx={0} cy={0} r={11} fill="none" stroke="#3a6a3a" strokeWidth={3} />
+        </g>
+      );
     })}
   </g>
 );

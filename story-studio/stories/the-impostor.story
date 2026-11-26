@@ -17,7 +17,7 @@ cast:
   meX: Ivy | teen | hair=bob:#1a1a1a | top=#38c8e0:jumpsuit | variant=wrong | voice=af_sky+-3
 
 scenes:
-  launch: outside sky=dawn far=hills ground=asphalt light=dusk | searchlight .15 | searchlight .88
+  launch: outside sky=dawn far=hills ground=asphalt light=dusk | rocket .5 s=.95 | searchlight .1 | searchlight .9
   hub: room wall=#3a4250:concrete floor=#1e232c:plain light=cold | window .5 y=-720 v=space s=1.2 | button .5 | lamp .1 | lamp .9
   hub-dark: room wall=#3a4250:concrete floor=#1e232c:plain light=dark | window .5 y=-720 v=space s=1.2 | button .5
   electrical: room wall=#2a2e36:concrete floor=#15181e:plain light=dark | monitors .3 s=.7 | vent .72 y=40 | lamp .9 v=off

@@ -318,7 +318,7 @@ def synth_lines(lines: list[tuple[str, str]], tempo: float) -> None:
             seen.add(j["out"])
             jobs.append(j)
     (PUBLIC / "gen" / "vox").mkdir(parents=True, exist_ok=True)
-    jf = BUILD / "tts-jobs.json"
+    jf = BUILD / f"tts-jobs-{os.getpid()}.json"
     jf.parent.mkdir(parents=True, exist_ok=True)
     jf.write_text(json.dumps(jobs))
     print(f"  voicing {len(jobs)} lines ...", flush=True)
@@ -442,14 +442,21 @@ def build_part(story: dict, part: dict, pad: int = 0) -> dict:
         if s.get("vo"):
             voice = narrator if not s.get("who") else story["cast"][s["who"]].get("voice", narrator)
             wav = vox_path(voice, spoken(s["vo"]), tempo)
-            info = sf.info(wav)
-            vo_frames = math.ceil(info.frames / info.samplerate * FPS)
             text, hls = shown(s["vo"])
-            words = studio.whisper_words(wav, text, vo_frames)
+            if not wav.exists() and os.environ.get("TOON_DRY"):
+                # layout preview without a voice: estimate the timing
+                vo_frames = max(20, round(len(text.split()) * 0.36 * FPS))
+                words = studio.word_timing(text, vo_frames)
+                shot.update(voFrames=vo_frames, mouth="5" * vo_frames if s.get("who") else None)
+            else:
+                info = sf.info(wav)
+                vo_frames = math.ceil(info.frames / info.samplerate * FPS)
+                words = studio.whisper_words(wav, text, vo_frames)
+                shot.update(audio=str(wav.relative_to(PUBLIC)), voFrames=vo_frames, mouth=mouth_track(wav, vo_frames) if s.get("who") else None)
             for w, h in zip(words, hls):
                 if h:
                     w["hl"] = h
-            shot.update(audio=str(wav.relative_to(PUBLIC)), voFrames=vo_frames, words=words, mouth=mouth_track(wav, vo_frames) if s.get("who") else None)
+            shot["words"] = words
             dur = VO_OFFSET + vo_frames + 5 + pad
         else:
             dur = 0
@@ -541,9 +548,10 @@ def cmd_build(args) -> None:
 def cmd_still(args) -> None:
     story = load(args.story)
     part = next(p for p in story["parts"] if p["part"] == args.part)
-    synth_lines(all_lines(story, [part]), float(story.get("tempo", 1.06)))
+    if not os.environ.get("TOON_DRY"):
+        synth_lines(all_lines(story, [part]), float(story.get("tempo", 1.06)))
     props = build_part(story, part)
-    pp = BUILD / story["id"] / f"part-{args.part:02d}.props.json"
+    pp = BUILD / "stills" / f"{story['id']}-part-{args.part:02d}.props.json"
     pp.parent.mkdir(parents=True, exist_ok=True)
     pp.write_text(json.dumps(props, ensure_ascii=False))
     shots = [int(x) for x in args.shot.split(",")]

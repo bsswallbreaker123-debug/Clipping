@@ -43,11 +43,12 @@ export const Sky: React.FC<{ kind: string; t: number; moon?: number; seed: numbe
     day: ["#7fb3e6", "#b4d6f2", "#e6f2fb"],
     storm: ["#07090f", "#151b28", "#2a3142"],
     red: ["#1a0508", "#4a0d14", "#8a2020"],
+    space: ["#02030a", "#060a1c", "#0a1430"],
     dawn: ["#2c3a66", "#c27a8a", "#ffd2a0"],
   };
   const [a, b, c] = g[kind] ?? g.night;
   const id = `sky${kind}`;
-  const stars = kind === "night" || kind === "snow" || kind === "storm";
+  const stars = kind === "night" || kind === "snow" || kind === "storm" || kind === "space";
   return (
     <g>
       <defs>
@@ -65,6 +66,17 @@ export const Sky: React.FC<{ kind: string; t: number; moon?: number; seed: numbe
           const tw = 0.4 + 0.6 * Math.abs(Math.sin(t * (0.8 + rnd(i) * 2) + i));
           return <circle key={i} cx={x} cy={y} r={1.2 + rnd(i * 7.7) * 2.4} fill="#fff" opacity={0.25 + 0.6 * tw * rnd(i * 1.9)} />;
         })}
+      {kind === "space" && (
+        <g>
+          {Array.from({ length: 140 }).map((_, i) => (
+            <circle key={`s${i}`} cx={rnd(seed + i * 1.7) * 1500 - 210} cy={rnd(seed + i * 2.9) * 2200 - 200} r={0.8 + rnd(i * 3.1) * 1.8} fill="#fff" opacity={0.3 + rnd(i) * 0.6} />
+          ))}
+          <circle cx={540} cy={2700} r={1300} fill="#2a6ab0" />
+          <circle cx={540} cy={2700} r={1300} fill="none" stroke="#9fd2ff" strokeWidth={30} opacity={0.5} />
+          <path d="M-200 1560 Q300 1450 700 1520 T1300 1480 L1300 2200 L-200 2200Z" fill="#3a8a4a" opacity={0.55} />
+          <ellipse cx={300} cy={1540} rx={220} ry={30} fill="#fff" opacity={0.35} />
+        </g>
+      )}
       {moon !== undefined && (
         <g>
           <circle cx={px(moon)} cy={260} r={260} fill="url(#moonGlow)" />
@@ -142,6 +154,17 @@ export const Far: React.FC<{ kind: string; y: number; seed: number; snow: boolea
             </g>
           );
         })}
+      </g>
+    );
+  }
+  if (kind === "sea") {
+    return (
+      <g>
+        <rect x={-300} y={y - 40} width={1680} height={400} fill={night ? "#16305a" : "#3a9ad0"} />
+        {Array.from({ length: 10 }).map((_, i) => (
+          <path key={i} d={`M${-300 + (i % 2) * 60} ${y + i * 30} q60 -12 120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0 t120 0`} stroke="#fff" strokeWidth={3} opacity={0.25} fill="none" />
+        ))}
+        <ellipse cx={780} cy={y - 50} rx={160} ry={40} fill={night ? "#203a2a" : "#4a8a5a"} />
       </g>
     );
   }
@@ -361,8 +384,17 @@ export const Window: React.FC<{ x: number; y: number; w?: number; h?: number; ct
         </clipPath>
       </defs>
       <g clipPath={`url(#${id})`}>
-        <rect x={x - w / 2} y={y - h / 2} width={w} height={h} fill={outside === "day" ? "#9cc6ee" : "#1a2550"} />
-        {outside !== "wall" && (
+        <rect x={x - w / 2} y={y - h / 2} width={w} height={h} fill={outside === "day" ? "#9cc6ee" : outside === "space" ? "#03040c" : "#1a2550"} />
+        {outside === "space" && (
+          <g>
+            {Array.from({ length: 40 }).map((_, i) => (
+              <circle key={i} cx={x - w / 2 + rnd(i * 2.3) * w} cy={y - h / 2 + rnd(i * 5.1) * h} r={1 + rnd(i) * 2} fill="#fff" opacity={0.5 + rnd(i * 7) * 0.5} />
+            ))}
+            <circle cx={x + w * 0.1} cy={y + h * 0.9} r={w * 0.7} fill="#2a6ab0" />
+            <path d={`M${x - w / 2} ${y + h * 0.45} Q${x} ${y + h * 0.3} ${x + w / 2} ${y + h * 0.42} L${x + w / 2} ${y + h / 2} L${x - w / 2} ${y + h / 2}Z`} fill="#3a8a4a" opacity={0.6} />
+          </g>
+        )}
+        {outside !== "wall" && outside !== "space" && (
           <g>
             <circle cx={x + w * 0.22} cy={y - h * 0.25} r={36} fill="#f1efe4" opacity={outside === "day" ? 0 : 0.9} />
             <circle cx={x + w * 0.22} cy={y - h * 0.25} r={120} fill="url(#moonGlow)" opacity={outside === "day" ? 0 : 1} />
@@ -458,7 +490,7 @@ export function buildItem(it: Item, ctx: Ctx): Built {
         body: <rect x={x - 180 * s} y={y - 230 * s} width={360 * s} height={460 * s} fill="#000" opacity={0.2} />,
         lit: (
           <g style={{ filter: closed ? "brightness(0.75)" : "brightness(0.85)" }}>
-            <Window x={x} y={y} w={340 * s} h={430 * s} ctx={ctx} frame={c ?? "#5a3a22"} curtains={it.v?.includes("curtain") ? (it.v.split(":")[1] ?? "#9a2424") : undefined} closed={closed} view={it.v?.includes("day") ? "day" : undefined} it={it} />
+            <Window x={x} y={y} w={340 * s} h={430 * s} ctx={ctx} frame={c ?? "#5a3a22"} curtains={it.v?.includes("curtain") ? (it.v.split(":")[1] ?? "#9a2424") : undefined} closed={closed} view={it.v?.includes("day") ? "day" : it.v?.includes("space") ? "space" : undefined} it={it} />
           </g>
         ),
         glow: lit || (it.v?.includes("closed") && ctx.win) ? <rect x={x - 200} y={y - 240} width={400} height={480} fill="url(#redPool)" opacity={0.6} /> : <ellipse cx={x} cy={y + 500} rx={260 * s} ry={120} fill="#b9c8ff" opacity={0.06} />,
@@ -468,7 +500,25 @@ export function buildItem(it: Item, ctx: Ctx): Built {
       const open = it.v === "open";
       const ajar = it.v === "ajar";
       const chain = it.v === "chain";
-      const col = c ?? "#6a4026";
+      const airlock = it.v === "airlock";
+      const col = c ?? (airlock ? "#8a929e" : "#6a4026");
+      if (airlock)
+        return {
+          body: T(
+            <g>
+              <rect x={-170} y={-600} width={340} height={600} rx={40} fill="#5a626e" />
+              <rect x={-150} y={-580} width={300} height={580} rx={30} fill={col} />
+              <line x1={0} y1={-580} x2={0} y2={0} stroke="#3a3f48" strokeWidth={8} />
+              <circle cx={0} cy={-380} r={80} fill="#05070e" stroke="#c8d0da" strokeWidth={14} />
+              <circle cx={-20} cy={-400} r={2} fill="#fff" />
+              <circle cx={30} cy={-360} r={2} fill="#fff" />
+              {Array.from({ length: 6 }).map((_, i) => (
+                <rect key={i} x={-150} y={-120 + i * 18} width={300} height={9} fill={i % 2 ? "#e0b030" : "#1a1a1a"} />
+              ))}
+            </g>,
+          ),
+          glow: <circle cx={x} cy={fy - 380 * s} r={160 * s} fill="#ff3a3a" opacity={0.12 + 0.08 * Math.sin(t * 4)} />,
+        };
       const shake = it.v === "knock" ? Math.sin(t * 40) * (Math.sin(t * 3) > 0.3 ? 3 : 0) : 0;
       return {
         body: T(
@@ -1231,149 +1281,97 @@ export function buildItem(it: Item, ctx: Ctx): Built {
         ),
       };
     case "statue": {
-      // giant owl-like game statue for the playground game (head turns)
+      // giant wooden owl for the playground game; v = look (facing you) | turn (turning) | default (back turned)
       const turn = it.v === "turn" ? Math.sin(t * 1.4) : it.v === "look" ? 1 : -1;
-      const eyes = turn > 0;
+      const facing = turn > 0;
+      const sq = Math.abs(turn) * 0.35 + 0.65;
+      const wood = "#a9875a";
+      const dark = "#6e5232";
+      const feathers = (cx: number, cy: number, rows: number, cols: number, col: string) =>
+        Array.from({ length: rows * cols }).map((_, k) => {
+          const r = Math.floor(k / cols);
+          const cc = k % cols;
+          const fx2 = cx + (cc - (cols - 1) / 2) * 70 + (r % 2) * 35;
+          const fy2 = cy + r * 60;
+          return <path key={k} d={`M${fx2 - 35} ${fy2} Q${fx2} ${fy2 + 55} ${fx2 + 35} ${fy2}`} stroke={col} strokeWidth={8} fill="none" />;
+        });
       return {
         body: T(
           <g>
-            <ellipse cx={0} cy={-500} rx={300} ry={420} fill="#c9b08a" />
-            <ellipse cx={0} cy={-420} rx={200} ry={300} fill="#e6d3b0" />
-            <g transform={`scale(${Math.abs(turn) * 0.3 + 0.7} 1)`}>
-              <ellipse cx={0} cy={-960} rx={260} ry={220} fill="#b99a6a" />
-              {eyes ? (
+            <rect x={-260} y={-120} width={520} height={120} rx={10} fill="#7a7f88" />
+            <rect x={-240} y={-140} width={480} height={30} fill="#9aa0a8" />
+            {/* talons */}
+            {[-110, 110].map((tx) => (
+              <g key={tx}>
+                {[-30, 0, 30].map((dx) => (
+                  <path key={dx} d={`M${tx + dx} -160 l-6 50 l12 0Z`} fill="#3a2e22" />
+                ))}
+              </g>
+            ))}
+            {/* body */}
+            <path d="M-300 -150 C-340 -500 -260 -820 0 -840 C260 -820 340 -500 300 -150Z" fill={wood} />
+            <path d="M-300 -150 C-340 -500 -260 -820 0 -840 C260 -820 340 -500 300 -150Z" fill="url(#wallShade)" opacity={0.6} />
+            {/* wings */}
+            <path d="M-300 -700 C-420 -560 -400 -300 -300 -170 C-280 -350 -260 -560 -300 -700Z" fill={dark} />
+            <path d="M300 -700 C420 -560 400 -300 300 -170 C280 -350 260 -560 300 -700Z" fill={dark} />
+            {facing ? (
+              <g>
+                <path d="M-200 -170 C-220 -420 -180 -620 0 -640 C180 -620 220 -420 200 -170Z" fill="#e8d6b2" />
+                {feathers(0, -580, 7, 4, "#c9b088")}
+              </g>
+            ) : (
+              <g>{feathers(0, -760, 10, 6, dark)}</g>
+            )}
+            {/* head */}
+            <g transform={`translate(0 -1000) scale(${sq} 1)`}>
+              <path d="M-280 -60 C-300 -260 -160 -340 0 -340 C160 -340 300 -260 280 -60 C260 120 140 180 0 180 C-140 180 -260 120 -280 -60Z" fill={wood} />
+              <path d="M-230 -230 L-280 -420 L-120 -300Z M230 -230 L280 -420 L120 -300Z" fill={dark} />
+              {facing ? (
                 <g>
-                  <circle cx={-100} cy={-980} r={80} fill="#f3e9d2" />
-                  <circle cx={100} cy={-980} r={80} fill="#f3e9d2" />
-                  <circle cx={-100} cy={-980} r={36} fill="#c0141c" />
-                  <circle cx={100} cy={-980} r={36} fill="#c0141c" />
-                  <path d="M-20 -900 L0 -860 L20 -900Z" fill="#e0a030" />
+                  <path d="M0 -40 C-60 -240 -260 -220 -240 -40 C-230 100 -80 130 0 60 C80 130 230 100 240 -40 C260 -220 60 -240 0 -40Z" fill="#efe0c0" />
+                  {[-115, 115].map((ex) => (
+                    <g key={ex}>
+                      <circle cx={ex} cy={-50} r={92} fill="#2a1e12" />
+                      <circle cx={ex} cy={-50} r={80} fill="#f2c230" />
+                      <circle cx={ex} cy={-50} r={46} fill={it.v === "look" ? "#c0141c" : "#111"} />
+                      <circle cx={ex + 18} cy={-70} r={14} fill="#fff" />
+                    </g>
+                  ))}
+                  <path d="M-34 20 L0 110 L34 20 Q0 0 -34 20Z" fill="#e09a30" stroke="#8a5a10" strokeWidth={6} />
                 </g>
               ) : (
-                <path d="M-180 -1000 Q0 -1100 180 -1000" stroke="#8a6a3a" strokeWidth={24} fill="none" />
+                <g>{feathers(0, -260, 6, 5, dark)}</g>
               )}
-              <path d="M-200 -1120 L-150 -1220 L-90 -1150Z M200 -1120 L150 -1220 L90 -1150Z" fill="#8a6a3a" />
             </g>
           </g>,
         ),
-        glow: turn > 0 ? <g><circle cx={x - 100 * s} cy={fy - 980 * s} r={140 * s} fill="url(#redPool)" /><circle cx={x + 100 * s} cy={fy - 980 * s} r={140 * s} fill="url(#redPool)" /></g> : undefined,
+        glow: it.v === "look" ? (
+          <g>
+            <circle cx={x - 115 * s * sq} cy={fy - 1050 * s} r={170 * s} fill="url(#redPool)" />
+            <circle cx={x + 115 * s * sq} cy={fy - 1050 * s} r={170 * s} fill="url(#redPool)" />
+          </g>
+        ) : undefined,
       };
     }
-    case "cave":
+    case "rocket": {
+      const shake = it.v === "launch" ? Math.sin(t * 50) * 3 : 0;
+      const lift = it.v === "launch" ? Math.pow(Math.max(0, t - 1), 2) * 60 : 0;
       return {
         body: T(
-          <g>
-            <path d="M-560 0 C-560 -500 -380 -820 0 -860 C380 -820 560 -500 560 0Z" fill={c ?? "#4a4448"} />
-            <path d="M-560 0 C-560 -500 -380 -820 0 -860 C380 -820 560 -500 560 0Z" fill="url(#wallShade)" />
-            {ctx.snow && <path d="M-420 -640 C-300 -800 300 -820 420 -640 C300 -720 -300 -720 -420 -640Z" fill="#d8e0f0" />}
-            <path d="M-230 0 C-230 -300 -150 -460 0 -470 C150 -460 230 -300 230 0Z" fill="#050406" />
-            <rect x={-250} y={-500} width={40} height={500} fill="#5a3a22" />
-            <rect x={210} y={-500} width={40} height={500} fill="#5a3a22" />
-            <rect x={-270} y={-520} width={540} height={46} fill="#5a3a22" />
+          <g transform={`translate(${shake} ${-lift})`}>
+            <rect x={-260} y={-1400} width={60} height={1400} fill="#5a5e66" />
+            {Array.from({ length: 14 }).map((_, k) => (
+              <line key={k} x1={-260} y1={-k * 100} x2={-200} y2={-k * 100 - 100} stroke="#3a3e46" strokeWidth={8} />
+            ))}
+            <path d="M-110 0 L-110 -1100 Q0 -1500 110 -1100 L110 0Z" fill="#eef0f2" />
+            <path d="M40 0 L40 -1180 Q80 -1150 110 -1100 L110 0Z" fill="#000" opacity={0.1} />
+            <path d="M-110 -1100 Q0 -1500 110 -1100Z" fill="#d62828" />
+            <circle cx={0} cy={-900} r={46} fill="#2a3a5a" stroke="#9aa0a8" strokeWidth={10} />
+            <path d="M-110 -260 L-230 0 L-110 0Z M110 -260 L230 0 L110 0Z" fill="#d62828" />
+            <text x={0} y={-500} textAnchor="middle" fontSize={70} fontFamily="Montserrat" fontWeight={900} fill="#1a2a4a" transform="rotate(-90 0 -500)">HALCYON</text>
           </g>,
         ),
-        glow: ctx.win === "eyes" ? <g><circle cx={x - 30 * s} cy={fy - 260 * s} r={40} fill="url(#eyeGlow)" /><circle cx={x + 30 * s} cy={fy - 260 * s} r={40} fill="url(#eyeGlow)" /></g> : undefined,
-      };
-    case "ice":
-      return {
-        body: T(
-          <g>
-            <path d="M-170 0 L-190 -560 L-60 -640 L150 -600 L190 -300 L170 0Z" fill="#a8d8f0" opacity={0.42} />
-            <path d="M-150 -40 L-170 -520 L-90 -580 L-110 -200Z" fill="#fff" opacity={0.25} />
-            <path d="M-170 0 L-190 -560 L-60 -640 L150 -600 L190 -300 L170 0Z" fill="none" stroke="#e8f6ff" strokeWidth={6} opacity={0.7} />
-            <path d="M40 -560 L10 -420 L60 -330" stroke="#fff" strokeWidth={4} fill="none" opacity={0.6} />
-          </g>,
-        ),
-      };
-    case "bootsrow":
-      return {
-        body: (
-          <g>
-            {Array.from({ length: 9 }).map((_, i) => (
-              <g key={i} transform={`translate(${60 + i * 120} ${fy + (i % 2) * 30}) scale(${0.8 + (i % 3) * 0.08})`}>
-                {[-28, 28].map((bx) => (
-                  <path key={bx} d={`M${bx - 20} -90 L${bx + 16} -90 L${bx + 16} -24 L${bx + 42} -18 Q${bx + 48} 0 ${bx + 36} 0 L${bx - 20} 0Z`} fill={["#6a4026", "#3a2a22", "#8a5a36"][i % 3]} />
-                ))}
-                {[-12, 0, 12].map((dx) => (
-                  <line key={dx} x1={28} y1={-90} x2={28 + dx * 2} y2={-200} stroke="#d8d0bf" strokeWidth={4} />
-                ))}
-              </g>
-            ))}
-          </g>
-        ),
-      };
-    case "books":
-      return {
-        body: (
-          <g transform={`translate(${x} ${ctx.floorY}) scale(${s})`}>
-            <rect x={-200} y={-900} width={400} height={900} fill="#4a2e18" />
-            {Array.from({ length: 5 }).map((_, r) => (
-              <g key={r}>
-                <rect x={-190} y={-880 + r * 176} width={380} height={14} fill="#3a2010" />
-                {Array.from({ length: 11 }).map((__, k) => (
-                  <rect key={k} x={-180 + k * 33} y={-860 + r * 176 + (k % 3) * 10} width={28} height={150 - (k % 3) * 10} fill={["#7a2a24", "#2a4a6a", "#5a6a3a", "#8a6a2a", "#4a3a5a"][(k + r) % 5]} />
-                ))}
-              </g>
-            ))}
-          </g>
-        ),
-      };
-    case "tiles": {
-      // glass-tile bridge over a drop: two lanes of panels in perspective; v = indices of broken panels "1,4,6"
-      const broken = new Set((it.v ?? "").split(",").filter(Boolean).map(Number));
-      const rows = 9;
-      return {
-        body: (
-          <g>
-            <rect x={-300} y={ctx.floorY - 900} width={1680} height={2400} fill="#040407" />
-            {Array.from({ length: rows }).map((_, r) => {
-              const k = r / (rows - 1);
-              const y = ctx.floorY - 700 + Math.pow(k, 1.5) * 1100;
-              const w = 90 + k * 230;
-              const h = 30 + k * 110;
-              return [0, 1].map((lane) => {
-                const cx = 540 + (lane ? 1 : -1) * (w * 0.62 + 8);
-                const idx = r * 2 + lane;
-                return broken.has(idx) ? (
-                  <rect key={idx} x={cx - w / 2} y={y} width={w} height={h * 0.3} fill="none" stroke="#7aa0c0" strokeWidth={2} opacity={0.4} />
-                ) : (
-                  <g key={idx}>
-                    <rect x={cx - w / 2} y={y} width={w} height={h} fill="#9fd2f0" opacity={0.35} />
-                    <rect x={cx - w / 2} y={y} width={w} height={h} fill="none" stroke="#d8f0ff" strokeWidth={3} opacity={0.8} />
-                    <path d={`M${cx - w * 0.4} ${y + h * 0.2} L${cx - w * 0.1} ${y + h * 0.2}`} stroke="#fff" strokeWidth={3} opacity={0.6} />
-                  </g>
-                );
-              });
-            })}
-            <rect x={240} y={ctx.floorY - 760} width={600} height={40} fill="#3a3f48" />
-          </g>
-        ),
-        glow: <ellipse cx={540} cy={ctx.floorY - 200} rx={500} ry={900} fill="url(#screenGlow)" opacity={0.35} />,
-      };
-    }
-    case "chairs": {
-      // round platforms over a pit, each with a chair; v = how many chairs are left
-      const n = Number(it.v ?? 5);
-      return {
-        body: (
-          <g>
-            <rect x={-300} y={ctx.floorY - 200} width={1680} height={1400} fill="#06060a" />
-            {Array.from({ length: n }).map((_, i) => {
-              const cx = 140 + (i % 4) * 270 + (Math.floor(i / 4) % 2) * 120;
-              const cy = ctx.floorY + 60 + Math.floor(i / 4) * 260;
-              return (
-                <g key={i}>
-                  <ellipse cx={cx} cy={cy + 40} rx={120} ry={30} fill="#3a3f48" />
-                  <ellipse cx={cx} cy={cy + 30} rx={120} ry={30} fill="#9aa2ae" />
-                  <rect x={cx - 34} y={cy - 110} width={68} height={16} fill="#c0392b" />
-                  <rect x={cx - 34} y={cy - 190} width={12} height={180} fill="#5a3a22" />
-                  <rect x={cx + 22} y={cy - 100} width={12} height={130} fill="#5a3a22" />
-                  <rect x={cx - 34} y={cy - 190} width={68} height={60} fill="#c0392b" />
-                </g>
-              );
-            })}
-          </g>
-        ),
+        glow: it.v === "launch" ? <ellipse cx={x} cy={fy + 40 - lift * s} rx={500} ry={220} fill="url(#warmPool)" /> : undefined,
       };
     }
     case "line":
