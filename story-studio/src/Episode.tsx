@@ -114,7 +114,7 @@ const ShotView: React.FC<{ shot: TimedShot; story: EpisodeProps["story"]; index:
                 transform={`translate(${x} ${1000 - (1 - sc) * 120}) scale(${sc * (story.cast[c.id]?.height ?? 1)})`}
                 opacity={c.fade ? Math.max(0.06, 1 - c.fade + Math.sin(f / 2.5 + i) * 0.06 * c.fade) : 1}
               >
-                <ellipse cx={0} cy={4} rx={90} ry={14} fill="rgba(0,0,0,0.18)" />
+                <ellipse cx={8} cy={6} rx={105} ry={16} fill="rgba(0,0,0,0.22)" style={{ filter: "blur(6px)" }} />
                 <Character spec={{ ...c, facing: charFacing(c) }} member={story.cast[c.id]} talking={talking} shotDur={shot.dur} seed={index * 7 + i} />
               </g>
             );

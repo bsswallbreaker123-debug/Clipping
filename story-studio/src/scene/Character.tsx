@@ -125,7 +125,12 @@ const Eyes: React.FC<{ expr: Expression; blink: boolean; look: number }> = ({ ex
   const xs = [-34, 30];
   const y = -372;
   const stroke = { stroke: W, strokeWidth: 7, strokeLinecap: "round" as const, fill: "none" };
-  const pupil = (x: number, r = 6) => <circle cx={x + look} cy={y + 2} r={r} fill="#000" />;
+  const pupil = (x: number, r = 7) => (
+    <g>
+      <circle cx={x + look} cy={y + 2} r={r} fill="#000" />
+      <circle cx={x + look + r * 0.35} cy={y + 2 - r * 0.4} r={Math.max(1.6, r * 0.32)} fill="#fff" />
+    </g>
+  );
   const out: React.ReactNode[] = [];
   xs.forEach((x, i) => {
     const k = `e${i}`;
@@ -166,7 +171,7 @@ const Eyes: React.FC<{ expr: Expression; blink: boolean; look: number }> = ({ ex
       case "shocked":
         out.push(
           <g key={k}>
-            <circle cx={x} cy={y} r={19} fill={W} />
+            <circle cx={x} cy={y} r={21} fill={W} />
             {pupil(x, 4.5)}
           </g>,
         );
@@ -176,7 +181,8 @@ const Eyes: React.FC<{ expr: Expression; blink: boolean; look: number }> = ({ ex
         out.push(
           <g key={k}>
             <path d={`M ${x - 13} ${y} A 13 13 0 0 0 ${x + 13} ${y} Z`} fill={W} />
-            <circle cx={x + look} cy={y + 4} r={5} fill="#000" />
+            <circle cx={x + look} cy={y + 4} r={6} fill="#000" />
+            <circle cx={x + look + 2} cy={y + 2} r={1.8} fill="#fff" />
             <path d={`M ${x - 15} ${y} L ${x + 15} ${y}`} {...stroke} strokeWidth={6} />
           </g>,
         );
@@ -184,7 +190,7 @@ const Eyes: React.FC<{ expr: Expression; blink: boolean; look: number }> = ({ ex
       default:
         out.push(
           <g key={k}>
-            <ellipse cx={x} cy={y} rx={11} ry={15} fill={W} />
+            <ellipse cx={x} cy={y} rx={13} ry={17} fill={W} />
             {pupil(x)}
           </g>,
         );
@@ -262,7 +268,11 @@ function spikes(n: number, r1: number, r2: number, a0: number, a1: number, cy = 
     const py = cy + Math.sin((a * Math.PI) / 180) * r;
     d += `${i === 0 ? "M" : "L"} ${px.toFixed(1)} ${py.toFixed(1)} `;
   }
-  return d + "Z";
+  // curved hairline back to the start instead of a straight "hat brim"
+  const sx = Math.cos((a0 * Math.PI) / 180) * r1;
+  const sy = cy + Math.sin((a0 * Math.PI) / 180) * r1;
+  const midY = cy + Math.sin((((a0 + a1) / 2) * Math.PI) / 180) * r1 * 0.62;
+  return d + `Q ${((sx + Math.cos((a1 * Math.PI) / 180) * r1) / 2).toFixed(1)} ${midY.toFixed(1)} ${sx.toFixed(1)} ${sy.toFixed(1)} Z`;
 }
 
 const HairBack: React.FC<{ hair: Hair; color: string; t: number }> = ({ hair, color, t }) => {
@@ -454,6 +464,18 @@ export const Star: React.FC<{ x: number; y: number; s: number; color?: string }>
   />
 );
 
+// ---------- colour helpers ----------
+
+function mixHex(hex: string, target: number, k: number) {
+  const h = hex.replace("#", "");
+  const full = h.length === 3 ? h.split("").map((c) => c + c).join("") : h;
+  const n = parseInt(full, 16);
+  const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((c) => Math.round(c + (target - c) * k));
+  return `rgb(${ch.join(",")})`;
+}
+const lighten = (hex: string, k: number) => mixHex(hex, 255, k);
+const darken = (hex: string, k: number) => mixHex(hex, 0, k);
+
 // ---------- limb helpers ----------
 
 function Arm({ sx, sy, a1, a2, color, sleeve, len = 118 }: { sx: number; sy: number; a1: number; a2: number; color: string; sleeve: string; len?: number }) {
@@ -466,9 +488,10 @@ function Arm({ sx, sy, a1, a2, color, sleeve, len = 118 }: { sx: number; sy: num
   const hy = ey + Math.cos(r2) * (len / 2);
   return (
     <g strokeLinecap="round" fill="none">
-      <path d={`M ${sx} ${sy} L ${ex} ${ey} L ${hx} ${hy}`} stroke={color} strokeWidth={16} strokeLinejoin="round" />
-      <path d={`M ${sx} ${sy} L ${sx + (ex - sx) * 0.55} ${sy + (ey - sy) * 0.55}`} stroke={sleeve} strokeWidth={30} />
-      <circle cx={hx} cy={hy} r={11} fill={color} />
+      <path d={`M ${sx} ${sy} L ${ex} ${ey} L ${hx} ${hy}`} stroke={color} strokeWidth={18} strokeLinejoin="round" />
+      <path d={`M ${sx} ${sy} L ${sx + (ex - sx) * 0.62} ${sy + (ey - sy) * 0.62}`} stroke={sleeve} strokeWidth={34} />
+      <circle cx={hx} cy={hy} r={14} fill={color} />
+      <circle cx={hx - 4} cy={hy - 4} r={4} fill="rgba(255,255,255,0.10)" />
     </g>
   );
 }
@@ -510,29 +533,65 @@ export const Character: React.FC<{
   const hipY = -140;
   const legColor = m.pants ?? skin;
   const dress = m.shirtStyle === "dress";
+  const shoe = isExtra ? skin : m.shirtStyle === "suit" ? "#1b1b1f" : "#f3f3f3";
+  const sole = isExtra ? skin : m.shirtStyle === "suit" ? "#000" : "#c9c9c9";
+  const gid = `c${seed}`;
+
+  const defs = (
+    <defs>
+      <radialGradient id={`${gid}head`} cx="38%" cy="32%" r="75%">
+        <stop offset="0" stopColor={lighten(skin, 0.16)} />
+        <stop offset="0.6" stopColor={skin} />
+        <stop offset="1" stopColor={darken(skin, 0.35)} />
+      </radialGradient>
+      <linearGradient id={`${gid}shade`} x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#fff" stopOpacity={0.10} />
+        <stop offset="0.5" stopColor="#000" stopOpacity={0} />
+        <stop offset="1" stopColor="#000" stopOpacity={0.22} />
+      </linearGradient>
+    </defs>
+  );
 
   const body = (
     <g transform={`translate(0 ${p.bodyY + (p.sit ? 70 : 0)}) rotate(${p.bodyRot} 0 ${action === "fall" ? -20 : -140})`}>
       {/* legs */}
       {p.sit ? (
         <g stroke={legColor} strokeWidth={18} strokeLinecap="round" fill="none">
-          <path d="M -18 -140 L 50 -140 L 55 -70" />
-          <path d="M 18 -140 L 85 -140 L 90 -70" />
+          <path d="M -18 -140 L 50 -140 L 55 -76" />
+          <path d="M 18 -140 L 85 -140 L 90 -76" />
+          <path d="M 42 -62 Q 42 -80 58 -80 Q 80 -78 82 -62 Z M 77 -62 Q 77 -80 93 -80 Q 115 -78 117 -62 Z" fill={shoe} stroke="none" />
         </g>
       ) : (
-        <g stroke={legColor} strokeWidth={dress ? 14 : 18} strokeLinecap="round">
-          <line x1={-22} y1={hipY} x2={-22 + Math.sin((p.legSwing * Math.PI) / 180) * legLen} y2={hipY + Math.cos((p.legSwing * Math.PI) / 180) * legLen} />
-          <line x1={22} y1={hipY} x2={22 - Math.sin((p.legSwing * Math.PI) / 180) * legLen} y2={hipY + Math.cos((p.legSwing * Math.PI) / 180) * legLen} />
+        <g>
+          {[-1, 1].map((side) => {
+            const a = ((side === -1 ? p.legSwing : -p.legSwing) * Math.PI) / 180;
+            const fx = side * 22 + Math.sin(a) * legLen;
+            const fy = hipY + Math.cos(a) * legLen;
+            return (
+              <g key={side}>
+                <line x1={side * 22} y1={hipY} x2={fx} y2={fy - 6} stroke={legColor} strokeWidth={dress ? 15 : 20} strokeLinecap="round" />
+                <path d={`M ${fx - 16} ${fy + 4} Q ${fx - 16} ${fy - 14} ${fx + 2} ${fy - 14} Q ${fx + 26} ${fy - 12} ${fx + 30} ${fy + 4} Z`} fill={shoe} />
+                <rect x={fx - 17} y={fy + 1} width={48} height={6} rx={3} fill={sole} />
+              </g>
+            );
+          })}
         </g>
       )}
       {/* back arm */}
       <Arm sx={-52} sy={-268} a1={p.l[0]} a2={p.l[1]} color={skin} sleeve={shirt} />
+      <rect x={-17} y={-305} width={34} height={22} rx={8} fill={skin} />
       {/* torso */}
       {dress ? (
         <path d="M -60 -290 Q 0 -305 60 -290 L 95 -105 Q 0 -90 -95 -105 Z" fill={shirt} />
       ) : (
-        <rect x={-66} y={-292} width={132} height={168} rx={40} fill={shirt} />
+        <path d="M -40 -294 Q -76 -292 -76 -258 L -68 -146 Q -66 -124 -44 -124 L 44 -124 Q 66 -124 68 -146 L 76 -258 Q 76 -292 40 -294 Z" fill={shirt} />
       )}
+      <path
+        d={dress ? "M -60 -290 Q 0 -305 60 -290 L 95 -105 Q 0 -90 -95 -105 Z" : "M -40 -294 Q -76 -292 -76 -258 L -68 -146 Q -66 -124 -44 -124 L 44 -124 Q 66 -124 68 -146 L 76 -258 Q 76 -292 40 -294 Z"}
+        fill={`url(#${gid}shade)`}
+      />
+      <path d="M -60 -284 Q -70 -270 -70 -250" stroke="rgba(255,255,255,0.28)" strokeWidth={6} strokeLinecap="round" fill="none" />
+      {(!m.shirtStyle || m.shirtStyle === "tee") && <path d="M -26 -293 Q 0 -268 26 -293" stroke="rgba(0,0,0,0.28)" strokeWidth={7} fill="none" strokeLinecap="round" />}
       {m.shirtStyle === "hoodie" && (
         <g>
           <path d="M -50 -292 Q 0 -250 50 -292" stroke="rgba(0,0,0,0.25)" strokeWidth={10} fill="none" />
@@ -551,9 +610,10 @@ export const Character: React.FC<{
       {m.accessories?.includes("chain") && <path d="M -40 -288 Q 0 -215 40 -288" stroke="#f5c542" strokeWidth={7} fill="none" />}
       {m.accessories?.includes("tie") && <path d="M -7 -285 L 7 -285 L 11 -210 L 0 -196 L -11 -210 Z" fill="#c0392b" />}
       {/* head */}
-      <g transform={`translate(0 ${Math.sin(t * 2.2 + 1) * 1.5})`}>
+      <g transform={`translate(0 ${Math.sin(t * 2.2 + 1) * 1.5}) rotate(${(talking ? Math.sin(t * 3.1) * 3 : Math.sin(t * 0.9 + seed) * 1.2).toFixed(2)} 0 -290)`}>
         {m.hair && <HairBack hair={m.hair} color={hairColor} t={t} />}
-        <circle cx={0} cy={HEAD_Y} r={HEAD_R} fill={skin} />
+        <circle cx={0} cy={HEAD_Y} r={HEAD_R} fill={`url(#${gid}head)`} />
+        <path d={`M ${-HEAD_R * 0.72} ${HEAD_Y - HEAD_R * 0.5} A ${HEAD_R * 0.9} ${HEAD_R * 0.9} 0 0 1 ${-HEAD_R * 0.05} ${HEAD_Y - HEAD_R * 0.88}`} stroke="rgba(255,255,255,0.10)" strokeWidth={8} strokeLinecap="round" fill="none" />
         {!isExtra && (
           <g transform={`translate(${facing === "front" ? 0 : 20} 0)`}>
             <Eyes expr={expr} blink={blink} look={look} />
@@ -594,6 +654,7 @@ export const Character: React.FC<{
 
   return (
     <g>
+      {defs}
       {glow}
       <g transform={facing === "left" ? "scale(-1 1)" : undefined}>{body}</g>
     </g>
