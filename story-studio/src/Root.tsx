@@ -3,6 +3,8 @@ import { Composition } from "remotion";
 import { Episode } from "./Episode";
 import { BrickEpisode, brickDemo } from "./brick/BrickEpisode";
 import type { EpisodeProps } from "./types";
+import { Lab } from "./toon/Lab";
+import { ToonEpisode, toonDemo } from "./toon/ToonEpisode";
 
 // Props come from build/<story>/part-XX.props.json (written by `studio.py build`).
 const demo: EpisodeProps = {
@@ -23,6 +25,8 @@ const demo: EpisodeProps = {
 
 export const Root: React.FC = () => (
   <>
+  <Composition id="ToonEpisode" component={ToonEpisode} width={1080} height={1920} fps={30} durationInFrames={toonDemo.durationInFrames} defaultProps={toonDemo} calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames })} />
+  <Composition id="Lab" component={Lab} width={1080} height={1920} fps={30} durationInFrames={90} />
   <Composition id="BrickEpisode" component={BrickEpisode} width={1080} height={1920} fps={30} durationInFrames={brickDemo.durationInFrames} defaultProps={brickDemo} calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames })} />
   <Composition
     id="Episode"
