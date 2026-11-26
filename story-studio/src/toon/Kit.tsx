@@ -1415,6 +1415,342 @@ export function buildItem(it: Item, ctx: Ctx): Built {
         ),
       };
     }
+    case "books": {
+      // tall bookcase full of old books
+      const wood = c ?? "#4a2c16";
+      const cols = ["#7a2a24", "#2a4a6a", "#6a5a2a", "#2e5a3a", "#5a2e5a", "#8a6a3a", "#3a3a3a", "#9a4a2a"];
+      return {
+        body: T(
+          <g>
+            <rect x={-200} y={-980} width={400} height={980} fill={shade(wood, -0.25)} />
+            <rect x={-186} y={-966} width={372} height={952} fill={shade(wood, -0.45)} />
+            {Array.from({ length: 5 }).map((_, r) => {
+              const sy = -966 + r * 190;
+              let bx = -180;
+              const books: React.ReactNode[] = [];
+              let k = 0;
+              while (bx < 170) {
+                const w = 18 + Math.floor(rnd(ctx.seed + r * 37 + k) * 20);
+                const h = 120 + Math.floor(rnd(ctx.seed + r * 51 + k * 3) * 50);
+                const lean = rnd(r * 13 + k) > 0.92;
+                const col = cols[Math.floor(rnd(r * 7 + k * 11 + ctx.seed) * cols.length)];
+                if (bx + w > 180) break;
+                books.push(
+                  <g key={k} transform={lean ? `rotate(-12 ${bx + w} ${sy + 176})` : undefined}>
+                    <rect x={bx} y={sy + 176 - h} width={w} height={h} fill={col} />
+                    <rect x={bx + 3} y={sy + 176 - h + 16} width={w - 6} height={6} fill="#e0c27a" opacity={0.7} />
+                    <rect x={bx} y={sy + 176 - h} width={4} height={h} fill="#000" opacity={0.18} />
+                  </g>,
+                );
+                bx += w + 2;
+                k++;
+              }
+              return (
+                <g key={r}>
+                  {books}
+                  <rect x={-196} y={sy + 176} width={392} height={18} fill={wood} />
+                </g>
+              );
+            })}
+            <rect x={-210} y={-1000} width={420} height={34} fill={wood} />
+            <rect x={-210} y={-20} width={420} height={20} fill={shade(wood, -0.2)} />
+          </g>,
+        ),
+      };
+    }
+    case "cave": {
+      // old mine entrance in a rock face, timber frame, dark mouth (win=eyes: glowing eyes inside)
+      const rock = c ?? "#5a5458";
+      const eyes = ctx.win === "eyes";
+      const blink = Math.sin(t * 1.7) > 0.96;
+      return {
+        body: T(
+          <g>
+            <path d="M-560 0 L-520 -420 L-400 -640 L-220 -760 L-40 -820 L160 -780 L360 -660 L500 -470 L560 0Z" fill={rock} />
+            <path d="M-520 -420 L-400 -640 L-220 -760 L-260 -560 L-420 -380Z" fill={shade(rock, 0.15)} />
+            <path d="M160 -780 L360 -660 L500 -470 L360 -420 L220 -600Z" fill={shade(rock, -0.15)} />
+            {ctx.snow && <path d="M-400 -640 L-220 -760 L-40 -820 L160 -780 L360 -660 L300 -630 L140 -730 L-40 -770 L-210 -712 L-370 -610Z" fill="#eef3fb" opacity={0.85} />}
+            <path d="M-200 0 L-200 -360 Q0 -480 200 -360 L200 0Z" fill="#030305" />
+            <rect x={-240} y={-420} width={48} height={420} fill="#6a4a2a" />
+            <rect x={192} y={-420} width={48} height={420} fill="#6a4a2a" />
+            <rect x={-270} y={-450} width={540} height={52} fill="#7a5530" />
+            <rect x={-270} y={-450} width={540} height={10} fill="#9a7040" />
+            <g transform="rotate(-6 0 -520)">
+              <rect x={-120} y={-560} width={240} height={70} rx={6} fill="#c9b48a" />
+              <text x={0} y={-512} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={40} fill="#3a2410">1926</text>
+            </g>
+            <line x1={-220} y1={-160} x2={220} y2={-60} stroke="#6a4a2a" strokeWidth={22} />
+            <line x1={-220} y1={-60} x2={220} y2={-170} stroke="#6a4a2a" strokeWidth={22} />
+            <rect x={-240} y={-8} width={480} height={20} fill="#3a2a1a" />
+          </g>,
+        ),
+        lit: eyes ? (
+          <g transform={`translate(${x} ${fy}) scale(${s})`}>
+            <ellipse cx={-38} cy={-270} rx={20} ry={blink ? 2 : 11} fill="#ffcf3a" />
+            <ellipse cx={38} cy={-270} rx={20} ry={blink ? 2 : 11} fill="#ffcf3a" />
+          </g>
+        ) : undefined,
+        glow: eyes ? <ellipse cx={x} cy={fy - 270 * s} rx={160 * s} ry={80 * s} fill="url(#eyeGlow)" opacity={0.9} /> : undefined,
+      };
+    }
+    case "bootsrow": {
+      // stone shelves packed with children's boots, every pair full of birch sticks
+      const boot = (bx: number, by: number, k: number) => {
+        const col = ["#5a3a22", "#7a2a24", "#3a4a5a", "#4a3a2a", "#6a5a3a"][k % 5];
+        return (
+          <g key={k} transform={`translate(${bx} ${by}) scale(${0.85 + rnd(k) * 0.25})`}>
+            {[-14, 14].map((dx, j) => (
+              <g key={j} transform={`translate(${dx} 0)`}>
+                {Array.from({ length: 4 }).map((_, b) => (
+                  <line key={b} x1={-4 + b * 3} y1={-70} x2={-12 + b * 8} y2={-150 - rnd(k * 9 + b + j) * 40} stroke="#c9b48a" strokeWidth={3} />
+                ))}
+                <path d="M-14 -80 L12 -80 L12 -14 L30 -10 Q34 0 26 2 L-14 2Z" fill={col} />
+                <rect x={-16} y={-84} width={30} height={10} rx={3} fill={shade(col, 0.2)} />
+              </g>
+            ))}
+          </g>
+        );
+      };
+      const rows = [-620, -360, -100];
+      return {
+        body: (
+          <g>
+            {rows.map((ry, r) => (
+              <g key={r}>
+                <rect x={-300} y={fy + ry + 2} width={1680} height={30} fill="#4a4446" />
+                <rect x={-300} y={fy + ry + 2} width={1680} height={6} fill="#6a6466" />
+                {Array.from({ length: 15 }).map((_, i) => boot(-20 + i * 80 + (r % 2) * 40, fy + ry, r * 20 + i))}
+              </g>
+            ))}
+          </g>
+        ),
+      };
+    }
+    case "ice": {
+      // a block of ice — usually fg, so whoever stands here is inside it
+      const w = 300;
+      const h = 640;
+      return {
+        body: T(
+          <g>
+            <path d={`M${-w / 2} 0 L${-w / 2 - 10} ${-h * 0.6} L${-w / 2 + 14} ${-h} L${w / 2 - 20} ${-h - 14} L${w / 2 + 8} ${-h * 0.55} L${w / 2} 0Z`} fill="#9fd8ff" opacity={0.42} />
+            <path d={`M${-w / 2} 0 L${-w / 2 - 10} ${-h * 0.6} L${-w / 2 + 14} ${-h} L${w / 2 - 20} ${-h - 14} L${w / 2 + 8} ${-h * 0.55} L${w / 2} 0Z`} fill="none" stroke="#e8f8ff" strokeWidth={8} opacity={0.75} />
+            <path d={`M${-w / 2 + 30} ${-h + 40} L${-w / 2 + 70} ${-h + 40} L${-w / 2 + 20} ${-120} L${-w / 2 + 4} ${-160}Z`} fill="#fff" opacity={0.35} />
+            <path d={`M${w / 2 - 60} ${-h + 60} L${w / 2 - 40} ${-h + 60} L${w / 2 - 80} ${-h + 300} L${w / 2 - 96} ${-h + 300}Z`} fill="#fff" opacity={0.3} />
+            <path d={`M${-40} ${-h * 0.4} L0 ${-h * 0.46} L30 ${-h * 0.38} L70 ${-h * 0.44}`} fill="none" stroke="#fff" strokeWidth={3} opacity={0.5} />
+            <rect x={-w / 2 - 20} y={-14} width={w + 40} height={22} rx={10} fill="#d8f0ff" opacity={0.7} />
+          </g>,
+        ),
+        glow: <rect x={x - 140 * s} y={fy - 640 * s} width={280 * s} height={640 * s} fill="#7ac8ff" opacity={0.07} />,
+      };
+    }
+    case "button": {
+      // emergency meeting button on a pedestal with a hazard sign
+      const pulse = 0.6 + 0.4 * Math.sin(t * 4);
+      return {
+        body: T(
+          <g>
+            <ellipse cx={0} cy={0} rx={300} ry={50} fill="#000" opacity={0.25} />
+            <path d="M-260 -230 L260 -230 L230 0 L-230 0Z" fill="#7a8290" />
+            <rect x={-270} y={-260} width={540} height={46} rx={20} fill="#a8b0bc" />
+            <ellipse cx={0} cy={-262} rx={260} ry={40} fill="#c8d0da" />
+            <rect x={-110} y={-140} width={220} height={60} rx={8} fill="#e0b030" />
+            <text x={0} y={-98} textAnchor="middle" fontFamily="Montserrat, Arial" fontWeight={900} fontSize={30} fill="#1a1a1a">EMERGENCY</text>
+            <ellipse cx={0} cy={-280} rx={120} ry={34} fill="#6a6f78" />
+            <ellipse cx={0} cy={-298} rx={96} ry={30} fill="#9a1414" />
+            <path d="M-96 -298 Q-96 -380 0 -384 Q96 -380 96 -298Z" fill="#e02424" />
+            <path d="M-60 -350 Q-30 -372 20 -370" stroke="#ff9a9a" strokeWidth={12} fill="none" strokeLinecap="round" />
+          </g>,
+        ),
+        glow: <ellipse cx={x} cy={fy - 330 * s} rx={220 * s} ry={140 * s} fill="url(#redPool)" opacity={0.6 * pulse} />,
+      };
+    }
+    case "vent": {
+      const open = it.v === "open";
+      return {
+        body: T(
+          <g>
+            <rect x={-130} y={-190} width={260} height={150} rx={8} fill="#2a2e36" />
+            <rect x={-118} y={-178} width={236} height={126} fill="#05060a" />
+            {!open && Array.from({ length: 7 }).map((_, i) => <rect key={i} x={-114} y={-172 + i * 17} width={228} height={9} fill="#8a92a0" />)}
+            {open && <g transform="rotate(-24 -130 -40)"><rect x={-130} y={-60} width={260} height={30} rx={6} fill="#8a92a0" /></g>}
+            {[[-118, -178], [110, -178], [-118, -60], [110, -60]].map(([cx, cy], i) => (
+              <circle key={i} cx={cx + 4} cy={cy + 4} r={5} fill="#c8d0da" />
+            ))}
+          </g>,
+        ),
+      };
+    }
+    case "chairs": {
+      // musical chairs over a pit: round platforms on pillars, one chair each, a spotlight on every chair
+      const n = Math.max(1, Math.min(9, Number(it.v ?? 7)));
+      const xs = n === 2 ? [0.32, 0.68] : Array.from({ length: n }).map((_, i) => 0.08 + (i / (n - 1)) * 0.86);
+      return {
+        body: (
+          <g>
+            <ellipse cx={540} cy={fy + 260} rx={760} ry={330} fill="#000" />
+            <ellipse cx={540} cy={fy + 260} rx={760} ry={330} fill="none" stroke="#3a3a44" strokeWidth={14} />
+            {xs.map((cx, i) => {
+              const X = cx * 1080;
+              return (
+                <g key={i}>
+                  <rect x={X - 40} y={fy + 10} width={80} height={900} fill="#1e1e26" />
+                  <rect x={X - 40} y={fy + 10} width={16} height={900} fill="#34343e" />
+                  <ellipse cx={X} cy={fy + 10} rx={120} ry={28} fill="#5a5a66" />
+                  <ellipse cx={X} cy={fy + 4} rx={120} ry={26} fill="#8a8a96" />
+                  <g transform={`translate(${X} ${fy + 4})`}>
+                    <rect x={-50} y={-250} width={100} height={150} rx={10} fill="#c9a26a" />
+                    <rect x={-58} y={-110} width={116} height={24} rx={6} fill="#b08850" />
+                    <rect x={-50} y={-90} width={12} height={90} fill="#8a6a3a" />
+                    <rect x={38} y={-90} width={12} height={90} fill="#8a6a3a" />
+                  </g>
+                </g>
+              );
+            })}
+          </g>
+        ),
+        glow: (
+          <g>
+            {xs.map((cx, i) => (
+              <g key={i}>
+                <path d={`M${cx * 1080 - 30} -100 L${cx * 1080 + 30} -100 L${cx * 1080 + 150} ${fy + 20} L${cx * 1080 - 150} ${fy + 20}Z`} fill="#fff6dc" opacity={0.045} />
+                <ellipse cx={cx * 1080} cy={fy + 6} rx={130} ry={30} fill="#fff6dc" opacity={0.18} />
+              </g>
+            ))}
+          </g>
+        ),
+      };
+    }
+    case "tiles": {
+      // glass bridge over a bottomless drop: two columns of panels, v = broken panel numbers (1 = near left)
+      const broken = new Set((it.v ?? "").split(",").filter(Boolean).map(Number));
+      const rows = 10;
+      const P = (p: number) => ({ y: 470 + 1450 * Math.pow(1 - p, 1.7), w: 860 * (1 - p) + 230 * p });
+      const panels: React.ReactNode[] = [];
+      const glassGlow: React.ReactNode[] = [];
+      for (let r = 0; r < rows; r++) {
+        const a = P(r / rows);
+        const b = P((r + 1) / rows);
+        for (let side = 0; side < 2; side++) {
+          const id = r * 2 + side + 1;
+          const g = 0.02;
+          const xa0 = 540 + (side ? g : -0.5) * a.w;
+          const xa1 = 540 + (side ? 0.5 : -g) * a.w;
+          const xb0 = 540 + (side ? g : -0.5) * b.w;
+          const xb1 = 540 + (side ? 0.5 : -g) * b.w;
+          const d = `M${xa0} ${a.y} L${xa1} ${a.y} L${xb1} ${b.y} L${xb0} ${b.y}Z`;
+          if (broken.has(id)) {
+            const mx = (xa0 + xa1 + xb0 + xb1) / 4;
+            const my = (a.y + b.y) / 2;
+            panels.push(
+              <g key={id}>
+                <path d={d} fill="#000" />
+                <path d={`M${xa0} ${a.y} L${xa0 + (mx - xa0) * 0.35} ${a.y - (a.y - my) * 0.3} L${xa0 + (mx - xa0) * 0.2} ${a.y}Z`} fill="#bfefff" opacity={0.6} />
+                <path d={`M${xb1} ${b.y} L${xb1 - (xb1 - mx) * 0.3} ${b.y + (my - b.y) * 0.4} L${xb1 - (xb1 - mx) * 0.15} ${b.y}Z`} fill="#bfefff" opacity={0.5} />
+              </g>,
+            );
+          } else {
+            panels.push(
+              <g key={id}>
+                <path d={d} fill="#7fd6f0" opacity={0.55} />
+                <path d={`M${xa0 + (xa1 - xa0) * 0.15} ${a.y - 6} L${xa0 + (xa1 - xa0) * 0.3} ${a.y - 6} L${xb0 + (xb1 - xb0) * 0.55} ${b.y + 6} L${xb0 + (xb1 - xb0) * 0.45} ${b.y + 6}Z`} fill="#fff" opacity={0.35} />
+              </g>,
+            );
+            glassGlow.push(<path key={id} d={d} fill="#5fc8ff" opacity={0.18} />);
+          }
+        }
+      }
+      const rail = (sx: number) => {
+        const a = P(0);
+        const b = P(1);
+        return <path d={`M${540 + sx * a.w} ${a.y} L${540 + sx * b.w} ${b.y}`} stroke="#5a6270" strokeWidth={14} />;
+      };
+      return {
+        body: (
+          <g>
+            <rect x={-300} y={-300} width={1680} height={2520} fill="#05060c" />
+            {Array.from({ length: 60 }).map((_, i) => (
+              <circle key={i} cx={rnd(i * 3.1) * 1080} cy={1000 + rnd(i * 7.7) * 900} r={1.5 + rnd(i) * 2.5} fill="#9ab0d8" opacity={0.15 + rnd(i * 2) * 0.25} />
+            ))}
+            {Array.from({ length: rows + 1 }).map((_, r) => {
+              const a = P(r / rows);
+              return <line key={r} x1={540 - a.w / 2 - 10} y1={a.y} x2={540 + a.w / 2 + 10} y2={a.y} stroke="#4a525e" strokeWidth={10 * (1 - r / rows) + 3} />;
+            })}
+            {panels}
+            {rail(-0.5)}
+            {rail(0.5)}
+            {rail(0)}
+            <rect x={-300} y={420} width={1680} height={40} fill="#2a2e36" />
+            <rect x={-300} y={1880} width={1680} height={80} fill="#2a2e36" />
+          </g>
+        ),
+        glow: (
+          <g>
+            {glassGlow}
+            <path d="M300 -100 L780 -100 L980 1920 L100 1920Z" fill="#cfe8ff" opacity={0.06} />
+          </g>
+        ),
+      };
+    }
+    case "alphabet": {
+      // letters painted on the wallpaper, A-Z in three rows
+      const rowsA = ["ABCDEFGH", "IJKLMNOPQ", "RSTUVWXYZ"];
+      const top = ctx.floorY - 900;
+      return {
+        body: (
+          <g>
+            {rowsA.map((row, r) => (
+              <g key={r}>
+                {row.split("").map((ch, i) => {
+                  const lx = 80 + (i + 0.5) * (920 / row.length);
+                  const ly = top + r * 150;
+                  return (
+                    <text key={i} x={lx} y={ly} transform={`rotate(${(rnd(r * 30 + i) - 0.5) * 12} ${lx} ${ly})`} textAnchor="middle" fontFamily="Georgia, serif" fontWeight={700} fontSize={84} fill="#1a1410" opacity={0.85}>
+                      {ch}
+                    </text>
+                  );
+                })}
+              </g>
+            ))}
+          </g>
+        ),
+      };
+    }
+    case "printer": {
+      // money printing press: big machine, rollers turning, sheets running out
+      const roll = t * 360;
+      const sheets = Array.from({ length: 3 }).map((_, i) => ((t * 0.9 + i / 3) % 1));
+      return {
+        body: T(
+          <g>
+            <ellipse cx={0} cy={0} rx={260} ry={34} fill="#000" opacity={0.25} />
+            <rect x={-220} y={-520} width={440} height={520} rx={18} fill={c ?? "#4a5a6a"} />
+            <rect x={-220} y={-520} width={440} height={40} rx={18} fill={shade(c ?? "#4a5a6a", 0.2)} />
+            <rect x={-180} y={-460} width={140} height={90} rx={8} fill="#1a2028" />
+            <rect x={-170} y={-450} width={120} height={70} fill="#2e6a3a" opacity={0.6 + 0.4 * Math.sin(t * 5)} />
+            <circle cx={70} cy={-415} r={22} fill="#e02424" />
+            <circle cx={140} cy={-415} r={22} fill="#e0b030" />
+            {[-120, 0, 120].map((rx, i) => (
+              <g key={i} transform={`translate(${rx} -270) rotate(${roll * (i % 2 ? -1 : 1)})`}>
+                <circle r={50} fill="#2a2e36" />
+                <rect x={-50} y={-6} width={100} height={12} fill="#8a92a0" />
+                <circle r={14} fill="#c8d0da" />
+              </g>
+            ))}
+            <rect x={-200} y={-180} width={400} height={20} fill="#1a1a1a" />
+            <rect x={220} y={-200} width={160} height={16} fill="#8a92a0" />
+            {sheets.map((p, i) => (
+              <g key={i} transform={`translate(${200 + p * 160} ${-215 + p * p * 160}) rotate(${p * 40})`}>
+                <rect x={-50} y={-26} width={100} height={52} rx={3} fill="#5aa469" stroke="#2f6b3c" strokeWidth={4} />
+                <circle cx={0} cy={0} r={12} fill="none" stroke="#2f6b3c" strokeWidth={3} />
+              </g>
+            ))}
+            <rect x={-200} y={-60} width={400} height={40} fill="#2a2e36" />
+          </g>,
+        ),
+        glow: <ellipse cx={x - 100 * s} cy={fy - 415 * s} rx={180 * s} ry={110 * s} fill="url(#screenGlow)" opacity={0.6} />,
+      };
+    }
     default:
       return { body: null };
   }

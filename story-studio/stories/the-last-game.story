@@ -31,8 +31,8 @@ scenes:
   control: room wall=#15181e:concrete floor=#0c0d10:plain light=dark | monitors .5 s=1.1 | desk .5 y=60
   chairs: room wall=#101016:concrete floor=#06060a:plain light=dark floorY=1250 | chairs .5 v=7
   chairs-few: room wall=#101016:concrete floor=#06060a:plain light=dark floorY=1250 | chairs .5 v=2
-  bridge: room wall=#06060a:plain floor=#040407:plain light=dark floorY=1350 | tiles .5
-  bridge-broken: room wall=#06060a:plain floor=#040407:plain light=dark floorY=1350 | tiles .5 v=3,4,7,10
+  bridge: room wall=#06060a:plain floor=#040407:plain light=cold floorY=1350 | tiles .5
+  bridge-broken: room wall=#06060a:plain floor=#040407:plain light=cold floorY=1350 | tiles .5 v=3,4,7,10
   vip: room wall=#3a1a1a:stripes floor=#2a1a1a:wood light=warm | sofa .25 c=#6a1a1a | sofa .78 c=#6a1a1a | lamp .5 | monitors .5 s=.7 y=-200
   bathroom: room wall=#e0e4e8:tile floor=#8a929c:tile light=cold | sink .3 | mirror .3 | sink .72
   rain: outside sky=storm far=hills ground=sand weather=rain light=dark | line .5 y=-60 c=#d62828
@@ -162,13 +162,13 @@ bridge | host> Two panels per step. One is strong glass. One ^breaks.^ | rule=RU
 bridge | And you had to pick a number. That was your place in line. | cam=zoom
 bridge | Noah pulled number ^one.^ | close=noah @noah:.5:terrified:idle cam=push sfx=sub
 bridge | I pulled sixteen. I'd be the last to go. Watching him guess every step. | close=me @me:.5:terrified:idle
-bridge | Noah stood on the edge. Left or right. | @noah:.5:scared:idle+y=-660+size=.6 cam=push
+bridge | Noah stood on the edge. Left or right. | @noah:.5:scared:idle+y=120 cam=push
 bridge | Left. It held. | sfx=glass cam=shake
 bridge | Right. It held. | sfx=glass
 bridge | Left. | cam=zoom sfx=heartbeat
 bridge-broken | ^It broke.^ | t=flash sfx=glass cam=shake
-bridge-broken | Noah grabbed the metal frame with one hand. Dangling over nothing. | @noah:.5:terrified:hands-up+y=-500+size=.6 cam=push fx=shake
-bridge-broken | Behind him, Brick stepped onto the next panel. | @brick:.62:grin:idle+y=-620+size=.6 cam=zoom
+bridge-broken | Noah grabbed the metal frame with one hand. Dangling over nothing. | @noah:.5:terrified:hands-up+y=330 cam=push fx=shake
+bridge-broken | Behind him, Brick stepped onto the next panel. | @brick:.62:grin:idle+y=-40+size=.85 cam=zoom
 bridge-broken | He could have pulled him up. Instead, he looked at the number on Noah's back. | close=brick @brick:.5:smug:idle cam=push
 bridge-broken | brick> [sarcastic] Fewer players... bigger prize, kid. | close=brick @brick:.5:grin:talk
 bridge-broken | And he stepped on Noah's ^fingers.^ | t=flash sfx=stinger cam=shake
@@ -176,7 +176,7 @@ bridge-broken | And he stepped on Noah's ^fingers.^ | t=flash sfx=stinger cam=sh
 == 7
 bridge-broken | I screamed his name so loud my throat bled. | close=me @me:.5:crying:idle t=black cam=shake
 bridge-broken | Noah fell. Into the dark. | cam=down sfx=gust
-bridge-broken | And then a red suit dove off the side of the bridge. After him. | @dad:.5:determined:reach+y=-400+size=.6 cam=down sfx=whoosh
+bridge-broken | And then a red suit dove off the side of the bridge. After him. | @dad:.5:determined:reach+y=260 cam=down sfx=whoosh
 bridge-broken | Guards don't do that. Unless they're not really guards. | close=me @me:.5:shocked:idle cam=push
 bridge-broken | I didn't remember crossing the rest. I just remember counting. | cam=right sfx=glass
 void | | prop=number:6:19:PLAYERS_LEFT hold=1.6

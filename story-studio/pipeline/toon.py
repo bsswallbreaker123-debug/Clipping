@@ -214,8 +214,20 @@ def parse_story(path: Path) -> dict:
     return story
 
 
+KIT_SRC = ROOT / "src" / "toon" / "Kit.tsx"
+
+
+def known_items() -> set[str]:
+    return set(re.findall(r'case "([a-z0-9-]+)":', KIT_SRC.read_text()))
+
+
 def validate(story: dict) -> list[str]:
     errs = []
+    items = known_items()
+    for name, sc in story["scenes"].items():
+        for it in sc.get("items", []):
+            if it["t"] not in items:
+                errs.append(f"scene {name}: item {it['t']!r} is not drawn by Kit.tsx")
     for p in story["parts"]:
         for i, s in enumerate(p["shots"]):
             w = f"part {p['part']} shot {i + 1}"
