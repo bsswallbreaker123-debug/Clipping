@@ -20,11 +20,14 @@ Format (the renderer is fixed, you only write the script):
 - Flat 2D cartoon: dark round-headed characters, simple sets, a narrator plus character dialogue.
 - The title box always shows the story's "What if ...?" question.
 - A stat counter in the corner tracks the story's core mechanic (money, lies, luck, rating, days...).
-- One spoken line per shot, 6-18 words. Each part has 15-19 shots (about 60-75 seconds).
+- One spoken line per shot, 6-18 words. Each part has 18-21 shots (about 62-70 seconds; TikTok only pays for videos over one minute).
 
-What makes it work:
-- Shot 1 of part 1 is the hook: the premise in one punchy line. Later parts open with a one-line
-  recap that also pushes forward ("Leo had 2 million followers. And one problem.").
+What makes it work (retention is everything, viewers swipe within 2 seconds):
+- Every part has a real plot: a goal, an obstacle, a turn. No filler shots.
+- Shot 1 of EVERY part is a cold open on the "void" background with camera "punch": one line that
+  states the stakes and teases where this part is going ("One lie almost erased Leo from existence.
+  And it all started with homework."). Later parts recap and push forward in the same line.
+- Put a twist or reveal in the middle of each part, and plant something that pays off later.
 - Escalate every part: the mechanic gets bigger, the cost shows up, a twist recontextualises it.
 - Every part except the last ends on a cliffhanger line. The last part pays off with a twist and a
   satisfying ending that ties back to the first line.
@@ -94,7 +97,7 @@ af_sky, bm_george, bf_emma), and outline: an array of {parts} objects
 
 Last shots of the previous part: {json.dumps(prev, ensure_ascii=False)}
 
-Write part {n} now: 15-19 shots, ending on the line "{item['cliffhanger']}".
+Write part {n} now: 18-21 shots, starting with the cold open, ending on the line "{item['cliffhanger']}".
 Return ONLY a JSON object {{"part": {n}, "shots": [...]}} using exactly the Shot type.""",
         )
         story["parts"].append({"part": n, "shots": part["shots"]})

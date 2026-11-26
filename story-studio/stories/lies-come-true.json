@@ -73,6 +73,20 @@
       "part": 1,
       "shots": [
         {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "One lie almost erased Leo from existence. And it all started with homework.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "shocked",
+              "glow": false
+            }
+          ]
+        },
+        {
           "bg": "bedroom",
           "label": "MONDAY, 7:12 AM",
           "camera": "slowzoom",
@@ -383,6 +397,33 @@
         },
         {
           "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "marcus",
+            "zoom": 1.8
+          },
+          "who": "marcus",
+          "vo": "Bro... where did you learn that?!",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "marcus",
+              "x": 0.62,
+              "expr": "shocked",
+              "facing": "left",
+              "fx": [
+                "stars"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
           "crowd": 7,
           "camera": "wide",
           "vo": "The whole hallway saw it. Including Sienna.",
@@ -497,6 +538,20 @@
     {
       "part": 2,
       "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Leo's lies were coming true. His next lie? That he's famous. Huge mistake.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "grin",
+              "glow": true
+            }
+          ]
+        },
         {
           "bg": "bedroom",
           "time": "night",
@@ -878,6 +933,30 @@
           ]
         },
         {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "What did you do to everyone, Leo? And why am I the only one who sees it?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.68,
+              "expr": "angry",
+              "facing": "left",
+              "action": "point"
+            }
+          ]
+        },
+        {
           "bg": "void",
           "transition": "flash",
           "camera": "slowzoom",
@@ -895,6 +974,20 @@
     {
       "part": 3,
       "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Only one person knew the truth. So Leo did something unforgivable.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "angry",
+              "glow": false
+            }
+          ]
+        },
         {
           "bg": "cafeteria",
           "label": "LUNCH",
@@ -1130,6 +1223,29 @@
           ]
         },
         {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "And across the room, Mr. Hill was watching him. Very closely.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.32,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.72,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
           "bg": "park",
           "time": "evening",
           "label": "AFTER SCHOOL",
@@ -1333,6 +1449,20 @@
     {
       "part": 4,
       "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Forty seven lies. Rich. Famous. Loved. But someone knew his secret.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "smug",
+              "glow": true
+            }
+          ]
+        },
         {
           "bg": "classroom",
           "label": "ONE WEEK LATER",
@@ -1621,6 +1751,28 @@
           ]
         },
         {
+          "bg": "classroom",
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "You have fifty three lies left, Leo. Spend them wisely.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
           "bg": "street",
           "time": "evening",
           "transition": "whip",
@@ -1714,6 +1866,20 @@
     {
       "part": 5,
       "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Fifty two lies left. One last plan. If it fails, Leo disappears forever.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "determined",
+              "glow": false
+            }
+          ]
+        },
         {
           "bg": "bedroom",
           "time": "night",
@@ -1813,6 +1979,32 @@
               "id": "dev",
               "x": 0.65,
               "expr": "sleepy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Please. Just listen. You're the only person who ever knew the real me.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.65,
+              "expr": "confused",
               "facing": "left"
             }
           ]

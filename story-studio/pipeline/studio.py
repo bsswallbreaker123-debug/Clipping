@@ -30,7 +30,7 @@ MODELS = Path(os.environ.get("KOKORO_DIR", ROOT / "models"))
 FPS = 30
 VO_OFFSET = 3
 END_CARD = 45
-SPEED = float(os.environ.get("VOICE_SPEED", "1.0"))
+SPEED = float(os.environ.get("VOICE_SPEED", "1.12"))
 # TikTok Creator Rewards only pays for videos longer than 1 minute; keep a safety margin.
 MIN_SECONDS = float(os.environ.get("MIN_SECONDS", "62"))
 
@@ -200,7 +200,7 @@ def build_part(story: dict, part: dict, stat_value: float | None, pad: int = 0) 
             shot["voFrames"] = vo_frames
             if story.get("captions"):
                 shot["words"] = word_timing(s["vo"], vo_frames)
-        dur = VO_OFFSET + vo_frames + 10 + pad
+        dur = VO_OFFSET + vo_frames + 6 + pad
         if s.get("hold"):
             dur = max(dur, round(s["hold"] * FPS))
         if s.get("phone"):
