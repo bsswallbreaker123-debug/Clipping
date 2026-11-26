@@ -1,6 +1,7 @@
 import React from "react";
 import { Composition } from "remotion";
 import { Episode } from "./Episode";
+import { BrickEpisode, brickDemo } from "./brick/BrickEpisode";
 import type { EpisodeProps } from "./types";
 
 // Props come from build/<story>/part-XX.props.json (written by `studio.py build`).
@@ -21,6 +22,8 @@ const demo: EpisodeProps = {
 };
 
 export const Root: React.FC = () => (
+  <>
+  <Composition id="BrickEpisode" component={BrickEpisode} width={1080} height={1920} fps={30} durationInFrames={brickDemo.durationInFrames} defaultProps={brickDemo} calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames })} />
   <Composition
     id="Episode"
     component={Episode}
@@ -31,4 +34,5 @@ export const Root: React.FC = () => (
     defaultProps={demo}
     calculateMetadata={({ props }) => ({ durationInFrames: props.durationInFrames })}
   />
+  </>
 );

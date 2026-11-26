@@ -128,7 +128,7 @@ MOODS = {
 
 
 def music(mood: str = "curious", seconds: float = 150.0, seed: int = 1) -> np.ndarray:
-    if mood in ("trend", "phonk"):
+    if mood in ("trend", "phonk", "dark"):
         return trap_beat(mood, seconds, seed)
     global rng
     rng = np.random.default_rng(seed)
@@ -254,10 +254,11 @@ def trap_beat(style: str = "trend", seconds: float = 150.0, seed: int = 3) -> np
     global rng
     rng = np.random.default_rng(seed)
     phonk = style == "phonk"
-    bpm = 130 if phonk else 128
+    dark = style == "dark"
+    bpm = 130 if phonk else 120 if dark else 128
     step = 60 / bpm / 4  # 16th note
     bar = step * 16
-    prog = [["D", "m7"], ["Bb", "maj7"], ["F", ""], ["C", ""]] if not phonk else [["D", "m"], ["D", "m"], ["Bb", ""], ["A", ""]]
+    prog = [["D", "m"], ["D", "m"], ["Bb", ""], ["A", ""]] if (phonk or dark) else [["D", "m7"], ["Bb", "maj7"], ["F", ""], ["C", ""]]
     n = int(seconds * SR) + SR * 3
     keys = np.zeros(n)
     drums = np.zeros(n)
@@ -393,6 +394,30 @@ def sfx(name: str) -> np.ndarray:
         x = np.concatenate([bell(hz(96), 0.08), bell(hz(100), 0.6)]) * 0.6
     elif name == "heartbeat":
         x = np.concatenate([kick(0.18), np.zeros(int(0.08 * SR)), kick(0.3) * 0.7])
+    elif name == "thunder":
+        n = int(2.5 * SR)
+        nz = rng.standard_normal(n)
+        x = lowpass(lowpass(nz, 400), 300) * np.exp(-np.arange(n) / SR * 1.4)
+        x[: int(0.08 * SR)] += rng.standard_normal(int(0.08 * SR)) * 0.6
+    elif name == "scream":
+        t = np.arange(int(1.6 * SR)) / SR
+        f = 420 * np.exp(-t * 0.6) + 30 * np.sin(2 * np.pi * 7 * t)
+        ph = 2 * np.pi * np.cumsum(f) / SR
+        x = (np.sign(np.sin(ph)) * 0.5 + np.sin(ph * 1.51) * 0.5) * np.clip(t / 0.05, 0, 1) * np.exp(-t * 1.1)
+        x = np.tanh(x * 3) + rng.standard_normal(len(t)) * 0.15 * np.exp(-t * 2)
+        x = lowpass(x, 3500)
+    elif name == "radio":
+        n = int(0.7 * SR)
+        x = rng.standard_normal(n) * 0.5
+        x = x - lowpass(x, 600)
+        x *= (np.sin(np.arange(n) / SR * 2 * np.pi * 11) > -0.3)
+    elif name == "boom":
+        x = kick(1.2) * 1.0
+        nz = rng.standard_normal(int(0.9 * SR)) * np.exp(-np.arange(int(0.9 * SR)) / SR * 4)
+        x[: len(nz)] += lowpass(nz, 900) * 0.8
+    elif name == "click":
+        x = np.zeros(int(0.15 * SR))
+        x[:200] = rng.standard_normal(200) * np.exp(-np.arange(200) / 40)
     else:
         x = np.zeros(int(0.1 * SR))
     x = x / (np.max(np.abs(x)) + 1e-9) * 0.8

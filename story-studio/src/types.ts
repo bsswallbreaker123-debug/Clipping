@@ -164,7 +164,7 @@ export interface Part {
 export interface Story {
   id: string;
   title: string; // the "What if ..." question shown in the top box
-  mood?: "trend" | "phonk" | "curious" | "emotional" | "tense" | "triumphant" | "mystery";
+  mood?: "trend" | "phonk" | "dark" | "curious" | "emotional" | "tense" | "triumphant" | "mystery";
   narrator?: string; // kokoro voice id
   stat?: { name: string; start: number; decimals?: number; suffix?: string; who?: string };
   captions?: boolean;

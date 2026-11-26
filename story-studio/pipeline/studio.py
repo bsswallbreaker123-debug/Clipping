@@ -34,6 +34,7 @@ SPEED = float(os.environ.get("VOICE_SPEED", "1.12"))
 # TikTok Creator Rewards only pays for videos longer than 1 minute; keep a safety margin.
 MIN_SECONDS = float(os.environ.get("MIN_SECONDS", "62"))
 
+BRICK_SETS = {"square", "street", "city", "bedroom", "livingroom", "school", "forest", "rooftop", "bunker", "park"}
 BACKGROUNDS = {"bedroom", "classroom", "cafeteria", "hallway", "street", "park", "office", "gym", "party", "livingroom", "store", "rooftop", "void", "stage", "school", "hospital"}
 EXPRS = {"neutral", "happy", "grin", "smug", "sad", "crying", "shocked", "angry", "nervous", "confused", "love", "sleepy", "determined", "cringe"}
 ACTIONS = {"idle", "talk", "walk", "run", "jump", "shake", "wave", "point", "celebrate", "facepalm", "shrug", "phone", "sit", "fall", "enter-left", "enter-right", "exit-left", "exit-right"}
@@ -43,6 +44,8 @@ ACTIONS = {"idle", "talk", "walk", "run", "jump", "shake", "wave", "point", "cel
 
 
 def validate(story: dict) -> list[str]:
+    if story.get("style") == "brick":
+        return validate_brick(story)
     errs: list[str] = []
     cast = story.get("cast", {})
     for k in ("id", "title", "parts", "cast"):
@@ -69,6 +72,68 @@ def validate(story: dict) -> list[str]:
             if isinstance(cam, dict) and cam.get("focus") not in [c.get("id") for c in s.get("chars", [])]:
                 errs.append(f"{where}: camera focus {cam.get('focus')!r} is not on screen")
     return errs
+
+
+def validate_brick(story: dict) -> list[str]:
+    errs: list[str] = []
+    cast = story.get("cast", {})
+    for p in story.get("parts", []):
+        for i, s in enumerate(p.get("shots", [])):
+            where = f"part {p.get('part')} shot {i + 1}"
+            if s.get("set") not in BRICK_SETS:
+                errs.append(f"{where}: unknown set {s.get('set')!r}")
+            if not s.get("vo") and not s.get("hold"):
+                errs.append(f"{where}: needs 'vo' or 'hold'")
+            who = s.get("who", "narrator")
+            if who != "narrator" and who not in cast:
+                errs.append(f"{where}: speaker {who!r} not in cast")
+            ids = [c.get("id") for c in s.get("chars", [])]
+            cam = s.get("camera")
+            if isinstance(cam, dict):
+                for k in ("close", "low", "over", "at"):
+                    if k in cam and cam[k] != "monster" and cam[k] not in ids:
+                        errs.append(f"{where}: camera {k} {cam[k]!r} is not on screen")
+                    if k in cam and cam[k] == "monster" and not s.get("monster"):
+                        errs.append(f"{where}: camera on monster but no monster in shot")
+    return errs
+
+
+# ---------------- word timing (Whisper) ----------------
+
+_whisper = None
+
+
+def whisper_words(wav: Path, text: str, frames: int) -> list[dict]:
+    """Exact word timings for captions; falls back to an estimate if Whisper is unavailable."""
+    cache = wav.with_suffix(".words.json")
+    if cache.exists():
+        return json.loads(cache.read_text())
+    global _whisper
+    try:
+        import soundfile as sf
+        from faster_whisper import WhisperModel
+
+        if _whisper is None:
+            _whisper = WhisperModel(os.environ.get("WHISPER_MODEL", "base.en"), device="cpu", compute_type="int8")
+        audio, sr = sf.read(wav, dtype="float32")
+        if sr != 16000:
+            import numpy as np
+
+            audio = np.interp(np.arange(0, len(audio), sr / 16000), np.arange(len(audio)), audio).astype("float32")
+        segs, _ = _whisper.transcribe(audio, word_timestamps=True, initial_prompt=text)
+        words = [
+            {"text": w.word.strip(), "start": round(w.start * FPS), "end": round(w.end * FPS)}
+            for seg in segs
+            for w in (seg.words or [])
+            if w.word.strip()
+        ]
+        if not words:
+            raise ValueError("no words")
+    except Exception as e:  # noqa: BLE001
+        print(f"  (word timing estimated: {e})")
+        words = word_timing(text, frames)
+    cache.write_text(json.dumps(words))
+    return words
 
 
 # ---------------- TTS ----------------
@@ -159,6 +224,10 @@ def pick_sfx(shot: dict) -> str | None:
     if shot.get("sfx"):
         return shot["sfx"] if shot["sfx"] != "none" else None
     stat = shot.get("stat") or {}
+    if (shot.get("monster") or {}).get("anim") == "scream":
+        return "scream"
+    if shot.get("lightning"):
+        return "thunder"
     if shot.get("popup"):
         return "glitch"
     if stat.get("delta", 0) > 0:
@@ -198,7 +267,9 @@ def build_part(story: dict, part: dict, stat_value: float | None, pad: int = 0) 
             vo_frames = math.ceil(secs * FPS)
             shot["audio"] = rel
             shot["voFrames"] = vo_frames
-            if story.get("captions"):
+            if story.get("style") == "brick":
+                shot["words"] = whisper_words(PUBLIC / rel, s["vo"], vo_frames)
+            elif story.get("captions"):
                 shot["words"] = word_timing(s["vo"], vo_frames)
         dur = VO_OFFSET + vo_frames + 6 + pad
         if s.get("hold"):
@@ -239,10 +310,10 @@ def build_part(story: dict, part: dict, stat_value: float | None, pad: int = 0) 
     return props, stat_value
 
 
-def render(props_path: Path, stem_path: Path, preview: bool = False) -> None:
+def render(props_path: Path, stem_path: Path, preview: bool = False, composition: str = "Episode") -> None:
     """Render picture + voices + sound effects (no music) to a stem file."""
     stem_path.parent.mkdir(parents=True, exist_ok=True)
-    cmd = ["npx", "remotion", "render", "src/index.ts", "Episode", str(stem_path), f"--props={props_path}", "--log=error"]
+    cmd = ["npx", "remotion", "render", "src/index.ts", composition, str(stem_path), f"--props={props_path}", "--log=error"]
     if preview:
         cmd += ["--scale=0.5"]
     subprocess.run(cmd, cwd=ROOT, check=True)
@@ -302,7 +373,7 @@ def cmd_build(args) -> None:
         if args.no_render:
             continue
         stem = pdir / f"part-{n:02d}.stem.mp4"
-        render(props_path, stem, preview=args.preview)
+        render(props_path, stem, preview=args.preview, composition="BrickEpisode" if story.get("style") == "brick" else "Episode")
         out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
         mix(stem, resolve_music(args.music or story.get("music") or story.get("mood", "trend")), out, story.get("musicVolume", 0.19))
         print(f"  -> {out.relative_to(ROOT)}")
