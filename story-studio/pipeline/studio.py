@@ -1,0 +1,323 @@
+"""Story Studio: turn a story script (stories/*.json) into animated TikTok parts.
+
+    uv run pipeline/studio.py build stories/rejection-glowup.json            # all parts
+    uv run pipeline/studio.py build stories/rejection-glowup.json --parts 1,2
+    uv run pipeline/studio.py new "What if ..." --parts 10                   # needs ANTHROPIC_API_KEY
+    uv run pipeline/studio.py check stories/*.json                            # validate only
+
+Steps per part: narration (Kokoro TTS, local) -> timing -> props JSON -> Remotion render.
+"""
+
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import math
+import os
+import re
+import subprocess
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+PUBLIC = ROOT / "public"
+GEN = PUBLIC / "gen"
+BUILD = ROOT / "build"
+OUT = ROOT / "out"
+MODELS = Path(os.environ.get("KOKORO_DIR", ROOT / "models"))
+FPS = 30
+VO_OFFSET = 3
+END_CARD = 45
+SPEED = float(os.environ.get("VOICE_SPEED", "1.0"))
+
+BACKGROUNDS = {"bedroom", "classroom", "cafeteria", "hallway", "street", "park", "office", "gym", "party", "livingroom", "store", "rooftop", "void", "stage", "school", "hospital"}
+EXPRS = {"neutral", "happy", "grin", "smug", "sad", "crying", "shocked", "angry", "nervous", "confused", "love", "sleepy", "determined", "cringe"}
+ACTIONS = {"idle", "talk", "walk", "run", "jump", "shake", "wave", "point", "celebrate", "facepalm", "shrug", "phone", "sit", "fall", "enter-left", "enter-right", "exit-left", "exit-right"}
+
+
+# ---------------- validation ----------------
+
+
+def validate(story: dict) -> list[str]:
+    errs: list[str] = []
+    cast = story.get("cast", {})
+    for k in ("id", "title", "parts", "cast"):
+        if k not in story:
+            errs.append(f"missing '{k}'")
+    for p in story.get("parts", []):
+        for i, s in enumerate(p.get("shots", [])):
+            where = f"part {p.get('part')} shot {i + 1}"
+            if s.get("bg") not in BACKGROUNDS:
+                errs.append(f"{where}: unknown bg {s.get('bg')!r}")
+            if not s.get("vo") and not s.get("hold") and not s.get("phone"):
+                errs.append(f"{where}: needs 'vo' or 'hold'")
+            who = s.get("who", "narrator")
+            if who != "narrator" and who not in cast:
+                errs.append(f"{where}: speaker {who!r} not in cast")
+            for c in s.get("chars", []):
+                if c.get("id") not in cast and c.get("id") != "extra":
+                    errs.append(f"{where}: char {c.get('id')!r} not in cast")
+                if c.get("expr", "neutral") not in EXPRS:
+                    errs.append(f"{where}: unknown expr {c.get('expr')!r}")
+                if c.get("action", "idle") not in ACTIONS:
+                    errs.append(f"{where}: unknown action {c.get('action')!r}")
+            cam = s.get("camera")
+            if isinstance(cam, dict) and cam.get("focus") not in [c.get("id") for c in s.get("chars", [])]:
+                errs.append(f"{where}: camera focus {cam.get('focus')!r} is not on screen")
+    return errs
+
+
+# ---------------- TTS ----------------
+
+_kokoro = None
+
+
+def kokoro():
+    global _kokoro
+    if _kokoro is None:
+        from kokoro_onnx import Kokoro
+
+        onnx = MODELS / "kokoro-v1.0.onnx"
+        voices = MODELS / "voices-v1.0.bin"
+        if not onnx.exists():
+            sys.exit(f"Kokoro model missing: run `bash scripts/setup.sh` (expects {onnx})")
+        _kokoro = Kokoro(str(onnx), str(voices))
+    return _kokoro
+
+
+def speakable(text: str) -> str:
+    t = text.replace("%", " percent").replace("&", " and ").replace("→", " to ")
+    t = re.sub(r"\$(\d[\d,]*)", lambda m: m.group(1) + " dollars", t)
+    return t
+
+
+def tts(text: str, voice: str) -> tuple[str, float]:
+    import soundfile as sf
+
+    key = hashlib.sha1(f"{voice}|{SPEED}|{text}".encode()).hexdigest()[:16]
+    rel = f"gen/tts/{key}.wav"
+    path = PUBLIC / rel
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        audio, sr = kokoro().create(speakable(text), voice=voice, speed=SPEED, lang="en-us")
+        sf.write(path, audio, sr)
+    info = sf.info(path)
+    return rel, info.frames / info.samplerate
+
+
+def word_timing(text: str, frames: int) -> list[dict]:
+    words = text.split()
+    if not words:
+        return []
+    weights = [len(re.sub(r"\W", "", w)) + 2 + (4 if re.search(r"[.,!?;:]$", w) else 0) for w in words]
+    total = sum(weights)
+    out, acc = [], 0.0
+    for w, wt in zip(words, weights):
+        start = acc / total * frames
+        acc += wt
+        out.append({"text": w, "start": round(start), "end": round(acc / total * frames)})
+    return out
+
+
+# ---------------- audio assets ----------------
+
+
+def music_file(mood: str) -> str:
+    import soundfile as sf
+
+    sys.path.insert(0, str(Path(__file__).parent))
+    import audio_synth
+
+    rel = f"gen/music/{mood}.wav"
+    path = PUBLIC / rel
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        print(f"  composing {mood} music ...")
+        sf.write(path, audio_synth.music(mood, 150, seed=len(mood)), audio_synth.SR)
+    return rel
+
+
+def sfx_file(name: str) -> str:
+    import soundfile as sf
+
+    sys.path.insert(0, str(Path(__file__).parent))
+    import audio_synth
+
+    rel = f"gen/sfx/{name}.wav"
+    path = PUBLIC / rel
+    if not path.exists():
+        path.parent.mkdir(parents=True, exist_ok=True)
+        sf.write(path, audio_synth.sfx(name), audio_synth.SR)
+    return rel
+
+
+def pick_sfx(shot: dict) -> str | None:
+    if shot.get("sfx"):
+        return shot["sfx"] if shot["sfx"] != "none" else None
+    stat = shot.get("stat") or {}
+    if shot.get("popup"):
+        return "glitch"
+    if stat.get("delta", 0) > 0:
+        return "levelup" if any(c.get("glow") for c in shot.get("chars", [])) else "ding"
+    if stat.get("delta", 0) < 0:
+        return "down"
+    if shot.get("banner", {}).get("style") == "stamp":
+        return "impact"
+    if shot.get("phone"):
+        return "cash" if shot["phone"].get("app") == "bank" else "notify"
+    if shot.get("transition") == "whip":
+        return "whoosh"
+    if shot.get("transition") == "flash" or shot.get("camera") in ("punch", "shake"):
+        return "hit"
+    return None
+
+
+# ---------------- build ----------------
+
+
+def build_part(story: dict, part: dict, stat_value: float | None) -> tuple[dict, float | None]:
+    narrator = story.get("narrator", "am_michael")
+    cast = story["cast"]
+    shots = []
+    frame = 0
+    timeline = []
+    if stat_value is not None:
+        timeline.append({"frame": 0, "value": round(stat_value, 4)})
+    for s in part["shots"]:
+        shot = {k: v for k, v in s.items()}
+        who = s.get("who", "narrator")
+        voice = narrator if who == "narrator" else cast[who].get("voice", narrator)
+        vo_frames = 0
+        if s.get("vo"):
+            rel, secs = tts(s["vo"], voice)
+            vo_frames = math.ceil(secs * FPS)
+            shot["audio"] = rel
+            shot["voFrames"] = vo_frames
+            if story.get("captions"):
+                shot["words"] = word_timing(s["vo"], vo_frames)
+        dur = VO_OFFSET + vo_frames + 10
+        if s.get("hold"):
+            dur = max(dur, round(s["hold"] * FPS))
+        if s.get("phone"):
+            dur = max(dur, 40 + 22 * len(s["phone"].get("messages", [])))
+        dur = max(dur, 30)
+        shot["from"] = frame
+        shot["dur"] = dur
+        st = s.get("stat")
+        if st and stat_value is not None:
+            stat_value = st["set"] if "set" in st else stat_value + st.get("delta", 0)
+            timeline.append({"frame": frame + 2, "value": round(stat_value, 4)})
+        name = pick_sfx(s)
+        if name:
+            shot["sfxFile"] = sfx_file(name)
+        shots.append(shot)
+        frame += dur
+    # room for the end card
+    shots[-1]["dur"] += END_CARD
+    frame += END_CARD
+    meta = {k: v for k, v in story.items() if k != "parts"}
+    props = {
+        "story": meta,
+        "part": part["part"],
+        "totalParts": len(story["parts"]),
+        "shots": shots,
+        "music": music_file(story.get("mood", "curious")) if story.get("music", True) else None,
+        "musicVolume": story.get("musicVolume", 0.2),
+        "durationInFrames": frame,
+        "statTimeline": timeline,
+    }
+    return props, stat_value
+
+
+def render(props_path: Path, out_path: Path, preview: bool = False) -> None:
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = ["npx", "remotion", "render", "src/index.ts", "Episode", str(out_path), f"--props={props_path}", "--log=error"]
+    if preview:
+        cmd += ["--scale=0.5"]
+    raw = out_path.with_suffix(".raw.mp4")
+    cmd[5] = str(raw)
+    subprocess.run(cmd, cwd=ROOT, check=True)
+    # Loudness to the level TikTok/Reels/Shorts play at (-14 LUFS), video stream copied as is.
+    subprocess.run(
+        ["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
+         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out_path)],
+        check=True,
+    )
+    raw.unlink()
+
+
+def cmd_build(args) -> None:
+    story = json.loads(Path(args.story).read_text())
+    errs = validate(story)
+    if errs:
+        sys.exit("Story has problems:\n  " + "\n  ".join(errs))
+    wanted = {int(x) for x in args.parts.split(",")} if args.parts else None
+    stat = story.get("stat", {}).get("start") if story.get("stat") else None
+    for part in story["parts"]:
+        props, stat = build_part(story, part, stat)
+        n = part["part"]
+        if wanted and n not in wanted:
+            continue
+        pdir = BUILD / story["id"]
+        pdir.mkdir(parents=True, exist_ok=True)
+        props_path = pdir / f"part-{n:02d}.props.json"
+        props_path.write_text(json.dumps(props, ensure_ascii=False))
+        secs = props["durationInFrames"] / FPS
+        print(f"[{story['id']}] part {n}/{len(story['parts'])}: {len(props['shots'])} shots, {secs:.1f}s")
+        if args.no_render:
+            continue
+        out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
+        render(props_path, out, preview=args.preview)
+        print(f"  -> {out.relative_to(ROOT)}")
+
+
+def cmd_check(args) -> None:
+    bad = False
+    for f in args.stories:
+        story = json.loads(Path(f).read_text())
+        errs = validate(story)
+        words = sum(len(s.get("vo", "").split()) for p in story["parts"] for s in p["shots"])
+        print(f"{f}: {len(story['parts'])} parts, ~{words / 2.7 / 60:.1f} min narration, {'OK' if not errs else 'ERRORS'}")
+        for e in errs:
+            print("   ", e)
+        bad |= bool(errs)
+    sys.exit(1 if bad else 0)
+
+
+def cmd_new(args) -> None:
+    sys.path.insert(0, str(Path(__file__).parent))
+    from writer import write_story
+
+    story = write_story(args.premise, args.parts, model=args.model)
+    path = ROOT / "stories" / f"{story['id']}.json"
+    path.write_text(json.dumps(story, indent=2, ensure_ascii=False))
+    errs = validate(story)
+    print(f"wrote {path.relative_to(ROOT)} ({len(story['parts'])} parts)")
+    for e in errs:
+        print("  warning:", e)
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    sub = ap.add_subparsers(required=True)
+    b = sub.add_parser("build", help="render a story")
+    b.add_argument("story")
+    b.add_argument("--parts", help="comma separated part numbers")
+    b.add_argument("--no-render", action="store_true", help="only write props JSON (for remotion studio)")
+    b.add_argument("--preview", action="store_true", help="half resolution, faster")
+    b.set_defaults(fn=cmd_build)
+    c = sub.add_parser("check", help="validate story files")
+    c.add_argument("stories", nargs="+")
+    c.set_defaults(fn=cmd_check)
+    n = sub.add_parser("new", help="write a new story with Claude")
+    n.add_argument("premise")
+    n.add_argument("--parts", type=int, default=5)
+    n.add_argument("--model", default=os.environ.get("STORY_MODEL", "claude-opus-5-5"))
+    n.set_defaults(fn=cmd_new)
+    args = ap.parse_args()
+    args.fn(args)
+
+
+if __name__ == "__main__":
+    main()
