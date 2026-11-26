@@ -6,3 +6,4 @@ out/
 public/gen/
 tts/.venv/
 tts/ref/*.raw.wav
+tts/ref/
