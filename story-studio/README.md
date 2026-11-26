@@ -56,7 +56,7 @@ Das vollständige Format steht in `src/types.ts`. Kurzfassung:
 {
   "id": "lies-come-true",
   "title": "What If Every Lie You Told Instantly Came True?",  // Box oben
-  "mood": "curious",          // Musik: curious | emotional | tense | triumphant | mystery
+  "mood": "trend",            // Musik: trend | phonk | curious | emotional | tense | triumphant | mystery
   "narrator": "am_michael",   // Kokoro-Stimme des Erzählers
   "stat": { "name": "Lies", "start": 0, "decimals": 0 },       // Zähler unten rechts
   "cast": { "leo": { "name": "Leo", "voice": "am_puck", "hair": "slick", "shirt": "#ff8c42", "shirtStyle": "hoodie" } },
@@ -86,12 +86,31 @@ Ein Shot entspricht einer gesprochenen Zeile. Seine Länge richtet sich automati
 Haare: none, spiky, beanie, cap, curly, afro, long, bun, ponytail, bob, mohawk, slick.
 Accessoires: glasses, sunglasses, headphones, earrings, crown, bow, chain, tie.
 
+## Musik
+
+Standard ist `trend`: ein selbst erzeugter Trap/Lo-Fi-Storytelling-Beat (128 BPM Half-Time, D-Moll,
+E-Piano-Akkorde, 808, Claps, Hi-Hat-Rolls, Vinyl-Knistern). Das ist der Sound, den die großen
+„What if“-Kanäle unter ihre Erzählungen legen. Alternative: `phonk` (Cowbell, verzerrte 808).
+Die Musik wird erst nach dem Rendern dazugemischt und automatisch abgesenkt, sobald jemand spricht.
+Deshalb lässt sie sich in Sekunden austauschen, ohne neu zu rendern:
+
+```bash
+uv run pipeline/studio.py remix stories/lies-come-true.json --music phonk
+uv run pipeline/studio.py remix stories/lies-come-true.json --music public/music/mein-track.mp3 --volume 0.15
+uv run pipeline/studio.py remix stories/lies-come-true.json --music none   # nur Stimme + SFX
+```
+
+**Echte Trend-Sounds** (aktuelle Charts-Songs) sind urheberrechtlich geschützt. Wer sie selbst ins
+Video mischt, riskiert Stummschaltung oder Sperrung. Der richtige Weg: mit `--music none` exportieren und
+den Trend-Sound beim Hochladen in der TikTok-App unter „Sounds“ hinzufügen, dort auf ca. 10–15 %
+Lautstärke stellen. Das ist lizenziert, und das Video wird zusätzlich über die Sound-Seite gefunden.
+
 ## Stellschrauben
 
 | Was | Wo |
 |---|---|
-| Musiklautstärke | `"musicVolume": 0.2` im Story-JSON (unter der Stimme automatisch abgesenkt) |
-| Eigene Musik | Datei nach `public/music/x.mp3` legen und `music_file()` in `pipeline/studio.py` anpassen |
+| Musiklautstärke | `"musicVolume": 0.19` im Story-JSON oder `remix --volume` |
+| Eigene Musik | `"music": "public/music/x.mp3"` im Story-JSON oder `--music <datei>` |
 | Sprechtempo | `VOICE_SPEED=1.1 uv run pipeline/studio.py build …` |
 | Untertitel einblenden | `"captions": true` im Story-JSON |
 | Render-Kerne | `RENDER_CONCURRENCY=8` |

@@ -128,6 +128,8 @@ MOODS = {
 
 
 def music(mood: str = "curious", seconds: float = 150.0, seed: int = 1) -> np.ndarray:
+    if mood in ("trend", "phonk"):
+        return trap_beat(mood, seconds, seed)
     global rng
     rng = np.random.default_rng(seed)
     m = MOODS.get(mood, MOODS["curious"])
@@ -194,6 +196,158 @@ def music(mood: str = "curious", seconds: float = 150.0, seed: int = 1) -> np.nd
     mix[:, :f] *= ramp
     mix[:, -f:] *= ramp[::-1]
     mix /= np.max(np.abs(mix)) + 1e-9
+    return (mix * 0.89).T
+
+
+# ---------------- trending styles ----------------
+# "trend": the half-time trap / lo-fi storytelling beat that narrated story channels use
+# (~128 BPM felt as 64, minor key, electric piano chords, 808, soft claps, rolling hats,
+# vinyl crackle, pads pumping against the kick).
+# "phonk": darker drift-phonk flavour (cowbell lead, distorted 808, fast hats), kept soft.
+
+
+def epiano(freq, dur):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = tone(freq, dur, [(1, 1.0, 1.6), (2, 0.28, 0.7), (3, 0.12, 0.35), (4, 0.06, 0.2), (7.1, 0.05, 0.03)], attack=0.006)
+    return x * (1 + 0.18 * np.sin(2 * np.pi * 4.8 * t))  # tremolo
+
+
+def sub808(freq, dur, drive=1.4):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    f = freq * (1 + 0.6 * np.exp(-t * 35))
+    x = np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t * 1.6) * np.clip(t / 0.004, 0, 1)
+    return np.tanh(x * drive) / np.tanh(drive)
+
+
+def clap(dur=0.3):
+    n = int(dur * SR)
+    out = np.zeros(n)
+    for k, d in enumerate((0, 0.011, 0.022)):
+        i = int(d * SR)
+        m = n - i
+        nz = rng.standard_normal(m)
+        nz = nz - np.convolve(nz, np.ones(6) / 6, mode="same")
+        out[i:] += nz * np.exp(-np.arange(m) / SR * (60 if k < 2 else 16)) * (0.6 if k < 2 else 1)
+    return out * 0.5
+
+
+def cowbell(freq, dur):
+    n = int(dur * SR)
+    t = np.arange(n) / SR
+    x = np.sign(np.sin(2 * np.pi * freq * t)) * 0.5 + np.sign(np.sin(2 * np.pi * freq * 1.48 * t)) * 0.5
+    x = lowpass(x, 3200)
+    return x * np.exp(-t * 7) * 0.6
+
+
+def crackle(seconds):
+    n = int(seconds * SR)
+    x = rng.standard_normal(n) * 0.0015
+    x = lowpass(x, 3000)
+    pops = rng.random(n) < 0.00005
+    x[pops] += rng.uniform(-0.06, 0.06, pops.sum())
+    return x
+
+
+def trap_beat(style: str = "trend", seconds: float = 150.0, seed: int = 3) -> np.ndarray:
+    global rng
+    rng = np.random.default_rng(seed)
+    phonk = style == "phonk"
+    bpm = 130 if phonk else 128
+    step = 60 / bpm / 4  # 16th note
+    bar = step * 16
+    prog = [["D", "m7"], ["Bb", "maj7"], ["F", ""], ["C", ""]] if not phonk else [["D", "m"], ["D", "m"], ["Bb", ""], ["A", ""]]
+    n = int(seconds * SR) + SR * 3
+    keys = np.zeros(n)
+    drums = np.zeros(n)
+    bassb = np.zeros(n)
+    lead = np.zeros(n)
+
+    def put(buf, sig, start, gain=1.0):
+        i = int(start * SR)
+        if i >= n:
+            return
+        sig = sig[: n - i] * gain
+        buf[i : i + len(sig)] += sig
+
+    def notes_of(root, kind):
+        base = 12 * 5 + NOTE[root]
+        if kind == "m7":
+            iv = [0, 3, 7, 10]
+        elif kind == "maj7":
+            iv = [0, 4, 7, 11]
+        elif kind == "m":
+            iv = [0, 3, 7, 12]
+        else:
+            iv = [0, 4, 7, 12]
+        return [base + i - 12 for i in iv]
+
+    bars = int(seconds / bar) + 1
+    kicks_at = []
+    melody = [[14, None, 12, None, 10, None, 9, 10], [None, 9, None, 7, None, 5, None, 7], [10, None, 9, None, 7, None, 5, None], [7, None, None, 5, None, 2, None, None]]
+    for b in range(bars):
+        t0 = b * bar
+        root, kind = prog[b % 4]
+        ch = notes_of(root, kind)
+        sect = b % 32
+        intro = b < 4
+        breakdown = 24 <= sect < 28
+        # keys: chord stab on 1, softer re-hit on the "and" of 3
+        for k, nmid in enumerate(ch):
+            put(keys, epiano(hz(nmid), bar * 1.1), t0 + k * 0.012, 0.34)
+            if not intro:
+                put(keys, epiano(hz(nmid + 12), step * 3), t0 + step * 10 + k * 0.01, 0.1)
+        if intro or breakdown:
+            continue
+        # drums (half-time): kick 0, 7, 10 ; clap on 8 ; hats in 8ths with rolls
+        kick_steps = [0, 7, 10] if b % 2 == 0 else [0, 3, 10, 14]
+        for s_ in kick_steps:
+            put(drums, kick(0.3), t0 + s_ * step, 0.55)
+            kicks_at.append(t0 + s_ * step)
+        put(drums, lowpass(clap(), 7000), t0 + 8 * step, 0.3)
+        roll = b % 4 == 3
+        for s_ in range(0, 16, 2):
+            vel = 0.16 if s_ % 4 == 0 else 0.1
+            put(drums, lowpass(hat(0.04), 9000), t0 + s_ * step, vel)
+        if roll:
+            for r in range(6):
+                put(drums, hat(0.03), t0 + 12 * step + r * step * 2 / 3, 0.06 + r * 0.015)
+        if phonk:
+            for s_ in range(1, 16, 2):
+                put(drums, hat(0.03), t0 + s_ * step, 0.07)
+        # 808 follows the chord root, glide feel from the pitch drop
+        broot = 12 * 2 + NOTE[root]
+        for s_ in kick_steps:
+            put(bassb, sub808(hz(broot), bar * 0.45, drive=3.0 if phonk else 1.4), t0 + s_ * step, 0.32)
+        # lead: bell (trend) or cowbell (phonk), only in the second half of each 8-bar phrase
+        if (b % 8) >= 4:
+            scale = [0, 2, 3, 5, 7, 8, 10, 12, 14, 15]
+            mel = melody[b % 4]
+            for k, deg in enumerate(mel):
+                if deg is None:
+                    continue
+                m_ = 12 * 6 + NOTE["D"] + deg - (12 if phonk else 0)
+                put(lead, (cowbell if phonk else bell)(hz(m_), step * 3), t0 + k * step * 2, 0.16 if phonk else 0.14)
+    # sidechain: pump keys against the kick
+    env_ = np.ones(n)
+    for kt in kicks_at:
+        i = int(kt * SR)
+        L = int(0.22 * SR)
+        seg = 1 - 0.55 * np.exp(-np.arange(min(L, n - i)) / SR * 14)
+        env_[i : i + len(seg)] = np.minimum(env_[i : i + len(seg)], seg)
+    keys = keys * env_
+    keys = lowpass(keys, 2600)
+    mix_l = keys * 1.0 + drums * 0.9 + bassb * 0.9 + lead * 0.9
+    mix_r = keys * 0.95 + drums * 0.9 + bassb * 0.9 + lead * 0.8
+    cr = crackle(n / SR)
+    mix = np.stack([reverb(mix_l, 1.8, 0.18) + cr[:n], reverb(mix_r, 1.8, 0.18) + cr[:n] * 0.9])
+    mix = mix[:, : int(seconds * SR)]
+    f = int(1.0 * SR)
+    ramp = np.linspace(0, 1, f)
+    mix[:, :f] *= ramp
+    mix[:, -f:] *= ramp[::-1]
+    mix = np.tanh(mix / (np.max(np.abs(mix)) + 1e-9) * 1.3) / np.tanh(1.3)
     return (mix * 0.89).T
 
 

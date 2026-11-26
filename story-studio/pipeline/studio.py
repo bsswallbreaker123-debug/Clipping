@@ -3,6 +3,7 @@
     uv run pipeline/studio.py build stories/rejection-glowup.json            # all parts
     uv run pipeline/studio.py build stories/rejection-glowup.json --parts 1,2
     uv run pipeline/studio.py new "What if ..." --parts 10                   # needs ANTHROPIC_API_KEY
+    uv run pipeline/studio.py remix stories/rejection-glowup.json --music phonk  # swap music, no re-render
     uv run pipeline/studio.py check stories/*.json                            # validate only
 
 Steps per part: narration (Kokoro TTS, local) -> timing -> props JSON -> Remotion render.
@@ -222,29 +223,53 @@ def build_part(story: dict, part: dict, stat_value: float | None) -> tuple[dict,
         "part": part["part"],
         "totalParts": len(story["parts"]),
         "shots": shots,
-        "music": music_file(story.get("mood", "curious")) if story.get("music", True) else None,
-        "musicVolume": story.get("musicVolume", 0.2),
+        "music": None,  # mixed in afterwards by mix(), so it can be swapped without re-rendering
         "durationInFrames": frame,
         "statTimeline": timeline,
     }
     return props, stat_value
 
 
-def render(props_path: Path, out_path: Path, preview: bool = False) -> None:
-    out_path.parent.mkdir(parents=True, exist_ok=True)
-    cmd = ["npx", "remotion", "render", "src/index.ts", "Episode", str(out_path), f"--props={props_path}", "--log=error"]
+def render(props_path: Path, stem_path: Path, preview: bool = False) -> None:
+    """Render picture + voices + sound effects (no music) to a stem file."""
+    stem_path.parent.mkdir(parents=True, exist_ok=True)
+    cmd = ["npx", "remotion", "render", "src/index.ts", "Episode", str(stem_path), f"--props={props_path}", "--log=error"]
     if preview:
         cmd += ["--scale=0.5"]
-    raw = out_path.with_suffix(".raw.mp4")
-    cmd[5] = str(raw)
     subprocess.run(cmd, cwd=ROOT, check=True)
-    # Loudness to the level TikTok/Reels/Shorts play at (-14 LUFS), video stream copied as is.
-    subprocess.run(
-        ["ffmpeg", "-v", "error", "-y", "-i", str(raw), "-c:v", "copy", "-af", "loudnorm=I=-14:TP=-1.5:LRA=11",
-         "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out_path)],
-        check=True,
-    )
-    raw.unlink()
+
+
+def resolve_music(choice: str | None) -> Path | None:
+    """A mood name (trend, phonk, curious, ...), a file path, or none."""
+    if not choice or choice == "none":
+        return None
+    p = Path(choice)
+    if p.suffix and p.exists():
+        return p.resolve()
+    if p.suffix and (PUBLIC / "music" / p.name).exists():
+        return PUBLIC / "music" / p.name
+    return PUBLIC / music_file(choice)
+
+
+def mix(stem: Path, music: Path | None, out: Path, volume: float) -> None:
+    """Lay music under the stem, duck it whenever someone speaks, normalise to -14 LUFS."""
+    out.parent.mkdir(parents=True, exist_ok=True)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(stem)],
+                               capture_output=True, text=True, check=True).stdout.strip())
+    norm = "loudnorm=I=-14:TP=-1.5:LRA=11"
+    if music is None:
+        cmd = ["ffmpeg", "-v", "error", "-y", "-i", str(stem), "-c:v", "copy", "-af", norm]
+    else:
+        fc = (
+            f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={volume},afade=t=in:d=0.6[m];"
+            "[0:a]aformat=sample_rates=48000:channel_layouts=stereo,asplit=2[v][sc];"
+            "[m][sc]sidechaincompress=threshold=0.015:ratio=5:attack=20:release=450[md];"
+            f"[v][md]amix=inputs=2:normalize=0:duration=first,afade=t=out:st={max(0, dur - 1.2):.2f}:d=1.2,{norm}[a]"
+        )
+        cmd = ["ffmpeg", "-v", "error", "-y", "-i", str(stem), "-stream_loop", "-1", "-i", str(music),
+               "-filter_complex", fc, "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-t", f"{dur:.3f}"]
+    cmd += ["-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out)]
+    subprocess.run(cmd, check=True)
 
 
 def cmd_build(args) -> None:
@@ -267,9 +292,25 @@ def cmd_build(args) -> None:
         print(f"[{story['id']}] part {n}/{len(story['parts'])}: {len(props['shots'])} shots, {secs:.1f}s")
         if args.no_render:
             continue
+        stem = pdir / f"part-{n:02d}.stem.mp4"
+        render(props_path, stem, preview=args.preview)
         out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
-        render(props_path, out, preview=args.preview)
+        mix(stem, resolve_music(args.music or story.get("music") or story.get("mood", "trend")), out, story.get("musicVolume", 0.19))
         print(f"  -> {out.relative_to(ROOT)}")
+
+
+def cmd_remix(args) -> None:
+    story = json.loads(Path(args.story).read_text())
+    music = resolve_music(args.music or story.get("music") or story.get("mood", "trend"))
+    vol = args.volume if args.volume is not None else story.get("musicVolume", 0.19)
+    stems = sorted((BUILD / story["id"]).glob("part-*.stem.mp4"))
+    if not stems:
+        sys.exit("No stems yet - run `build` first.")
+    for stem in stems:
+        n = int(stem.name.split("-")[1].split(".")[0])
+        out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
+        mix(stem, music, out, vol)
+        print(f"  -> {out.relative_to(ROOT)} ({music.name if music else 'no music'})")
 
 
 def cmd_check(args) -> None:
@@ -306,7 +347,13 @@ def main() -> None:
     b.add_argument("--parts", help="comma separated part numbers")
     b.add_argument("--no-render", action="store_true", help="only write props JSON (for remotion studio)")
     b.add_argument("--preview", action="store_true", help="half resolution, faster")
+    b.add_argument("--music", help="mood (trend, phonk, curious, emotional, tense, triumphant, mystery), a file, or none")
     b.set_defaults(fn=cmd_build)
+    r = sub.add_parser("remix", help="swap the music on rendered parts in seconds (no re-render)")
+    r.add_argument("story")
+    r.add_argument("--music", help="mood, audio file, or none (for adding a trending sound in the TikTok app)")
+    r.add_argument("--volume", type=float, help="music level, default 0.19")
+    r.set_defaults(fn=cmd_remix)
     c = sub.add_parser("check", help="validate story files")
     c.add_argument("stories", nargs="+")
     c.set_defaults(fn=cmd_check)

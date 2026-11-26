@@ -74,7 +74,7 @@ def write_story(premise: str, parts: int, model: str = "claude-opus-5-5") -> dic
 Number of parts: {parts}
 
 Return ONLY a JSON object with: id (kebab-case), title (the "What If ...?" question, max 12 words),
-mood (curious|emotional|tense|triumphant|mystery), narrator (kokoro voice, e.g. am_michael),
+mood (trend|phonk|curious|emotional|tense|triumphant|mystery; trend is the default), narrator (kokoro voice, e.g. am_michael),
 stat ({{name, start, decimals, suffix?}}), captions (false), cast (3-6 members, each with a
 distinct look and a kokoro voice: am_puck, am_echo, am_fenrir, am_liam, af_bella, af_sarah, af_nicole,
 af_sky, bm_george, bf_emma), and outline: an array of {parts} objects
