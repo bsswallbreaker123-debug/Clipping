@@ -31,6 +31,8 @@ FPS = 30
 VO_OFFSET = 3
 END_CARD = 45
 SPEED = float(os.environ.get("VOICE_SPEED", "1.0"))
+# TikTok Creator Rewards only pays for videos longer than 1 minute; keep a safety margin.
+MIN_SECONDS = float(os.environ.get("MIN_SECONDS", "62"))
 
 BACKGROUNDS = {"bedroom", "classroom", "cafeteria", "hallway", "street", "park", "office", "gym", "party", "livingroom", "store", "rooftop", "void", "stage", "school", "hospital"}
 EXPRS = {"neutral", "happy", "grin", "smug", "sad", "crying", "shocked", "angry", "nervous", "confused", "love", "sleepy", "determined", "cringe"}
@@ -177,7 +179,8 @@ def pick_sfx(shot: dict) -> str | None:
 # ---------------- build ----------------
 
 
-def build_part(story: dict, part: dict, stat_value: float | None) -> tuple[dict, float | None]:
+def build_part(story: dict, part: dict, stat_value: float | None, pad: int = 0) -> tuple[dict, float | None]:
+    start_value = stat_value
     narrator = story.get("narrator", "am_michael")
     cast = story["cast"]
     shots = []
@@ -197,7 +200,7 @@ def build_part(story: dict, part: dict, stat_value: float | None) -> tuple[dict,
             shot["voFrames"] = vo_frames
             if story.get("captions"):
                 shot["words"] = word_timing(s["vo"], vo_frames)
-        dur = VO_OFFSET + vo_frames + 10
+        dur = VO_OFFSET + vo_frames + 10 + pad
         if s.get("hold"):
             dur = max(dur, round(s["hold"] * FPS))
         if s.get("phone"):
@@ -217,6 +220,12 @@ def build_part(story: dict, part: dict, stat_value: float | None) -> tuple[dict,
     # room for the end card
     shots[-1]["dur"] += END_CARD
     frame += END_CARD
+    min_frames = round(story.get("minSeconds", MIN_SECONDS) * FPS)
+    if frame < min_frames and pad == 0:
+        # too short to be monetised: spread a little extra air over every line and rebuild
+        extra = math.ceil((min_frames - frame) / len(part["shots"]))
+        print(f"  part {part['part']} is {frame / FPS:.1f}s, adding {extra / FPS:.2f}s per shot to reach {min_frames / FPS:.0f}s")
+        return build_part(story, part, start_value, pad=extra)
     meta = {k: v for k, v in story.items() if k != "parts"}
     props = {
         "story": meta,
