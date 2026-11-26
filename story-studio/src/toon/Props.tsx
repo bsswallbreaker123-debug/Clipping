@@ -283,16 +283,24 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
       return (
         <g transform={`translate(540 900) scale(${(0.8 + 0.2 * k) * drift})`}>
           <rect x={-400} y={-520} width={800} height={1040} fill={p.c ?? "#e8dfc8"} />
-          {lines(p.a).map((l, i) => (
-            <text key={i} x={0} y={-320 + i * 130} textAnchor="middle" fontSize={110} fill="#1d1d22" {...Font}>
-              {l}
-            </text>
-          ))}
-          {p.b && (
-            <text x={0} y={420} textAnchor="middle" fontSize={56} fill="#c0242c" {...Font}>
-              {txt(p.b)}
-            </text>
-          )}
+          {(() => {
+            const tl = lines(p.a);
+            const fs = Math.min(110, Math.floor(1100 / Math.max(...tl.map((l) => l.length), 1)));
+            return tl.map((l, i) => (
+              <text key={i} x={0} y={-320 + i * (fs + 20)} textAnchor="middle" fontSize={fs} fill="#1d1d22" {...Font}>
+                {l}
+              </text>
+            ));
+          })()}
+          {p.b && (() => {
+            const bl = wrap(txt(p.b), 20).slice(0, 3);
+            const fs = Math.min(56, Math.floor(1150 / Math.max(...bl.map((l) => l.length), 1)));
+            return bl.map((l, i) => (
+              <text key={i} x={0} y={420 - (bl.length - 1 - i) * (fs + 10)} textAnchor="middle" fontSize={fs} fill="#c0242c" {...Font}>
+                {l}
+              </text>
+            ));
+          })()}
         </g>
       );
     }
