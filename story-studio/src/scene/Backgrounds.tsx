@@ -427,10 +427,10 @@ export const Crowd: React.FC<{ n: number; frame: number; seed: string }> = ({ n,
       const col = ["#3b2027", "#2c2638", "#3a2a22"][i % 3];
       return (
         <g key={i} transform={`translate(${x} ${860 + bob}) scale(${s})`}>
-          <rect x={-10} y={-150} width={8} height={150} fill={col} />
-          <rect x={4} y={-150} width={8} height={150} fill={col} />
-          <rect x={-46} y={-300} width={92} height={160} rx={30} fill={col} />
-          <circle cx={0} cy={-360} r={70} fill={col} />
+          <rect x={-12} y={-210} width={10} height={210} fill={col} />
+          <rect x={4} y={-210} width={10} height={210} fill={col} />
+          <rect x={-44} y={-385} width={88} height={190} rx={30} fill={col} />
+          <circle cx={0} cy={-440} r={62} fill={col} />
         </g>
       );
     })}

@@ -529,8 +529,10 @@ export const Character: React.FC<{
   const blink = (t % blinkPeriod) < 0.12;
   const look = facing === "front" ? 0 : 4;
 
-  const legLen = p.sit ? 0 : 140;
-  const hipY = -140;
+  // teen proportions (~17 years): long legs, longer torso, smaller head (~29% of height)
+  const legLen = p.sit ? 0 : 205;
+  const hipY = -205;
+  const UPPER = "translate(0 -65) translate(0 -124) scale(0.94 1.15) translate(0 124)";
   const legColor = m.pants ?? skin;
   const dress = m.shirtStyle === "dress";
   const shoe = isExtra ? skin : m.shirtStyle === "suit" ? "#1b1b1f" : "#f3f3f3";
@@ -553,12 +555,12 @@ export const Character: React.FC<{
   );
 
   const body = (
-    <g transform={`translate(0 ${p.bodyY + (p.sit ? 70 : 0)}) rotate(${p.bodyRot} 0 ${action === "fall" ? -20 : -140})`}>
+    <g transform={`translate(0 ${p.bodyY + (p.sit ? 135 : 0)}) rotate(${p.bodyRot} 0 ${action === "fall" ? -20 : -205})`}>
       {/* legs */}
       {p.sit ? (
-        <g stroke={legColor} strokeWidth={18} strokeLinecap="round" fill="none">
-          <path d="M -18 -140 L 50 -140 L 55 -76" />
-          <path d="M 18 -140 L 85 -140 L 90 -76" />
+        <g stroke={legColor} strokeWidth={20} strokeLinecap="round" fill="none" transform="translate(0 -65)">
+          <path d="M -18 -140 L 60 -140 L 62 -76" />
+          <path d="M 18 -140 L 95 -140 L 97 -76" />
           <path d="M 42 -62 Q 42 -80 58 -80 Q 80 -78 82 -62 Z M 77 -62 Q 77 -80 93 -80 Q 115 -78 117 -62 Z" fill={shoe} stroke="none" />
         </g>
       ) : (
@@ -577,6 +579,7 @@ export const Character: React.FC<{
           })}
         </g>
       )}
+      <g transform={UPPER}>
       {/* back arm */}
       <Arm sx={-52} sy={-268} a1={p.l[0]} a2={p.l[1]} color={skin} sleeve={shirt} />
       <rect x={-17} y={-305} width={34} height={22} rx={8} fill={skin} />
@@ -609,8 +612,9 @@ export const Character: React.FC<{
       {m.shirtStyle === "jacket" && <path d="M 0 -290 L 0 -126" stroke="rgba(0,0,0,0.35)" strokeWidth={8} />}
       {m.accessories?.includes("chain") && <path d="M -40 -288 Q 0 -215 40 -288" stroke="#f5c542" strokeWidth={7} fill="none" />}
       {m.accessories?.includes("tie") && <path d="M -7 -285 L 7 -285 L 11 -210 L 0 -196 L -11 -210 Z" fill="#c0392b" />}
+      </g>
       {/* head */}
-      <g transform={`translate(0 ${Math.sin(t * 2.2 + 1) * 1.5}) rotate(${(talking ? Math.sin(t * 3.1) * 3 : Math.sin(t * 0.9 + seed) * 1.2).toFixed(2)} 0 -290)`}>
+      <g transform={`translate(0 -392) scale(0.8) translate(0 290) translate(0 ${Math.sin(t * 2.2 + 1) * 1.5}) rotate(${(talking ? Math.sin(t * 3.1) * 3 : Math.sin(t * 0.9 + seed) * 1.2).toFixed(2)} 0 -290)`}>
         {m.hair && <HairBack hair={m.hair} color={hairColor} t={t} />}
         <circle cx={0} cy={HEAD_Y} r={HEAD_R} fill={`url(#${gid}head)`} />
         <path d={`M ${-HEAD_R * 0.72} ${HEAD_Y - HEAD_R * 0.5} A ${HEAD_R * 0.9} ${HEAD_R * 0.9} 0 0 1 ${-HEAD_R * 0.05} ${HEAD_Y - HEAD_R * 0.88}`} stroke="rgba(255,255,255,0.10)" strokeWidth={8} strokeLinecap="round" fill="none" />
@@ -624,6 +628,7 @@ export const Character: React.FC<{
         {m.hair && <HairFront hair={m.hair} color={hairColor} t={t} />}
         {spec.fx && <Fx fx={spec.fx} t={t} f={frame} />}
       </g>
+      <g transform={UPPER}>
       {/* front arm (+ phone) */}
       <Arm sx={52} sy={-268} a1={p.r[0]} a2={p.r[1]} color={skin} sleeve={shirt} />
       {action === "phone" && (() => {
@@ -633,6 +638,7 @@ export const Character: React.FC<{
         const r2 = ((p.r[0] + p.r[1]) * Math.PI) / 180;
         return <rect x={ex + Math.sin(r2) * 59 - 18} y={ey + Math.cos(r2) * 59 - 50} width={36} height={64} rx={7} fill="#1b1b1f" stroke="#cfd8ff" strokeWidth={4} />;
       })()}
+      </g>
     </g>
   );
 
@@ -644,7 +650,7 @@ export const Character: React.FC<{
           <stop offset="100%" stopColor="#ffd400" stopOpacity={0} />
         </radialGradient>
       </defs>
-      <ellipse cx={0} cy={-260} rx={230 + Math.sin(t * 4) * 15} ry={330} fill={`url(#glow${seed})`} />
+      <ellipse cx={0} cy={-300} rx={230 + Math.sin(t * 4) * 15} ry={360} fill={`url(#glow${seed})`} />
       {Array.from({ length: 8 }).map((_, i) => {
         const k = (t * 0.5 + i / 8) % 1;
         return <Star key={i} x={Math.sin(i * 2.4) * 170} y={-60 - k * 520} s={(1 - Math.abs(k - 0.5) * 2) * 22} color="#fff6b0" />;

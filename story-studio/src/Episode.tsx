@@ -63,11 +63,11 @@ function cameraTransform(cam: Camera | undefined, f: number, dur: number, chars:
     jitterY = Math.cos(f * 3.1) * 10 * (1 - k * 0.5);
   } else if (typeof cam === "object") {
     const target = chars.find((c) => c.id === cam.focus) ?? chars[0];
-    const z = cam.zoom ?? 2.1;
+    const z = cam.zoom ?? 2.0;
     s = z * (1 + 0.05 * ease);
     cx = target ? charX(target, f, dur) * 1920 : 960;
     const sc = target?.scale ?? 1;
-    cy = 1000 - 330 * sc;
+    cy = 1000 - 425 * sc;
   }
   const halfW = 960 / s;
   const halfH = 540 / s;
