@@ -45,7 +45,9 @@ function targetOf(id: string, shot: BTimedShot, f: number): { pos: [number, numb
   const c = (shot.chars ?? []).find((x) => x.id === id) ?? (shot.chars ?? [])[0];
   if (!c) return { pos: [0, 0, 0], head: 4.6 };
   const p = charPos(c, f, shot.dur);
-  return { pos: p, head: 4.6 };
+  const sc = 1; // cast scale is applied in the scene; close enough for framing
+  const drop = c.anim === "sit" ? 1.0 : c.anim === "crouch" ? 0.6 : 0;
+  return { pos: p, head: (4.6 - drop) * sc };
 }
 
 // ---------------------------------------------------------------- camera
@@ -84,8 +86,8 @@ const CameraRig: React.FC<{ shot: BTimedShot; f: number }> = ({ shot, f }) => {
         look = new THREE.Vector3(t.pos[0], t.head, t.pos[2]);
       } else {
         const side = cam.side ?? 0.6;
-        pos = new THREE.Vector3(t.pos[0] + side * 1.6, t.head + 0.4, t.pos[2] + 6.6 - e * 0.8);
-        look = new THREE.Vector3(t.pos[0], t.head - 0.25, t.pos[2]);
+        pos = new THREE.Vector3(t.pos[0] + side * 1.3, t.head + 0.15, t.pos[2] + 5.0 - e * 0.6);
+        look = new THREE.Vector3(t.pos[0], t.head - 0.7, t.pos[2]);
       }
     } else if (typeof cam === "object" && "low" in cam) {
       const t = targetOf(cam.low, shot, f);
