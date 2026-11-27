@@ -339,7 +339,7 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
       const v = Math.round(interpolate(f, [4, Math.min(dur - 4, 40)], [from, to], clamp));
       return (
         <g transform={`translate(540 900) scale(${(0.6 + 0.4 * k) * drift})`}>
-          <text x={0} y={100} textAnchor="middle" fontSize={300} fill={p.c?.startsWith("#") ? p.c : "#ffffff"} {...Font} style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,.6))" }}>
+          <text x={0} y={100} textAnchor="middle" fontSize={Math.min(300, 960 / (Math.max(1, to.toLocaleString("en-US").length) * 0.62))} fill={p.c?.startsWith("#") ? p.c : "#ffffff"} {...Font} style={{ filter: "drop-shadow(0 10px 30px rgba(0,0,0,.6))" }}>
             {v.toLocaleString("en-US")}
           </text>
           {p.c && !p.c.startsWith("#") && (

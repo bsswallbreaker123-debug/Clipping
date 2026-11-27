@@ -40,7 +40,7 @@ scenes:
   void: void
 
 == 1
-void | One hundred strangers. Six children's games. One winner takes *everything.* | t=black cam=push
+arena | One hundred strangers. Six children's games. One winner takes *everything.* | cam=push @brick:.24:grin:arms+y=180 @me:.5:worried:idle+y=180 @rina:.76:determined:idle+y=180
 hospital | Three weeks ago, my mum's hospital bill hit *four hundred and twelve thousand* dollars. | @mum:.45:sleep:lie+y=-205+size=.85 @me:.82:sad:idle+y=60 cam=creep
 subway | Then a man in a suit sat down next to me on the subway. | @suit:.3:smile:idle+y=60 @me:.7:suspicious:idle+y=60 cam=push
 subway | suit> Do you want to play a game, Kai? | close=suit @suit:.5:smile:talk
@@ -71,7 +71,7 @@ dorm | And his face... was my little ^brother's.^ | close=noah,me @noah:.5:cryin
 dorm | My fifteen-year-old brother Noah was supposed to be at home. Doing homework. | close=noah,me @noah:.5:crying:idle @me:.5:angry:idle cam=push t=black
 dorm | noah> [crying] The man said I could pay for Mum's surgery. I didn't know you'd be here. | close=noah @noah:.5:crying:talk
 dorm | And then the speakers crackled. | sfx=buzz cam=up
-dorm | host> [calm] Rule three. If the majority votes to stop, the games end. Everyone goes home. ^With nothing.^ | rule=RULE_#3 cam=push
+dorm | host> [calm] Rule three. If the majority votes to stop, the games end. Everyone goes home. ^With nothing.^ | rule=RULE_#3 cam=push @me:.36:worried:idle+y=100 @noah:.64:scared:idle+y=100
 dorm | Fifty-eight people. One button each. Green to stay. Red to go home. | cam=creep
 dorm | I pressed red. For Noah. I didn't care about the money anymore. | close=me @me:.5:determined:idle
 void | | prop=number:29:0:STAY hold=1.6
@@ -135,7 +135,7 @@ control | | prop=phone:chat:THE_HOST:I_see_you,_Guard_17./Game_three_is_yours_no
 
 == 5
 dorm | Game three. The speakers said: "Find a partner." | t=black cam=push sfx=buzz
-dorm | Everyone grabbed someone. Noah grabbed Rina. Before I could reach them. | @noah:.3:scared:hug+y=100 @rina:.45:determined:idle+y=100 @me:.8:shocked:reach+y=100 cam=right
+dorm | Everyone grabbed someone. Noah grabbed Rina. Before I could reach them. | @noah:.28:scared:hug+y=100 @rina:.46:determined:idle+y=100 @me:.72:shocked:reach+y=100 cam=push
 dorm | That left me. And an old man who smiled like he knew the ending. Number 009. | @abbott:.4:smile:idle+y=100 @me:.7:worried:idle+y=100 cam=push
 dorm | abbott> [chuckle] Don't look so sad, son. I'm a very good partner. | close=abbott @abbott:.5:smile:talk
 stairs | They took each pair into a little alley. Like the street I grew up on. | cam=up
