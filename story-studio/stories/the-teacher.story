@@ -43,7 +43,7 @@ mint | Eight strangers. Eleven days. Two point four ^billion^ euros. And not a s
 hideout | That was the plan. The Teacher's plan. | @teacher:.5:smile:talk+y=60 cam=push
 hideout | He found me in a prison cell. I was nineteen. I'd hacked a bank for fun. | tag=ONE_YEAR_EARLIER @teacher:.35:smile:idle+y=60 @me:.7:suspicious:arms+y=60 cam=creep
 hideout | teacher> You don't need a gun to rob a bank. You need *patience.* | close=teacher @teacher:.5:smile:talk
-hideout | He gave us chess names. King. Bishop. Rook. Two kids called Pawn. | @king:.15:smug:arms+y=80 @bishop:.38:neutral:idle+y=80 @rook:.62:grin:idle+y=80 @pawn:.85:smile:idle+y=80 cam=right
+hideout | He gave us chess names. King. Bishop. Rook. Two kids called Pawn. | @king:.2:smug:arms+y=80 @bishop:.4:neutral:idle+y=80 @rook:.6:grin:idle+y=80 @pawn:.79:smile:idle+y=80 cam=push
 hideout | And me. ^Knight.^ | close=me @me:.5:determined:idle cam=zoom
 hideout | teacher> We're not stealing anybody's money. We're going to ^print our own.^ | close=teacher @teacher:.5:smug:talk cam=push
 city | The National Mint. Every euro in the country comes out of that building. | cam=up
@@ -223,7 +223,7 @@ city | At exactly 12:47, every bakery van in the old town started its engine. | 
 city | Forty-two white vans. Same company. Same logo. Driving out in forty-two different directions. | cam=right
 police | The police followed all forty-two. We were in the forty-third. | fx=money cam=pull
 beach | Six weeks later. An island I can't name. | tag=SIX_WEEKS_LATER cam=push
-beach | Rook bought a boat. Bishop opened a bookshop. Pawn's mum moved in with him. | @rook:.25:grin:wave+y=100 @bishop:.5:smile:idle+y=100 @pawn:.78:smile:idle+y=100 cam=right
+beach | Rook bought a boat. Bishop opened a bookshop. Pawn's mum moved in with him. | @rook:.24:grin:wave+y=100 @bishop:.5:smile:idle+y=100 @pawn:.74:smile:idle+y=100 cam=push
 beach | The Teacher and Sofia drink coffee every morning. Same table. | @teacher:.35:smile:sit+item=cup+y=60 @sofia:.65:smile:sit+item=cup+y=60 cam=creep
 beach | And Clara? She's learning to hack. From me. | @clara:.35:smile:idle+y=100 @me:.65:smile:idle+y=100 cam=push
 beach | King took twelve years in prison. We visit him in March. He says the food is great. | close=me @me:.5:sad:idle

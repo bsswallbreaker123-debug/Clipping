@@ -249,18 +249,21 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
       );
     }
     case "clock": {
-      const s = (p.a ?? "0:00").split(":");
+      // a = "HH:MM", or a = HH and b = MM (the story syntax splits on ":"); label = the next field
+      const split = !(p.a ?? "").includes(":") && /^\d+$/.test(p.b ?? "");
+      const s = split ? [p.a ?? "0", p.b ?? "00"] : (p.a ?? "0:00").split(":");
+      const label = split ? p.c : p.b;
       return (
         <g transform={`translate(540 900) scale(${drift})`}>
           <rect x={-380} y={-220} width={760} height={440} rx={40} fill="#0c0c0f" stroke="#2a2a30" strokeWidth={12} />
-          <text x={0} y={90} textAnchor="middle" fontSize={260} fill="#ff2a2a" fontFamily="'Courier New', monospace" fontWeight={700} style={{ filter: "drop-shadow(0 0 24px #ff2a2a)" }}>
+          <text x={0} y={80} textAnchor="middle" fontSize={225} fill="#ff2a2a" fontFamily="'Courier New', monospace" fontWeight={700} style={{ filter: "drop-shadow(0 0 24px #ff2a2a)" }}>
             {s[0]}
             <tspan opacity={Math.floor(t * 2) % 2 ? 0.2 : 1}>:</tspan>
             {s[1]}
           </text>
-          {p.b && (
+          {label && (
             <text x={0} y={180} textAnchor="middle" fontSize={44} fill="#ff6a6a" {...Font}>
-              {txt(p.b)}
+              {txt(label)}
             </text>
           )}
         </g>
