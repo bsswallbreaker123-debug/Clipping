@@ -324,7 +324,7 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
           <g transform={`translate(${-300 + 600 * prog} ${420 - 840 * prog})`}>
             <circle r={22} fill="#c0242c" />
           </g>
-          <text x={300} y={-460} textAnchor="middle" fontSize={56} fill="#1d1d22" {...Font}>
+          <text x={420} y={-460} textAnchor="end" fontSize={Math.min(56, 820 / ((txt(p.a).length + 2) * 0.66))} fill="#1d1d22" {...Font}>
             ✕ {txt(p.a)}
           </text>
           {p.b && (

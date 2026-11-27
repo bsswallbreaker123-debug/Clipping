@@ -177,14 +177,14 @@ cell-dark | Skinner. He'd seen her. And he was coming ^with us.^ | close=me @me:
 
 == 8
 pipes | Thursday. Two in the morning. Section nine. The storm drain from 1902. | tag=DAY_10_-_2:00_AM t=black fx=dark cam=push
-pipes | I got Cole out of the old wing with Hart's key. | @cole:.35:determined:walk+to=.5+y=80 @me:.6:determined:walk+to=.75+y=80 fx=dark cam=right
+pipes | I got Cole out of the old wing with Hart's key. | @cole:.2:determined:walk+to=.34+y=80 @me:.58:determined:walk+to=.72+y=80 fx=dark cam=right
 pipes | I got Diego from the infirmary. His face still bruised. | @diego:.5:pain:walk+to=.62+y=100 fx=dark
 pipes | And waiting at the drain, smiling with all his yellow teeth... | fx=dark cam=push
 pipes | ...Skinner. | close=skinner @skinner:.5:creepy:idle fx=dark cam=zoom sfx=sub
 pipes | skinner> [whispering] Ladies first. | close=skinner @skinner:.5:creepy:talk fx=dark
 pipes | We crawled through a pipe built a hundred and twenty years ago. In freezing water. | @me:.4:pain:crouch+y=80 @cole:.7:pain:crouch+y=80 fx=dark,rain cam=right sfx=gust
 wall-night | It came out on the other side of the wall. In a ditch. In the rain. | cam=up
-wall-night | Free. Actually ^free.^ | @me:.4:relief:idle+y=120 @cole:.6:relief:idle+y=120 cam=push
+wall-night | Free. Actually ^free.^ | @me:.3:relief:idle+y=120 @cole:.7:relief:idle+y=120 cam=push
 wall-night | Then the searchlight swung around. And stopped right on us. | t=flash cam=shake sfx=alarm
 wall-night | Sirens. Dogs. A whole prison waking up. | sfx=siren cam=shake fx=shake
 wall-night | Skinner looked at Diego. Slowest of us. Bruised. | close=skinner @skinner:.5:creepy:idle cam=push
