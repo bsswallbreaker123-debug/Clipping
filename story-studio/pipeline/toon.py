@@ -527,7 +527,7 @@ def snapshot_src() -> str:
 
 def render(props: Path, stem: Path, entry: str, preview: bool = False) -> None:
     stem.parent.mkdir(parents=True, exist_ok=True)
-    cmd = ["npx", "remotion", "render", entry, "ToonEpisode", str(stem), f"--props={props}", "--log=error"]
+    cmd = ["npx", "remotion", "render", entry, "ToonEpisode", str(stem), f"--props={props}", "--log=error", "--concurrency=4"]
     if preview:
         cmd += ["--scale=0.5"]
     subprocess.run(cmd, cwd=ROOT, check=True)

@@ -299,7 +299,7 @@ export const House: React.FC<{ x: number; y: number; s: number; c?: string; roof
 
 // ---------------------------------------------------------------- room shell
 
-export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string; floorType: string; floorY: number; beams?: boolean; seed: number }> = ({ wall, wallType, floor, floorType, floorY, beams, seed }) => {
+export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string; floorType: string; floorY: number; beams?: boolean; seed: number; lite?: boolean }> = ({ wall, wallType, floor, floorType, floorY, beams, seed, lite }) => {
   const planks: React.ReactNode[] = [];
   const homeWall = wallType === "plaster" || wallType === "stripes" || wallType === "paper";
   if (wallType === "wood") {
@@ -325,7 +325,7 @@ export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string
         if (y > floorY) continue;
         const v = rnd(seed + r * 31 + c);
         planks.push(<rect key={`${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={bh - 8} rx={wallType === "stone" ? 14 : 3} fill={shade(wall, (v - 0.5) * 0.18 - (v > 0.93 ? 0.15 : 0))} />);
-        planks.push(<rect key={`t${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={5} rx={2} fill="#fff" opacity={0.06} />);
+        if (!lite) planks.push(<rect key={`t${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={5} rx={2} fill="#fff" opacity={0.06} />);
       }
     planks.push(<rect key="soot" x={-300} y={-300} width={1680} height={500} fill="#000" opacity={0.12} />);
   } else if (wallType === "tile") {
@@ -348,7 +348,7 @@ export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string
     }
   } else if (wallType === "plain") {
     for (let i = 0; i < 8; i++) planks.push(<rect key={`pl${i}`} x={-300 + i * 240} y={-300} width={6} height={floorY + 300} fill={shade(wall, -0.08)} />);
-  } else {
+  } else if (!lite) {
     // plaster: a faint wallpaper motif
     for (let r = 0; r < 26; r++)
       for (let c = 0; c < 18; c++) {

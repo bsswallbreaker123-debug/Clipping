@@ -271,7 +271,7 @@ const ActorLayer: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string,
 
 // ---------------------------------------------------------------- stage (scene + actors + light)
 
-const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast>; f: number; story: ToonProps["story"] }> = ({ shot, scene, cast, f, story }) => {
+const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast>; f: number; story: ToonProps["story"]; lite?: boolean }> = ({ shot, scene, cast, f, story, lite }) => {
   const t = f / 30;
   const fx = shot.fx ?? [];
   const seed = hash(shot.scene) * 1000;
@@ -321,13 +321,13 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
               </Layer>
             )}
             <Layer cam={cam} depth={0.7} ox={ox} oy={oy}>
-              <Ground kind={scene.ground ?? "snow"} color={scene.groundColor} y={scene.floorY} night={night} seed={seed} t={t} drive={fx.includes("drive")} items={scene.items} />
+              <Ground kind={scene.ground ?? "snow"} color={scene.groundColor} y={scene.floorY} night={night} seed={seed} t={t} drive={fx.includes("drive")} items={scene.items} lite={lite} />
             </Layer>
           </>
         )}
         {scene.kind === "room" && (
           <Layer cam={cam} depth={0.6} ox={ox} oy={oy}>
-            <RoomShell wall={scene.wall!} wallType={scene.wallType!} floor={scene.floor!} floorType={scene.floorType!} floorY={scene.floorY} beams={scene.beams} seed={seed} />
+            <RoomShell wall={scene.wall!} wallType={scene.wallType!} floor={scene.floor!} floorType={scene.floorType!} floorY={scene.floorY} beams={scene.beams} seed={seed} lite={lite} />
             <RoomDecor wall={scene.wall!} wallType={scene.wallType!} floorY={scene.floorY} items={scene.items} seed={seed} t={t} light={light} name={shot.scene} />
           </Layer>
         )}
@@ -348,8 +348,8 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
           {built.map((x, i) => (x.b.glow && (flickerOn || isGlowAlways(x.it.t)) ? <g key={i}>{x.b.glow}</g> : null))}
         </Layer>
       </g>
-      {scene.kind === "room" && <Motes f={f} seed={seed} light={light} />}
-      {outside && <OutsideLife f={f} seed={seed} sky={scene.sky ?? "night"} ground={scene.ground ?? "snow"} night={night} />}
+      {scene.kind === "room" && !lite && <Motes f={f} seed={seed} light={light} />}
+      {outside && !lite && <OutsideLife f={f} seed={seed} sky={scene.sky ?? "night"} ground={scene.ground ?? "snow"} night={night} />}
       {/* snow behind actors */}
       {weatherSnow && <Snow f={f} seed={1} n={70} size={0.7} speed={0.6} />}
       {/* ---- actors (graded) */}
@@ -503,7 +503,7 @@ const CloseUp: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Ca
   return (
     <g>
       <g transform="translate(540 960) scale(1.35) translate(-540 -960)" style={{ filter: "blur(7px)" }}>
-        <Stage shot={bgShot} scene={scene} cast={cast} f={f} story={story} />
+        <Stage shot={bgShot} scene={scene} cast={cast} f={f} story={story} lite />
       </g>
       <rect width={1080} height={1920} fill="#000" opacity={0.25} />
       <defs>{tintMatrix(scene.light) && <TintFilter id={`ctint-${scene.light}`} light={scene.light} strength={0.35} />}</defs>

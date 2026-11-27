@@ -7,7 +7,7 @@ import type { Item } from "./Kit";
 
 // ---------------------------------------------------------------- outside: ground
 
-export const Ground: React.FC<{ kind: string; color?: string; y: number; night: boolean; seed: number; t: number; drive?: boolean; items: Item[] }> = ({ kind, color, y, night, seed, t, drive }) => {
+export const Ground: React.FC<{ kind: string; color?: string; y: number; night: boolean; seed: number; t: number; drive?: boolean; items: Item[]; lite?: boolean }> = ({ kind, color, y, night, seed, t, drive, lite }) => {
   if (kind === "none") return null;
   const base =
     color ??
@@ -17,7 +17,9 @@ export const Ground: React.FC<{ kind: string; color?: string; y: number; night: 
   const near = shade(base, -0.28);
   const out: React.ReactNode[] = [];
   const persp = (k: number) => y + Math.pow(k, 1.7) * (1980 - y);
-  if (kind === "snow") {
+  if (lite) {
+    // blurred background: the gradient is enough
+  } else if (kind === "snow") {
     for (let i = 0; i < 14; i++) {
       const k = rnd(seed + i * 3.1);
       const yy = persp(0.05 + k * 0.9);
