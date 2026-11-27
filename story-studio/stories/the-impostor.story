@@ -18,8 +18,8 @@ cast:
 
 scenes:
   launch: outside sky=dawn far=hills ground=asphalt light=dusk | rocket .5 s=.95 | searchlight .1 | searchlight .9
-  hub: room wall=#3a4250:concrete floor=#1e232c:plain light=cold | window .5 y=-720 v=space s=1.2 | button .5 | lamp .1 | lamp .9
-  hub-dark: room wall=#3a4250:concrete floor=#1e232c:plain light=dark | window .5 y=-720 v=space s=1.2 | button .5
+  hub: room wall=#3a4250:concrete floor=#1e232c:plain light=cold | window .5 y=-720 v=space s=1.2 | button .76 | lamp .1 | lamp .9
+  hub-dark: room wall=#3a4250:concrete floor=#1e232c:plain light=dark | window .5 y=-720 v=space s=1.2 | button .76
   electrical: room wall=#2a2e36:concrete floor=#15181e:plain light=dark | monitors .3 s=.7 | vent .72 y=40 | lamp .9 v=off
   corridor: room wall=#3a4250:concrete floor=#1e232c:plain light=cold | vent .3 y=40 | door .75 s=1.1 v=airlock | lamp .5
   corridor-dark: room wall=#3a4250:concrete floor=#1e232c:plain light=red | vent .3 y=40 | door .75 s=1.1 v=airlock
@@ -45,7 +45,7 @@ hub | Coach Hale told us not to touch it. Ever. | @hale:.5:angry:point+y=80+size
 electrical | Night one. I went to Electrical to fix my wires. | tag=NIGHT_1 cam=creep @me:.15:worried:walk+to=.45+y=60
 electrical | The lights were off. The vent cover in the floor was ^open.^ | cam=push sfx=creak
 electrical | And on the floor, half in the shadows... | cam=zoom fx=dark
-electrical | Owen. Green suit. Eyes open. Not breathing. | @owen:.5:blank:lie+y=60+size=.9 fx=dark cam=push sfx=stinger
+electrical | Owen. Green suit. Eyes open. Not breathing. | @owen:.68:blank:lie+y=60+size=.9 fx=dark cam=push sfx=stinger
 electrical | I hit the red button so hard I hurt my hand. | t=flash sfx=alarm cam=shake
 hub | halcyon> Emergency meeting called. Everyone, please report to the hub. | fx=red cam=push @marcus:.2:worried:idle+y=40 @priya:.4:scared:idle+y=40 @lena:.6:worried:idle+y=40 @dev:.8:angry:idle+y=40
 hub | Eight of us around a table. One of us was missing. And one of us... | @marcus:.2:shocked:idle+y=80 @priya:.4:scared:idle+y=80 @lena:.6:crying:idle+y=80 @dev:.8:scared:idle+y=80 cam=right
@@ -103,7 +103,7 @@ reactor | We were laughing. Shaking. Alive. | @me:.4:relief:hug+y=60 @marcus:.6:
 reactor | marcus> [laugh] See? If you were the monster, you'd have let it blow. | close=marcus @marcus:.5:smile:talk
 reactor | For one second, I felt human again. | close=me @me:.5:relief:idle
 corridor-dark | Then we heard the scream. From the cafeteria. | sfx=scream cam=shake
-cafeteria | Coach Hale. On the floor. Under the table. | @hale:.5:blank:lie+y=80+size=.9 cam=push sfx=stinger
+cafeteria | Coach Hale. On the floor. Under the table. | @hale:.68:blank:lie+y=80+size=.9 cam=push sfx=stinger
 cafeteria | But that was impossible. Because ten minutes earlier... | cam=zoom
 cafeteria | ...Coach Hale had walked into the reactor room. And held the door open for us. | close=me @me:.5:terrified:idle cam=push
 cafeteria | Which meant the one who held the door... ^wasn't him.^ | close=hale @hale:.5:creepy:idle cam=zoom sfx=stinger

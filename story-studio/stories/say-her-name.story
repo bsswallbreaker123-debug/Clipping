@@ -43,7 +43,7 @@ bathroom | maya> Bloody Mary. | cam=zoom sfx=sub
 bathroom | maya> Bloody Mary. | cam=zoom fx=flicker
 bathroom | maya> [whispering] Bloody... ^Mary.^ | cam=zoom sfx=heartbeat
 bathroom | Nothing happened. We all screamed anyway. Then we laughed until we cried. | t=flash cam=shake sfx=scream
-bedroom | We went to bed at two. I was the last one awake. | @me:.32:sleep:lie+y=-205+size=.85 fx=dark cam=creep
+bedroom | We went to bed at two. I was the last one awake. | @me:.48:sleep:lie+y=-205+size=.85 fx=dark cam=creep
 bedroom-dark | Then I heard water running. In the bathroom. | sfx=gust cam=push fx=dark
 bathroom | Maya was standing in front of the mirror. Alone. In the dark. | @maya:.5:blank:back+y=150+size=1.1 cam=push
 bathroom | She was brushing her hair. Slowly. | cam=zoom

@@ -102,7 +102,7 @@ basement | nine> [whispering] I find him. Show you. | close=nine @nine:.5:determ
 under | And for one second... all of us saw it. | t=flash fx=embers cam=shake
 under | My house. My street. But dark. Rotten. Ash floating in the air. | fx=embers cam=right
 under | And Toby. Hiding in his own bedroom. In a world that was ^upside down.^ | @toby:.5:terrified:hide+y=100 fx=embers cam=zoom
-basement | Nine collapsed. Blood on her lip. | @nine:.5:pain:lie+y=60+size=.9 cam=push
+basement | Nine collapsed. Blood on her lip. | @nine:.68:pain:lie+y=60+size=.9 cam=push
 basement | nine> [quiet] The door. Under lab. I made it. I ^opened^ it. | close=nine @nine:.5:crying:talk cam=zoom sfx=stinger
 
 == 5
@@ -150,10 +150,10 @@ under | It was our town. Every house. Every tree. But dead. Grey. Ash falling li
 under | And quiet. So quiet you could hear your own ^blood.^ | fx=embers cam=creep sfx=heartbeat
 under | They walked to Toby's house. The upside-down version of it. | @chief:.4:scared:walk+to=.5+torch+y=120 @mrs:.6:scared:walk+to=.65+y=120 fx=embers cam=push
 under | And in his bedroom, wrapped in black vines... a small body. | fx=embers cam=zoom
-under | Toby. Not moving. A vine going ^into his mouth.^ | @toby:.5:blank:lie+y=60+size=.9 fx=embers cam=push sfx=stinger
+under | Toby. Not moving. A vine going ^into his mouth.^ | @toby:.68:blank:lie+y=60+size=.9 fx=embers cam=push sfx=stinger
 
 == 8
-under | Mrs. Moreno pulled the vine out of his throat. | @mrs:.45:crying:reach+y=80 @toby:.55:blank:lie+y=60+size=.9 t=black fx=embers cam=push
+under | Mrs. Moreno pulled the vine out of his throat. | @mrs:.24:crying:reach+y=80 @toby:.72:blank:lie+y=60+size=.9 t=black fx=embers cam=push
 under | He wasn't breathing. | close=mrs @mrs:.5:crying:idle fx=embers
 under | Brody pushed on his chest. Thirty times. Breathe. Thirty times. Breathe. | @chief:.5:determined:crouch+y=80 fx=embers cam=creep sfx=heartbeat
 under | chief> [crying] Come on, kid. Come on. Not another one. Not ^another one.^ | close=chief @chief:.5:crying:talk fx=embers

@@ -185,7 +185,7 @@ hall | I don't want to tell you what I did next. I'm not proud of it. | t=flash 
 hospital | I walked into that operating room. And I carried her out. | @me:.5:determined:carry+y=80 fx=red cam=push
 hospital | Doctors. Soldiers. Mara standing in the doorway. Begging. | @mara:.5:crying:hands-up+y=80 fx=red cam=zoom
 hospital | I walked past all of them. | fx=red cam=right sfx=steps
-forest | When Wren woke up in the back of a truck, she asked what happened. | @wren:.5:sleep:lie+y=-60+size=.85 cam=creep tag=TWO_DAYS_LATER
+forest | When Wren woke up in the back of a truck, she asked what happened. | @wren:.68:sleep:lie+y=-60+size=.85 cam=creep tag=TWO_DAYS_LATER
 forest | So I lied. | close=me @me:.5:sad:idle
 forest | I said there were dozens of immune kids. The Lanterns stopped looking. The cure didn't work. | close=me @me:.5:sad:talk cam=push
 forest | She looked at me for a long time. | close=wren @wren:.5:suspicious:idle cam=zoom

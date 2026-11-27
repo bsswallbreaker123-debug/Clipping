@@ -486,8 +486,9 @@ def build_part(story: dict, part: dict, pad: int = 0) -> dict:
         frame += dur
     shots[-1]["dur"] += END_CARD
     frame += END_CARD
-    if frame < MIN_SECONDS * FPS and pad == 0:
-        extra = math.ceil((MIN_SECONDS * FPS - frame) / len(part["shots"]))
+    if frame < MIN_SECONDS * FPS and pad < 3 * FPS:
+        # some shots (cards, holds) don't stretch, so add again until the part is long enough
+        extra = pad + math.ceil((MIN_SECONDS * FPS - frame) / len(part["shots"]))
         print(f"  part {part['part']} is {frame / FPS:.1f}s, adding {extra / FPS:.2f}s per shot")
         return build_part(story, part, pad=extra)
     meta = {k: story[k] for k in ("id", "title", "cast", "scenes") if k in story}
