@@ -23,7 +23,7 @@ scenes:
   inside: room wall=#5a3a26:wood floor=#3a2416:wood beams light=warm | fireplace .78 | sofa .3 c=#7a2a24 | window .3 y=-760 | rug .4 | picture .55
   inside-dark: room wall=#5a3a26:wood floor=#3a2416:wood beams light=dark | fireplace .78 | sofa .3 c=#7a2a24 | window .3 y=-760 v=curtain:#5a2a1a
   hallway: room wall=#5a3a26:wood floor=#3a2416:wood light=dark | door .5 s=1.2 | picture .15 | picture .85
-  bedroom: room wall=#6a4a32:wood floor=#3a2416:wood light=moon | bed .35 c=#2f5f6a | window .75 v=curtain:#3a5a6a
+  bedroom: room wall=#6a4a32:wood floor=#3a2416:wood light=moon | bed .45 c=#2f5f6a | window .75 v=curtain:#3a5a6a
   forest: outside sky=snow moon=.3 far=pines ground=snow weather=snow | pine .08 s=1.3 | deadtree .6 s=.9 | pine .92 s=1.4
   forest-dark: outside sky=storm far=pines ground=snow weather=snow light=dark | pine .08 s=1.3 | deadtree .6 s=.9 | pine .92 s=1.4 | footprints .5
   mine-ext: outside sky=snow moon=.8 far=alps ground=snow weather=snow | cave .5 s=1.05 | pine .05 s=1.1
@@ -153,7 +153,7 @@ inside | trapper> [calm] I've been fighting it for a year. Every night it gets ^
 inside | The man protecting us... was turning into one. | close=me @me:.5:terrified:idle cam=zoom
 inside | trapper> So listen. The lodge has a gas line. Old. Big. | close=trapper @trapper:.5:determined:talk
 inside | trapper> At dawn, I lead them inside. You kids get out. And then somebody lights a ^match.^ | close=trapper rule=THE_PLAN @trapper:.5:determined:talk cam=push
-inside-dark | Night came too fast. We turned off every light. And waited. | fx=dark cam=creep tag=NIGHT_2
+inside-dark | Night came too fast. We turned off every light. And waited. | fx=dark cam=creep tag=NIGHT_2 @trapper:.3:neutral:idle+y=60 @me:.68:scared:idle+y=60
 inside-dark | At three in the morning, the front door opened. | sfx=creak cam=push fx=dark
 inside-dark | And Ethan walked in. Alive. Smiling. | @ethan:.5:smile:walk+to=.5+y=100 fx=dark cam=zoom
 inside-dark | ethan> [calm] Hey, guys. Lily wants to see you. All of you. | close=ethan @ethan:.5:smile:talk fx=dark
@@ -200,7 +200,7 @@ station | Five. Kyle. Megan. Ethan. The stranger. And... | close=me @me:.5:suspi
 station | cop> And one female. Badly burned. ^Unidentified.^ | close=cop @cop:.5:blank:talk cam=zoom
 station | One. Not two. One of the sisters got out. | close=me @me:.5:terrified:idle sfx=sub
 station | They let us go home a week later. | cam=pull
-bedroom | I couldn't sleep for months. Every time I closed my eyes, I saw the antlers. | @me:.35:sad:lie+y=-205+size=.85 cam=creep tag=THREE_MONTHS_LATER
+bedroom | I couldn't sleep for months. Every time I closed my eyes, I saw the antlers. | @me:.63:sad:lie+y=-205+size=.85 cam=creep tag=THREE_MONTHS_LATER
 bedroom | I told everyone the truth about the prank. Online. With my name on it. | @me:.5:sad:phone+item=phone+y=100 cam=push
 bedroom | Lily's mum wrote to me. She said thank you. She said she forgives us. | prop=letter:Thank_you,_Nate./I_forgive_you./-_Mrs._Carter
 bedroom | And then, one night in March, my phone buzzed. | sfx=buzz cam=zoom
