@@ -164,13 +164,16 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
     }
     case "note":
     case "letter": {
-      const ls = lines(p.a);
+      const ls = lines(p.a).flatMap((l) => wrap(l, l.length <= 22 ? 22 : Math.ceil(l.length / Math.ceil(l.length / 22)) + 3)).slice(0, 6);
+      const fs = Math.min(84, Math.floor(1400 / Math.max(...ls.map((l) => l.length), 1)));
+      const lh = Math.round(fs * 1.5);
+      const y0 = ls.length <= 4 ? -220 : -40 - ((ls.length - 1) * lh) / 2;
       return (
         <g transform={`translate(540 900) scale(${(0.85 + 0.15 * k) * drift}) rotate(${-3 + rnd(3) * 2})`}>
           <rect x={-380} y={-460} width={760} height={900} fill="#efe6cf" />
           <rect x={-380} y={-460} width={760} height={900} fill="url(#paper)" />
           {ls.map((l, i) => (
-            <text key={i} x={0} y={-220 + i * 130} textAnchor="middle" fontSize={84} fill={p.b ?? "#1d1d22"} fontFamily="'Caveat', 'Comic Sans MS', cursive" fontWeight={700} opacity={interpolate(f, [4 + i * 8, 12 + i * 8], [0, 1], clamp)}>
+            <text key={i} x={0} y={y0 + i * lh} textAnchor="middle" fontSize={fs} fill={p.b ?? "#1d1d22"} fontFamily="'Caveat', 'Comic Sans MS', cursive" fontWeight={700} opacity={interpolate(f, [4 + i * 8, 12 + i * 8], [0, 1], clamp)}>
               {l}
             </text>
           ))}
@@ -239,7 +242,7 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
           <rect x={-360} y={-420} width={720} height={840} fill="#f6f3ea" />
           <rect x={-320} y={-380} width={640} height={620} fill="#8a7a62" />
           <rect x={-320} y={-380} width={640} height={620} fill="url(#sepia)" />
-          <text x={0} y={340} textAnchor="middle" fontSize={56} fill="#3a2a1a" fontFamily="'Caveat', cursive" fontWeight={700}>
+          <text x={0} y={340} textAnchor="middle" fontSize={Math.min(56, Math.floor(1250 / Math.max(txt(p.a).length, 1)))} fill="#3a2a1a" fontFamily="'Caveat', cursive" fontWeight={700}>
             {txt(p.a)}
           </text>
         </g>
