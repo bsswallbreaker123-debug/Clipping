@@ -141,14 +141,14 @@ lab | And every searchlight in the lab ^exploded.^ | t=flash sfx=glass fx=blacko
 lab | Darkness. Screaming. Soldiers flying through the air like dolls. | fx=dark,shake t=black cam=shake sfx=crowd @soldier:.3:terrified:hands-up+y=60 @soldier:.7:terrified:run+to=.9+y=80
 lab | Nine. Eleven years old. Holding both hands out. Blood running down her face. | @nine:.5:angry:hands-up+y=120+size=1.1 fx=dark cam=push
 lab | Jay ran to us. We grabbed him. | @jay:.4:terrified:run+to=.2+y=150 fx=dark cam=left
-labin | Brody and Mrs. Moreno ran the other way. Into the lab. Towards the door. | @chief:.3:determined:run+to=.7+torch+y=80 @mrs:.5:determined:run+to=.85+y=80 fx=red cam=right
+labin | Brody and Mrs. Moreno ran the other way. Into the lab. Towards the door. | @chief:.12:determined:run+to=.38+torch+y=80 @mrs:.4:determined:run+to=.7+y=80 fx=red cam=right
 labin | Down. Down. Six floors under the ground. | cam=down fx=red sfx=alarm
 labin | And at the bottom... a hole in the wall. Like a wound. Breathing. | cam=zoom fx=red sfx=whisper
 labin | mrs> [calm] Hold my hand, Chief. Don't let go. | close=mrs @mrs:.5:determined:talk fx=red
 under | They stepped through. | t=flash fx=embers cam=shake
 under | It was our town. Every house. Every tree. But dead. Grey. Ash falling like snow. | fx=embers cam=right
 under | And quiet. So quiet you could hear your own ^blood.^ | fx=embers cam=creep sfx=heartbeat
-under | They walked to Toby's house. The upside-down version of it. | @chief:.4:scared:walk+to=.5+torch+y=120 @mrs:.6:scared:walk+to=.65+y=120 fx=embers cam=push
+under | They walked to Toby's house. The upside-down version of it. | @chief:.2:scared:walk+to=.32+torch+y=120 @mrs:.56:scared:walk+to=.7+y=120 fx=embers cam=push
 under | And in his bedroom, wrapped in black vines... a small body. | fx=embers cam=zoom
 under | Toby. Not moving. A vine going ^into his mouth.^ | @toby:.68:blank:lie+y=60+size=.9 fx=embers cam=push sfx=stinger
 
