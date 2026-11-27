@@ -76,7 +76,11 @@ function camera(shot: TimedShot, f: number): CamState {
   const seed = hash(shot.scene + shot.from);
   const breathe = { dx: wob(t * 0.4, seed) * 6, dy: wob(t * 0.35, seed + 1) * 5 };
   let c: CamState = { s: 1.05 + e * 0.04, dx: breathe.dx, dy: breathe.dy, rot: 0 };
-  switch (shot.cam) {
+  // a sideways pan over a wide group pushes the outer people out of frame: creep in instead
+  const still = (shot.chars ?? []).filter((ch) => ch.to === undefined).map((ch) => ch.x);
+  const wide = still.length >= 2 && Math.max(...still) - Math.min(...still) > 0.45;
+  const move = (shot.cam === "left" || shot.cam === "right") && wide ? "creep" : shot.cam;
+  switch (move) {
     case "still":
       c = { s: 1.03, dx: breathe.dx * 0.4, dy: breathe.dy * 0.4, rot: 0 };
       break;
@@ -269,6 +273,34 @@ const ActorLayer: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string,
   return <g>{items.map((i) => i.node)}</g>;
 };
 
+// The camera scales around a point: the speaker if one is on stage, else the middle of the group.
+// That point is then moved just enough that, at the strongest zoom and widest pan of the shot,
+// every standing character (anyone not walking in or out) stays inside the frame.
+function zoomOriginX(shot: TimedShot, scene: Scene, f: number, sp?: Char): number {
+  const chars = shot.chars ?? [];
+  const k = interpolate(f, [0, shot.dur], [0, 1], clamp);
+  if (!chars.length) return shot.creature ? shot.creature.x * 1080 : 540;
+  const xs = chars.map((c) => charX(c, k) * 1080);
+  const speaking = chars.some((c) => c.id === shot.who);
+  let ox = speaking && sp ? charX(sp, k) * 1080 : (Math.min(...xs) + Math.max(...xs)) / 2;
+  let s = 1;
+  for (let i = 0; i <= 10; i++) s = Math.max(s, camera(shot, (shot.dur * i) / 10).s);
+  if (s <= 1.005) return ox;
+  const pan = shot.cam === "left" || shot.cam === "right" ? 150 : 30;
+  let lo = -Infinity;
+  let hi = Infinity;
+  chars.forEach((c, i) => {
+    const moving = c.to !== undefined || c.fade !== undefined;
+    if (moving || c.x < 0.08 || c.x > 0.92) return;
+    const hw = 105 * scene.cs * (c.size ?? 1) * (1 + (c.y ?? 0) / 1600);
+    lo = Math.max(lo, ((xs[i] + hw) * s + pan - 1070) / (s - 1));
+    hi = Math.min(hi, ((xs[i] - hw) * s - pan - 10) / (s - 1));
+  });
+  if (lo === -Infinity) return ox;
+  ox = lo <= hi ? Math.min(hi, Math.max(lo, ox)) : (lo + hi) / 2;
+  return ox;
+}
+
 // ---------------------------------------------------------------- stage (scene + actors + light)
 
 const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast>; f: number; story: ToonProps["story"]; lite?: boolean }> = ({ shot, scene, cast, f, story, lite }) => {
@@ -282,7 +314,7 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
   const cam = camera(shot, f);
   // zoom towards whoever is speaking
   const sp = (shot.chars ?? []).find((c) => c.id === shot.who) ?? (shot.chars ?? [])[0];
-  const ox = sp ? charX(sp, interpolate(f, [0, shot.dur], [0, 1], clamp)) * 1080 : shot.creature ? shot.creature.x * 1080 : 540;
+  const ox = zoomOriginX(shot, scene, f, sp);
   const oy = sp ? scene.floorY - scene.cs * 830 * (sp.size ?? 1) : shot.creature ? scene.floorY - 700 : 960;
 
   const built = scene.items.map((it) => ({ it, b: buildItem(it, ctx) }));
