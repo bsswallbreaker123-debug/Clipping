@@ -31,7 +31,7 @@ scenes:
   void: void
 
 == 1
-void | Say her name three times in a mirror at midnight... and she'll show you ^how you die.^ | t=black cam=push
+bathroom | Say her name three times in a mirror at midnight... and she'll show you ^how you die.^ | cam=push @maya:.5:scared:back+y=150+size=1.1
 bedroom | It was Maya's sixteenth birthday. Movie night at her place. Four of us. Me. Maya. Hana. Bree. | @maya:.25:grin:sit+y=60 @hana:.45:smile:sit+y=60 @bree:.65:smile:sit+y=60 @me:.85:smile:idle+y=60 cam=right
 bedroom | Pizza. Horror movies. And at eleven fifty-five, Bree had an idea. | @bree:.5:smug:talk+y=80 cam=push
 bedroom | bree> Okay. Bloody Mary. Who's brave enough? | close=bree @bree:.5:grin:talk

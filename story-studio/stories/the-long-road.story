@@ -36,7 +36,7 @@ scenes:
   void: void
 
 == 1
-void | Twenty years after the world ended, a woman paid me to carry one girl across the country. | t=black cam=push
+forest | Twenty years after the world ended, a woman paid me to carry one girl across the country. | cam=push @me:.38:determined:idle+y=100 @wren:.62:neutral:idle+y=100
 void | I didn't know she was the ^cure.^ | close=wren @wren:.5:neutral:idle cam=zoom
 home | But first you need to know about my daughter. Sara. She was twelve. | @sara:.5:smile:sit+y=60 tag=20_YEARS_AGO cam=creep
 home | She gave me a watch for my birthday. That night, the world ended. | @sara:.4:smile:hold+y=60 @me:.68:smile:idle+y=60 cam=push

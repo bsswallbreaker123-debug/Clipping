@@ -34,7 +34,7 @@ scenes:
   void: void
 
 == 1
-void | When I was nine, my family flew to Spain for Christmas. Eleven of them. | t=black cam=push
+living | When I was nine, my family flew to Spain for Christmas. Eleven of them. | cam=push @me:.5:worried:idle+y=80
 void | They forgot to count to ^twelve.^ | close=me @me:.5:shocked:idle cam=zoom
 living | The night before the flight, my house was chaos. Cousins. Suitcases. Pizza everywhere. | @dad:.2:angry:talk+y=80 @mum:.45:worried:carry+box+y=80 @max:.75:grin:idle+y=80 cam=right
 kitchen | And my big brother Max ate the last cheese pizza. *My* pizza. | @max:.35:smug:hold+y=80 @me:.7:angry:fists+y=80 cam=push

@@ -39,7 +39,7 @@ scenes:
   void: void
 
 == 1
-void | Eight strangers. Eleven days. Two point four ^billion^ euros. And not a single shot fired. | t=black cam=push
+mint | Eight strangers. Eleven days. Two point four ^billion^ euros. And not a single shot fired. | cam=push @kingM:.2:smug:arms+y=100 @meM:.5:determined:idle+y=100 @rookM:.8:grin:idle+y=100
 hideout | That was the plan. The Teacher's plan. | @teacher:.5:smile:talk+y=60 cam=push
 hideout | He found me in a prison cell. I was nineteen. I'd hacked a bank for fun. | tag=ONE_YEAR_EARLIER @teacher:.35:smile:idle+y=60 @me:.7:suspicious:arms+y=60 cam=creep
 hideout | teacher> You don't need a gun to rob a bank. You need *patience.* | close=teacher @teacher:.5:smile:talk
@@ -49,7 +49,7 @@ hideout | teacher> We're not stealing anybody's money. We're going to ^print our
 city | The National Mint. Every euro in the country comes out of that building. | cam=up
 city | We'd lock ourselves inside. Print money for eleven days. And the police would watch. | cam=push
 hideout | teacher> Three rules. No names. No relationships. No blood. | close=teacher rule=THREE_RULES @teacher:.5:determined:talk
-void | Five months later, a truck drove through the gates of the Mint. | t=flash tag=DAY_1_-_9:14_AM cam=push
+city | Five months later, a truck drove through the gates of the Mint. | t=flash tag=DAY_1_-_9:14_AM cam=push @kingM:.3:determined:idle+y=120 @meM:.5:determined:idle+y=120 @rookM:.7:determined:idle+y=120
 lobby | We came out in black suits and ^white fox masks.^ | @meM:.3:blank:fists+y=150+size=1.1 @kingM:.7:blank:arms+y=150+size=1.1 cam=push sfx=slam
 lobby | Sixty-seven hostages. Not one of them got hurt. | cam=right sfx=crowd
 police | Eleven minutes later, the whole city was outside. | cam=pull sfx=siren

@@ -33,7 +33,7 @@ scenes:
   void: void
 
 == 1
-void | Ten of us went up to the space station. Nine came back. | t=black cam=push
+hub | Ten of us went up to the space station. Nine came back. | cam=push @marcus:.22:worried:idle+y=80 @me:.5:scared:idle+y=80 @lena:.78:worried:idle+y=80
 void | And one of the nine ^isn't human.^ | close=me @me:.5:scared:idle cam=zoom
 launch | Year 2089. Our class won a school trip to Halcyon. A research station in orbit. | tag=2089 cam=up sfx=boom
 hub | Seven students. One teacher. And a station computer with a calm British voice. | @marcus:.15:grin:idle+y=80 @priya:.32:smile:idle+y=80 @owen:.5:smile:wave+y=80 @lena:.68:smile:idle+y=80 @dev:.85:grin:idle+y=80 cam=right

@@ -34,7 +34,7 @@ scenes:
   void: void
 
 == 1
-void | In 1986, my best friend disappeared. And his mum talked to him through ^Christmas lights.^ | t=black cam=push
+living-alpha | In 1986, my best friend disappeared. And his mum talked to him through ^Christmas lights.^ | fx=flicker cam=push @mrs:.5:crying:idle+y=80
 basement | Every Saturday, four of us played Dungeons in my basement. Me. Dash. Jay. And Toby. | @me:.2:smile:sit+y=60 @dash:.45:grin:sit+y=60 @jay:.65:smile:sit+y=60 @toby:.85:smile:sit+y=60 tag=NOVEMBER_1986 cam=right
 basement | Toby always played the wizard. He was the smallest. And the bravest. | close=toby @toby:.5:smile:idle
 basement | toby> [happy] See you tomorrow, guys! Same time! | close=toby @toby:.5:grin:wave

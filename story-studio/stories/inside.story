@@ -38,7 +38,7 @@ scenes:
   void: void
 
 == 1
-void | To get my brother out of prison... I had to get *in* first. | t=black cam=push
+block | To get my brother out of prison... I had to get *in* first. | cam=push @me:.5:determined:arms+y=60
 block | My big brother Cole is on death row. For killing a police chief. | @cole:.5:sad:sit+y=60 fx=dark cam=creep
 block | He didn't do it. I know because I was with him. Nobody believed me. | close=cole @cole:.5:sad:idle
 block | They set his execution for ^thirty days^ from now. | prop=calendar:30:EXECUTION:BLACKWATER_PENITENTIARY sfx=sub

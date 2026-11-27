@@ -33,7 +33,7 @@ scenes:
   void: void
 
 == 1
-void | One year ago, two sisters ran out of a mountain lodge into a ^snowstorm.^ | t=black cam=push
+lodge-dark | One year ago, two sisters ran out of a mountain lodge into a ^snowstorm.^ | cam=push fx=snow @lily:.62:crying:run+to=.4+y=150
 lodge | Lily and Rose Carter. Sixteen and seventeen. They were never found. | cam=zoom fx=snow
 inside | It was our fault. All of us. We played a prank on Lily that night. A stupid one. | @kyle:.2:grin:idle+y=60 @megan:.45:grin:idle+y=60 @tom:.7:worried:idle+y=60 cam=right tag=ONE_YEAR_AGO
 inside | She ran out crying. Her sister ran after her. And the storm took them both. | cam=push sfx=gust
