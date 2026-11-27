@@ -14,6 +14,7 @@ cast:
   mrs: Mrs. Moreno | adult | hair=long:#5a3a22 | top=#a84a3a:sweater | top2=#e9dcc0 | skin=#e8b48f | voice=af_nicole
   chief: Chief Brody | adult | hair=cap:#5a4a2a | top=#8a7a52:uniform | beard=full | build=1.2 | voice=am_onyx
   crane: Dr. Crane | old | hair=side:#e0e0e0 | top=#3a3a40:suit | top2=#f1f1f1 | glasses | voice=bm_lewis
+  soldier: Soldier | adult | hair=cap:#3a4a2a | top=#4a5a3a:uniform | voice=am_eric
 
 scenes:
   basement: room wall=#6a5a48:wood floor=#5a3a2a:carpet light=warm | sofa .3 c=#7a5a3a | table .62 | tv .9 | lamp .08
@@ -94,7 +95,7 @@ station | He pulled back the sheet. | cam=zoom sfx=creak
 station | It wasn't Toby. It was a ^doll.^ Stuffed with cotton. With Toby's clothes. | cam=push sfx=sub
 station | chief> [angry] Who the hell fakes a dead kid? | close=chief @chief:.5:angry:talk fx=dark
 basement | We went to Toby's funeral anyway. Everybody cried. Except Mrs. Moreno. | cam=creep
-basement | That night, in my basement, the walkie-talkie started to crackle. | sfx=buzz cam=push
+basement | That night, in my basement, the walkie-talkie started to crackle. | sfx=buzz cam=push @me:.35:shocked:idle+item=phone+y=60 @dash:.62:scared:idle+y=60
 basement | A song. Toby's favourite song. Very quiet. Like from far away. | sfx=whisper cam=zoom
 basement | Nine put her hand on the radio. Her nose started bleeding. | close=nine @nine:.5:pain:idle
 basement | nine> [whispering] I find him. Show you. | close=nine @nine:.5:determined:talk cam=push
@@ -130,14 +131,14 @@ station | chief> [sigh] You kids picked the worst possible man to save the world
 station | chief> [calm] But I'm the only one you've got. | close=chief @chief:.5:determined:talk cam=zoom
 station | And Mrs. Moreno came too. She was holding a string of Christmas lights. | @mrs:.7:determined:hold+y=80 cam=push
 station | mrs> [quiet] If Toby is in there... I'm going in with you. | close=mrs @mrs:.5:determined:talk
-lab | Midnight. The lab gate. Searchlights. Soldiers. | cam=up tag=00:00 sfx=siren
+lab | Midnight. The lab gate. Searchlights. Soldiers. | cam=up tag=00:00 sfx=siren @soldier:.25:angry:idle+y=60 @soldier:.75:angry:idle+y=60+flip
 lab | Dr. Crane walked out. Smiling. Holding Jay by the shoulder. | @crane:.45:smile:idle+y=120 @jay:.6:scared:idle+y=120 cam=push
 lab | crane> [calm] Hello, Nine. Come home. | close=crane @crane:.5:smile:talk
 lab | Nine took one step forward. Then she stopped. | close=nine @nine:.5:determined:idle cam=zoom
 lab | And every searchlight in the lab ^exploded.^ | t=flash sfx=glass fx=blackout cam=shake sfx=stinger
 
 == 7
-lab | Darkness. Screaming. Soldiers flying through the air like dolls. | fx=dark,shake t=black cam=shake sfx=crowd
+lab | Darkness. Screaming. Soldiers flying through the air like dolls. | fx=dark,shake t=black cam=shake sfx=crowd @soldier:.3:terrified:hands-up+y=60 @soldier:.7:terrified:run+to=.9+y=80
 lab | Nine. Eleven years old. Holding both hands out. Blood running down her face. | @nine:.5:angry:hands-up+y=120+size=1.1 fx=dark cam=push
 lab | Jay ran to us. We grabbed him. | @jay:.4:terrified:run+to=.2+y=150 fx=dark cam=left
 labin | Brody and Mrs. Moreno ran the other way. Into the lab. Towards the door. | @chief:.3:determined:run+to=.7+torch+y=80 @mrs:.5:determined:run+to=.85+y=80 fx=red cam=right

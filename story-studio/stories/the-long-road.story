@@ -161,7 +161,7 @@ winter | Behind us, the church burned all night. | fx=embers cam=pull sfx=stinge
 == 8
 sunset | Spring. The last week of the trip. Everything was green again. | tag=SPRING t=black cam=push
 sunset | Wren was quieter. She'd seen too much. She didn't make jokes anymore. | @wren:.4:sad:walk+to=.6+y=150 @me:.7:worried:walk+to=.85+y=150 cam=right
-ruins | Then we climbed an old building in the city. To see the road ahead. | cam=up
+ruins | Then we climbed an old building in the city. To see the road ahead. | cam=up @me:.4:determined:walk+to=.55+y=60 @wren:.2:smile:walk+to=.35+y=80
 ruins | And at the top, she stopped. | cam=push
 sunset | Deer. Hundreds of them. Walking through an empty highway. In the gold light. | cam=right fx=dust
 sunset | Wren laughed. Really laughed. For the first time in months. | close=wren @wren:.5:smile:idle

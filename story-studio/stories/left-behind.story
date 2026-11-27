@@ -63,7 +63,7 @@ van | They robbed one house a night. And left a snowman in the garden. As a joke
 van | Lenny. Short. Strong. Hated kids. Gus. Tall. Hated everything. | @short:.3:angry:arms+y=100 @tall:.7:smug:idle+y=100 cam=right
 house | I watched them from my window. Gus walked right up to our front door. | @tall:.5:smug:walk+to=.5+y=180 cam=push
 house | He checked the lock. He looked through the window. | close=tall @tall:.5:suspicious:idle
-living-dark | And I ran around the house turning on every light. | fx=flicker sfx=click cam=shake
+living-dark | And I ran around the house turning on every light. | fx=flicker sfx=click cam=shake @me:.15:determined:run+to=.85+y=80
 house | tall> [suspicious] Lights are on. Somebody's home. We come back on Christmas Eve. | close=tall @tall:.5:suspicious:talk
 house | short> Nine PM. When everybody's at church. | close=short @short:.5:grin:talk cam=push
 living | So I called the police. Like a responsible nine-year-old. | @me:.5:determined:phone+item=phone+y=100 cam=push
@@ -103,7 +103,7 @@ street | Then I saw it. The white van. Already parked outside my house. | cam=zo
 street | They weren't coming at nine. They were coming ^now.^ | close=me @me:.5:terrified:idle cam=shake sfx=stinger
 
 == 4
-house | Five hours early. My traps weren't even set. | @tall:.4:smug:walk+to=.5+y=150 @short:.6:grin:walk+to=.6+y=180 t=black cam=push
+house | Five hours early. My traps weren't even set. | @tall:.22:smug:walk+to=.38+y=150 @short:.78:grin:walk+to=.64+y=180 t=black cam=push
 living-dark | So I did the only thing I could think of. I threw a ^party.^ | close=me @me:.5:determined:idle fx=dark
 living | Cardboard cut-outs in the windows. On strings. A toy train moving them around. | cam=right fx=flicker
 living | Music on full blast. The TV on a gangster movie. | sfx=crowd cam=shake
@@ -112,10 +112,10 @@ house | short> [confused] They said the family was in Spain! | close=short @shor
 house | tall> [angry] Someone lied to us. We come back tonight. When the party's over. | close=tall @tall:.5:angry:talk
 street | The van drove away. And I sat down in the snow and laughed until I cried. | @me:.5:relief:sit+y=150 cam=push
 living | But I'd bought myself five hours. And I used every minute. | close=me @me:.5:determined:idle cam=zoom
-stairs | Toy cars on every step. | cam=up sfx=pop
-kitchen | Glue on the floor by the back door. Feathers in the fan. | cam=right
-living | The doorknob, plugged into a car battery. Just a tickle. I'm not a monster. | cam=push sfx=buzz
-attic | And a rope from the attic window... to Mr. Novak's tree house. | cam=up
+stairs | Toy cars on every step. | cam=up sfx=pop @me:.75:grin:crouch+y=80
+kitchen | Glue on the floor by the back door. Feathers in the fan. | cam=right @me:.6:grin:idle+item=box+y=60
+living | The doorknob, plugged into a car battery. Just a tickle. I'm not a monster. | cam=push sfx=buzz @me:.3:smug:idle+y=60
+attic | And a rope from the attic window... to Mr. Novak's tree house. | cam=up @me:.4:determined:idle+y=60
 living | Nine o'clock. I sat by the tree with a flashlight and a slingshot. | @me:.5:determined:sit+torch+y=60 tag=9:00_PM cam=creep
 living-dark | Then the doorbell rang. | sfx=bells cam=zoom
 living-dark | Not the back door. Not the window. The front door. Polite. | cam=push

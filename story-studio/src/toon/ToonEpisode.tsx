@@ -9,6 +9,7 @@ import { CREATURE_HEAD, CreatureGlow, CreatureView } from "./Creatures";
 import { Far, RoomShell, Sky, buildItem, type Ctx, type Item } from "./Kit";
 import { PropView } from "./Props";
 import { Defs } from "./Defs";
+import { FarHaze, Ground, Motes, OutsideLife, RoomDecor, VoidBg } from "./World";
 import { back, clamp, ease, easeOut, hash, rnd, wob } from "./util";
 
 const VO_OFFSET = 3;
@@ -136,7 +137,87 @@ const Layer: React.FC<{ cam: CamState; depth: number; ox: number; oy: number; ch
   return <g transform={`translate(${cam.dx * m} ${cam.dy * m}) translate(${ox} ${oy}) rotate(${cam.rot}) scale(${s}) translate(${-ox} ${-oy})`}>{children}</g>;
 };
 
+// ---------------------------------------------------------------- light grade
+
+const TINTS: Record<string, [string, number, number]> = {
+  // colour, multiply strength, flat overlay
+  warm: ["#3b2a52", 0.26, 0.04],
+  cold: ["#0b1a44", 0.32, 0.06],
+  moon: ["#14244f", 0.3, 0.05],
+  dark: ["#060814", 0.55, 0.08],
+  darkOff: ["#060814", 0.76, 0.1],
+  red: ["#4a0408", 0.5, 0.08],
+  dusk: ["#3a1a40", 0.22, 0.04],
+};
+
+function rgb(hex: string): [number, number, number] {
+  const n = parseInt(hex.replace("#", ""), 16);
+  return [((n >> 16) & 255) / 255, ((n >> 8) & 255) / 255, (n & 255) / 255];
+}
+
+/** multiply + overlay grade as one colour matrix (so it can be applied per layer). */
+export function tintMatrix(light: string, strength = 1): string | null {
+  const p = TINTS[light];
+  if (!p) return null;
+  const [col, a0, o0] = p;
+  const a = a0 * strength;
+  const o = o0 * strength;
+  const c = rgb(col);
+  const m = c.map((v) => (1 - a + a * v) * (1 - o));
+  const add = c.map((v) => o * v);
+  return `${m[0]} 0 0 0 ${add[0]}  0 ${m[1]} 0 0 ${add[1]}  0 0 ${m[2]} 0 ${add[2]}  0 0 0 1 0`;
+}
+
+export const TintFilter: React.FC<{ id: string; light: string; strength?: number }> = ({ id, light, strength = 1 }) => {
+  const m = tintMatrix(light, strength);
+  return (
+    <filter id={id} filterUnits="userSpaceOnUse" x={-600} y={-600} width={2280} height={3120} colorInterpolationFilters="sRGB">
+      <feColorMatrix type="matrix" values={m ?? "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"} />
+    </filter>
+  );
+};
+
 // ---------------------------------------------------------------- actors
+
+const SEATS = new Set(["sofa", "armchair", "chair", "bed", "bunk", "chairs", "bench", "car", "van", "bus", "swing", "throne"]);
+
+/** A seat under a sitting character when the scene has none nearby (no more sitting on air). */
+const AutoSeat: React.FC<{ scene: Scene; cast: Cast }> = ({ scene, cast }) => {
+  const age = cast.age ?? "adult";
+  const k = (cast.height ?? 1) * (age === "kid" ? 0.66 : age === "teen" ? 0.88 : 1);
+  const outside = scene.kind === "outside";
+  const asphalt = scene.ground === "asphalt" || scene.ground === "road";
+  return (
+    <g transform={`scale(${k})`}>
+      {outside && !asphalt ? (
+        <g>
+          <ellipse cx={0} cy={-6} rx={150} ry={26} fill="#000" opacity={0.25} />
+          <path d="M-130 0 L-122 -226 Q0 -246 122 -226 L130 0Z" fill="#5a3a24" />
+          <ellipse cx={0} cy={-228} rx={124} ry={26} fill="#8a6a44" />
+          <ellipse cx={0} cy={-228} rx={80} ry={15} fill="none" stroke="#6a4a2c" strokeWidth={5} />
+          <ellipse cx={0} cy={-228} rx={38} ry={7} fill="none" stroke="#6a4a2c" strokeWidth={4} />
+          <path d="M-90 -200 L-96 -20 M-20 -205 L-24 -10 M60 -200 L64 -14" stroke="#3a2414" strokeWidth={6} opacity={0.5} />
+        </g>
+      ) : outside ? (
+        <g>
+          <rect x={-135} y={-235} width={270} height={235} fill="#8a6a3a" />
+          <rect x={-135} y={-235} width={270} height={235} fill="none" stroke="#5a4020" strokeWidth={10} />
+          <path d="M-135 -235 L135 0 M135 -235 L-135 0" stroke="#5a4020" strokeWidth={10} />
+        </g>
+      ) : (
+        <g>
+          <rect x={-118} y={-560} width={22} height={330} rx={8} fill="#4a2c16" />
+          <rect x={96} y={-560} width={22} height={330} rx={8} fill="#4a2c16" />
+          <rect x={-118} y={-560} width={236} height={30} rx={10} fill="#5a3418" />
+          <rect x={-118} y={-470} width={236} height={16} fill="#4a2c16" />
+          <rect x={-128} y={-246} width={256} height={30} rx={8} fill="#6a4026" />
+          <rect x={-114} y={-218} width={20} height={218} fill="#4a2c16" />
+          <rect x={94} y={-218} width={20} height={218} fill="#4a2c16" />
+        </g>
+      )}
+    </g>
+  );
+};
 
 function mouthAt(shot: TimedShot, f: number): number {
   if (!shot.mouth) return 0;
@@ -149,6 +230,7 @@ const ActorLayer: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string,
   const t = f / 30;
   const k = interpolate(f, [0, shot.dur], [0, 1], clamp);
   const items: { y: number; node: React.ReactNode }[] = [];
+  const seatNear = (x: number) => scene.items.some((it) => SEATS.has(it.t) && Math.abs(it.x - x) < (it.t === "sofa" || it.t === "bed" || it.t === "bunk" ? 0.26 : 0.14));
   for (const [ci, c] of (shot.chars ?? []).entries()) {
     const cm = cast[c.id] ?? { name: c.id, top: "#555" };
     const x = charX(c, k) * 1080;
@@ -162,7 +244,8 @@ const ActorLayer: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string,
       y,
       node: (
         <g key={`${c.id}-${ci}`} transform={`translate(${x} ${y}) scale(${flip ? -sc : sc} ${sc})`} opacity={fade} style={c.dim ? { filter: "brightness(0.06)" } : undefined}>
-          <Person cast={cm} spec={c} t={t} progress={k} open={open} item={c.item} rim={c.dim ? undefined : rim} />
+          {c.pose === "sit" && scene.kind !== "void" && !seatNear(c.x) && <AutoSeat scene={scene} cast={cm} />}
+          <Person cast={cm} spec={c} t={t} progress={k} open={open} item={c.item} rim={c.dim ? undefined : rim} mirror={flip} />
         </g>
       ),
     });
@@ -207,83 +290,89 @@ const Stage: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Cast
   const fgItems = built.filter((x) => x.it.fg);
 
   const light = fx.includes("dark") || fx.includes("blackout") ? "dark" : fx.includes("red") ? "red" : scene.light;
-  const tint: Record<string, [string, number]> = {
-    warm: ["#3b2a52", 0.32],
-    cold: ["#0b1a44", 0.42],
-    moon: ["#14244f", 0.36],
-    dark: ["#060814", flickerOn ? 0.66 : 0.85],
-    red: ["#4a0408", 0.55],
-    day: ["#000000", 0],
-    dusk: ["#3a1a40", 0.25],
-  };
-  const [tc, ta] = tint[light] ?? tint.cold;
+  const lightKey = light === "dark" && !flickerOn ? "darkOff" : light;
+  const tintId = `tint-${lightKey}`;
+  const tinted = tintMatrix(lightKey) !== null;
+  const tf = tinted ? `url(#${tintId})` : undefined;
   const rim = light === "warm" ? "#ffb766" : light === "day" ? undefined : light === "red" ? "#ff4a4a" : "#a8bcff";
-
-  const groundCol = scene.groundColor ?? (scene.ground === "snow" ? (night ? "#8c9ac2" : "#eef3fb") : scene.ground === "grass" ? (night ? "#1e3a2a" : "#5a8a4a") : scene.ground === "road" || scene.ground === "asphalt" ? "#2a2d33" : scene.ground === "sand" ? "#c9b48a" : "#4a3a2a");
+  const outside = scene.kind === "outside";
+  const weatherSnow = scene.weather === "snow" || fx.includes("snow");
+  const weatherRain = scene.weather === "rain" || fx.includes("rain");
+  const isGlowAlways = (t: string) => /stove|fireplace|candles|campfire|tree|torches|lights/.test(t);
 
   return (
     <g>
-      {/* far layers */}
-      {scene.kind === "outside" && (
-        <>
-          <Layer cam={cam} depth={0.05} ox={ox} oy={oy}>
-            <Sky kind={fx.includes("lightning") && Math.floor(f / 2) % 9 === 0 ? "day" : scene.sky ?? "night"} t={t} moon={scene.moon} seed={seed} />
-          </Layer>
-          {scene.far && (
-            <Layer cam={cam} depth={0.2} ox={ox} oy={oy}>
-              <Far kind={scene.far} y={scene.floorY - 260} seed={seed} snow={snow} night={night} />
+      <defs>{tinted && <TintFilter id={tintId} light={lightKey} />}</defs>
+      {/* ---- set (graded) */}
+      <g filter={tf}>
+        {outside && (
+          <>
+            <Layer cam={cam} depth={0.05} ox={ox} oy={oy}>
+              <Sky kind={fx.includes("lightning") && Math.floor(f / 2) % 9 === 0 ? "day" : scene.sky ?? "night"} t={t} moon={scene.moon} seed={seed} />
             </Layer>
-          )}
-          <Layer cam={cam} depth={0.7} ox={ox} oy={oy}>
-            {scene.ground !== "none" && <rect x={-300} y={scene.floorY - 40} width={1680} height={1300} fill={groundCol} />}
-            {scene.ground === "snow" && <rect x={-300} y={scene.floorY - 40} width={1680} height={60} fill="#fff" opacity={night ? 0.12 : 0.5} />}
-            {(scene.ground === "road" || scene.ground === "asphalt") && (
-              <g>
-                {Array.from({ length: 8 }).map((_, i) => (
-                  <rect key={i} x={-200 + i * 220 - ((t * (shot.fx?.includes("drive") ? 600 : 0)) % 220)} y={scene.floorY + 180} width={120} height={16} fill="#e8e0b0" opacity={0.8} />
-                ))}
-              </g>
+            {scene.far && (
+              <Layer cam={cam} depth={0.12} ox={ox} oy={oy}>
+                <FarHaze kind={scene.far} y={scene.floorY - 300} seed={seed} night={night} sky={scene.sky ?? "night"} t={t} />
+              </Layer>
             )}
+            {scene.far && (
+              <Layer cam={cam} depth={0.2} ox={ox} oy={oy}>
+                <Far kind={scene.far} y={scene.floorY - 260} seed={seed} snow={snow} night={night} />
+              </Layer>
+            )}
+            <Layer cam={cam} depth={0.7} ox={ox} oy={oy}>
+              <Ground kind={scene.ground ?? "snow"} color={scene.groundColor} y={scene.floorY} night={night} seed={seed} t={t} drive={fx.includes("drive")} items={scene.items} />
+            </Layer>
+          </>
+        )}
+        {scene.kind === "room" && (
+          <Layer cam={cam} depth={0.6} ox={ox} oy={oy}>
+            <RoomShell wall={scene.wall!} wallType={scene.wallType!} floor={scene.floor!} floorType={scene.floorType!} floorY={scene.floorY} beams={scene.beams} seed={seed} />
+            <RoomDecor wall={scene.wall!} wallType={scene.wallType!} floorY={scene.floorY} items={scene.items} seed={seed} t={t} light={light} name={shot.scene} />
           </Layer>
-        </>
-      )}
-      {scene.kind === "room" && (
-        <Layer cam={cam} depth={0.6} ox={ox} oy={oy}>
-          <RoomShell wall={scene.wall!} wallType={scene.wallType!} floor={scene.floor!} floorType={scene.floorType!} floorY={scene.floorY} beams={scene.beams} seed={seed} />
+        )}
+        {scene.kind === "void" && <VoidBg f={f} seed={seed} />}
+        <Layer cam={cam} depth={0.85} ox={ox} oy={oy}>
+          {bgItems.map((x, i) => (
+            <g key={i}>{x.b.body}</g>
+          ))}
         </Layer>
-      )}
-      {scene.kind === "void" && <rect x={-300} y={-300} width={1680} height={2520} fill="#08090d" />}
+      </g>
+      {/* ---- self-lit surfaces (windows, screens, glass) stay bright, but sit behind the actors */}
       <Layer cam={cam} depth={0.85} ox={ox} oy={oy}>
-        {bgItems.map((x, i) => (
-          <g key={i}>{x.b.body}</g>
-        ))}
+        {bgItems.map((x, i) => (x.b.lit ? <g key={i}>{x.b.lit}</g> : null))}
       </Layer>
-      {/* snow behind actors */}
-      {(scene.weather === "snow" || fx.includes("snow")) && <Snow f={f} seed={1} n={70} size={0.7} speed={0.6} />}
-      <Layer cam={cam} depth={1} ox={ox} oy={oy}>
-        <ActorLayer shot={shot} scene={scene} cast={cast} f={f} rim={rim} />
-      </Layer>
-      <Layer cam={cam} depth={1.3} ox={ox} oy={oy}>
-        {fgItems.map((x, i) => (
-          <g key={i}>{x.b.body}</g>
-        ))}
-      </Layer>
-      {/* light & colour grade */}
-      <rect x={0} y={0} width={1080} height={1920} fill={tc} opacity={ta} style={{ mixBlendMode: "multiply" }} />
-      {light !== "day" && <rect x={0} y={0} width={1080} height={1920} fill={tc} opacity={ta * 0.35} />}
-      <Layer cam={cam} depth={0.85} ox={ox} oy={oy}>
-        {built.map((x, i) => (x.b.lit ? <g key={i}>{x.b.lit}</g> : null))}
-      </Layer>
+      {/* ---- light from lamps / fire / screens falls on the set */}
       <g style={{ mixBlendMode: "screen" }}>
         <Layer cam={cam} depth={0.85} ox={ox} oy={oy}>
-          {built.map((x, i) => (x.b.glow && flickerOn ? <g key={i}>{x.b.glow}</g> : x.b.glow && /stove|fireplace|candles|campfire|tree/.test(x.it.t) ? <g key={i}>{x.b.glow}</g> : null))}
+          {built.map((x, i) => (x.b.glow && (flickerOn || isGlowAlways(x.it.t)) ? <g key={i}>{x.b.glow}</g> : null))}
         </Layer>
+      </g>
+      {scene.kind === "room" && <Motes f={f} seed={seed} light={light} />}
+      {outside && <OutsideLife f={f} seed={seed} sky={scene.sky ?? "night"} ground={scene.ground ?? "snow"} night={night} />}
+      {/* snow behind actors */}
+      {weatherSnow && <Snow f={f} seed={1} n={70} size={0.7} speed={0.6} />}
+      {/* ---- actors (graded) */}
+      <g filter={tf}>
+        <Layer cam={cam} depth={1} ox={ox} oy={oy}>
+          <ActorLayer shot={shot} scene={scene} cast={cast} f={f} rim={rim} />
+        </Layer>
+        <Layer cam={cam} depth={1.3} ox={ox} oy={oy}>
+          {fgItems.map((x, i) => (
+            <g key={i}>{x.b.body}</g>
+          ))}
+        </Layer>
+      </g>
+      <Layer cam={cam} depth={1.3} ox={ox} oy={oy}>
+        {fgItems.map((x, i) => (x.b.lit ? <g key={i}>{x.b.lit}</g> : null))}
+      </Layer>
+      <g style={{ mixBlendMode: "screen" }}>
         <Layer cam={cam} depth={1} ox={ox} oy={oy}>
           <ActorLayer shot={shot} scene={scene} cast={cast} f={f} glowOnly />
         </Layer>
       </g>
-      {(scene.weather === "snow" || fx.includes("snow")) && <Snow f={f} seed={2} n={45} size={1.4} speed={1} />}
-      {(scene.weather === "rain" || fx.includes("rain")) && <Rain f={f} />}
+      {weatherSnow && <Snow f={f} seed={2} n={45} size={1.4} speed={1} />}
+      {weatherRain && <Rain f={f} />}
       {(scene.weather === "fog" || fx.includes("fog")) && <Fog f={f} />}
       {(scene.weather === "dust" || fx.includes("dust")) && <Dust f={f} />}
       {fx.includes("embers") && <Embers f={f} />}
@@ -417,7 +506,8 @@ const CloseUp: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Ca
         <Stage shot={bgShot} scene={scene} cast={cast} f={f} story={story} />
       </g>
       <rect width={1080} height={1920} fill="#000" opacity={0.25} />
-      <g transform={`translate(${540 + shake} 960) scale(${push}) translate(-540 -960)`}>
+      <defs>{tintMatrix(scene.light) && <TintFilter id={`ctint-${scene.light}`} light={scene.light} strength={0.35} />}</defs>
+      <g transform={`translate(${540 + shake} 960) scale(${push}) translate(-540 -960)`} filter={tintMatrix(scene.light) ? `url(#ctint-${scene.light})` : undefined}>
         {ids.map((id, i) => {
           const cx = n === 1 ? 540 : n === 2 ? (i === 0 ? 300 : 780) : 200 + i * 340;
           const headW = n === 1 ? 600 : n === 2 ? 430 : 300;
@@ -442,7 +532,7 @@ const CloseUp: React.FC<{ shot: TimedShot; scene: Scene; cast: Record<string, Ca
           const flip = n === 2 ? (i === 0 ? false : true) : spec.flip ?? false;
           return (
             <g key={id} transform={`translate(${cx} ${feetY}) scale(${flip ? -sc : sc} ${sc})`}>
-              <Person cast={cm} spec={{ ...spec, pose: spec.pose === "walk" || spec.pose === "run" ? "idle" : spec.pose, to: undefined, look: spec.look ?? (n === 2 ? "right" : spec.look) }} t={t} progress={0} open={open} item={spec.item} rim={scene.light === "warm" ? "#ffb766" : "#a8bcff"} />
+              <Person cast={cm} spec={{ ...spec, pose: spec.pose === "walk" || spec.pose === "run" ? "idle" : spec.pose, to: undefined, look: spec.look ?? (n === 2 ? "right" : spec.look) }} t={t} progress={0} open={open} item={spec.item} rim={scene.light === "warm" ? "#ffb766" : "#a8bcff"} mirror={flip} />
             </g>
           );
         })}
@@ -623,13 +713,77 @@ const ShotView: React.FC<{ shot: TimedShot; props: ToonProps; isLast: boolean }>
   );
 };
 
+const NOBODY = /\b(gone|empty|nobody|no one|alone|vanish\w*|disappear\w*|missing|wasn't there|weren't there|nothing|no sign)\b/i;
+
+/** "living-dark" and "living" are the same place; so are "cell" and "cell-in" (if both are rooms or both outside). */
+function placeOf(scene: string, scenes: Record<string, SceneDef>): string {
+  const kind = (scenes[scene]?.kind as string) ?? "void";
+  return `${kind}:${scene.split("-")[0]}`;
+}
+
+const idleCopy = (c: Char): Char => ({
+  ...c,
+  x: c.to ?? c.x,
+  to: undefined,
+  flip: c.flip ?? (c.to !== undefined && c.to < c.x),
+  pose: c.pose === "walk" || c.pose === "run" || c.pose === "knock" ? "idle" : c.pose,
+  fade: undefined,
+});
+
+/** A shot that names nobody keeps the people of the previous shot in the same place (no empty sets). */
+export function withCarriedCast(shots: TimedShot[], scenes: Record<string, SceneDef> = {}): TimedShot[] {
+  let last: { place: string; chars: Char[] } | null = null;
+  const isStage = (s: TimedShot) => !s.prop && !(s.close && s.close.length) && !s.card;
+  const out = shots.map((s) => {
+    const place = placeOf(s.scene, scenes);
+    if (place.startsWith("void")) return s;
+    if (last && last.place !== place) last = null;
+    if (isStage(s) && s.chars && s.chars.length) {
+      last = { place, chars: s.chars };
+      return s;
+    }
+    if (s.close && s.close.length && !s.prop && !s.card) {
+      // a close-up keeps who is in the room: place them where they stood, or line them up
+      const ids = s.close.filter((id) => id !== "creature" && id !== "monster");
+      const kept = last ? last.chars : [];
+      const missing = ids.filter((id) => !kept.some((c) => c.id === id));
+      const slots = [0.5, 0.32, 0.68, 0.2, 0.8];
+      const added: Char[] = missing.map((id, i) => {
+        const spec = (s.chars ?? []).find((c) => c.id === id);
+        return { id, x: slots[(kept.length + i) % slots.length], y: 60, expr: spec?.expr, pose: spec?.pose === "walk" || spec?.pose === "run" ? "idle" : spec?.pose };
+      });
+      if (ids.length) last = { place, chars: [...kept, ...added] };
+      return s;
+    }
+    if (!isStage(s)) return s;
+    if (s.creature || !last || NOBODY.test(s.vo ?? "") || (s.fx ?? []).includes("empty")) return s;
+    const chars = last.chars.filter((c) => c.fade !== "out" && !c.dim).map(idleCopy);
+    return chars.length ? { ...s, chars } : s;
+  });
+  // a place that opens empty: the narrator is usually already there, so bring them in from the next shots
+  return out.map((s, i) => {
+    if (!isStage(s) || (s.chars && s.chars.length) || s.creature || NOBODY.test(s.vo ?? "") || (s.fx ?? []).includes("empty")) return s;
+    const place = placeOf(s.scene, scenes);
+    if (place.startsWith("void")) return s;
+    for (let j = i + 1; j < Math.min(out.length, i + 4); j++) {
+      const n = out[j];
+      if (placeOf(n.scene, scenes) !== place) break;
+      const me = (n.chars ?? []).find((c) => c.id === "me" && !c.dim);
+      if (me) return { ...s, chars: [{ ...idleCopy(me), expr: me.expr === "terrified" || me.expr === "shocked" ? "worried" : me.expr }] };
+      if ((n.close ?? []).includes("me")) return { ...s, chars: [{ id: "me", x: 0.5, y: 60, expr: "neutral" as const }] };
+    }
+    return s;
+  });
+}
+
 export const ToonEpisode: React.FC<ToonProps> = (props) => {
   const frame = useCurrentFrame();
+  const shots = React.useMemo(() => withCarriedCast(props.shots, props.story.scenes), [props.shots, props.story.scenes]);
   return (
     <AbsoluteFill style={{ background: "#000" }}>
-      {props.shots.map((s, i) => (
+      {shots.map((s, i) => (
         <Sequence key={i} from={s.from} durationInFrames={s.dur}>
-          <ShotView shot={s} props={props} isLast={i === props.shots.length - 1} />
+          <ShotView shot={s} props={props} isLast={i === shots.length - 1} />
           {s.audio && (
             <Sequence from={VO_OFFSET}>
               <Audio src={staticFile(s.audio)} volume={1} />

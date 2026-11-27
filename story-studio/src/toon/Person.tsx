@@ -473,6 +473,18 @@ const Mouth: React.FC<{ expr: Expr; open: number; t: number; variant?: string }>
 
 const MaskFace: React.FC<{ mask: NonNullable<Cast["mask"]>; t: number }> = ({ mask, t }) => {
   switch (mask) {
+    case "gold":
+      return (
+        <g>
+          <path d="M-150 -70 C-150 -170 -60 -190 0 -190 C60 -190 150 -170 150 -70 C150 40 90 120 0 130 C-90 120 -150 40 -150 -70Z" fill="#d8a93a" stroke="#8a6418" strokeWidth={6} />
+          <path d="M-120 -120 C-60 -160 60 -160 120 -120" stroke="#ffe08a" strokeWidth={10} fill="none" opacity={0.7} />
+          <path d="M-100 -30 C-80 -60 -40 -60 -24 -30 C-40 -14 -80 -14 -100 -30Z M100 -30 C80 -60 40 -60 24 -30 C40 -14 80 -14 100 -30Z" fill="#111" />
+          <path d="M-130 -60 q-30 -60 -10 -120 M130 -60 q30 -60 10 -120" stroke="#8a6418" strokeWidth={8} fill="none" />
+          <path d="M-40 70 Q0 90 40 70" stroke="#8a6418" strokeWidth={8} fill="none" />
+          <circle cx={-110} cy={-150} r={10} fill="#b3262e" />
+          <circle cx={110} cy={-150} r={10} fill="#b3262e" />
+        </g>
+      );
     case "fox":
       return (
         <g>
@@ -658,9 +670,10 @@ export interface PersonProps {
   open: number; // mouth openness 0..1 from lip-sync
   item?: string;
   rim?: string; // rim-light colour (moonlight, fire...)
+  mirror?: boolean; // drawn flipped: keep text (badges) readable
 }
 
-export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }) => {
+export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim, mirror }) => {
   const seed = hash(spec.id);
   const expr: Expr = spec.expr ?? "neutral";
   const pose: Pose = spec.pose ?? "idle";
@@ -708,6 +721,11 @@ export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }
     <g key={k} opacity={front ? 1 : 1}>
       <path d={`M${s[0]} ${s[1]} L${a.e[0]} ${a.e[1]} L${a.h[0]} ${a.h[1]}`} stroke={sleeveD} strokeWidth={62} strokeLinecap="round" strokeLinejoin="round" fill="none" />
       <path d={`M${s[0]} ${s[1]} L${a.e[0]} ${a.e[1]} L${a.h[0]} ${a.h[1]}`} stroke={sleeve} strokeWidth={52} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      {/* light along the upper edge of the sleeve + a cuff at the wrist */}
+      <path d={`M${s[0]} ${s[1] - 12} L${a.e[0]} ${a.e[1] - 12}`} stroke="#fff" strokeOpacity={0.08} strokeWidth={14} strokeLinecap="round" fill="none" />
+      {style !== "dress" && (
+        <path d={`M${a.e[0] + (a.h[0] - a.e[0]) * 0.72} ${a.e[1] + (a.h[1] - a.e[1]) * 0.72} L${a.e[0] + (a.h[0] - a.e[0]) * 0.84} ${a.e[1] + (a.h[1] - a.e[1]) * 0.84}`} stroke={shade(sleeve, -0.28)} strokeWidth={56} fill="none" />
+      )}
       <circle cx={a.h[0]} cy={a.h[1]} r={29} fill={skinD} />
       <circle cx={a.h[0] - 2} cy={a.h[1] - 2} r={25} fill={skin} />
       <ellipse cx={a.h[0] + (s[0] < 0 ? 22 : -22)} cy={a.h[1] - 14} rx={11} ry={17} fill={skin} stroke={skinD} strokeWidth={3} transform={`rotate(${s[0] < 0 ? -30 : 30} ${a.h[0] + (s[0] < 0 ? 22 : -22)} ${a.h[1] - 14})`} />
@@ -730,17 +748,25 @@ export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }
             <path d={`M${hp[0]} ${hp[1]} L${leg.e[0]} ${leg.e[1]} L${leg.h[0]} ${leg.h[1] - 18}`} stroke={shade(pants, -0.18)} strokeWidth={74} strokeLinecap="round" strokeLinejoin="round" fill="none" />
             <path d={`M${hp[0]} ${hp[1]} L${leg.e[0]} ${leg.e[1]} L${leg.h[0]} ${leg.h[1] - 18}`} stroke={pants} strokeWidth={64} strokeLinecap="round" strokeLinejoin="round" fill="none" />
             <ellipse cx={leg.h[0] + (i ? 14 : -14)} cy={leg.h[1] - 6} rx={58} ry={30} fill={shoes} />
+            <path d={`M${leg.h[0] + (i ? 14 : -14) - 56} ${leg.h[1] + 2} Q${leg.h[0] + (i ? 14 : -14)} ${leg.h[1] + 22} ${leg.h[0] + (i ? 14 : -14) + 56} ${leg.h[1] + 2}`} stroke={shade(shoes, 0.35)} strokeWidth={8} fill="none" opacity={0.6} />
             <ellipse cx={leg.h[0] + (i ? 4 : -24)} cy={leg.h[1] - 16} rx={22} ry={8} fill="#fff" opacity={0.15} />
           </g>
         );
       })}
       <path d={`M${-112 * bw} ${-412 + drop} L${112 * bw} ${-412 + drop} L${100 * bw} ${-330 + drop} L${-100 * bw} ${-330 + drop}Z`} fill={pants} />
+      <path d={`M0 ${-400 + drop} L0 ${-340 + drop}`} stroke={shade(pants, -0.25)} strokeWidth={5} />
     </g>
   );
+  const hem =
+    style === "shirt" || style === "hoodie" || style === "sweater" ? (
+      <path d={`M${-113 * bw} ${-404} Q0 ${-386} ${113 * bw} ${-404} L${112 * bw} ${-382} Q0 ${-364} ${-112 * bw} ${-382}Z`} fill={shade(top, -0.18)} />
+    ) : style === "uniform" ? null : style === "jumpsuit" ? (
+      <rect x={-114 * bw} y={-428} width={228 * bw} height={20} fill={shade(top, -0.2)} />
+    ) : null;
 
   const headG = (
     <g transform={`translate(${terr} ${HEAD_Y + r.headDy}) rotate(${r.tilt + (spec.look === "up" ? -5 : 0)}) scale(${headK})`} style={{ ["--skin" as string]: skin }}>
-      {hair.back}
+      {back && hair.back}
       {/* ears */}
       <circle cx={-146} cy={8} r={28} fill={skinD} />
       <circle cx={146} cy={8} r={28} fill={skinD} />
@@ -808,7 +834,17 @@ export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }
     </g>
   );
 
-  const neck = <rect x={-34} y={-742} width={68} height={60} fill={skinD} />;
+  // long / bob / ponytail hair hangs behind the shoulders, not over the chest
+  const headBack = !back && hair.back ? (
+    <g transform={`translate(${terr} ${HEAD_Y + r.headDy}) rotate(${r.tilt + (spec.look === "up" ? -5 : 0)}) scale(${headK})`}>{hair.back}</g>
+  ) : null;
+
+  const neck = (
+    <g>
+      <rect x={-34} y={-742} width={68} height={60} fill={skinD} />
+      <rect x={-34} y={-742} width={68} height={22} fill="#000" opacity={0.12} />
+    </g>
+  );
 
   const topDetails = (() => {
     const out: React.ReactNode[] = [];
@@ -846,7 +882,7 @@ export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }
       out.push(
         <g key="badge">
           <rect x={30} y={-640} width={78} height={48} rx={6} fill="#f4f4f4" />
-          <text x={69} y={-604} fontSize={34} fontFamily="Montserrat" fontWeight={900} textAnchor="middle" fill="#1a1a1a">
+          <text x={69} y={-604} fontSize={34} fontFamily="Montserrat" fontWeight={900} textAnchor="middle" fill="#1a1a1a" transform={mirror ? "matrix(-1 0 0 1 138 0)" : undefined}>
             {cast.badge}
           </text>
         </g>,
@@ -861,9 +897,11 @@ export const Person: React.FC<PersonProps> = ({ cast, spec, t, open, item, rim }
       <g transform={`translate(0 ${by})`}>
         {back && arm(armL, sh[0], "al", false)}
         {back && arm(armR, sh[1], "ar", false)}
+        {headBack}
         {neck}
         <path d={torso} fill={top} />
         <path d={`M${60 * bw} -700 C${120 * bw} -690 ${130 * bw} -600 ${110 * bw} ${torsoBottom + 20}`} stroke="#000" strokeOpacity={0.1} strokeWidth={30} fill="none" />
+        {!back && hem}
         {!back && topDetails}
         {rim && <path d={`M${-124 * bw} -650 L${-110 * bw} ${torsoBottom}`} stroke={rim} strokeWidth={8} opacity={0.45} strokeLinecap="round" />}
         {headG}

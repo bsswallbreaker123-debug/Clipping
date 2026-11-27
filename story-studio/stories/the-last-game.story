@@ -17,6 +17,7 @@ cast:
   host: The Host | adult | hair=hood | top2=#111 | top=#1a1a1a:coat | mask=doll | voice=bm_daniel+-3
   mum: Mum | adult | hair=bob:#2a1a12 | top=#cfe0e8:shirt | skin=#e8b48f | voice=af_sarah
   suit: The Man in the Suit | adult | hair=side:#1a1a1a | top=#22252c:suit | top2=#f1f1f1 | voice=bm_george
+  vip: Guest | adult | hair=side:#2a2a2a | top=#2a2a30:suit | top2=#f1f1f1 | mask=gold | voice=bm_lewis
 
 scenes:
   street: outside sky=night far=city ground=asphalt | streetlamp .2 | car .78 c=#7a7f88
@@ -187,9 +188,9 @@ dorm-night | rina> [whispering] Last year. I lost game two. I wore the red suit 
 dorm-night | rina> [whispering] They let me play again. If I win, I'm free. If I lose... I'm theirs forever. | close=rina @rina:.5:scared:talk
 dorm-night | rina> [whispering] And Kai... the net is real. Your brother's alive. I know where they keep the fallen. | close=rina @rina:.5:determined:talk cam=zoom
 control | She knew the vents. We crawled for twenty minutes. | @rina:.3:determined:crouch+y=80 @me:.6:determined:crouch+y=80 cam=right fx=dark
-vip | And we came out above a room where people in gold masks were drinking champagne. | cam=down
-vip | They were betting on us. On every game. Laughing. | cam=push sfx=whisper
-vip | And in the middle, with his feet up on a velvet sofa... | cam=zoom
+vip | And we came out above a room where people in gold masks were drinking champagne. | cam=down @vip:.22:grin:sit+y=10 @vip:.78:smug:sit+y=10+flip
+vip | They were betting on us. On every game. Laughing. | cam=push sfx=whisper @vip:.22:grin:talk+y=10 @vip:.78:smug:point+y=10+flip
+vip | And in the middle, with his feet up on a velvet sofa... | cam=zoom @abbott:.5:smug:sit+dim+y=40
 vip | ...number 009. Mr. Abbott. ^Alive.^ Watching me on a screen. | @abbott:.5:grin:sit+y=40+size=1.1 cam=push sfx=stinger
 vip | abbott> [chuckle] I told you, son. I'm a very good partner. | close=abbott @abbott:.5:grin:talk cam=zoom
 

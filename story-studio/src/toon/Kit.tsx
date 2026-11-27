@@ -300,25 +300,34 @@ export const House: React.FC<{ x: number; y: number; s: number; c?: string; roof
 // ---------------------------------------------------------------- room shell
 
 export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string; floorType: string; floorY: number; beams?: boolean; seed: number }> = ({ wall, wallType, floor, floorType, floorY, beams, seed }) => {
-  const planks = [];
+  const planks: React.ReactNode[] = [];
+  const homeWall = wallType === "plaster" || wallType === "stripes" || wallType === "paper";
   if (wallType === "wood") {
     for (let i = 0; i < 16; i++) {
       const x = -300 + i * 112;
       planks.push(<rect key={`p${i}`} x={x} y={-300} width={112} height={floorY + 300} fill={i % 2 ? wall : shade(wall, -0.05)} />);
       planks.push(<line key={`l${i}`} x1={x} y1={-300} x2={x} y2={floorY} stroke={shade(wall, -0.3)} strokeWidth={5} />);
+      planks.push(<line key={`h${i}`} x1={x + 4} y1={-300} x2={x + 4} y2={floorY} stroke={shade(wall, 0.12)} strokeWidth={2} />);
       for (let k = 0; k < 3; k++) planks.push(<path key={`g${i}${k}`} d={`M${x + 30 + k * 25} ${200 + rnd(seed + i * 9 + k) * 600} q10 60 0 120`} stroke={shade(wall, -0.12)} strokeWidth={4} fill="none" />);
+      if (rnd(seed + i * 3.3) > 0.55) planks.push(<ellipse key={`k${i}`} cx={x + 56} cy={150 + rnd(seed + i * 5.5) * (floorY - 300)} rx={9} ry={14} fill={shade(wall, -0.25)} />);
+      if (rnd(seed + i * 7.1) > 0.5) planks.push(<rect key={`j${i}`} x={x} y={300 + rnd(seed + i * 2.7) * (floorY - 500)} width={112} height={4} fill={shade(wall, -0.3)} />);
     }
   } else if (wallType === "stripes") {
     for (let i = 0; i < 24; i++) planks.push(<rect key={i} x={-300 + i * 72} y={-300} width={36} height={floorY + 300} fill={shade(wall, -0.06)} />);
+    for (let i = 0; i < 24; i++) planks.push(<line key={`f${i}`} x1={-300 + i * 72 + 54} y1={-300} x2={-300 + i * 72 + 54} y2={floorY} stroke={shade(wall, 0.08)} strokeWidth={3} strokeDasharray="10 14" />);
   } else if (wallType === "brick" || wallType === "stone") {
+    const bh = wallType === "stone" ? 70 : 52;
     for (let r = 0; r < 34; r++)
       for (let c = 0; c < 14; c++) {
         const w = wallType === "stone" ? 120 : 130;
         const x = -300 + c * w + (r % 2 ? w / 2 : 0);
-        const y = -300 + r * (wallType === "stone" ? 70 : 52);
+        const y = -300 + r * bh;
         if (y > floorY) continue;
-        planks.push(<rect key={`${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={(wallType === "stone" ? 70 : 52) - 8} rx={wallType === "stone" ? 14 : 3} fill={shade(wall, (rnd(seed + r * 31 + c) - 0.5) * 0.14)} />);
+        const v = rnd(seed + r * 31 + c);
+        planks.push(<rect key={`${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={bh - 8} rx={wallType === "stone" ? 14 : 3} fill={shade(wall, (v - 0.5) * 0.18 - (v > 0.93 ? 0.15 : 0))} />);
+        planks.push(<rect key={`t${r}-${c}`} x={x + 4} y={y + 4} width={w - 8} height={5} rx={2} fill="#fff" opacity={0.06} />);
       }
+    planks.push(<rect key="soot" x={-300} y={-300} width={1680} height={500} fill="#000" opacity={0.12} />);
   } else if (wallType === "tile") {
     for (let r = 0; r < 40; r++)
       for (let c = 0; c < 16; c++) {
@@ -326,43 +335,109 @@ export const RoomShell: React.FC<{ wall: string; wallType: string; floor: string
         if (y > floorY) continue;
         planks.push(<rect key={`${r}-${c}`} x={-300 + c * 100 + 3} y={y + 3} width={94} height={54} fill={shade(wall, (rnd(r * 7 + c) - 0.5) * 0.06)} />);
       }
+    planks.push(<rect key="sheen" x={-300} y={floorY - 900} width={1680} height={60} fill="#fff" opacity={0.06} />);
+    planks.push(<rect key="band" x={-300} y={floorY - 520} width={1680} height={30} fill={shade(wall, -0.3)} />);
   } else if (wallType === "concrete") {
     for (let i = 0; i < 9; i++) planks.push(<line key={i} x1={-300} y1={i * 220} x2={1380} y2={i * 220} stroke={shade(wall, -0.12)} strokeWidth={4} />);
+    for (let i = 0; i < 8; i++) planks.push(<line key={`v${i}`} x1={-300 + i * 260 + (seed % 1) * 100} y1={-300} x2={-300 + i * 260 + (seed % 1) * 100} y2={floorY} stroke={shade(wall, -0.1)} strokeWidth={4} />);
     for (let i = 0; i < 30; i++) planks.push(<circle key={`c${i}`} cx={rnd(seed + i) * 1080} cy={rnd(seed + i * 2) * floorY} r={4} fill={shade(wall, -0.18)} />);
+    for (let i = 0; i < 7; i++) {
+      const sx = rnd(seed + i * 4.4) * 1080;
+      const sy = rnd(seed + i * 8.8) * floorY * 0.6;
+      planks.push(<path key={`st${i}`} d={`M${sx} ${sy} q-8 ${120 + i * 20} 4 ${260 + i * 30} q10 -120 18 -260Z`} fill="#000" opacity={0.07} />);
+    }
+  } else if (wallType === "plain") {
+    for (let i = 0; i < 8; i++) planks.push(<rect key={`pl${i}`} x={-300 + i * 240} y={-300} width={6} height={floorY + 300} fill={shade(wall, -0.08)} />);
+  } else {
+    // plaster: a faint wallpaper motif
+    for (let r = 0; r < 26; r++)
+      for (let c = 0; c < 18; c++) {
+        const x = -300 + c * 100 + (r % 2 ? 50 : 0);
+        const y = -300 + r * 70;
+        if (y > floorY - 380) continue;
+        planks.push(<path key={`${r}-${c}`} d={`M${x} ${y - 10} l8 10 l-8 10 l-8 -10Z`} fill={shade(wall, -0.07)} />);
+      }
+  }
+  // wainscot panels + chair rail in homes
+  const wain: React.ReactNode[] = [];
+  if (homeWall) {
+    const top = floorY - 380;
+    wain.push(<rect key="w" x={-300} y={top} width={1680} height={380} fill={shade(wall, -0.16)} />);
+    for (let i = 0; i < 12; i++) {
+      const x = -300 + i * 150 + 20;
+      wain.push(<rect key={`wp${i}`} x={x} y={top + 50} width={110} height={260} rx={6} fill="none" stroke={shade(wall, -0.28)} strokeWidth={5} />);
+      wain.push(<rect key={`wh${i}`} x={x + 3} y={top + 53} width={104} height={4} fill="#fff" opacity={0.07} />);
+    }
+    wain.push(<rect key="rail" x={-300} y={top - 14} width={1680} height={22} fill={shade(wall, -0.3)} />);
+    wain.push(<rect key="railh" x={-300} y={top - 14} width={1680} height={6} fill="#fff" opacity={0.1} />);
   }
   const fl: React.ReactNode[] = [];
   const vx = 540;
   const vy = floorY - 1400;
+  const xAt = (bx: number, y: number) => vx + (bx - vx) * ((y - vy) / (2400 - vy));
   if (floorType === "wood") {
+    const rows = Array.from({ length: 14 }, (_, i) => floorY + Math.pow(i / 13, 1.6) * (2000 - floorY));
     for (let i = -14; i <= 14; i++) {
       const bx = 540 + i * 140;
-      const tx = vx + (bx - vx) * ((floorY - vy) / (2400 - vy));
-      fl.push(<line key={i} x1={tx} y1={floorY} x2={bx} y2={2400} stroke={shade(floor, -0.25)} strokeWidth={5} />);
+      fl.push(<line key={i} x1={xAt(bx, floorY)} y1={floorY} x2={bx} y2={2400} stroke={shade(floor, -0.25)} strokeWidth={5} />);
+      // staggered plank ends
+      for (let r = 0; r < rows.length - 1; r++) {
+        if ((r + i) % 3 !== 0) continue;
+        const y = rows[r];
+        fl.push(<line key={`e${i}-${r}`} x1={xAt(bx, y)} y1={y} x2={xAt(bx + 140, y)} y2={y} stroke={shade(floor, -0.22)} strokeWidth={3} />);
+      }
+    }
+    for (let i = 0; i < 10; i++) {
+      const y = floorY + 60 + rnd(seed + i * 2.3) * 450;
+      const x = rnd(seed + i * 5.9) * 1080;
+      fl.push(<path key={`gr${i}`} d={`M${x} ${y} q40 -6 90 0`} stroke={shade(floor, -0.15)} strokeWidth={3} fill="none" />);
     }
   } else if (floorType === "tile" || floorType === "check") {
-    for (let i = 0; i < 12; i++) {
-      const y = floorY + Math.pow(i / 11, 1.6) * (1920 - floorY + 300);
-      fl.push(<line key={`h${i}`} x1={-300} y1={y} x2={1380} y2={y} stroke={shade(floor, -0.2)} strokeWidth={4} />);
+    const rows = Array.from({ length: 13 }, (_, i) => floorY + Math.pow(i / 11, 1.6) * (1920 - floorY + 300));
+    if (floorType === "check") {
+      for (let r = 0; r < rows.length - 1; r++)
+        for (let i = -10; i < 10; i++) {
+          if ((r + i) % 2 === 0) continue;
+          const b0 = 540 + i * 170;
+          const b1 = b0 + 170;
+          const y0 = rows[r];
+          const y1 = rows[r + 1];
+          fl.push(<path key={`q${r}-${i}`} d={`M${xAt(b0, y0)} ${y0} L${xAt(b1, y0)} ${y0} L${xAt(b1, y1)} ${y1} L${xAt(b0, y1)} ${y1}Z`} fill={shade(floor, -0.22)} />);
+        }
     }
+    for (let i = 0; i < rows.length; i++) fl.push(<line key={`h${i}`} x1={-300} y1={rows[i]} x2={1380} y2={rows[i]} stroke={shade(floor, -0.2)} strokeWidth={4} />);
     for (let i = -10; i <= 10; i++) {
       const bx = 540 + i * 170;
-      const tx = vx + (bx - vx) * ((floorY - vy) / (2400 - vy));
-      fl.push(<line key={`v${i}`} x1={tx} y1={floorY} x2={bx} y2={2400} stroke={shade(floor, -0.2)} strokeWidth={4} />);
+      fl.push(<line key={`v${i}`} x1={xAt(bx, floorY)} y1={floorY} x2={bx} y2={2400} stroke={shade(floor, -0.2)} strokeWidth={4} />);
     }
+  } else if (floorType === "concrete" || floorType === "plain") {
+    for (let i = 0; i < 14; i++) {
+      const y = floorY + 40 + rnd(seed + i * 3.7) * 500;
+      fl.push(<ellipse key={`sp${i}`} cx={rnd(seed + i * 6.3) * 1080} cy={y} rx={30 + rnd(i) * 90} ry={6 + rnd(i * 2) * 12} fill="#000" opacity={0.08} />);
+    }
+    if (floorType === "concrete") for (let i = 0; i < 4; i++) fl.push(<line key={`cj${i}`} x1={-300} y1={floorY + 120 + i * 160} x2={1380} y2={floorY + 120 + i * 160} stroke={shade(floor, -0.18)} strokeWidth={3} />);
   }
   return (
     <g>
       <rect x={-300} y={-300} width={1680} height={floorY + 300} fill={wall} />
       {planks}
+      {wain}
       <rect x={-300} y={-300} width={1680} height={floorY + 300} fill="url(#wallShade)" />
       <rect x={-300} y={floorY} width={1680} height={2400 - floorY} fill={floor} />
       {fl}
+      {/* soft sheen where the light hits the floor */}
+      <ellipse cx={540} cy={floorY + 260} rx={620} ry={140} fill="#fff" opacity={0.05} />
       <rect x={-300} y={floorY} width={1680} height={2400 - floorY} fill="url(#floorShade)" />
-      <rect x={-300} y={floorY - 34} width={1680} height={36} fill={shade(wall, -0.35)} />
+      <rect x={-300} y={floorY - 44} width={1680} height={46} fill={shade(wall, -0.38)} />
+      <rect x={-300} y={floorY - 44} width={1680} height={7} fill="#fff" opacity={0.1} />
+      <rect x={-300} y={floorY} width={1680} height={26} fill="#000" opacity={0.22} />
       {beams && (
         <g>
           <rect x={-300} y={0} width={1680} height={70} fill={shade(wall, -0.4)} />
           <rect x={-300} y={60} width={1680} height={14} fill="#000" opacity={0.2} />
+          {Array.from({ length: 6 }).map((_, i) => (
+            <rect key={i} x={-200 + i * 300} y={0} width={40} height={74} fill={shade(wall, -0.5)} />
+          ))}
         </g>
       )}
     </g>
@@ -493,7 +568,16 @@ export function buildItem(it: Item, ctx: Ctx): Built {
             <Window x={x} y={y} w={340 * s} h={430 * s} ctx={ctx} frame={c ?? "#5a3a22"} curtains={it.v?.includes("curtain") ? (it.v.split(":")[1] ?? "#9a2424") : undefined} closed={closed} view={it.v?.includes("day") ? "day" : it.v?.includes("space") ? "space" : undefined} it={it} />
           </g>
         ),
-        glow: lit || (it.v?.includes("closed") && ctx.win) ? <rect x={x - 200} y={y - 240} width={400} height={480} fill="url(#redPool)" opacity={0.6} /> : <ellipse cx={x} cy={y + 500} rx={260 * s} ry={120} fill="#b9c8ff" opacity={0.06} />,
+        glow:
+          lit || (it.v?.includes("closed") && ctx.win) ? (
+            <rect x={x - 200} y={y - 240} width={400} height={480} fill="url(#redPool)" opacity={0.6} />
+          ) : closed ? undefined : (
+            <g>
+              <path d={`M${x - 160 * s} ${y + 215 * s} L${x + 160 * s} ${y + 215 * s} L${x + 160 * s + 260} ${ctx.floorY + 330} L${x - 160 * s + 260} ${ctx.floorY + 330}Z`} fill={it.v?.includes("day") ? "url(#shaftDay)" : "url(#shaftMoon)"} />
+              <path d={`M${x - 150 * s + 230} ${ctx.floorY + 300} L${x + 150 * s + 230} ${ctx.floorY + 300} L${x + 150 * s + 270} ${ctx.floorY + 360} L${x - 150 * s + 270} ${ctx.floorY + 360}Z`} fill={it.v?.includes("day") ? "#fff3d0" : "#b9c8ff"} opacity={0.08} />
+              <ellipse cx={x} cy={y} rx={300 * s} ry={320 * s} fill={it.v?.includes("day") ? "#fff3d0" : "#b9c8ff"} opacity={0.05} />
+            </g>
+          ),
       };
     }
     case "door": {
@@ -523,6 +607,9 @@ export function buildItem(it: Item, ctx: Ctx): Built {
       return {
         body: T(
           <g transform={`translate(${shake} 0)`}>
+            <rect x={-186} y={-600} width={372} height={600} fill={shade(col, -0.2)} />
+            <rect x={-186} y={-600} width={372} height={10} fill="#fff" opacity={0.1} />
+            <rect x={-180} y={-594} width={8} height={594} fill="#000" opacity={0.15} />
             <rect x={-150} y={-560} width={300} height={560} fill={shade(col, -0.45)} />
             {open || ajar ? (
               <g>
@@ -541,14 +628,27 @@ export function buildItem(it: Item, ctx: Ctx): Built {
                 <rect x={-140} y={-550} width={280} height={550} fill={col} />
                 <rect x={-110} y={-510} width={220} height={210} rx={6} fill={shade(col, -0.12)} />
                 <rect x={-110} y={-270} width={220} height={240} rx={6} fill={shade(col, -0.12)} />
+                <rect x={84} y={-300} width={30} height={44} rx={6} fill="#a8842a" />
                 <circle cx={100} cy={-280} r={14} fill="#d8b04a" />
+                <circle cx={96} cy={-284} r={5} fill="#fff" opacity={0.5} />
                 <circle cx={0} cy={-430} r={9} fill="#1a1a1a" />
+                <rect x={-140} y={-470} width={10} height={40} fill="#6a6a6a" />
+                <rect x={-140} y={-150} width={10} height={40} fill="#6a6a6a" />
+                <rect x={-140} y={-550} width={280} height={550} fill="url(#doorShade)" />
                 {chain && <path d="M70 -330 Q20 -300 -40 -330" stroke="#c8c8c8" strokeWidth={8} fill="none" strokeDasharray="12 6" />}
               </g>
             )}
           </g>,
         ),
-        glow: (open || ajar) && ctx.win === "light" ? <ellipse cx={x} cy={fy} rx={300} ry={90} fill="url(#warmPool)" /> : undefined,
+        glow:
+          (open || ajar) && ctx.win === "light" ? (
+            <ellipse cx={x} cy={fy} rx={300} ry={90} fill="url(#warmPool)" />
+          ) : !open && !ajar ? (
+            <g>
+              <rect x={x - 135 * s} y={fy - 8 * s} width={270 * s} height={8 * s} fill="#ffcf7a" opacity={ctx.win === "light" ? 0.9 : 0.35} />
+              <ellipse cx={x} cy={fy + 10} rx={200 * s} ry={30 * s} fill="url(#warmPool)" opacity={ctx.win === "light" ? 1 : 0.4} />
+            </g>
+          ) : undefined,
       };
     }
     case "stove":
@@ -646,15 +746,30 @@ export function buildItem(it: Item, ctx: Ctx): Built {
     }
     case "lamp": {
       const on = (it.v !== "off") && fl > 0.5;
+      const sh = c ?? "#e8d4a8";
       return {
         body: T(
           <g>
-            <rect x={-8} y={-560} width={16} height={560} fill="#2a2a2e" />
-            <ellipse cx={0} cy={-4} rx={70} ry={14} fill="#2a2a2e" />
-            <path d="M-90 -560 L90 -560 L60 -680 L-60 -680Z" fill={on ? "#ffe3a8" : "#8a7a5a"} />
+            <ellipse cx={0} cy={-2} rx={90} ry={16} fill="#000" opacity={0.3} />
+            <rect x={-7} y={-560} width={14} height={560} fill="#2a2a2e" />
+            <rect x={-4} y={-560} width={4} height={560} fill="#fff" opacity={0.12} />
+            <path d="M-60 0 Q0 -30 60 0Z" fill="#2a2a2e" />
+            <path d="M-96 -556 L96 -556 L64 -690 L-64 -690Z" fill={on ? "#fff0c8" : shade(sh, -0.35)} />
+            <path d="M-96 -556 L96 -556 L64 -690 L-64 -690Z" fill="none" stroke={shade(sh, -0.3)} strokeWidth={4} />
+            {[-48, 0, 48].map((dx) => (
+              <path key={dx} d={`M${dx * 1.4} -556 L${dx} -690`} stroke={shade(sh, -0.15)} strokeWidth={3} opacity={0.6} />
+            ))}
+            <rect x={-100} y={-560} width={200} height={10} rx={4} fill={shade(sh, -0.25)} />
           </g>,
         ),
-        glow: on ? <ellipse cx={x} cy={fy - 560 * s} rx={420 * s} ry={380 * s} fill="url(#warmPool)" /> : undefined,
+        glow: on ? (
+          <g>
+            <ellipse cx={x} cy={fy - 600 * s} rx={420 * s} ry={380 * s} fill="url(#warmPool)" />
+            <path d={`M${x - 92 * s} ${fy - 556 * s} L${x + 92 * s} ${fy - 556 * s} L${x + 300 * s} ${fy + 30} L${x - 300 * s} ${fy + 30}Z`} fill="url(#coneWarm)" />
+            <ellipse cx={x} cy={fy + 20} rx={320 * s} ry={60 * s} fill="url(#warmPool)" />
+            <ellipse cx={x} cy={fy - 624 * s} rx={70 * s} ry={50 * s} fill="#fff6d8" opacity={0.35 + Math.sin(t * 50) * 0.02} />
+          </g>
+        ) : undefined,
       };
     }
     case "streetlamp": {
@@ -673,6 +788,9 @@ export function buildItem(it: Item, ctx: Ctx): Built {
             <path d="M75 -836 L115 -836 L330 0 L-140 0Z" fill="#fff1c0" opacity={0.08} />
             <ellipse cx={95} cy={-840} rx={180} ry={140} fill="url(#warmPool)" />
             <ellipse cx={95} cy={0} rx={260} ry={50} fill="url(#warmPool)" />
+            {[0, 1, 2, 3].map((i) => (
+              <circle key={i} cx={95 + Math.sin(t * (3 + i) + i * 2) * (40 + i * 12)} cy={-800 + Math.cos(t * (2.4 + i * 0.7) + i) * (30 + i * 8)} r={4} fill="#fff6d0" opacity={0.9} />
+            ))}
           </g>
         ) : undefined,
       };
@@ -711,16 +829,38 @@ export function buildItem(it: Item, ctx: Ctx): Built {
         ),
       };
     }
-    case "picture":
+    case "picture": {
+      const art = c ?? "#8aa0b8";
+      const kind = Math.floor(rnd(x * 0.37 + (it.y ?? 0)) * 3);
       return {
         body: (
           <g transform={`translate(${x} ${ctx.floorY - 820 + (it.y ?? 0)}) scale(${s})`}>
+            <rect x={-84} y={-62} width={180} height={140} fill="#000" opacity={0.2} />
             <rect x={-90} y={-70} width={180} height={140} fill="#3a2414" />
-            <rect x={-74} y={-54} width={148} height={108} fill={c ?? "#8aa0b8"} />
-            <path d="M-74 54 L-20 0 L20 30 L50 0 L74 30 L74 54Z" fill="#4a6a4a" />
+            <rect x={-90} y={-70} width={180} height={8} fill="#fff" opacity={0.12} />
+            <rect x={-76} y={-56} width={152} height={112} fill="#e8dcc0" />
+            <rect x={-68} y={-48} width={136} height={96} fill={art} />
+            {kind === 0 ? (
+              <g>
+                <circle cx={36} cy={-22} r={14} fill="#f6e8b0" />
+                <path d="M-68 48 L-24 0 L10 26 L40 -4 L68 24 L68 48Z" fill="#4a6a4a" />
+                <path d="M-68 48 L-24 0 L-6 14 L-30 48Z" fill="#3a5a3a" />
+              </g>
+            ) : kind === 1 ? (
+              <g>
+                <ellipse cx={0} cy={-8} rx={22} ry={28} fill="#c9a07a" />
+                <path d="M-44 48 Q0 4 44 48Z" fill="#2a2a3a" />
+              </g>
+            ) : (
+              <g>
+                <path d="M-68 10 Q-20 -30 20 0 T68 -10 L68 48 L-68 48Z" fill="#3a6a9a" />
+                <path d="M-40 -10 l20 -24 l4 24Z" fill="#fff" opacity={0.8} />
+              </g>
+            )}
           </g>
         ),
       };
+    }
     case "shelf":
       return {
         body: (
@@ -738,18 +878,25 @@ export function buildItem(it: Item, ctx: Ctx): Built {
       return {
         body: T(
           <g>
-            <rect x={-260} y={-330} width={40} height={330} rx={10} fill="#5a3418" />
-            <rect x={220} y={-250} width={40} height={250} rx={10} fill="#5a3418" />
-            <rect x={-240} y={-190} width={480} height={120} rx={14} fill="#e9e4da" />
-            <rect x={-230} y={-250} width={140} height={70} rx={30} fill="#f6f2ea" />
-            <path d="M-120 -210 L240 -210 L240 -80 L-120 -80Z" fill={col} />
-            <path d="M-120 -210 L240 -210 L240 -180 L-120 -180Z" fill={shade(col, 0.15)} />
-            <rect x={-240} y={-80} width={480} height={36} fill="#5a3418" />
-            {it.v === "under" && (
-              <g>
-                <rect x={-220} y={-44} width={440} height={44} fill="#050508" />
-              </g>
-            )}
+            <ellipse cx={0} cy={-4} rx={290} ry={24} fill="#000" opacity={0.3} />
+            <rect x={-262} y={-360} width={44} height={360} rx={10} fill="#5a3418" />
+            <rect x={-262} y={-360} width={44} height={12} rx={6} fill="#fff" opacity={0.12} />
+            <rect x={-250} y={-330} width={20} height={150} fill="#4a2a12" />
+            <rect x={220} y={-260} width={40} height={260} rx={10} fill="#5a3418" />
+            <rect x={-240} y={-196} width={480} height={126} rx={14} fill="#e9e4da" />
+            <rect x={-232} y={-262} width={150} height={78} rx={32} fill="#f6f2ea" />
+            <path d="M-200 -240 Q-160 -250 -120 -232" stroke="#d8d2c4" strokeWidth={5} fill="none" />
+            <path d="M-130 -216 L240 -216 L246 -84 L-136 -84Z" fill={col} />
+            <path d="M-130 -216 L240 -216 L240 -184 L-130 -184Z" fill={shade(col, 0.18)} />
+            {[0, 1, 2, 3].map((k) => (
+              <path key={k} d={`M${-90 + k * 90} -176 Q${-70 + k * 90} -130 ${-80 + k * 90} -90`} stroke={shade(col, -0.18)} strokeWidth={5} fill="none" />
+            ))}
+            {[0, 1, 2, 3, 4].map((k) => (
+              <rect key={k} x={-110 + k * 70} y={-160} width={30} height={30} rx={4} fill={shade(col, 0.1)} opacity={0.5} />
+            ))}
+            <rect x={-246} y={-86} width={492} height={40} fill="#5a3418" />
+            <rect x={-246} y={-86} width={492} height={8} fill="#fff" opacity={0.1} />
+            {it.v === "under" && <rect x={-220} y={-46} width={440} height={46} fill="#050508" />}
           </g>,
         ),
       };
@@ -759,15 +906,26 @@ export function buildItem(it: Item, ctx: Ctx): Built {
       return {
         body: T(
           <g>
+            <ellipse cx={0} cy={-4} rx={260} ry={20} fill="#000" opacity={0.3} />
             {[0, 1].map((k) => (
               <g key={k} transform={`translate(0 ${-k * 300})`}>
-                <rect x={-220} y={-130} width={440} height={60} rx={8} fill="#e8e4dc" />
-                <rect x={-220} y={-160} width={120} height={40} rx={16} fill="#f6f2ea" />
-                <rect x={-80} y={-150} width={300} height={44} fill={col} />
+                <rect x={-226} y={-74} width={452} height={14} fill="#4a525e" />
+                <rect x={-220} y={-134} width={440} height={62} rx={8} fill="#e8e4dc" />
+                <rect x={-220} y={-170} width={124} height={44} rx={16} fill="#f6f2ea" />
+                <rect x={-86} y={-156} width={306} height={50} rx={6} fill={col} />
+                {[0, 1, 2].map((j) => (
+                  <path key={j} d={`M${-40 + j * 90} -150 q20 20 6 42`} stroke={shade(col, -0.2)} strokeWidth={5} fill="none" />
+                ))}
               </g>
             ))}
-            <rect x={-235} y={-640} width={22} height={640} fill="#55606e" />
-            <rect x={213} y={-640} width={22} height={640} fill="#55606e" />
+            <rect x={-237} y={-660} width={24} height={660} fill="#55606e" />
+            <rect x={213} y={-660} width={24} height={660} fill="#55606e" />
+            <rect x={-237} y={-660} width={6} height={660} fill="#fff" opacity={0.12} />
+            {/* ladder */}
+            {[0, 1, 2, 3].map((j) => (
+              <rect key={j} x={180} y={-120 - j * 90} width={56} height={10} fill="#6a7480" />
+            ))}
+            <rect x={176} y={-430} width={10} height={430} fill="#55606e" />
           </g>,
         ),
       };
@@ -776,13 +934,29 @@ export function buildItem(it: Item, ctx: Ctx): Built {
     case "armchair": {
       const col = c ?? "#8a3a3a";
       const w = it.t === "sofa" ? 300 : 140;
+      const n = it.t === "sofa" ? 3 : 1;
       return {
         body: T(
           <g>
-            <rect x={-w - 40} y={-300} width={(w + 40) * 2} height={190} rx={50} fill={shade(col, -0.1)} />
-            <rect x={-w} y={-170} width={w * 2} height={110} rx={24} fill={col} />
-            <rect x={-w - 60} y={-220} width={90} height={190} rx={40} fill={shade(col, -0.05)} />
-            <rect x={w - 30} y={-220} width={90} height={190} rx={40} fill={shade(col, -0.05)} />
+            <ellipse cx={0} cy={-4} rx={w + 80} ry={22} fill="#000" opacity={0.3} />
+            <rect x={-w - 40} y={-310} width={(w + 40) * 2} height={200} rx={50} fill={shade(col, -0.12)} />
+            {Array.from({ length: n }).map((_, k) => (
+              <rect key={k} x={-w + 10 + k * ((w * 2 - 20) / n)} y={-292} width={(w * 2 - 20) / n - 12} height={150} rx={30} fill={shade(col, -0.04)} />
+            ))}
+            <rect x={-w} y={-176} width={w * 2} height={116} rx={24} fill={col} />
+            {Array.from({ length: n - 1 }).map((_, k) => (
+              <line key={k} x1={-w + ((k + 1) * w * 2) / n} y1={-172} x2={-w + ((k + 1) * w * 2) / n} y2={-64} stroke={shade(col, -0.2)} strokeWidth={5} />
+            ))}
+            <rect x={-w} y={-176} width={w * 2} height={12} rx={6} fill="#fff" opacity={0.1} />
+            <rect x={-w - 66} y={-226} width={96} height={196} rx={40} fill={shade(col, -0.06)} />
+            <rect x={w - 30} y={-226} width={96} height={196} rx={40} fill={shade(col, -0.06)} />
+            <rect x={-w - 60} y={-222} width={84} height={14} rx={7} fill="#fff" opacity={0.1} />
+            {it.t === "sofa" && (
+              <g transform={`rotate(-12 ${-w + 70} -200)`}>
+                <rect x={-w + 20} y={-250} width={100} height={90} rx={24} fill={col === "#8a3a3a" ? "#e0c070" : shade(col, 0.35)} />
+                <path d={`M${-w + 30} -205 L${-w + 110} -205`} stroke="#000" strokeOpacity={0.12} strokeWidth={5} />
+              </g>
+            )}
             <rect x={-w - 40} y={-40} width={20} height={40} fill="#3a2414" />
             <rect x={w + 20} y={-40} width={20} height={40} fill="#3a2414" />
           </g>,
@@ -791,14 +965,39 @@ export function buildItem(it: Item, ctx: Ctx): Built {
     }
     case "table": {
       const col = c ?? "#6a4026";
+      const r = rnd(x * 0.13 + fy * 0.07);
       return {
         body: T(
           <g>
-            <rect x={-220} y={-270} width={440} height={30} rx={6} fill={col} />
-            {it.v === "cloth" && <path d="M-230 -270 L230 -270 L250 -150 L-250 -150Z" fill="#b3262e" />}
-            {it.v === "cloth" && <path d="M-230 -270 L230 -270 L250 -150 L-250 -150Z" fill="url(#check)" opacity={0.5} />}
+            <ellipse cx={0} cy={-4} rx={250} ry={20} fill="#000" opacity={0.3} />
             <rect x={-200} y={-240} width={26} height={240} fill={shade(col, -0.2)} />
             <rect x={174} y={-240} width={26} height={240} fill={shade(col, -0.2)} />
+            <rect x={-200} y={-240} width={400} height={20} fill={shade(col, -0.3)} />
+            <rect x={-224} y={-274} width={448} height={34} rx={6} fill={col} />
+            <rect x={-224} y={-274} width={448} height={8} rx={4} fill="#fff" opacity={0.14} />
+            {it.v === "cloth" && <path d="M-234 -274 L234 -274 L254 -150 L-254 -150Z" fill="#b3262e" />}
+            {it.v === "cloth" && <path d="M-234 -274 L234 -274 L254 -150 L-254 -150Z" fill="url(#check)" opacity={0.5} />}
+            {it.v !== "empty" && (
+              <g>
+                {r > 0.33 && (
+                  <g>
+                    <rect x={-150} y={-320} width={44} height={48} rx={6} fill="#e8e4dc" />
+                    <path d="M-106 -310 q22 8 0 26" stroke="#e8e4dc" strokeWidth={8} fill="none" />
+                    <path d={`M-140 -330 q6 -${14 + Math.sin(t * 2) * 4} 0 -28 M-120 -332 q-6 -16 0 -30`} stroke="#fff" strokeWidth={4} fill="none" opacity={0.25} />
+                  </g>
+                )}
+                <ellipse cx={20} cy={-280} rx={80} ry={12} fill="#f1ede4" />
+                <ellipse cx={20} cy={-284} rx={56} ry={8} fill="#e0dcd2" />
+                {r < 0.66 && (
+                  <g>
+                    <path d="M120 -276 L132 -340 L172 -340 L184 -276Z" fill="#7aa0c8" opacity={0.8} />
+                    <path d="M152 -340 q-30 -50 -10 -80 M152 -340 q10 -60 30 -70 M152 -340 q30 -30 40 -26" stroke="#3a7a3a" strokeWidth={6} fill="none" />
+                    <circle cx={142} cy={-420} r={12} fill="#e86a6a" />
+                    <circle cx={182} cy={-412} r={10} fill="#ffd23a" />
+                  </g>
+                )}
+              </g>
+            )}
           </g>,
         ),
       };
@@ -823,7 +1022,15 @@ export function buildItem(it: Item, ctx: Ctx): Built {
             <rect x={200} y={-254} width={20} height={254} fill={shade(c ?? "#7a5a3a", -0.2)} />
             <rect x={-40} y={-470} width={220} height={150} rx={10} fill="#1a1d24" />
             <rect x={-30} y={-460} width={200} height={130} rx={6} fill="#6aa0ff" opacity={0.85} />
+            {[0, 1, 2, 3].map((k) => (
+              <rect key={k} x={-14} y={-440 + k * 24} width={80 + ((k * 37) % 60)} height={10} rx={4} fill="#fff" opacity={0.5} />
+            ))}
             <rect x={50} y={-320} width={40} height={40} fill="#1a1d24" />
+            <rect x={-200} y={-292} width={120} height={14} fill="#f1ede4" transform="rotate(-4 -140 -285)" />
+            <rect x={-190} y={-300} width={120} height={14} fill="#e8e2d4" transform="rotate(3 -130 -293)" />
+            <rect x={-60} y={-300} width={140} height={16} rx={4} fill="#2a2a30" />
+            <rect x={150} y={-326} width={34} height={46} rx={6} fill="#b3262e" />
+            <rect x={-230} y={-280} width={460} height={6} fill="#fff" opacity={0.12} />
           </g>,
         ),
         glow: <ellipse cx={x + 70 * s} cy={fy - 400 * s} rx={300 * s} ry={260 * s} fill="url(#screenGlow)" />,
@@ -877,20 +1084,63 @@ export function buildItem(it: Item, ctx: Ctx): Built {
     case "rug":
       return { body: <ellipse cx={x} cy={fy + 120 + (it.y ?? 0)} rx={380 * s} ry={110 * s} fill={c ?? "#8a2b2b"} /> };
     case "pine":
-      return { body: <Pine x={x} y={fy} h={900 * s} c={c ?? (ctx.night ? "#18283c" : "#2f5a3f")} snow={ctx.snow} night={ctx.night} /> };
+      return {
+        body: (
+          <g transform={`rotate(${Math.sin(t * 0.9 + x * 0.01) * 0.9} ${x} ${fy})`}>
+            <ellipse cx={x} cy={fy + 4} rx={260 * s} ry={30 * s} fill="#000" opacity={0.22} />
+            <Pine x={x} y={fy} h={900 * s} c={c ?? (ctx.night ? "#18283c" : "#2f5a3f")} snow={ctx.snow} night={ctx.night} />
+          </g>
+        ),
+      };
     case "deadtree":
       return {
         body: T(
-          <g stroke={c ?? "#1a1512"} strokeLinecap="round" fill="none">
+          <g stroke={c ?? "#1a1512"} strokeLinecap="round" fill="none" transform={`rotate(${Math.sin(t * 0.7 + x * 0.01) * 1.2} 0 0)`}>
             <path d="M0 0 L0 -600" strokeWidth={46} />
+            <path d="M-30 0 Q-60 10 -90 4 M30 0 Q70 12 100 2" strokeWidth={16} />
             <path d="M0 -300 L-180 -520 M0 -420 L160 -640 M-90 -410 L-200 -420 M80 -530 L170 -520 M0 -600 L-60 -760 M0 -600 L60 -780" strokeWidth={18} />
           </g>,
         ),
       };
-    case "chalet":
-      return { body: <Chalet x={x} y={fy} s={s * 0.9} c={c} snow={ctx.snow} night={ctx.night} t={t} lit={it.v === "dark" ? 0 : 0.8} door={it.v} />, glow: ctx.night && it.v !== "dark" ? <ellipse cx={x} cy={fy - 250 * s} rx={420 * s} ry={300 * s} fill="url(#warmPool)" opacity={0.5} /> : undefined };
-    case "house":
-      return { body: <House x={x} y={fy} s={s * 0.9} c={c} snow={ctx.snow} night={ctx.night} lights={it.v === "lights"} t={t} /> };
+    case "chalet": {
+      const sx = x + 170 * s * 0.9;
+      const sy = fy - 600 * s * 0.9;
+      return {
+        body: (
+          <g>
+            <rect x={sx - 26 * s} y={sy - 10} width={52 * s} height={140 * s} fill="#4a3a32" />
+            {it.v !== "dark" && (
+            <g>
+              {[0, 1, 2, 3, 4].map((i) => {
+                const k = ((t * 0.35 + i / 5) % 1);
+                return <circle key={i} cx={sx + k * 120 + Math.sin(t + i) * 10} cy={sy - k * 420} r={22 + k * 60} fill={ctx.night ? "#8a94b0" : "#e8ecf2"} opacity={(1 - k) * 0.35} />;
+              })}
+            </g>
+          )}
+            <Chalet x={x} y={fy} s={s * 0.9} c={c} snow={ctx.snow} night={ctx.night} t={t} lit={it.v === "dark" ? 0 : 0.8} door={it.v} />
+          </g>
+        ),
+        glow: ctx.night && it.v !== "dark" ? <ellipse cx={x} cy={fy - 250 * s} rx={420 * s} ry={300 * s} fill="url(#warmPool)" opacity={0.5} /> : undefined };
+    }
+    case "house": {
+      const sx = x + 180 * s * 0.9;
+      const sy = fy - 560 * s * 0.9;
+      return {
+        body: (
+          <g>
+            {it.v !== "dark" && (
+            <g>
+              {[0, 1, 2, 3, 4].map((i) => {
+                const k = ((t * 0.35 + i / 5) % 1);
+                return <circle key={i} cx={sx + k * 120 + Math.sin(t + i) * 10} cy={sy - k * 420} r={22 + k * 60} fill={ctx.night ? "#8a94b0" : "#e8ecf2"} opacity={(1 - k) * 0.35} />;
+              })}
+            </g>
+          )}
+            <House x={x} y={fy} s={s * 0.9} c={c} snow={ctx.snow} night={ctx.night} lights={it.v === "lights"} t={t} />
+          </g>
+        ),
+      };
+    }
     case "church":
       return { body: <Church x={x} y={fy} s={s} snow={ctx.snow} night={ctx.night} t={t} /> };
     case "car": {

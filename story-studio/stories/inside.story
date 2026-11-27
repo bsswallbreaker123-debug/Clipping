@@ -101,16 +101,16 @@ yard | He walked up to me in the yard. Close enough to smell. | @skinner:.42:cre
 yard | skinner> [whispering] Pretty dragon. I want a ride on it. Or I ^tell Bellamy.^ | close=skinner @skinner:.5:creepy:talk cam=push sfx=stinger
 
 == 4
-yard | Now my escape had five people. Me. Cole. Diego. Varga. And a monster. | cam=push t=black
+yard | Now my escape had five people. Me. Cole. Diego. Varga. And a monster. | cam=push t=black @me:.2:determined:idle+y=60 @cole:.4:worried:idle+y=60 @diego:.6:grin:idle+y=60 @varga:.8:smug:idle+y=60
 block | Day five. Three days left. And I still had no way out of Block B. | tag=DAY_5 cam=creep
 block | Then I looked at my right shoulder in the mirror. Section nine. A word I'd never noticed. | close=me @me:.5:suspicious:think
 void | | prop=sign:STORM/DRAIN:DESIGNED_1902 hold=2.2
 block | Under the old wing was a storm drain from 1902. It ran under the wall. | cam=push
 block | I'd only needed to get ^underneath^ Block B. Not through it. | close=me @me:.5:determined:idle cam=zoom
 block | And the only way down... was the guard's break room floor. | cam=right
-yard | So we needed a riot. Twenty minutes of chaos. | rule=THE_PLAN cam=push
-yard | Varga's people started a fight. Then everybody did. | fx=shake cam=shake sfx=crowd
-yard | Fire alarms. Guards running. Smoke. | fx=shake,embers sfx=alarm cam=shake
+yard | So we needed a riot. Twenty minutes of chaos. | rule=THE_PLAN cam=push @me:.35:determined:talk+y=80 @cole:.65:worried:idle+y=80
+yard | Varga's people started a fight. Then everybody did. | fx=shake cam=shake sfx=crowd @me:.3:shocked:idle+y=100 @diego:.7:angry:fists+y=100
+yard | Fire alarms. Guards running. Smoke. | fx=shake,embers sfx=alarm cam=shake @guard:.2:angry:run+to=.8+y=120 @me:.6:scared:run+to=.3+y=60
 pipes | We broke the floor in eleven minutes. We were in. | @me:.4:determined:crouch+y=60 @diego:.65:scared:crouch+y=60 fx=dark cam=push
 pipes | The drain was there. Exactly where my tattoo said. | cam=right fx=dark sfx=gust
 pipes | And then Diego grabbed my arm. | close=diego @diego:.5:terrified:idle fx=dark
@@ -133,8 +133,8 @@ office | Warden Lowe looked sick. He signed the paper anyway. | close=lowe @lowe
 infirmary | She told me everything. Her hands were shaking. | @hart:.4:scared:talk+y=60 @me:.68:shocked:sit+y=60 cam=push
 infirmary | hart> [whispering] Friday. Midnight. I'll leave the door open. | close=hart @hart:.5:determined:talk
 infirmary | That was the first time anyone on the outside believed us. | close=me @me:.5:relief:idle cam=creep
-block | Then the speakers crackled across Block B. | sfx=buzz cam=up
-block | lowe> Attention. By order of the Governor, the execution of Cole Vance has been moved. | cam=push
+block | Then the speakers crackled across Block B. | sfx=buzz cam=up @me:.4:worried:lookup+y=60 @diego:.66:worried:lookup+y=60
+block | lowe> Attention. By order of the Governor, the execution of Cole Vance has been moved. | cam=push @me:.4:terrified:idle+y=60 @diego:.66:shocked:idle+y=60
 block | lowe> It will take place ^tonight.^ | cam=zoom sfx=stinger
 block | Cole looked across the block at me. Through two sets of bars. | close=cole @cole:.5:sad:idle
 block | He mouthed one word. ^Go.^ | close=cole @cole:.5:sad:idle cam=zoom

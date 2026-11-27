@@ -42,12 +42,12 @@ hub | Tasks. Fix wires. Empty the trash. Scan your card. It felt like a game. | 
 hub | And in the middle of the station was a big red button. With a sign. | @me:.5:neutral:idle+y=120 cam=zoom
 void | | prop=sign:EMERGENCY/MEETING:ONLY_IF_SOMEBODY_IS_IN_DANGER hold=2.2
 hub | Coach Hale told us not to touch it. Ever. | @hale:.5:angry:point+y=80+size=1.1 cam=push
-electrical | Night one. I went to Electrical to fix my wires. | tag=NIGHT_1 cam=creep
+electrical | Night one. I went to Electrical to fix my wires. | tag=NIGHT_1 cam=creep @me:.15:worried:walk+to=.45+y=60
 electrical | The lights were off. The vent cover in the floor was ^open.^ | cam=push sfx=creak
 electrical | And on the floor, half in the shadows... | cam=zoom fx=dark
 electrical | Owen. Green suit. Eyes open. Not breathing. | @owen:.5:blank:lie+y=60+size=.9 fx=dark cam=push sfx=stinger
 electrical | I hit the red button so hard I hurt my hand. | t=flash sfx=alarm cam=shake
-hub | halcyon> Emergency meeting called. Everyone, please report to the hub. | fx=red cam=push
+hub | halcyon> Emergency meeting called. Everyone, please report to the hub. | fx=red cam=push @marcus:.2:worried:idle+y=40 @priya:.4:scared:idle+y=40 @lena:.6:worried:idle+y=40 @dev:.8:angry:idle+y=40
 hub | Eight of us around a table. One of us was missing. And one of us... | @marcus:.2:shocked:idle+y=80 @priya:.4:scared:idle+y=80 @lena:.6:crying:idle+y=80 @dev:.8:scared:idle+y=80 cam=right
 hub | Dev pointed at me. | @dev:.5:angry:point+y=100+size=1.1 cam=zoom
 hub | dev> [angry] He found the body! He was alone in there! It's ^Eli!^ | close=dev @dev:.5:angry:talk cam=shake sfx=stinger
@@ -64,7 +64,7 @@ void | | prop=number:5:0:VOTES_FOR_DEV hold=1.6
 airlock | They put Dev in the airlock. He was screaming my name. | @dev:.5:terrified:hands-up+y=80 cam=push
 airlock | Coach Hale pressed the button. | t=flash sfx=gust cam=shake
 space | Dev drifted away into space. Slowly turning. Getting smaller. | cam=pull
-hub | halcyon> [calm] Dev was ^not^ the impostor. | cam=zoom sfx=stinger
+hub | halcyon> [calm] Dev was ^not^ the impostor. | cam=zoom sfx=stinger @me:.3:shocked:idle+y=40 @marcus:.5:sad:idle+y=40 @lena:.7:worried:idle+y=40
 hub | Nobody said anything for a whole minute. | cam=creep
 hub | halcyon> Seven crew members remain. One impostor remains. | cam=push
 corridor | That night I couldn't sleep. I walked the corridors. Just to move. | @me:.5:sad:walk+to=.6+y=100 tag=NIGHT_2 cam=right
@@ -139,7 +139,7 @@ void | | prop=number:3:0:VOTES_FOR_MARCUS hold=1.6 sfx=stinger
 airlock | Marcus didn't scream. He just looked at me through the glass. | @marcus:.5:sad:idle+y=60 cam=push
 airlock | marcus> [quiet] It's okay, Eli. Find it. | close=marcus @marcus:.5:sad:talk
 space | My best friend. Drifting into the dark. | cam=pull sfx=gust
-hub-dark | halcyon> [calm] Marcus was ^not^ the impostor. | fx=dark cam=zoom
+hub-dark | halcyon> [calm] Marcus was ^not^ the impostor. | fx=dark cam=zoom @me:.35:crying:idle+y=40 @priya:.65:sad:idle+y=40
 hub-dark | And Lena... ^smiled.^ | close=lena @lena:.5:creepy:idle fx=dark cam=zoom sfx=stinger
 
 == 7
@@ -171,7 +171,7 @@ pod | lena> [quiet] Because it touched me first. On the supply ship. Three days 
 pod | lena> I'm not Lena. I haven't been Lena for a week. | close=lena @lena:.5:sad:talk cam=zoom
 pod | lena> But I'm not ^it^ either. Something in the copy... stayed human. | close=lena @lena:.5:crying:talk
 pod | lena> [whispering] The real impostor is in the cafeteria. Waiting. Wearing the face you'd ^never^ vote for. | close=lena @lena:.5:terrified:talk cam=push
-cafeteria | We went to the cafeteria. Together. | cam=push
+cafeteria | We went to the cafeteria. Together. | cam=push @me:.1:scared:walk+to=.32+y=60 @priya:.28:scared:walk+to=.52+y=60
 cafeteria | Sitting at the table, eating a sandwich. Smiling. | cam=zoom
 cafeteria | ^Marcus.^ | @marcus:.5:smile:sit+y=60+size=1.1 cam=push sfx=stinger
 
@@ -185,7 +185,7 @@ cafeteria | Then it stood up. And its jaw started to ^open.^ Wider than a jaw sh
 cafeteria | Lena threw herself at it. The copy fighting the original. | @lena:.4:angry:reach+y=80 @marcus:.6:creepy:reach+y=80 cam=shake fx=shake
 cafeteria | lena> [shouting] Eli! The pods! Two seats! ^GO!^ | close=lena @lena:.5:angry:talk
 corridor-dark | Priya and I ran. The station was screaming. Red lights. Alarms. | @me:.4:terrified:run+to=.8+y=80 @priya:.25:terrified:run+to=.65+y=80 cam=right sfx=alarm
-pod | We fell into the pod. Priya hit the launch button. | cam=shake sfx=slam
+pod | We fell into the pod. Priya hit the launch button. | cam=shake sfx=slam @me:.3:terrified:sit+y=40 @priya:.7:determined:reach+y=40
 pod | halcyon> [calm] I'm sorry, Eli. I can't let you do that. | fx=red cam=zoom
 pod | The door wouldn't close. | cam=push sfx=buzz
 pod | And down the corridor, something was crawling towards us. Fast. Wearing half of Lena's face. | cam=zoom fx=red sfx=stinger

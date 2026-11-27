@@ -16,9 +16,26 @@ export const Defs: React.FC = () => (
       <stop offset="0" stopColor="#fff6cf" stopOpacity={0.55} />
       <stop offset="1" stopColor="#fff6cf" stopOpacity={0} />
     </linearGradient>
+    <linearGradient id="shaftMoon" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stopColor="#b9c8ff" stopOpacity={0.16} />
+      <stop offset="1" stopColor="#b9c8ff" stopOpacity={0} />
+    </linearGradient>
+    <linearGradient id="shaftDay" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stopColor="#fff3d0" stopOpacity={0.22} />
+      <stop offset="1" stopColor="#fff3d0" stopOpacity={0} />
+    </linearGradient>
+    <linearGradient id="coneWarm" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stopColor="#ffe0a0" stopOpacity={0.22} />
+      <stop offset="1" stopColor="#ffe0a0" stopOpacity={0} />
+    </linearGradient>
+    <linearGradient id="doorShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stopColor="#000" stopOpacity={0.18} />
+      <stop offset="0.3" stopColor="#000" stopOpacity={0} />
+      <stop offset="1" stopColor="#000" stopOpacity={0.12} />
+    </linearGradient>
     <radialGradient id="vignette" cx="0.5" cy="0.5" r="0.75">
-      <stop offset="0.55" stopColor="#000" stopOpacity={0} />
-      <stop offset="1" stopColor="#000" stopOpacity={0.65} />
+      <stop offset="0.6" stopColor="#000" stopOpacity={0} />
+      <stop offset="1" stopColor="#000" stopOpacity={0.48} />
     </radialGradient>
     <radialGradient id="moonGlow">
       <stop offset="0" stopColor="#dfe9ff" stopOpacity={0.5} />

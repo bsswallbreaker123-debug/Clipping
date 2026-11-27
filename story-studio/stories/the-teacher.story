@@ -74,11 +74,11 @@ mint-money | The sound of money being born. | cam=push
 command | Outside, Inspector Reyes was going over everything. Cars. Phones. Floor plans. | @sofia:.5:determined:write+y=60 cam=creep
 command | sofia> Who rents a warehouse for five months and never turns on the lights? | close=sofia @sofia:.5:suspicious:talk
 command | She was smart. Too smart. And she was ^on our trail.^ | close=sofia @sofia:.5:determined:idle cam=zoom
-lobby | Day two. A hostage stood up. Then five more. They rushed King. | tag=DAY_2 cam=shake sfx=slam
+lobby | Day two. A hostage stood up. Then five more. They rushed King. | tag=DAY_2 cam=shake sfx=slam @kingM:.62:shocked:hands-up+y=80 @meM:.3:scared:idle+y=60
 lobby | Somebody grabbed his mask and pulled it off. | @king:.5:angry:fists+y=120+size=1.1 t=flash cam=push
 lobby | Every camera in the building saw his face. And outside, the news was ^live.^ | fx=cctv cam=zoom
 void | | prop=news:WHO_IS_THIS_MAN?:CITY_DAILY:Robber_unmasked_inside_the_Mint hold=2.4
-hideout | In a café across the city, the Teacher watched it on TV. | cam=push
+hideout | In a café across the city, the Teacher watched it on TV. | cam=push @teacher:.5:worried:idle+y=60
 cafe | He didn't panic. He ordered another coffee. | @teacher:.5:neutral:sit+item=cup+y=40 cam=creep
 cafe | Then the bell over the door rang. | sfx=bells cam=push
 cafe | And Inspector Sofia Reyes walked in. Sat down at the table next to his. | @sofia:.25:sad:walk+to=.32+y=40 @teacher:.72:neutral:sit+item=cup+y=40 cam=left
@@ -110,8 +110,8 @@ command | Last call. An unknown number. The man from the café. | prop=phone:cal
 command | She knew. And she didn't tell anyone. | close=sofia @sofia:.5:sad:idle t=black cam=push
 cafe | Instead she called him. She asked him to meet her. Same café. Same table. | prop=phone:call:Elias:calling...
 cafe | And the Teacher said yes. Because he was in love with her. And that was ^rule two.^ | close=teacher @teacher:.5:sad:phone+item=phone cam=zoom
-lobby | Inside, I didn't know any of this. Day five. Everything was going wrong. | tag=DAY_5 cam=push
-lobby | The hostages were fighting. King was shouting. The printers jammed twice. | cam=shake sfx=alarm
+lobby | Inside, I didn't know any of this. Day five. Everything was going wrong. | tag=DAY_5 cam=push @meM:.5:worried:idle+y=60
+lobby | The hostages were fighting. King was shouting. The printers jammed twice. | cam=shake sfx=alarm @kingM:.35:angry:point+y=60 @meM:.68:worried:idle+y=60
 tunnel | And then the tunnel flooded. | @pawn:.5:terrified:hands-up+y=100 fx=rain cam=shake sfx=gust
 tunnel | Pawn got out. Barely. Our escape was ^under water.^ | close=pawn @pawn:.5:terrified:idle cam=zoom
 lobby | We called the Teacher on the red line. He always picked up on the first ring. | prop=phone:call:The_Teacher:calling...
@@ -121,7 +121,7 @@ cafe | Because at that moment, he was sitting across from Sofia. | @sofia:.3:sad
 cafe | sofia> [sad] I liked you, Elias. I really did. | close=sofia @sofia:.5:sad:talk
 cafe | Then two men at the next table stood up. Police. | @cop:.15:angry:walk+to=.4+y=40 @cop:.88:angry:walk+to=.65+y=40 cam=push sfx=steps
 cafe | They put him in handcuffs in front of everyone. | @teacher:.5:sad:hands-up+y=40 cam=zoom
-lobby | Inside, every TV in the lobby showed the same thing. | cam=push
+lobby | Inside, every TV in the lobby showed the same thing. | cam=push @meM:.4:shocked:idle+y=60 @clara:.68:scared:idle+y=60
 void | | prop=news:TEACHER_ARRESTED:CITY_DAILY:Heist_mastermind_caught_in_café hold=2.4 sfx=stinger
 lobby | The plan was dead. Our leader was gone. And six robbers turned to look at ^me.^ | close=me @me:.5:terrified:idle cam=zoom
 
@@ -132,12 +132,12 @@ mint | King laughed at me. Rook wanted to run. The twins wanted to surrender. | 
 mint | And then Clara walked into the basement. She'd followed me. | @clara:.5:determined:walk+to=.5+y=150 cam=push
 mint | clara> [calm] You want to get out? Use me. I'm the most valuable thing in this building. | close=clara @clara:.5:determined:talk
 mint | clara> Tell them the ambassador's daughter wants to ^speak to the world.^ | close=clara @clara:.5:determined:talk cam=zoom
-lobby | So we put her on camera. Live. Every channel in Europe. | fx=cctv cam=push
+lobby | So we put her on camera. Live. Every channel in Europe. | fx=cctv cam=push @clara:.5:determined:talk+y=60
 lobby | clara> My name is Clara. Nobody here has hurt me. And my father hasn't called. Not once. | close=clara @clara:.5:sad:talk
 lobby | clara> [crying] Ask him why. | close=clara @clara:.5:crying:talk cam=zoom
 police | Outside, the crowd went silent. Then they started to ^cheer.^ For us. | cam=pull sfx=crowd
 void | | prop=news:"ASK_HIM_WHY":CITY_DAILY:Hostage_speaks_out hold=2.2
-command | And in a holding cell downtown, Inspector Reyes visited the Teacher. | tag=POLICE_HQ cam=push
+command | And in a holding cell downtown, Inspector Reyes visited the Teacher. | tag=POLICE_HQ cam=push @sofia:.35:sad:idle+y=60 @teacher:.68:smile:idle+y=60
 cell | sofia> [cold] You used me. | @sofia:.3:angry:arms+y=60 @teacher:.7:sad:sit+y=60 cam=creep
 cell | teacher> [calm] No. I fell for you. That was never part of the plan. | close=teacher @teacher:.5:sad:talk
 cell | teacher> But this is. Look at your watch, Sofia. | close=teacher @teacher:.5:smile:talk cam=push

@@ -67,7 +67,7 @@ bathroom-ghost | And in the mirror... Maya. Banging on the glass. Screaming with
 
 == 3
 bathroom-ghost | Maya. Trapped on the other side of a mirror. | win=ghost t=black cam=push
-bathroom-ghost | I punched it. Hana threw a hairdryer. The glass didn't even crack. | t=flash sfx=glass cam=shake
+bathroom-ghost | I punched it. Hana threw a hairdryer. The glass didn't even crack. | t=flash sfx=glass cam=shake @me:.4:angry:reach+y=80 @hana:.7:angry:reach+y=80
 bathroom | And then she faded. Like breath on a window. | cam=pull
 library | The next day, Hana took us to the school library. She doesn't believe in ghosts. She believes in ^research.^ | @hana:.5:determined:hold+letter+y=100 cam=push
 library | hana> [calm] Every town has its own Mary. So who's ours? | close=hana @hana:.5:determined:talk
@@ -99,7 +99,7 @@ granny-ghost | Grandma didn't turn around. She didn't have to. She'd always know
 granny-ghost | gran> [whispering] Don't look at her, Caleb. Look at me. | close=gran @gran:.5:terrified:talk fx=dark
 granny-ghost | gran> [whispering] She can only pull you through... if you're looking ^into^ the glass. | close=gran rule=RULE_#1 @gran:.5:determined:talk fx=dark
 granny-ghost | The mirror cracked. Right down the middle. And Mary was gone. | t=flash sfx=glass cam=shake
-bedroom | Rule one. Never look into a mirror. | rule=RULE_#1 cam=push
+bedroom | Rule one. Never look into a mirror. | rule=RULE_#1 cam=push @me:.5:worried:idle+y=60
 bedroom | That's harder than it sounds. Windows. Spoons. Car doors. Puddles. | cam=right
 bedroom | Bree laughed at us. She thought we were doing a bit. | @bree:.5:grin:phone+item=phone+y=100 cam=push
 bedroom | bree> [laugh] Ooh, scary. Let me just take a selfie with the ghost. | close=bree @bree:.5:grin:talk

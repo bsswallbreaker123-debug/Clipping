@@ -63,7 +63,7 @@ cable | And at midnight, the last cable car left the mountain. ^Empty.^ | cam=pu
 inside | Ethan wanted to search. Right now. In the dark. | @ethan:.5:determined:torch+lantern+y=60 cam=push
 inside | So we split up. Two and two. The worst idea in every movie ever. | @kyle:.2:neutral:idle+y=60 @megan:.4:scared:idle+y=60 @tom:.6:scared:idle+y=60 @me:.8:worried:idle+y=60 cam=right
 forest | I went with Tom. Kyle went with Megan. Ethan went alone. | @me:.35:scared:torch+y=120 @tom:.65:scared:idle+y=120 cam=right
-forest | Forty minutes. Nothing. Just snow and trees and our own breath. | cam=creep sfx=gust
+forest | Forty minutes. Nothing. Just snow and trees and our own breath. | cam=creep sfx=gust @me:.4:worried:walk+to=.55+y=60 @tom:.25:scared:walk+to=.4+y=80
 forest | Then we found a second carving. On a tree. | @tom:.6:shocked:point+y=120 cam=push
 void | | prop=sign:THEY_ONLY/SEE_YOU/WHEN_YOU/MOVE:-_R. hold=2.6
 forest | tom> [whispering] Nate... who's "they"? | close=tom @tom:.5:terrified:talk
@@ -104,7 +104,7 @@ inside-dark | But Kyle got there first. He shoved Tom aside and ran for the door
 inside-dark | kyle> [angry] HEY! ^HEY!^ Over here! | close=kyle @kyle:.5:angry:talk fx=dark
 lodge-dark | It followed him out into the snow. | !wendigo:.4:step+to=.1+size=.9 cam=left sfx=gust
 lodge-dark | Then the trees went quiet. | cam=creep
-inside-dark | We waited. A minute. Two. | fx=dark cam=creep sfx=tick
+inside-dark | We waited. A minute. Two. | fx=dark cam=creep sfx=tick @me:.3:scared:idle+y=60 @tom:.5:terrified:idle+y=60 @megan:.7:scared:idle+y=60
 inside-dark | And then the front door slowly opened. | sfx=creak cam=push fx=dark
 inside-dark | It wasn't Kyle. It was a man in a black mask... with a ^knife.^ | @ethan:.5:blank:idle+y=100+dim fx=dark cam=zoom sfx=stinger
 

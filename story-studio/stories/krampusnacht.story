@@ -20,10 +20,10 @@ scenes:
   road: outside sky=snow moon=.3 far=alps ground=road weather=snow | pine .1 s=1.1 y=-60 | pine .9 s=1.2 y=-60 | car .5 v=drive c=#3a5a8a
   house: outside sky=snow moon=.82 far=pines ground=snow weather=snow | chalet .5 s=1.05 | pine .06 s=1.1 | pine .95 s=1.0
   living: room wall=#6b4a2f:wood floor=#4a2e1c:wood beams light=warm | window .3 v=curtain:#9a2424 | clock .62 y=-930 | tree .12 s=.85 | stove .86 | table .5 v=cloth | candles .5 y=-275 s=.55 | rug .5
-  doorstep: room wall=#6a4a30:wood floor=#aab6d6:plain floorY=1500 cs=.8 light=moon weather=snow | door .5 s=1.25 | boots .5 s=2.3 y=230
-  doorstep-birch: room wall=#6a4a30:wood floor=#aab6d6:plain floorY=1500 cs=.8 light=moon weather=snow | door .5 s=1.25 | boots .5 s=2.3 y=230 v=birch
-  doorstep-choc: room wall=#8a6040:wood floor=#eef3fb:plain floorY=1500 cs=.8 light=day | door .5 s=1.25 | boots .5 s=2.3 y=230 v=choc
-  doorstep-day: room wall=#8a6040:wood floor=#eef3fb:plain floorY=1500 cs=.8 light=day | door .5 s=1.25 | boots .27 s=2 y=230 v=choc | boots .73 s=2 y=230 v=birch
+  doorstep: room wall=#6a4a30:wood floor=#aab6d6:plain floorY=1500 cs=.8 light=moon weather=snow | door .5 s=1.25 | boots .5 s=1.5 y=140
+  doorstep-birch: room wall=#6a4a30:wood floor=#aab6d6:plain floorY=1500 cs=.8 light=moon weather=snow | door .5 s=1.25 | boots .5 s=1.5 y=140 v=birch
+  doorstep-choc: room wall=#8a6040:wood floor=#eef3fb:plain floorY=1500 cs=.8 light=day | door .5 s=1.25 | boots .5 s=1.5 y=140 v=choc
+  doorstep-day: room wall=#8a6040:wood floor=#eef3fb:plain floorY=1500 cs=.8 light=day | door .5 s=1.25 | boots .3 s=1.4 y=140 v=choc | boots .7 s=1.4 y=140 v=birch
   square: outside sky=snow moon=.5 far=alps ground=snow weather=snow | church .5 s=.9 y=-140 | chalet .08 s=.5 y=-120 | chalet .95 s=.5 y=-120 | torches .5 y=40 | crowd .5 v=14 y=150
   bedroom: room wall=#5a3e2a:wood floor=#3e2a1a:wood light=moon | window .7 v=curtain:#7a1c1c | bed .32 c=#4a6fa5 | picture .3 y=-60
   bedroom-dark: room wall=#5a3e2a:wood floor=#3e2a1a:wood light=dark | window .66 v=curtain:#7a1c1c:closed s=1.2 | bed .25 c=#4a6fa5
@@ -48,7 +48,7 @@ village | This is ^Krampus.^ | card=Krampus:The_Christmas_Demon_-_The_Alps:5 !ho
 village | Half goat. Half demon. Black fur, iron chains, and a tongue that hangs past his chin. | close=creature !horned:.5:idle cam=push
 village | He walks from house to house, ringing his *bells,* so you hear him coming. | !horned:.42:step+to=.6+size=1.1 sfx=bells
 village | The good kids get presents. The bad ones... he takes ^with him.^ | close=creature !horned:.5:scream cam=zoom
-road | I was sixteen when my parents sent me and my little sister to Opa's village for Advent. | tag=LAST_DECEMBER cam=right
+road | I was sixteen when my parents sent me and my little sister to Opa's village for Advent. | tag=LAST_DECEMBER cam=right @me:.4:neutral:idle+y=80 @emma:.6:smile:idle+y=100
 house | Opa lived in the very last house. Right where the *forest* starts. | @opa:.5:smile:wave+y=60 @emma:.2:smile:wave+y=140 @me:.78:neutral:idle+y=140 cam=push
 living | On the first night, he gave us three *rules.* | @opa:.5:determined:talk @emma:.22:worried:idle+y=60 @me:.8:neutral:arms+y=60
 living | opa> [serious] On the fourth, you put your boots outside the door. | close=opa rule=RULE_#1 @opa:.5:determined:talk
@@ -256,7 +256,7 @@ mine-ext | Toni Weber came home. Twelve years old. To a mother who was eighty-fo
 mine-ext | And Krampus walked back up the mountain. Ringing his bells. Slower than before. | !horned:.5:step+to=.8+size=.8 cam=up sfx=bells
 square-day | I called Jonas. I told the school the truth. I deleted the video. | tag=ONE_YEAR_LATER @me:.5:smile:phone+item=phone+y=150+size=1.2 cam=push
 square-day | Lukas and I are friends now. Real ones. | @lukas:.35:smile:wave+y=120 @me:.65:smile:idle+y=120 cam=creep
-doorstep-day | This December, Emma and I went back to Opa's. We put our boots outside. | cam=push
+doorstep-day | This December, Emma and I went back to Opa's. We put our boots outside. | cam=push @me:.2:smile:idle+y=60 @emma:.8:smile:idle+y=80
 doorstep-choc | Chocolate. Both pairs. | cam=zoom
 doorstep-birch | But this morning, there was a third pair of boots on the doorstep. Little ones. I've never seen them before. | cam=push
 doorstep-birch | Full of birch sticks. And a note in a child's handwriting. | cam=zoom

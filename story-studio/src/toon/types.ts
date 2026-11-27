@@ -29,7 +29,7 @@ export interface Cast {
   glasses?: boolean;
   beard?: "stubble" | "full" | "moustache";
   wrinkles?: boolean;
-  mask?: "fox" | "doll" | "visor" | "sack" | "gas" | "skull";
+  mask?: "fox" | "doll" | "visor" | "sack" | "gas" | "skull" | "gold";
   variant?: "infected" | "ghost" | "pale" | "wrong";
   badge?: string; // number / name tag on the chest ("218")
   height?: number;
