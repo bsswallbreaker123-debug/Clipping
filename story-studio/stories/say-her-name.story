@@ -6,13 +6,13 @@ accent: #ff3b6b
 tempo: 1.06
 
 cast:
-  me: Chloe | teen | hair=long:#5a3a22 | top=#5a7aa8:hoodie | skin=#f6d7bf | voice=af_bella
+  me: Caleb | teen | hair=messy:#5a3a22 | top=#5a7aa8:hoodie | skin=#f6d7bf | voice=am_puck
   maya: Maya | teen | hair=curly:#1a1a1a | top=#e8c22a:sweater | top2=#fff3c8 | skin=#9a6440 | voice=af_nicole
   hana: Hana | teen | hair=bob:#1a1a1a | top=#7aa86a:shirt | glasses | skin=#f2c9a8 | voice=af_sky
   bree: Bree | teen | hair=ponytail:#e0c070 | top=#e86a9a:hoodie | skin=#f6d7bf | voice=af_sarah
   gran: Grandma Ruth | old | hair=bun:#e8e4dc | top=#6a3a5a:sweater | top2=#e9dcc0 | glasses | wrinkles | voice=bf_emma
   mary: Mary | teen | hair=long:#0b0b0d | top=#e6eaec:dress | variant=ghost | voice=bf_lily+-2
-  meX: Chloe | teen | hair=long:#5a3a22 | top=#5a7aa8:hoodie | skin=#f6d7bf | variant=wrong | voice=af_bella+-3
+  meX: Caleb | teen | hair=messy:#5a3a22 | top=#5a7aa8:hoodie | skin=#f6d7bf | variant=wrong | voice=am_puck+-3
 
 scenes:
   bedroom: room wall=#8a6a9a:stripes floor=#6a4a3a:wood light=warm | bed .3 c=#e86a9a | lamp .88 | window .7 v=curtain:#5a3a6a | picture .5 y=-80
@@ -32,12 +32,12 @@ scenes:
 
 == 1
 void | Say her name three times in a mirror at midnight... and she'll show you ^how you die.^ | t=black cam=push
-bedroom | It was Maya's sixteenth birthday. Sleepover. Four of us. Me. Maya. Hana. Bree. | @maya:.25:grin:sit+y=60 @hana:.45:smile:sit+y=60 @bree:.65:smile:sit+y=60 @me:.85:smile:idle+y=60 cam=right
+bedroom | It was Maya's sixteenth birthday. Movie night at her place. Four of us. Me. Maya. Hana. Bree. | @maya:.25:grin:sit+y=60 @hana:.45:smile:sit+y=60 @bree:.65:smile:sit+y=60 @me:.85:smile:idle+y=60 cam=right
 bedroom | Pizza. Horror movies. And at eleven fifty-five, Bree had an idea. | @bree:.5:smug:talk+y=80 cam=push
 bedroom | bree> Okay. Bloody Mary. Who's brave enough? | close=bree @bree:.5:grin:talk
 bedroom | Everybody laughed. Everybody said no. Except Maya. | close=maya @maya:.5:smug:idle cam=zoom
 bedroom | maya> [laugh] It's my birthday. I'll do it. | close=maya @maya:.5:grin:talk
-bathroom | We turned off the lights. One candle on the sink. Four girls squeezed into a tiny bathroom. | @hana:.2:scared:idle+y=120 @me:.42:scared:idle+y=120 @bree:.82:grin:idle+y=120 cam=creep tag=11:59_PM
+bathroom | We turned off the lights. One candle on the sink. Four of us squeezed into a tiny bathroom. | @hana:.2:scared:idle+y=120 @me:.42:scared:idle+y=120 @bree:.82:grin:idle+y=120 cam=creep tag=11:59_PM
 bathroom | Maya stood in front of the mirror. | @maya:.5:smile:back+y=150+size=1.1 cam=push
 bathroom | maya> Bloody Mary. | cam=zoom sfx=sub
 bathroom | maya> Bloody Mary. | cam=zoom fx=flicker
@@ -53,7 +53,7 @@ bathroom | But her reflection... wasn't. Her reflection was standing still. ^Smi
 bathroom | The next morning, Maya didn't remember getting up. | close=maya @maya:.5:worried:idle t=black cam=push
 bathroom | Then she brushed her teeth. And her reflection was ^half a second^ late. | @maya:.5:shocked:back+y=150+size=1.1 cam=zoom sfx=sub
 school | At school, every mirror she passed did the same. A little bit late. A little bit wrong. | @maya:.5:terrified:walk+to=.7+y=120 cam=right
-school | maya> [scared] Chloe. Every mirror. Something's ^behind^ me in every single one. | close=maya @maya:.5:terrified:talk
+school | maya> [scared] Caleb. Every mirror. Something's ^behind^ me in every single one. | close=maya @maya:.5:terrified:talk
 school | And on day two, the bathroom mirror at school fogged up. By itself. | cam=push sfx=whisper
 void | | prop=sign:3/DAYS hold=2.0 sfx=stinger
 school | Three days. Written from the other side of the glass. | close=me @me:.5:terrified:idle cam=zoom
@@ -83,12 +83,12 @@ library | Ruth Ellis... is my grandma. | close=me @me:.5:terrified:cover cam=sha
 granny | I drove to Grandma's house that night. She was knitting. Like always. | @gran:.35:smile:sit+y=40 t=black cam=push
 granny | I put the yearbook on her lap. | @gran:.35:shocked:sit+y=40 @me:.68:determined:idle+y=60 cam=creep
 granny | gran> [quiet] Where did you get this? | close=gran @gran:.5:terrified:talk
-granny | I told her about the sleepover. About Maya. About the mirror. | close=me @me:.5:crying:talk
+granny | I told her about the party. About Maya. About the mirror. | close=me @me:.5:crying:talk
 granny | She took off her glasses. Her hands were shaking. | close=gran @gran:.5:sad:idle cam=push
 granny | gran> [quiet] We were twins. Everybody loved Mary. Mary was the pretty one. The funny one. | close=gran @gran:.5:sad:talk
 granny | gran> On our fifteenth birthday... I dared her to swim to the island in Silver Lake. In ^October.^ | close=gran @gran:.5:crying:talk cam=zoom
 lake | gran> She didn't make it back. And I didn't call for help. Not for ten minutes. | tag=1963 fx=fog cam=push
-lake | gran> [crying] Ten minutes, Chloe. Because for ten minutes... I wanted to be the only one. | close=gran @gran:.5:crying:talk fx=fog
+lake | gran> [crying] Ten minutes, Caleb. Because for ten minutes... I wanted to be the only one. | close=gran @gran:.5:crying:talk fx=fog
 granny | The room went cold. | fx=dark cam=creep
 granny | And in the mirror behind Grandma... someone was standing. | win=ghost cam=zoom sfx=sub
 granny-ghost | A girl. Fifteen. Black hair. White dress. With my grandmother's ^face.^ | win=ghost cam=zoom sfx=stinger
@@ -96,7 +96,7 @@ granny-ghost | A girl. Fifteen. Black hair. White dress. With my grandmother's ^
 == 5
 granny-ghost | Mary. Grandma's twin. Sixty-two years in a mirror. | win=ghost t=black cam=push
 granny-ghost | Grandma didn't turn around. She didn't have to. She'd always known. | close=gran @gran:.5:terrified:idle fx=dark
-granny-ghost | gran> [whispering] Don't look at her, Chloe. Look at me. | close=gran @gran:.5:terrified:talk fx=dark
+granny-ghost | gran> [whispering] Don't look at her, Caleb. Look at me. | close=gran @gran:.5:terrified:talk fx=dark
 granny-ghost | gran> [whispering] She can only pull you through... if you're looking ^into^ the glass. | close=gran rule=RULE_#1 @gran:.5:determined:talk fx=dark
 granny-ghost | The mirror cracked. Right down the middle. And Mary was gone. | t=flash sfx=glass cam=shake
 bedroom | Rule one. Never look into a mirror. | rule=RULE_#1 cam=push
@@ -135,7 +135,7 @@ mirrorworld | The clock ran the other way. The letters on the walls were reverse
 mirrorworld | And every mirror on the other side... was a window back into our town. | cam=zoom
 mirrorworld | In one of them, my mum was making breakfast. She looked right through me. | close=me @me:.5:crying:idle
 maze | Then we found Maya. And Bree. Sitting on the floor. Holding hands. Alive. | @maya:.35:crying:sit+y=80 @bree:.6:crying:sit+y=80 cam=push
-maze | maya> [crying] Chloe! You came! She said nobody would come! | close=maya @maya:.5:crying:talk
+maze | maya> [crying] Caleb! You came! She said nobody would come! | close=maya @maya:.5:crying:talk
 maze | But I wasn't looking at Maya. | close=me @me:.5:terrified:idle cam=zoom
 maze | I was looking at the girl standing behind her. | cam=push
 maze | Black hair. White dress. Fifteen years old. Forever. | !ghost:.5:idle+size=1.05 cam=zoom sfx=stinger
@@ -161,23 +161,23 @@ bathroom | Maya called. Bree called. They were home too. They didn't remember an
 bathroom | Grandma was home. Knitting. Like nothing happened. | close=gran @gran:.5:smile:idle
 bathroom | Everything was perfect. | close=me @me:.5:smile:idle cam=zoom
 school | Except Hana kept staring at me. All day. At lunch. In class. | @hana:.3:suspicious:idle+y=120 @me:.72:smile:idle+y=120 cam=push
-school | hana> [quiet] Chloe. Since when do you write with your ^left^ hand? | close=hana @hana:.5:suspicious:talk
+school | hana> [quiet] Caleb. Since when do you write with your ^left^ hand? | close=hana @hana:.5:suspicious:talk
 school | I looked down. I was holding my pen in my left hand. I've been right-handed my whole life. | close=me @me:.5:shocked:hold cam=zoom
 school | My hair was parted on the wrong side. My freckle was on the wrong cheek. | close=me @me:.5:terrified:idle
 school | Everything about me was ^backwards.^ | close=meX @meX:.5:smile:idle cam=zoom sfx=sub
 school | Hana took a step back. | close=hana @hana:.5:terrified:idle
-school | hana> [whispering] You're not Chloe. Are you? | close=hana @hana:.5:terrified:talk cam=push
-school | And somewhere, in a mirror in the girls' bathroom down the hall... someone was banging on the glass. | sfx=knock cam=zoom
+school | hana> [whispering] You're not Caleb. Are you? | close=hana @hana:.5:terrified:talk cam=push
+school | And somewhere, in a mirror in the boys' bathroom down the hall... someone was banging on the glass. | sfx=knock cam=zoom
 school | Someone with my face. | close=me @me:.5:terrified:talk win=ghost cam=zoom sfx=stinger
 
 == 10
 school | I'm the one in the mirror. I've been the one in the mirror since Mary touched my face. | close=me @me:.5:crying:talk t=black fx=red cam=push
 school | Mary is out there. Wearing me. Going to my school. Hugging my mum. | close=meX @meX:.5:smile:idle
-mirrorworld | I watched her through every mirror in town. For a week. | fx=red cam=right
+mirrorworld | I watched Mary wear my face. Through every mirror in town. For a week. | fx=red cam=right
 mirrorworld | And then I watched Hana walk into Grandma's house. And tell her everything. | cam=push
 granny | Grandma knew what to do. She'd known for sixty-two years. | @gran:.5:determined:idle+y=60 cam=creep
 granny | She sat Mary down in front of the big mirror. And held her hand. | @gran:.4:sad:sit+y=60 @meX:.65:blank:sit+y=60 cam=push
-granny | gran> [quiet] Mary. You don't want her life. You want ^yours.^ The one I took. | close=gran @gran:.5:crying:talk
+granny | gran> [quiet] Mary. You don't want his life. You want ^yours.^ The one I took. | close=gran @gran:.5:crying:talk
 granny | gran> I can't give it back. But I can give you this. | close=gran @gran:.5:crying:talk
 granny | And she told her everything. Sixty-two years of birthdays. Every one of them, she'd set two plates. | close=gran @gran:.5:sad:talk cam=zoom
 granny | Mary started crying. Then she started laughing. Then both. | close=meX @meX:.5:crying:idle
@@ -188,5 +188,5 @@ granny | And Mary was gone. Really gone. Not in the mirror. Not anywhere. | cam=
 granny | Grandma says she finally went where she was supposed to go. | @gran:.4:smile:hug+y=60 @me:.62:crying:hug+y=60 cam=creep
 bathroom | I'm right-handed again. Everything's normal. | @me:.5:smile:back+y=150+size=1.1 cam=push tag=ONE_MONTH_LATER
 bathroom | But last night, Grandma called me. At midnight. Whispering. | prop=phone:call:Grandma:00:00 sfx=buzz
-bathroom | gran> [whispering] Chloe. There were ^three^ of us. Mary and I had a little brother. | prop=phone:call:Grandma:00:01 cam=zoom
+bathroom | gran> [whispering] Caleb. There were ^three^ of us. Mary and I had a little brother. | prop=phone:call:Grandma:00:01 cam=zoom
 bathroom | gran> [whispering] He went missing in 1965. In front of a mirror. Saying ^her^ name. | close=me @me:.5:terrified:phone+item=phone cam=zoom sfx=stinger

@@ -78,7 +78,7 @@ street-day | He looked at me. | close=marley @marley:.5:suspicious:idle cam=zoom
 street-day | marley> Where are your parents, boy? | close=marley @marley:.5:suspicious:talk
 street-day | I ran. I didn't stop until I was home. | @me:.5:terrified:run+to=.1+y=150 cam=left sfx=steps
 living | That night, on my bed, I made a plan. On my brother's homework. | @me:.5:determined:write+y=100 cam=push
-void | | prop=poster:OPERATION/HOME_ALONE:9_PM_-_CHRISTMAS_EVE hold=2.4 sfx=page
+void | | prop=poster:OPERATION/HOLD_THE_FORT:9_PM_-_CHRISTMAS_EVE hold=2.4 sfx=page
 living | Two robbers. One nine-year-old. Three days. | close=me @me:.5:determined:idle cam=zoom
 
 == 3

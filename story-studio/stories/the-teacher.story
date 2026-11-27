@@ -6,8 +6,8 @@ accent: #ff4a3a
 tempo: 1.06
 
 cast:
-  me: Knight | adult | hair=bob:#1a1a1a | top=#1c1d22:jumpsuit | skin=#e8b48f | voice=af_heart
-  meM: Knight | adult | hair=bob:#1a1a1a | top=#1c1d22:jumpsuit | mask=fox | voice=af_heart
+  me: Knight | adult | hair=short:#1a1a1a | top=#1c1d22:jumpsuit | skin=#e8b48f | beard=stubble | voice=bm_daniel
+  meM: Knight | adult | hair=short:#1a1a1a | top=#1c1d22:jumpsuit | mask=fox | voice=bm_daniel
   teacher: The Teacher | adult | hair=side:#3a2a1a | glasses | top=#5a4a3a:jacket | top2=#e9e6df | beard=stubble | voice=bm_lewis
   king: King | adult | hair=buzz:#2a2a2a | top=#1c1d22:jumpsuit | build=1.4 | beard=full | skin=#c98e64 | voice=am_adam
   kingM: King | adult | hair=hood:#1c1d22 | top=#1c1d22:jumpsuit | build=1.4 | mask=fox | voice=am_adam

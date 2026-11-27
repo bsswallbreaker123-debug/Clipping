@@ -6,7 +6,7 @@ accent: #7ad0ff
 tempo: 1.06
 
 cast:
-  me: Nora | teen | hair=long:#3a2414 | top=#2f6b8a:jacket | top2=#e9e6df | skin=#f2c9a8 | voice=af_nicole
+  me: Nate | teen | hair=messy:#3a2414 | top=#2f6b8a:jacket | top2=#e9e6df | skin=#f2c9a8 | voice=am_liam
   ethan: Ethan | teen | hair=side:#1a1a1a | top=#3a3a40:hoodie | skin=#e8b48f | voice=am_echo
   kyle: Kyle | teen | hair=spiky:#c9a063 | top=#c0242c:jacket | top2=#f1f1f1 | build=1.15 | voice=am_adam
   megan: Megan | teen | hair=ponytail:#e0c070 | top=#e86a9a:coat | skin=#f6d7bf | voice=af_bella
@@ -66,7 +66,7 @@ forest | I went with Tom. Kyle went with Megan. Ethan went alone. | @me:.35:scar
 forest | Forty minutes. Nothing. Just snow and trees and our own breath. | cam=creep sfx=gust
 forest | Then we found a second carving. On a tree. | @tom:.6:shocked:point+y=120 cam=push
 void | | prop=sign:THEY_ONLY/SEE_YOU/WHEN_YOU/MOVE:-_R. hold=2.6
-forest | tom> [whispering] Nora... who's "they"? | close=tom @tom:.5:terrified:talk
+forest | tom> [whispering] Nate... who's "they"? | close=tom @tom:.5:terrified:talk
 forest | And somewhere behind us, from the direction of the lodge... | cam=zoom
 forest | Megan ^screamed.^ | t=flash sfx=scream cam=shake
 
@@ -132,7 +132,7 @@ mine | It was Lily. His little sister. | close=me @me:.5:terrified:idle fx=dark 
 mine | And she'd been sending messages from her own phone. Not Ethan. Her. | prop=phone:notify:Lily_Carter:06:22/I'm_still_here./Come_down.
 mine | ^Come down.^ | close=ethan @ethan:.5:shocked:phone+item=phone fx=dark sfx=sub
 mine | Ethan stood up. And walked deeper into the mine. | @ethan:.5:sad:walk+to=.9+y=80 fx=dark cam=right
-mine | ethan> [quiet] She's still my sister, Nora. Maybe some part of her remembers. | close=ethan @ethan:.5:sad:talk fx=dark
+mine | ethan> [quiet] She's still my sister, Nate. Maybe some part of her remembers. | close=ethan @ethan:.5:sad:talk fx=dark
 mine | I begged him to stop. He didn't even turn around. | close=me @me:.5:crying:idle fx=dark cam=push
 mine | His flashlight got smaller. And smaller. And then it was gone. | cam=zoom fx=dark sfx=gust
 lodge | I ran back to the lodge alone. I told them everything. | @me:.5:crying:run+to=.5+y=150 cam=push
@@ -141,7 +141,7 @@ inside | Megan's coat was found on the porch an hour later. Folded. Neat. | cam=
 inside | Like a message. | cam=zoom sfx=sub
 inside | And in the pocket... Megan's phone. With a video on it. | prop=phone:camera:REC_-_02:14 sfx=buzz
 inside | Twelve seconds. Megan. In the dark. Alive. Whispering. | prop=phone:camera:REC_-_02:14 cam=push
-inside | megan> [whispering] There are two of them. Nora... ^there are two.^ | prop=phone:camera:REC_-_02:14 cam=zoom sfx=stinger
+inside | megan> [whispering] There are two of them. Nate... ^there are two.^ | prop=phone:camera:REC_-_02:14 cam=zoom sfx=stinger
 
 == 7
 inside | Two wendigos. Lily. And... Rose? But Rose was dead. Lily wrote it. | close=me @me:.5:terrified:idle t=black cam=push
@@ -202,12 +202,12 @@ station | One. Not two. One of the sisters got out. | close=me @me:.5:terrified:
 station | They let us go home a week later. | cam=pull
 bedroom | I couldn't sleep for months. Every time I closed my eyes, I saw the antlers. | @me:.35:sad:lie+y=-205+size=.85 cam=creep tag=THREE_MONTHS_LATER
 bedroom | I told everyone the truth about the prank. Online. With my name on it. | @me:.5:sad:phone+item=phone+y=100 cam=push
-bedroom | Lily's mum wrote to me. She said thank you. She said she forgives us. | prop=letter:Thank_you,_Nora./I_forgive_you./-_Mrs._Carter
+bedroom | Lily's mum wrote to me. She said thank you. She said she forgives us. | prop=letter:Thank_you,_Nate./I_forgive_you./-_Mrs._Carter
 bedroom | And then, one night in March, my phone buzzed. | sfx=buzz cam=zoom
 bedroom | | prop=phone:notify:Rose_Carter:03:12/Thank_you_for_telling_them. hold=2.4
 bedroom | Rose. The one who saved us. | close=me @me:.5:shocked:phone+item=phone cam=push
 bedroom | A second message came in. | sfx=buzz
 bedroom | | prop=phone:notify:Rose_Carter:03:13/I_can't_stay_here./I'm_getting_too_hungry. hold=2.4
 bedroom | And then a third. | sfx=buzz cam=zoom
-bedroom | | prop=phone:notify:Rose_Carter:03:13/Lock_your_window,_Nora. hold=2.4 sfx=stinger
+bedroom | | prop=phone:notify:Rose_Carter:03:13/Lock_your_window,_Nate. hold=2.4 sfx=stinger
 bedroom | Lily knows ^where you live.^ | close=me @me:.5:terrified:phone+item=phone cam=zoom win=eyes

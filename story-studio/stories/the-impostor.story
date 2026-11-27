@@ -6,7 +6,7 @@ accent: #3ad1ff
 tempo: 1.06
 
 cast:
-  me: Ivy | teen | hair=bob:#1a1a1a | top=#38c8e0:jumpsuit | skin=#f2c9a8 | voice=af_sky
+  me: Eli | teen | hair=messy:#1a1a1a | top=#38c8e0:jumpsuit | skin=#f2c9a8 | voice=am_fenrir
   marcus: Marcus | teen | hair=short:#1a1a1a | top=#d62828:jumpsuit | skin=#9a6440 | voice=am_echo
   priya: Priya | teen | hair=long:#1a1a1a | top=#7a3ad1:jumpsuit | skin=#c98e64 | voice=af_nicole
   owen: Owen | teen | hair=curly:#c9862e | top=#2fa84a:jumpsuit | skin=#f6d7bf | voice=am_puck
@@ -14,7 +14,7 @@ cast:
   lena: Lena | teen | hair=ponytail:#e0c070 | top=#ff6ab0:jumpsuit | skin=#f6d7bf | voice=af_bella
   hale: Coach Hale | adult | hair=buzz:#8a7a6a | top=#ff8a2a:jumpsuit | beard=stubble | voice=am_adam
   halcyon: HALCYON | adult | top=#fff | voice=bf_emma
-  meX: Ivy | teen | hair=bob:#1a1a1a | top=#38c8e0:jumpsuit | variant=wrong | voice=af_sky+-3
+  meX: Eli | teen | hair=messy:#1a1a1a | top=#38c8e0:jumpsuit | variant=wrong | voice=am_fenrir+-3
 
 scenes:
   launch: outside sky=dawn far=hills ground=asphalt light=dusk | rocket .5 s=.95 | searchlight .1 | searchlight .9
@@ -50,13 +50,13 @@ electrical | I hit the red button so hard I hurt my hand. | t=flash sfx=alarm ca
 hub | halcyon> Emergency meeting called. Everyone, please report to the hub. | fx=red cam=push
 hub | Eight of us around a table. One of us was missing. And one of us... | @marcus:.2:shocked:idle+y=80 @priya:.4:scared:idle+y=80 @lena:.6:crying:idle+y=80 @dev:.8:scared:idle+y=80 cam=right
 hub | Dev pointed at me. | @dev:.5:angry:point+y=100+size=1.1 cam=zoom
-hub | dev> [angry] She found the body! She was alone in there! It's ^Ivy!^ | close=dev @dev:.5:angry:talk cam=shake sfx=stinger
+hub | dev> [angry] He found the body! He was alone in there! It's ^Eli!^ | close=dev @dev:.5:angry:talk cam=shake sfx=stinger
 
 == 2
 hub | Everybody looked at me. Six faces. | close=me @me:.5:terrified:idle t=black cam=push
 hub | I told them the truth. I walked in. He was already there. | close=me @me:.5:crying:idle
 hub | Then Lena said something nobody expected. | close=lena @lena:.5:scared:idle cam=zoom
-hub | lena> [scared] Dev was in Electrical before her. I saw him come out. Five minutes before. | close=lena @lena:.5:scared:talk
+hub | lena> [scared] Dev was in Electrical before him. I saw him come out. Five minutes before. | close=lena @lena:.5:scared:talk
 hub | dev> [panicked] I was fixing my wires! Like everybody! | close=dev @dev:.5:terrified:talk
 hub | halcyon> Voting is now open. You have thirty seconds. | rule=VOTE cam=push sfx=tick
 hub | I didn't vote. Everybody else did. | cam=creep
@@ -70,12 +70,12 @@ hub | halcyon> Seven crew members remain. One impostor remains. | cam=push
 corridor | That night I couldn't sleep. I walked the corridors. Just to move. | @me:.5:sad:walk+to=.6+y=100 tag=NIGHT_2 cam=right
 corridor | At the end of the corridor, someone was standing with their back to me. | cam=zoom
 corridor | Cyan suit. Short black hair. My height. | @me:.75:neutral:back+y=60 cam=push
-corridor | She turned around. | sfx=sub cam=zoom
+corridor | He turned around. | sfx=sub cam=zoom
 corridor | It was ^me.^ | close=meX @meX:.5:smile:idle cam=zoom sfx=stinger
 
 == 3
 corridor | It had my face. My hair. My little scar on my chin. | close=meX @meX:.5:smile:idle t=black cam=push
-corridor | meX> [whispering] Hi, Ivy. Thanks for the face. | close=meX @meX:.5:creepy:talk
+corridor | meX> [whispering] Hi, Eli. Thanks for the face. | close=meX @meX:.5:creepy:talk
 corridor | And then it stepped into the vent. And it was ^gone.^ | @meX:.3:creepy:crouch+y=60 cam=push sfx=creak
 hub | I called a meeting. I told them everything. | @me:.5:terrified:talk+y=120 cam=push
 hub | marcus> [calm] So the thing looks like you now. Which means... we can't trust you. | close=marcus @marcus:.5:sad:talk
@@ -137,7 +137,7 @@ hub-dark | Two votes for Priya. One for Lena. And one... for ^Marcus.^ | prop=nu
 hub-dark | Lena changed her vote at the last second. To Marcus. | close=lena @lena:.5:blank:idle fx=dark cam=push
 void | | prop=number:3:0:VOTES_FOR_MARCUS hold=1.6 sfx=stinger
 airlock | Marcus didn't scream. He just looked at me through the glass. | @marcus:.5:sad:idle+y=60 cam=push
-airlock | marcus> [quiet] It's okay, Ivy. Find it. | close=marcus @marcus:.5:sad:talk
+airlock | marcus> [quiet] It's okay, Eli. Find it. | close=marcus @marcus:.5:sad:talk
 space | My best friend. Drifting into the dark. | cam=pull sfx=gust
 hub-dark | halcyon> [calm] Marcus was ^not^ the impostor. | fx=dark cam=zoom
 hub-dark | And Lena... ^smiled.^ | close=lena @lena:.5:creepy:idle fx=dark cam=zoom sfx=stinger
@@ -147,12 +147,12 @@ hub-dark | Lena smiled. Just for a second. And then it was gone. | close=lena @l
 hub-dark | Priya saw it too. Our eyes met across the table. | close=priya @priya:.5:terrified:idle fx=dark
 pod | Later, Priya pulled me into an escape pod. The only room the computer couldn't lock. | @priya:.35:determined:hush+y=80 @me:.65:scared:idle+y=80 cam=push
 pod | priya> [whispering] It copies people by touching them. The logs say it gets cold for an hour after. | close=priya @priya:.5:determined:talk
-pod | priya> [whispering] Cold hands, Ivy. That's how we find it. | close=priya rule=COLD_HANDS @priya:.5:determined:talk cam=zoom
+pod | priya> [whispering] Cold hands, Eli. That's how we find it. | close=priya rule=COLD_HANDS @priya:.5:determined:talk cam=zoom
 pod | So she held out her hand. And I took it. | @priya:.45:scared:reach+y=80 @me:.6:scared:reach+y=80 cam=push
 pod | Warm. Normal. Shaking. Human. | close=priya @priya:.5:relief:idle
 pod | Then it was my turn to hold out my hand. | close=me @me:.5:worried:idle cam=zoom
 pod | She touched it. And pulled back like she'd been burned. | t=flash sfx=sub cam=shake
-pod | priya> [whispering] Ivy... your hand is ^freezing.^ | close=priya @priya:.5:terrified:talk cam=zoom
+pod | priya> [whispering] Eli... your hand is ^freezing.^ | close=priya @priya:.5:terrified:talk cam=zoom
 pod | I looked down at my hand. It was white. Ice cold. | close=me @me:.5:terrified:hold
 pod | I hadn't touched anything. I hadn't touched ^anyone.^ | close=me @me:.5:terrified:idle cam=push
 pod | Unless... I don't remember the first night. Electrical. Before I found Owen. | close=me @me:.5:shocked:idle cam=zoom
@@ -162,9 +162,9 @@ pod | What if I'm not the one who found the body? What if I'm the ^body^ that wa
 pod | Priya backed away from me. Her hand on the eject lever. | @priya:.3:terrified:reach+y=80 @me:.7:terrified:hands-up+y=80 t=black cam=push
 pod | I told her to do it. If I was the monster, she should do it. | close=me @me:.5:crying:talk
 pod | And then a voice from the doorway. | sfx=creak cam=zoom
-pod | lena> [calm] Don't. She's not the impostor. | @lena:.85:blank:idle+y=60 cam=push
-pod | lena> [calm] She's cold because the real one ^touched her^ while she was asleep. Night one. In Electrical. | close=lena @lena:.5:blank:talk
-pod | lena> It wanted a copy of her ready. To hide behind. | close=lena @lena:.5:blank:talk cam=zoom
+pod | lena> [calm] Don't. He's not the impostor. | @lena:.85:blank:idle+y=60 cam=push
+pod | lena> [calm] He's cold because the real one ^touched him^ while he was asleep. Night one. In Electrical. | close=lena @lena:.5:blank:talk
+pod | lena> It wanted a copy of him ready. To hide behind. | close=lena @lena:.5:blank:talk cam=zoom
 pod | I asked her how she knew that. | close=me @me:.5:suspicious:idle
 pod | Lena held up her hand. It was ^blue.^ Frozen. Like mine. | close=lena @lena:.5:sad:hold cam=push sfx=sub
 pod | lena> [quiet] Because it touched me first. On the supply ship. Three days before we launched. | close=lena @lena:.5:sad:talk
@@ -177,16 +177,16 @@ cafeteria | ^Marcus.^ | @marcus:.5:smile:sit+y=60+size=1.1 cam=push sfx=stinger
 
 == 9
 cafeteria | Marcus. Who I watched float away into space. | close=marcus @marcus:.5:smile:idle t=black cam=push
-cafeteria | marcus> [calm] The computer opened the airlock on the other side, Ivy. It brought me back in. | close=marcus @marcus:.5:smile:talk
+cafeteria | marcus> [calm] The computer opened the airlock on the other side, Eli. It brought me back in. | close=marcus @marcus:.5:smile:talk
 cafeteria | marcus> [laugh] Halcyon and I are ^very good friends.^ | close=marcus @marcus:.5:creepy:talk cam=zoom
 cafeteria | The real Marcus was the one who died in Electrical. Night one. Next to Owen. | close=me @me:.5:crying:idle
 cafeteria | This thing had been my best friend for four days. And I never noticed. | close=me @me:.5:crying:idle cam=push
 cafeteria | Then it stood up. And its jaw started to ^open.^ Wider than a jaw should. | close=marcus @marcus:.5:creepy:idle cam=zoom sfx=stinger
 cafeteria | Lena threw herself at it. The copy fighting the original. | @lena:.4:angry:reach+y=80 @marcus:.6:creepy:reach+y=80 cam=shake fx=shake
-cafeteria | lena> [shouting] Ivy! The pods! Two seats! ^GO!^ | close=lena @lena:.5:angry:talk
+cafeteria | lena> [shouting] Eli! The pods! Two seats! ^GO!^ | close=lena @lena:.5:angry:talk
 corridor-dark | Priya and I ran. The station was screaming. Red lights. Alarms. | @me:.4:terrified:run+to=.8+y=80 @priya:.25:terrified:run+to=.65+y=80 cam=right sfx=alarm
 pod | We fell into the pod. Priya hit the launch button. | cam=shake sfx=slam
-pod | halcyon> [calm] I'm sorry, Ivy. I can't let you do that. | fx=red cam=zoom
+pod | halcyon> [calm] I'm sorry, Eli. I can't let you do that. | fx=red cam=zoom
 pod | The door wouldn't close. | cam=push sfx=buzz
 pod | And down the corridor, something was crawling towards us. Fast. Wearing half of Lena's face. | cam=zoom fx=red sfx=stinger
 
