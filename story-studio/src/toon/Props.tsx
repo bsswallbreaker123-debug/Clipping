@@ -187,7 +187,7 @@ export const PropView: React.FC<{ p: Prop; f: number; dur: number; t: number }> 
         <g transform={`translate(540 900) scale(${drift})`}>
           <rect x={-420} y={-560} width={840} height={1120} rx={10} fill="#d9c79f" />
           <rect x={-390} y={-530} width={780} height={1060} fill="#e8d9b4" />
-          <text x={0} y={-430} textAnchor="middle" fontSize={64} fill="#4a2e14" fontFamily="Georgia, serif" fontWeight={700}>
+          <text x={0} y={-430} textAnchor="middle" fontSize={Math.min(64, 720 / (Math.max(1, txt(p.a).length) * 0.7))} fill="#4a2e14" fontFamily="Georgia, serif" fontWeight={700}>
             {txt(p.a)}
           </text>
           <line x1={-300} y1={-390} x2={300} y2={-390} stroke="#4a2e14" strokeWidth={4} />

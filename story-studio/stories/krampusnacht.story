@@ -256,9 +256,9 @@ mine-ext | Toni Weber came home. Twelve years old. To a mother who was eighty-fo
 mine-ext | And Krampus walked back up the mountain. Ringing his bells. Slower than before. | !horned:.5:step+to=.8+size=.8 cam=up sfx=bells
 square-day | I called Jonas. I told the school the truth. I deleted the video. | tag=ONE_YEAR_LATER @me:.5:smile:phone+item=phone+y=150+size=1.2 cam=push
 square-day | Lukas and I are friends now. Real ones. | @lukas:.35:smile:wave+y=120 @me:.65:smile:idle+y=120 cam=creep
-doorstep-day | This December, Emma and I went back to Opa's. We put our boots outside. | cam=push @me:.2:smile:idle+y=60 @emma:.8:smile:idle+y=80
-doorstep-choc | Chocolate. Both pairs. | cam=zoom
-doorstep-birch | But this morning, there was a third pair of boots on the doorstep. Little ones. I've never seen them before. | cam=push
-doorstep-birch | Full of birch sticks. And a note in a child's handwriting. | cam=zoom
+doorstep-day | This December, Emma and I went back to Opa's. We put our boots outside. | cam=push @me:.24:smile:idle+y=60 @emma:.77:smile:idle+y=80
+doorstep-choc | Chocolate. Both pairs. | cam=push
+doorstep-birch | But this morning, there was a third pair of boots on the doorstep. Little ones. I've never seen them before. | cam=push @me:.24:shocked:idle+y=60 @emma:.77:scared:idle+y=80
+doorstep-birch | Full of birch sticks. And a note in a child's handwriting. | cam=push
 doorstep-birch | | prop=note:See_you/in_33_years./-_A. hold=2.6 sfx=stinger
-doorstep-birch | ^Anna.^ The first name in the book. 1926. She never came out of the ice. | cam=zoom
+doorstep-birch | ^Anna.^ The first name in the book. 1926. She never came out of the ice. | cam=push @me:.24:terrified:idle+y=60 @emma:.77:terrified:idle+y=80
