@@ -1,0 +1,2254 @@
+{
+  "id": "lies-come-true",
+  "title": "What If Every Lie You Told Instantly Came True?",
+  "mood": "trend",
+  "narrator": "am_michael",
+  "stat": {
+    "name": "Lies",
+    "start": 0,
+    "decimals": 0
+  },
+  "cast": {
+    "leo": {
+      "name": "Leo",
+      "voice": "am_puck",
+      "hair": "slick",
+      "shirt": "#ff8c42",
+      "shirtStyle": "hoodie"
+    },
+    "mom": {
+      "name": "Mom",
+      "voice": "af_sarah",
+      "hair": "bun",
+      "shirt": "#9b5de5",
+      "accessories": [
+        "earrings"
+      ]
+    },
+    "sienna": {
+      "name": "Sienna",
+      "voice": "af_bella",
+      "hair": "long",
+      "hairColor": "#3b2416",
+      "shirt": "#ff6f91",
+      "shirtStyle": "dress",
+      "accessories": [
+        "earrings"
+      ]
+    },
+    "marcus": {
+      "name": "Marcus",
+      "voice": "am_fenrir",
+      "hair": "cap",
+      "hairColor": "#c0392b",
+      "shirt": "#2b2d42",
+      "shirtStyle": "jacket",
+      "accessories": [
+        "chain"
+      ],
+      "height": 1.12
+    },
+    "dev": {
+      "name": "Dev",
+      "voice": "am_echo",
+      "hair": "curly",
+      "shirt": "#3a86ff",
+      "accessories": [
+        "glasses"
+      ]
+    },
+    "hill": {
+      "name": "Mr. Hill",
+      "voice": "bm_george",
+      "hair": "none",
+      "shirt": "#5d6670",
+      "shirtStyle": "suit",
+      "accessories": [
+        "glasses"
+      ]
+    }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "One lie almost erased Leo from existence. And it all started with homework.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "shocked",
+              "glow": false
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "MONDAY, 7:12 AM",
+          "camera": "slowzoom",
+          "vo": "Leo was the worst liar in his entire school.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "sleepy",
+              "fx": [
+                "zzz"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Leo! Did you finish your homework?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "action": "enter-right",
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "leo",
+            "zoom": 2
+          },
+          "who": "leo",
+          "vo": "Uh... yeah. It's already done.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "fx": [
+                "sweat"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "And that's when the air started buzzing.",
+          "popup": {
+            "title": "LIE DETECTED",
+            "lines": [
+              "REWRITING REALITY..."
+            ]
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "punch",
+          "vo": "His homework was done. Every page. In his own handwriting.",
+          "popup": {
+            "title": "HOMEWORK",
+            "lines": [
+              "STATUS: 100% COMPLETE"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "No way. I didn't do that. I literally didn't do that.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "shocked",
+              "action": "shake"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Good. Then come eat breakfast. And stop talking to yourself.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "expr": "happy",
+              "action": "exit-right"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "slowzoom",
+          "who": "leo",
+          "vo": "Okay. Test. I am six foot four.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "vo": "Nothing. Because nobody heard it. A lie only works if someone believes it.",
+          "popup": {
+            "title": "NO WITNESS",
+            "lines": [
+              "LIE REJECTED"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "confused",
+              "action": "shrug"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "So if someone believes me... it becomes real?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "grin",
+              "fx": [
+                "sparkle"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "label": "SCHOOL",
+          "transition": "whip",
+          "crowd": 5,
+          "camera": "panright",
+          "vo": "At school, Marcus was waiting for him. Like every single day.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.42
+            },
+            {
+              "id": "marcus",
+              "x": 0.68,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "marcus",
+            "zoom": 1.9
+          },
+          "who": "marcus",
+          "vo": "Lunch money. Now.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "marcus",
+              "x": 0.62,
+              "expr": "angry",
+              "action": "point",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "leo",
+            "zoom": 1.9
+          },
+          "who": "leo",
+          "vo": "Sorry man. I'm actually a black belt in karate.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "marcus",
+              "x": 0.62,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": "punch",
+          "vo": "Marcus laughed. Then Leo's body moved on its own.",
+          "popup": {
+            "title": "SKILL INSTALLED",
+            "lines": [
+              "KARATE: BLACK BELT"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.48,
+              "expr": "determined",
+              "action": "point",
+              "facing": "right"
+            },
+            {
+              "id": "marcus",
+              "x": 0.6,
+              "expr": "shocked",
+              "action": "fall",
+              "facing": "left",
+              "fx": [
+                "stars"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 5,
+          "camera": {
+            "focus": "marcus",
+            "zoom": 1.8
+          },
+          "who": "marcus",
+          "vo": "Bro... where did you learn that?!",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "marcus",
+              "x": 0.62,
+              "expr": "shocked",
+              "facing": "left",
+              "fx": [
+                "stars"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 7,
+          "camera": "wide",
+          "vo": "The whole hallway saw it. Including Sienna.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "shocked"
+            },
+            {
+              "id": "sienna",
+              "x": 0.75,
+              "expr": "shocked",
+              "facing": "left",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 7,
+          "camera": {
+            "focus": "sienna"
+          },
+          "who": "sienna",
+          "vo": "Since when can you do that?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.68,
+              "expr": "love",
+              "facing": "left",
+              "fx": [
+                "blush"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 7,
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Oh, that? That's nothing. I'm also kind of famous.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.68,
+              "expr": "love",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "crowd": 7,
+          "camera": "wide",
+          "vo": "By lunch, the whole school was talking about the new kid with the karate skills.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.66,
+              "expr": "love",
+              "facing": "left",
+              "fx": [
+                "hearts"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "transition": "fade",
+          "vo": "And that was his first really big mistake.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "grin",
+              "glow": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Leo's lies were coming true. His next lie? That he's famous. Huge mistake.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "grin",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "label": "THAT NIGHT",
+          "camera": "slowzoom",
+          "vo": "Leo told Sienna he was famous. By that night, he was.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "happy",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "Two point four million followers. Out of nowhere.",
+          "phone": {
+            "app": "social",
+            "title": "@leo",
+            "big": "2,400,000",
+            "sub": "followers"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": "punch",
+          "who": "leo",
+          "vo": "Bro. I have a blue checkmark. I have a blue checkmark!",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "grin",
+              "action": "celebrate",
+              "fx": [
+                "sparkle"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "His phone would not stop buzzing.",
+          "phone": {
+            "app": "notification",
+            "big": "11:52",
+            "messages": [
+              {
+                "from": "them",
+                "text": "You're trending #1 worldwide"
+              },
+              {
+                "from": "them",
+                "text": "Sienna liked your post"
+              },
+              {
+                "from": "them",
+                "text": "+48,000 new followers"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "grin",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "vo": "Then the messages started coming in.",
+          "phone": {
+            "app": "chat",
+            "title": "Dev",
+            "messages": [
+              {
+                "from": "them",
+                "text": "bro why are u on the news"
+              },
+              {
+                "from": "them",
+                "text": "since when do u have a song??"
+              },
+              {
+                "from": "them",
+                "text": "call me RIGHT NOW"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "confused",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "NEXT MORNING",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "His song was number one. A song he never wrote.",
+          "banner": {
+            "text": "#1 TRENDING: LEO - \"FAKE IT\"",
+            "style": "news"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "confused",
+              "facing": "left",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Leo. Since when do you sing?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "I've... always sung, Mom. You just never listened.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "facing": "right",
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "slowzoom",
+          "vo": "And Mom's eyes went blank for just a second.",
+          "popup": {
+            "title": "MEMORY EDITED",
+            "lines": [
+              "SUBJECT: MOM"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.6,
+              "expr": "sleepy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Of course, sweetie. I've been to all your concerts.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Mom... what's my favorite song?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Yours, honey. You sing it every morning in the shower.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.7,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "vo": "That was the moment Leo understood. He wasn't just changing the future.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "shocked",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "transition": "fade",
+          "vo": "He was rewriting people's memories.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "SCHOOL",
+          "transition": "whip",
+          "crowd": 8,
+          "camera": "panleft",
+          "vo": "At school, everyone wanted a picture. Everyone except Dev.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "happy",
+              "action": "wave"
+            },
+            {
+              "id": "dev",
+              "x": 0.75,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "We've been best friends for nine years. You never sang. Not once.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.68,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": "punch",
+          "vo": "Dev remembered. Dev remembered everything.",
+          "popup": {
+            "title": "ERROR",
+            "lines": [
+              "SUBJECT: DEV",
+              "IMMUNE TO EDITS"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.68,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 8,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "What did you do to everyone, Leo? And why am I the only one who sees it?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.68,
+              "expr": "angry",
+              "facing": "left",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Which meant one person in the world knew the truth.",
+          "chars": [
+            {
+              "id": "dev",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Only one person knew the truth. So Leo did something unforgivable.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "angry",
+              "glow": false
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "label": "LUNCH",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "Dev wouldn't stop asking questions. So Leo panicked.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "angry",
+              "facing": "left",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "Something's wrong with you, man. Just tell me the truth.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "There's nothing to tell. You're not even my best friend.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "angry",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "He said it out loud. In front of everyone.",
+          "popup": {
+            "title": "LIE ACCEPTED",
+            "lines": [
+              "FRIENDSHIP: DELETED"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "Sorry... do I know you?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Dev, it's me. Leo. We built a treehouse together in second grade!",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "dev"
+          },
+          "who": "dev",
+          "vo": "I've never had a treehouse. Are you okay, man?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "crying",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Nine years. Gone. Dev picked up his tray and walked away.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "action": "exit-right",
+              "expr": "neutral"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Wait. Dev. Dev! I didn't mean it!",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "action": "shake"
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "But you can't take back a lie. Leo tried. It doesn't work.",
+          "popup": {
+            "title": "UNDO NOT AVAILABLE",
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "cafeteria",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "And across the room, Mr. Hill was watching him. Very closely.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.32,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.72,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "label": "AFTER SCHOOL",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Then Sienna sat down next to him.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.62,
+              "action": "enter-right",
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "sienna"
+          },
+          "who": "sienna",
+          "vo": "Hey. You look like you need someone. Want to talk?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "leo"
+          },
+          "vo": "Leo almost told her everything. Almost.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "I'm fine. Actually, I've had a crush on you for years. And you feel the same.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "smug",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": "punch",
+          "vo": "Her pupils turned into little hearts.",
+          "popup": {
+            "title": "LIE ACCEPTED",
+            "lines": [
+              "SIENNA: IN LOVE"
+            ],
+            "color": "#ff6fa5"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "grin",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "love",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "hearts",
+                "blush"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "sienna"
+          },
+          "who": "sienna",
+          "vo": "I love you, Leo. I've always loved you.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "love",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "hearts"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "leo"
+          },
+          "vo": "But her eyes looked empty. Like someone else was talking for her.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "sienna",
+              "x": 0.6,
+              "expr": "love",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "It was everything he wanted. So why did it feel so wrong?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Forty seven lies. Rich. Famous. Loved. But someone knew his secret.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "smug",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "label": "ONE WEEK LATER",
+          "crowd": 4,
+          "camera": "wide",
+          "vo": "One week later, Leo had told forty seven lies.",
+          "stat": {
+            "set": 47
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "smug",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "camera": "slowzoom",
+          "vo": "He was rich. Famous. Straight A's. And Sienna couldn't stop texting him.",
+          "phone": {
+            "app": "chat",
+            "title": "Sienna",
+            "messages": [
+              {
+                "from": "them",
+                "text": "good morning my superstar"
+              },
+              {
+                "from": "them",
+                "text": "i love u i love u i love u"
+              },
+              {
+                "from": "them",
+                "text": "why arent u answering??"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "crowd": 4,
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "Leo. Stay after class. We need to talk.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.7,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": "slowzoom",
+          "transition": "fade",
+          "label": "AFTER CLASS",
+          "who": "hill",
+          "vo": "Forty seven. That's how many you've told, isn't it?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right",
+              "fx": [
+                "exclaim"
+              ]
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "How... how do you know that?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "Because I had the same gift. Thirty years ago.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Then why are you a teacher? You could have had anything.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "who": "hill",
+          "vo": "I lied my way into everything. Money. Love. A perfect life.",
+          "chars": [
+            {
+              "id": "hill",
+              "x": 0.5,
+              "expr": "grin",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "who": "hill",
+          "vo": "And at one hundred lies, it all collapsed. Every single one came back to collect.",
+          "popup": {
+            "title": "LIMIT: 100",
+            "lines": [
+              "ALL LIES REVERSE"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "hill",
+              "x": 0.5,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "transition": "fade",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "So what happens when they reverse?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right",
+              "fx": [
+                "sweat"
+              ]
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "Everyone you lied to forgets you exist. Everyone.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "I was married once. Today she doesn't even remember my name.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": "slowzoom",
+          "vo": "Leo thought about his mom. About Sienna. About Dev.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "classroom",
+          "camera": {
+            "focus": "hill"
+          },
+          "who": "hill",
+          "vo": "You have fifty three lies left, Leo. Spend them wisely.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "hill",
+              "x": 0.65,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "whip",
+          "label": "WALKING HOME",
+          "camera": "panright",
+          "vo": "And on the way home, he made a decision.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.2,
+              "expr": "determined",
+              "action": "walk",
+              "to": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "wide",
+          "vo": "But then a car came out of nowhere.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.55,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "punch",
+          "vo": "Headlights. A horn. No time to think.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.55,
+              "expr": "shocked",
+              "action": "shake"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "shake",
+          "transition": "flash",
+          "who": "leo",
+          "vo": "I'm completely fine! Nothing hit me!",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.55,
+              "expr": "shocked",
+              "action": "jump"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Lie number forty eight saved his life. He had fifty two left.",
+          "popup": {
+            "title": "LIES LEFT",
+            "lines": [
+              "52"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "nervous",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Fifty two lies left. One last plan. If it fails, Leo disappears forever.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "determined",
+              "glow": false
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "label": "MIDNIGHT",
+          "camera": "slowzoom",
+          "vo": "Leo couldn't sleep. He had one idea left.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "determined",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "If one lie made this happen, one lie can end it.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "time": "night",
+          "camera": "wide",
+          "vo": "But a lie needs someone to believe it. He needed Dev.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.45,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "transition": "whip",
+          "label": "DEV'S HOUSE",
+          "camera": "panleft",
+          "vo": "So he ran. All the way to Dev's house.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.15,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Fifty two lies left. And he only needed one.",
+          "popup": {
+            "title": "LIES LEFT",
+            "lines": [
+              "52"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "wide",
+          "who": "dev",
+          "vo": "Dude. It's midnight. Who even are you?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.65,
+              "expr": "sleepy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "Please. Just listen. You're the only person who ever knew the real me.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.65,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "You don't remember me. But I need you to believe one thing.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.35,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.65,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "who": "leo",
+          "vo": "I never had any powers. None of this ever happened.",
+          "stat": {
+            "delta": 1
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.62,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "shake",
+          "vo": "The lie that cancels every other lie.",
+          "popup": {
+            "title": "PARADOX DETECTED",
+            "lines": [
+              "REVERSING 49 LIES..."
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "shocked",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "camera": "punch",
+          "vo": "The followers. Gone. The song. Gone. Sienna's hearts. Gone.",
+          "stat": {
+            "set": 0
+          },
+          "phone": {
+            "app": "social",
+            "title": "@leo",
+            "big": "12",
+            "sub": "followers"
+          },
+          "chars": []
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "Mr. Hill's secret. Sienna's spell. Dev's lost memories. All of it, rewinding.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "shocked",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "MONDAY, 7:12 AM",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Leo woke up in his bed. Monday morning. Again.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.42,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Leo! Did you finish your homework?",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked"
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "action": "enter-right",
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "who": "leo",
+          "vo": "No, Mom. I didn't. I'm sorry.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.72,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "slowzoom",
+          "vo": "It was the best thing he'd ever said. Then his phone buzzed.",
+          "phone": {
+            "app": "chat",
+            "title": "Dev",
+            "messages": [
+              {
+                "from": "them",
+                "text": "yo you coming to school?"
+              },
+              {
+                "from": "them",
+                "text": "also... weird dream last night. you had powers lol"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "leo"
+          },
+          "vo": "Dev remembered. Just a little. Just enough.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.4,
+              "expr": "happy",
+              "fx": [
+                "sparkle"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "hallway",
+          "label": "SCHOOL",
+          "transition": "whip",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "dev",
+          "vo": "Yo, Leo! Treehouse this weekend? We never finished the roof.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.38,
+              "expr": "happy",
+              "facing": "right"
+            },
+            {
+              "id": "dev",
+              "x": 0.64,
+              "expr": "happy",
+              "action": "wave",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "And Leo never told another lie again. Well. Almost never.",
+          "chars": [
+            {
+              "id": "leo",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

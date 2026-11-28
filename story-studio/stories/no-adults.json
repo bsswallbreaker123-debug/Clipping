@@ -1,0 +1,3708 @@
+{
+  "id": "no-adults",
+  "title": "What If Everyone Over 18 Disappeared Overnight?",
+  "mood": "trend",
+  "narrator": "am_michael",
+  "stat": {
+    "name": "Day",
+    "start": 1,
+    "decimals": 0
+  },
+  "cast": {
+    "zoe": {
+      "name": "Zoe",
+      "voice": "af_nicole",
+      "hair": "bob",
+      "hairColor": "#3b2416",
+      "shirt": "#06d6a0",
+      "shirtStyle": "jacket",
+      "accessories": [
+        "earrings"
+      ]
+    },
+    "theo": {
+      "name": "Theo",
+      "voice": "am_echo",
+      "hair": "curly",
+      "shirt": "#ffd166",
+      "height": 0.72
+    },
+    "rico": {
+      "name": "Rico",
+      "voice": "am_puck",
+      "hair": "mohawk",
+      "hairColor": "#ff6b6b",
+      "shirt": "#118ab2",
+      "shirtStyle": "hoodie"
+    },
+    "blake": {
+      "name": "Blake",
+      "voice": "am_fenrir",
+      "hair": "slick",
+      "hairColor": "#e9c46a",
+      "shirt": "#14213d",
+      "shirtStyle": "suit",
+      "height": 1.08
+    },
+    "lena": {
+      "name": "Lena",
+      "voice": "af_bella",
+      "hair": "long",
+      "hairColor": "#1a1a1a",
+      "shirt": "#ef476f",
+      "accessories": [
+        "glasses"
+      ]
+    },
+    "sam": {
+      "name": "Sam",
+      "voice": "am_liam",
+      "hair": "beanie",
+      "hairColor": "#6c757d",
+      "shirt": "#2b2d42",
+      "shirtStyle": "hoodie",
+      "accessories": [
+        "headphones"
+      ]
+    },
+    "mom": {
+      "name": "Mom",
+      "voice": "af_sarah",
+      "hair": "bun",
+      "shirt": "#9b5de5"
+    },
+    "dad": {
+      "name": "Mr. Hart",
+      "voice": "bm_george",
+      "hair": "slick",
+      "hairColor": "#8d99ae",
+      "shirt": "#3d405b",
+      "shirtStyle": "suit",
+      "height": 1.1
+    }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "One morning, every person over eighteen was gone. Every single one.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "MONDAY, 9:47 AM",
+          "camera": "slowzoom",
+          "vo": "Zoe woke up two hours late. No alarm. No mom yelling. Nothing.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "sleepy",
+              "fx": [
+                "zzz"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Mom? Why didn't you wake me up? I'm so late!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "The kitchen was empty. Coffee still warm. Mom's phone on the table. Her shoes by the door.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "wide",
+          "who": "theo",
+          "vo": "Zoe? I can't find Mom. Or Dad. Their car is still here.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "theo"
+          },
+          "vo": "Theo. Her little brother. Eight years old. Holding his stuffed shark like his life depended on it.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.62,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "label": "OUTSIDE",
+          "transition": "whip",
+          "crowd": 4,
+          "camera": "panright",
+          "vo": "Outside, the street was full of cars. Stopped in the middle of the road. Doors open. Engines running.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "walk",
+              "to": 0.45
+            },
+            {
+              "id": "theo",
+              "x": 0.2,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.33
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": "wide",
+          "vo": "No drivers. No adults anywhere. Just kids. Standing in the street. Confused.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked"
+            },
+            {
+              "id": "extra",
+              "x": 0.7,
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": "wide",
+          "who": "rico",
+          "vo": "Zoe! Yo! Are your parents gone too?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "rico",
+              "x": 0.65,
+              "action": "enter-right",
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "My mom, my uncle, the mailman. The bus driver! The bus is just sitting there!",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.65,
+              "expr": "shocked",
+              "action": "point",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": {
+            "focus": "zoe"
+          },
+          "vo": "Rico. Her best friend. Seventeen. Same as her.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "vo": "Zoe tried calling her mom. Then 911. Then anyone.",
+          "phone": {
+            "app": "notification",
+            "big": "9:58",
+            "messages": [
+              {
+                "from": "them",
+                "text": "Call failed: Mom"
+              },
+              {
+                "from": "them",
+                "text": "Call failed: 911"
+              },
+              {
+                "from": "them",
+                "text": "No adult numbers reachable"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "nervous",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "So, no adults. No school. No rules. Am I the only one who thinks this is kind of awesome?",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.62,
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Rico. Theo is eight. Who's going to take care of the little kids?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": "slowzoom",
+          "vo": "Then every phone in the street buzzed at the same time.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "confused",
+              "action": "phone"
+            },
+            {
+              "id": "rico",
+              "x": 0.62,
+              "expr": "confused",
+              "action": "phone",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "vo": "A voice message. Sent to every number in town.",
+          "phone": {
+            "app": "chat",
+            "title": "Town Alert",
+            "messages": [
+              {
+                "from": "them",
+                "text": "This is Blake Hart."
+              },
+              {
+                "from": "them",
+                "text": "Everyone come to Lincoln High. Now."
+              },
+              {
+                "from": "them",
+                "text": "I'm in charge."
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "crowd": 4,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Blake Hart. The mayor's son. Of course.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "angry"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "The adults were gone. And someone had already decided he was the new boss.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 2,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Every adult in town vanished overnight. The mayor's son just declared himself in charge.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "LINCOLN HIGH",
+          "crowd": 10,
+          "camera": "wide",
+          "vo": "Two thousand kids packed into the school gym. Some crying. Some cheering. Most just scared.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "nervous"
+            },
+            {
+              "id": "theo",
+              "x": 0.2,
+              "expr": "sad"
+            },
+            {
+              "id": "rico",
+              "x": 0.42,
+              "expr": "grin"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Listen up! The adults are gone. Nobody knows why. But someone has to lead. And that's me.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Rule one. No school. Rule two. Everything in the stores is free. Rule three. Have fun.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "grin",
+              "action": "celebrate"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "The gym exploded. Two thousand kids screaming his name.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "grin",
+              "action": "celebrate",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Free stores? That food has to last us. Nobody's making more.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "lena"
+          },
+          "who": "lena",
+          "vo": "Two thousand kids. The supermarkets have maybe two weeks of food. If nobody wastes it.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.62,
+              "expr": "determined",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "label": "DAY 1, AFTERNOON",
+          "transition": "whip",
+          "crowd": 8,
+          "camera": "panright",
+          "vo": "Nobody wasted it. They destroyed it.",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.4,
+              "expr": "grin",
+              "action": "celebrate"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "crowd": 8,
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "Zoe, relax! It's day one! The adults will probably be back by tonight!",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.62,
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "label": "DAY 1, EVENING",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "They weren't back by tonight. Lena had an idea. Drive to the next town and get help.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.4,
+              "expr": "determined"
+            },
+            {
+              "id": "sam",
+              "x": 0.6,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "transition": "whip",
+          "camera": "panleft",
+          "vo": "They reached the edge of town. The sign said, Thank you for visiting. Sam hit the gas.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "evening",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "And the car stopped. Like it hit a wall made of glass.",
+          "popup": {
+            "title": "BOUNDARY",
+            "lines": [
+              "NO EXIT"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "shocked",
+              "action": "shake"
+            },
+            {
+              "id": "lena",
+              "x": 0.35,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "There was an invisible wall around the whole town. Nobody could get out. And nobody was coming in.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "label": "THE SUPERMARKET",
+          "transition": "whip",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "Zoe went to get more food. But the supermarket doors were locked. And guarded.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "confused",
+              "facing": "right"
+            },
+            {
+              "id": "extra",
+              "x": 0.65,
+              "facing": "left",
+              "expr": "angry"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "blake",
+          "vo": "Sorry, Zoe. New rule. Food goes through me now.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right"
+            },
+            {
+              "id": "blake",
+              "x": 0.65,
+              "action": "enter-right",
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "crowd": 6,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "My team gets fed first. Then whoever helps my team. You want food? Work for me.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.65,
+              "expr": "smug",
+              "action": "point",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "crowd": 6,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "I have twenty three little kids at my house. They don't work for anybody.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "angry",
+              "facing": "right",
+              "fx": [
+                "anger"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "store",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Blake thought about it. Then he handed her one bag. One.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "sad",
+              "facing": "right"
+            },
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "label": "DAY 2, NIGHT",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "That night, Zoe was walking home when the streetlights flickered.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.5
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "punch",
+          "vo": "Once. Twice. Then the whole town went black.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "shocked",
+              "fade": 0.5
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "shake",
+          "vo": "No power plant workers meant no power. And two thousand kids were about to find out what that meant.",
+          "popup": {
+            "title": "POWER GRID",
+            "lines": [
+              "OFFLINE"
+            ],
+            "style": "warning"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 3,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "No adults. No way out. And now the power is gone too.",
+          "stat": {
+            "set": 3
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "vo": "The scream came from the park. Zoe ran toward it with her phone flashlight.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "determined",
+              "action": "run",
+              "to": 0.55
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "A kid had fallen off the playground. Broken arm. And there was no hospital. No doctor.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.55,
+              "scale": 0.75,
+              "expr": "crying",
+              "action": "sit"
+            },
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "camera": "wide",
+          "who": "lena",
+          "vo": "Move. I did a first aid course. Twice. I can splint it.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.4,
+              "expr": "determined",
+              "action": "enter-left"
+            },
+            {
+              "id": "extra",
+              "x": 0.58,
+              "scale": 0.75,
+              "expr": "crying",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "We can't keep doing this, Lena. We need power. We need a hospital. We need a plan.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "camera": "wide",
+          "who": "sam",
+          "vo": "I can get the power back. Maybe. My dad works at the plant. Worked. I've seen the control room.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.65,
+              "action": "enter-right",
+              "expr": "neutral",
+              "facing": "left"
+            },
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "label": "POWER PLANT",
+          "time": "night",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "The power plant. Two in the morning. Three teenagers and a flashlight.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.4,
+              "expr": "determined"
+            },
+            {
+              "id": "zoe",
+              "x": 0.25,
+              "expr": "nervous"
+            },
+            {
+              "id": "lena",
+              "x": 0.58,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "Okay. Big red button probably means bad. Small green button probably means... good?",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.45,
+              "expr": "nervous",
+              "fx": [
+                "sweat"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "He pressed it. The whole building hummed to life.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.45,
+              "expr": "grin",
+              "action": "celebrate"
+            },
+            {
+              "id": "zoe",
+              "x": 0.25,
+              "expr": "happy"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "transition": "whip",
+          "camera": "panright",
+          "vo": "Across town, the lights came back on. Two thousand kids cheered.",
+          "crowd": 6,
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.5,
+              "action": "celebrate"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Then every screen in the control room turned on at once. All of them showing the same thing.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.45,
+              "expr": "confused"
+            },
+            {
+              "id": "lena",
+              "x": 0.6,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "punch",
+          "vo": "A number. Eighteen.",
+          "banner": {
+            "text": "18",
+            "style": "stamp"
+          },
+          "chars": []
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "lena"
+          },
+          "who": "lena",
+          "vo": "Eighteen. Like the age. Everyone over eighteen vanished.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.6,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "They watched it. For a full minute. Then a minute more.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous"
+            },
+            {
+              "id": "sam",
+              "x": 0.55,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "label": "3:00 AM",
+          "camera": "punch",
+          "vo": "At three a.m. exactly, it changed. Seventeen.",
+          "banner": {
+            "text": "17",
+            "style": "stamp"
+          },
+          "chars": []
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "It's not an age. It's a countdown. Seventeen days left.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Seventeen days until something happened. And nobody knew what.",
+          "popup": {
+            "title": "COUNTDOWN",
+            "lines": [
+              "17 DAYS"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 4,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "A countdown appeared on every screen in town. Seventeen days. Until what?",
+          "stat": {
+            "set": 4
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "I know what it means. When it hits zero, everyone who's turned eighteen by then disappears too.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": "shake",
+          "vo": "Panic. Seniors started crying. Some started running.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "neutral",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "So we need order. Real order. From now on, I make the rules. And my team enforces them.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "smug",
+              "action": "point",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": "wide",
+          "vo": "Behind him, twenty seniors put on red armbands. Blake's Guard.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.3,
+              "expr": "angry"
+            },
+            {
+              "id": "extra",
+              "x": 0.5,
+              "expr": "angry"
+            },
+            {
+              "id": "extra",
+              "x": 0.7,
+              "expr": "angry"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "label": "THAT EVENING",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "That night, Rico came over. He was quiet. Rico was never quiet.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "neutral",
+              "facing": "right"
+            },
+            {
+              "id": "rico",
+              "x": 0.65,
+              "expr": "sad",
+              "facing": "left",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "Zoe. What's the date tomorrow?",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.65,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "slowzoom",
+          "vo": "Zoe counted in her head. Then her stomach dropped.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "punch",
+          "who": "zoe",
+          "vo": "Your birthday. You turn eighteen tomorrow.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "If Blake is right... I'm not making it to the countdown. I'm gone at midnight.",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.65,
+              "expr": "crying",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "label": "11:59 PM",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Eleven fifty nine. Zoe, Rico, Theo, Lena and Sam. Holding hands. Watching the clock.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "nervous"
+            },
+            {
+              "id": "rico",
+              "x": 0.45,
+              "expr": "nervous"
+            },
+            {
+              "id": "theo",
+              "x": 0.58,
+              "expr": "sad"
+            },
+            {
+              "id": "lena",
+              "x": 0.7,
+              "expr": "nervous"
+            },
+            {
+              "id": "sam",
+              "x": 0.83,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Midnight.",
+          "hold": 1.6,
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "One second. Two seconds. Nothing happened.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "rico",
+              "x": 0.58,
+              "expr": "nervous",
+              "facing": "left"
+            }
+          ],
+          "stat": {
+            "set": 5
+          }
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "rico"
+          },
+          "vo": "Then Zoe noticed Rico's hand. She could see the couch through it.",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.55,
+              "expr": "happy",
+              "fade": 0.3
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "He looked down. He was fading. Slowly. Like a ghost in daylight.",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.55,
+              "expr": "shocked",
+              "fade": 0.6
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": {
+            "focus": "rico"
+          },
+          "who": "rico",
+          "vo": "Zoe. Listen to me. Take care of Theo. Don't let Blake win. And don't cry, it's my birthday.",
+          "chars": [
+            {
+              "id": "rico",
+              "x": 0.55,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "fade": 0.75
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "punch",
+          "who": "zoe",
+          "vo": "Rico! No! Hold on!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "rico",
+              "x": 0.56,
+              "expr": "sad",
+              "fade": 0.9
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Her hands closed around nothing.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "Rico was gone.",
+          "hold": 1.8,
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "crying",
+              "action": "sit",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "label": "3:14 AM",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "Nobody slept. At three fourteen, Rico's phone lit up on the floor. Where he had been standing.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "sad",
+              "action": "sit"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "time": "night",
+          "vo": "A message. From Rico's own number.",
+          "phone": {
+            "app": "chat",
+            "title": "Rico",
+            "messages": [
+              {
+                "from": "them",
+                "text": "zoe"
+              },
+              {
+                "from": "them",
+                "text": "im ok. im not dead. everyone is here"
+              },
+              {
+                "from": "them",
+                "text": "DONT TRUST THE COUNTDOWN"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Rico was alive. The adults were alive. Somewhere. And the countdown was a lie.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 5,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Rico vanished on his eighteenth birthday. Hours later, he texted: everyone is alive. Don't trust the countdown.",
+          "stat": {
+            "set": 6
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "DAY 6",
+          "camera": "wide",
+          "who": "sam",
+          "vo": "I traced the message. It didn't come from outside the wall. It came from inside town.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.6,
+              "expr": "determined",
+              "action": "phone",
+              "facing": "left"
+            },
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "The old radio tower. On the hill. Past the woods.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.6,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "lena"
+          },
+          "who": "lena",
+          "vo": "That's in the North Zone. Blake made it off limits on day three. Anyone caught there loses their food.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.5,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Then we don't get caught. We go tonight.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "wide",
+          "who": "zoe",
+          "vo": "Theo. You stay here with the little kids. Lock the door. Don't open it for anyone.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "determined",
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.6,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "theo"
+          },
+          "who": "theo",
+          "vo": "What if you disappear too?",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.6,
+              "expr": "sad",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "I'm seventeen, buddy. I've got a whole year. Pinky promise.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "happy",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "label": "NORTH ZONE",
+          "time": "night",
+          "transition": "whip",
+          "camera": "panright",
+          "vo": "Midnight. They crept past Blake's guards. Through the woods. Up the hill.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.2,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.45
+            },
+            {
+              "id": "sam",
+              "x": 0.35,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.6
+            },
+            {
+              "id": "lena",
+              "x": 0.08,
+              "expr": "nervous",
+              "action": "walk",
+              "to": 0.3
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "label": "RADIO TOWER",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "The radio tower. Its red light was blinking. It shouldn't have power. Nothing up here did.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous"
+            },
+            {
+              "id": "sam",
+              "x": 0.55,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "slowzoom",
+          "vo": "Inside, a radio was crackling. And through the static, a voice.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "punch",
+          "who": "mom",
+          "vo": "Zoe? Zoe, sweetheart, can you hear me?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Mom? Mom! Where are you?!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "slowzoom",
+          "who": "mom",
+          "vo": "We don't know. It's white. Everywhere. We can't move. We can only hear you. Zoe, listen. It's not a countdown.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Then the static swallowed her voice. And the radio went dead.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked",
+              "action": "shake"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Behind them, a metal door creaked open. It led underground. And painted on it were two words.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "lena",
+              "x": 0.6,
+              "expr": "nervous",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "Day zero.",
+          "banner": {
+            "text": "DAY 0",
+            "style": "stamp"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 6,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Zoe heard her mom through a radio. The adults are trapped somewhere white. And there's a door marked day zero.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "label": "UNDERGROUND",
+          "camera": "slowzoom",
+          "vo": "Behind the door, stairs. Down and down. Into a room full of screens.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "nervous"
+            },
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "shocked"
+            },
+            {
+              "id": "lena",
+              "x": 0.65,
+              "expr": "nervous"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Every screen showed the same thing. A white room. Endless. And thousands of people. Standing still.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "transition": "fade",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "There. That's my mom. And there's Rico. Next to her.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "crying",
+              "action": "point",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "punch",
+          "vo": "One page. A few lines. They read it together.",
+          "popup": {
+            "title": "THE AGREEMENT",
+            "lines": [
+              "WHEN THE COUNT ENDS,",
+              "THE YOUNG WILL CHOOSE."
+            ],
+            "style": "system"
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "The young will choose? Choose what?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "wide",
+          "vo": "Before anyone could answer, flashlights hit them from the stairs.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "shocked",
+              "facing": "left"
+            },
+            {
+              "id": "sam",
+              "x": 0.55,
+              "expr": "shocked",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "wide",
+          "who": "blake",
+          "vo": "Well. Look who decided to break the rules.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.2,
+              "action": "enter-left",
+              "expr": "smug",
+              "facing": "right"
+            },
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Blake. You knew about this place. Didn't you?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Because some of us don't want our parents back, Zoe.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.25,
+              "expr": "neutral",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": "punch",
+          "who": "blake",
+          "vo": "Take them. Lock them up. They've seen too much.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.25,
+              "expr": "angry",
+              "action": "point",
+              "facing": "right"
+            },
+            {
+              "id": "extra",
+              "x": 0.12,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "label": "SCHOOL OFFICE",
+          "camera": "wide",
+          "vo": "Blake locked Zoe in the principal's office. Lena and Sam in the library. Separated.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "angry",
+              "action": "sit"
+            }
+          ],
+          "stat": {
+            "set": 7
+          }
+        },
+        {
+          "bg": "void",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "who": "blake",
+          "vo": "My dad is the mayor. Everyone thinks he's great. At home, nothing I do is ever good enough.",
+          "chars": [
+            {
+              "id": "dad",
+              "x": 0.55,
+              "expr": "angry",
+              "action": "point",
+              "facing": "left"
+            },
+            {
+              "id": "blake",
+              "x": 0.35,
+              "expr": "sad",
+              "facing": "right",
+              "scale": 0.85
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "transition": "fade",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Six days without him and I'm finally someone. People listen to me. Why would I bring him back?",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.65,
+              "expr": "angry",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Because Theo is eight and he cries himself to sleep. Because this isn't about you.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "label": "DAY 7, EVENING",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "Hours passed. Then a scratching sound. From the air vent.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "confused",
+              "fx": [
+                "question"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "camera": "wide",
+          "who": "sam",
+          "vo": "Room service. Hurry. I've got maybe five minutes before the guard shift changes.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.65,
+              "expr": "smug",
+              "facing": "left"
+            },
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "happy",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "She's out. She went to your house to check on the kids. But Zoe... she just texted me.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.65,
+              "expr": "nervous",
+              "action": "phone",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "vo": "Sam held up his phone.",
+          "phone": {
+            "app": "chat",
+            "title": "Lena",
+            "messages": [
+              {
+                "from": "them",
+                "text": "door was open"
+              },
+              {
+                "from": "them",
+                "text": "kids are here. all of them. except one"
+              },
+              {
+                "from": "them",
+                "text": "theo is gone"
+              }
+            ]
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "camera": "punch",
+          "who": "zoe",
+          "vo": "Theo. Theo's gone?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "shocked",
+              "fx": [
+                "exclaim"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "evening",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Which means someone took him.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "angry",
+              "fx": [
+                "anger"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Zoe climbed into the vent. Blake could keep the town. But nobody touches her brother.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined",
+              "glow": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 7,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Zoe escaped from Blake's prison. Her eight year old brother Theo is missing.",
+          "stat": {
+            "set": 8
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "label": "DAY 7, NIGHT",
+          "camera": "panright",
+          "vo": "Zoe searched every street. The school. The playground. The ice cream shop he loved.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.25,
+              "expr": "crying",
+              "action": "run",
+              "to": 0.6,
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Theo! Theo, where are you?!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "who": "lena",
+          "vo": "Zoe! Over here! The park! Look at the park!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "lena",
+              "x": 0.65,
+              "expr": "shocked",
+              "action": "point",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "transition": "whip",
+          "camera": "wide",
+          "crowd": 6,
+          "vo": "The park was glowing. Lanterns everywhere. Tents. Blankets. A whole little city.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.4,
+              "scale": 0.7,
+              "expr": "happy"
+            },
+            {
+              "id": "extra",
+              "x": 0.6,
+              "scale": 0.72,
+              "expr": "happy"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Hundreds of little kids. Seven, eight, nine years old. Sharing food. Taking care of each other.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.35,
+              "scale": 0.7,
+              "expr": "happy",
+              "action": "wave"
+            },
+            {
+              "id": "extra",
+              "x": 0.55,
+              "scale": 0.7,
+              "expr": "happy"
+            },
+            {
+              "id": "extra",
+              "x": 0.75,
+              "scale": 0.7,
+              "expr": "happy"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "wide",
+          "who": "theo",
+          "vo": "Zoe! You came! Welcome to Kid City! I'm the mayor!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.6,
+              "expr": "grin",
+              "action": "celebrate",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Zoe grabbed him and didn't let go for a full minute.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ],
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.55,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Don't you ever, ever do that again. Who told you to come here?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "angry",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "theo"
+          },
+          "who": "theo",
+          "vo": "The man in white. He comes in my dreams. He said the little kids should be together. For the choice.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.58,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "punch",
+          "who": "zoe",
+          "vo": "The choice? Theo, what choice?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "wide",
+          "vo": "Theo pulled a crumpled drawing out of his pocket. Crayon. A radio tower. A clock. And a lot of stick figures holding hands.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.55,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": "slowzoom",
+          "vo": "Underneath, in wobbly letters, five words.",
+          "banner": {
+            "text": "EVERYONE HAS TO AGREE",
+            "style": "chapter"
+          },
+          "chars": []
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "lena"
+          },
+          "who": "lena",
+          "vo": "The young will choose. And everyone has to agree. It's a vote.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.62,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "A vote. When the countdown ends, every kid in town decides. Adults back. Or gone forever.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "night",
+          "crowd": 6,
+          "camera": {
+            "focus": "theo"
+          },
+          "who": "theo",
+          "vo": "And the man said one more thing. If it's not everyone... it doesn't count.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.58,
+              "expr": "nervous",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Every kid in town had to agree. Including the one who wanted the adults gone forever.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "part": 8,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "To bring the adults back, every kid in town has to agree. Every single one. Even Blake.",
+          "stat": {
+            "set": 9
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "determined"
+            },
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "smug"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "DAY 9",
+          "crowd": 10,
+          "camera": "wide",
+          "vo": "Zoe walked into Blake's gym. In front of everyone. With a crayon drawing.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "The adults aren't dead. They're frozen. Under the radio tower. And when the countdown ends, we vote. Bring them back or lose them forever.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": "wide",
+          "who": "blake",
+          "vo": "Or. Hear me out. We vote no.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "blake",
+              "x": 0.65,
+              "action": "enter-right",
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "No curfew. No homework. No one telling you who to be. Ever again. Raise your hand if you miss being grounded.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.65,
+              "expr": "grin",
+              "action": "wave",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "label": "THE CAMPAIGN",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "For the next three days, the town split in two. Team Zoe. Team Blake.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "determined",
+              "facing": "right"
+            },
+            {
+              "id": "blake",
+              "x": 0.7,
+              "expr": "smug",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "label": "DAY 12",
+          "transition": "fade",
+          "camera": "wide",
+          "who": "sam",
+          "vo": "I hacked into the vote counter. It's live. It shows who's leaning which way.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": "punch",
+          "vo": "They looked at the screen together.",
+          "popup": {
+            "title": "LIVE VOTE",
+            "lines": [
+              "NO: 1,212",
+              "YES: 788"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "shocked"
+            },
+            {
+              "id": "lena",
+              "x": 0.6,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": {
+            "focus": "lena"
+          },
+          "who": "lena",
+          "vo": "Twelve hundred no. We're losing. Badly.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.6,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Because Blake is selling them a party. And I'm selling them homework. We need to show them what they're really choosing.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "The screens under the tower. If I can connect them to every TV in town...",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.55,
+              "expr": "smug"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "Across town, every screen flickered. And there they were.",
+          "chars": [
+            {
+              "id": "extra",
+              "x": 0.45,
+              "action": "sit",
+              "expr": "shocked"
+            }
+          ],
+          "stat": {
+            "set": 13
+          }
+        },
+        {
+          "bg": "void",
+          "camera": "slowzoom",
+          "vo": "The white room. Thousands of parents. Frozen. Some of them crying. Frozen mid-tear.",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.4,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            },
+            {
+              "id": "dad",
+              "x": 0.6,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "They're not gone. They're waiting. And they can hear every word we say. Even this.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": "slowzoom",
+          "who": "zoe",
+          "vo": "I'm not asking you to miss homework. I'm asking if you want to see your mom again.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "sad",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "transition": "whip",
+          "camera": "punch",
+          "vo": "On Sam's screen, the numbers started moving. Fast.",
+          "popup": {
+            "title": "LIVE VOTE",
+            "lines": [
+              "YES: 788 → 1,340"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "grin",
+              "action": "celebrate"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Then every screen in town went black.",
+          "time": "night",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "office",
+          "time": "night",
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "He cut the power. Blake cut the power to the whole town.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "angry"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "time": "night",
+          "camera": "wide",
+          "who": "blake",
+          "vo": "That broadcast was fake. Zoe's trying to scare you. The adults aren't coming back. Ever.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "angry",
+              "action": "point"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "label": "MIDNIGHT",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "At midnight, Zoe got a note. Slipped under her door. Neat handwriting.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "The roof of the school. Tonight. Come alone. Blake.",
+          "banner": {
+            "text": "COME ALONE. — BLAKE",
+            "style": "chapter"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 9,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Blake shut down the whole town to stop Zoe's broadcast. Now he wants to meet her alone.",
+          "stat": {
+            "set": 14
+          },
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "neutral"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "label": "SCHOOL ROOF",
+          "camera": "wide",
+          "vo": "The school roof. The whole town dark below them. Blake was sitting on the edge.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            },
+            {
+              "id": "zoe",
+              "x": 0.3,
+              "expr": "nervous",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Did you see him? In the broadcast. My dad. Third row.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "He was crying. My dad doesn't cry. Not at Grandma's funeral. Not ever. But he was crying.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "crying",
+              "action": "sit",
+              "facing": "left",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "slowzoom",
+          "who": "blake",
+          "vo": "What if he's crying because I'm not there? What if he actually... misses me?",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "But I don't think he meant beat you. I think he meant don't let the scared version of you win.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Bring him back, Blake. And then make him see you. For real this time.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "determined",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Okay. I'll turn the power back on. And I'll tell them the truth. Tomorrow.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "determined",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "rooftop",
+          "time": "night",
+          "camera": "shake",
+          "transition": "flash",
+          "vo": "Then the radio tower on the hill lit up. Bright white. Brighter than the sun.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "shocked",
+              "action": "sit"
+            },
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "shocked",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "punch",
+          "vo": "The countdown had jumped. Not four days. One hour.",
+          "popup": {
+            "title": "COUNTDOWN",
+            "lines": [
+              "1 HOUR"
+            ],
+            "style": "warning"
+          },
+          "chars": []
+        },
+        {
+          "bg": "gym",
+          "label": "59 MINUTES",
+          "crowd": 10,
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "Every kid in town ran to the gym. Two thousand. Packed shoulder to shoulder.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous"
+            },
+            {
+              "id": "blake",
+              "x": 0.6,
+              "expr": "nervous"
+            }
+          ],
+          "stat": {
+            "set": 18
+          }
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Everybody. I lied. The broadcast was real. Our parents are alive. And I was scared to get mine back.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "sad"
+            }
+          ]
+        },
+        {
+          "bg": "stage",
+          "crowd": 10,
+          "camera": "slowzoom",
+          "who": "blake",
+          "vo": "I'm voting yes. And I'm asking you to vote yes with me.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.5,
+              "expr": "determined"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "30 MINUTES",
+          "crowd": 10,
+          "camera": "wide",
+          "vo": "Yes climbed fast. Fifteen hundred. Eighteen hundred. Nineteen fifty.",
+          "popup": {
+            "title": "LIVE VOTE",
+            "lines": [
+              "YES: 1,950",
+              "NO: 49"
+            ],
+            "style": "success"
+          },
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.4,
+              "expr": "grin"
+            },
+            {
+              "id": "sam",
+              "x": 0.6,
+              "expr": "grin"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "10 MINUTES",
+          "crowd": 10,
+          "camera": "punch",
+          "vo": "Then it stopped. Nineteen ninety nine yes. One no. And the no wouldn't change.",
+          "popup": {
+            "title": "LIVE VOTE",
+            "lines": [
+              "YES: 1,999",
+              "NO: 1"
+            ],
+            "style": "warning"
+          },
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "shocked"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "sam"
+          },
+          "who": "sam",
+          "vo": "I can trace it. Give me a second. It's... it's coming from your phone, Zoe.",
+          "chars": [
+            {
+              "id": "sam",
+              "x": 0.6,
+              "expr": "shocked",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": "punch",
+          "vo": "Zoe's phone. In her pocket. Except it wasn't in her pocket. Theo had it.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.55,
+              "expr": "sad",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "5 MINUTES",
+          "crowd": 10,
+          "camera": {
+            "focus": "theo"
+          },
+          "who": "theo",
+          "vo": "If they come back... will Kid City end? Will everyone forget we took care of each other?",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.55,
+              "expr": "crying",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Theo. You ran a whole city. You're the bravest person I know. That doesn't disappear when Mom comes home.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right",
+              "fx": [
+                "tears"
+              ]
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "crowd": 10,
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "Pinky promise.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.42,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "gym",
+          "label": "0:10",
+          "crowd": 10,
+          "camera": "punch",
+          "vo": "Ten seconds left. Theo pressed the button.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.5,
+              "expr": "determined",
+              "action": "phone"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "shake",
+          "vo": "Two thousand yes. Zero no. And the whole world turned white.",
+          "popup": {
+            "title": "VOTE COMPLETE",
+            "lines": [
+              "YES: 2,000"
+            ],
+            "style": "success"
+          },
+          "chars": []
+        }
+      ]
+    },
+    {
+      "part": 10,
+      "shots": [
+        {
+          "bg": "void",
+          "camera": "punch",
+          "transition": "flash",
+          "vo": "Two thousand kids voted yes. Every single one. And the world turned white.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "shocked",
+              "glow": true
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "label": "MONDAY, 7:00 AM",
+          "transition": "fade",
+          "camera": "slowzoom",
+          "vo": "Zoe opened her eyes. Her bedroom. Her alarm. Going off at seven a.m.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.45,
+              "expr": "sleepy"
+            }
+          ]
+        },
+        {
+          "bg": "bedroom",
+          "camera": "wide",
+          "who": "mom",
+          "vo": "Zoe! Up! You're going to be late for school!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "She ran downstairs. Mom was making coffee. Like nothing ever happened.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "mom",
+              "x": 0.65,
+              "expr": "happy",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "slowzoom",
+          "vo": "Zoe hugged her so hard the coffee spilled.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.46,
+              "expr": "crying",
+              "facing": "right",
+              "fx": [
+                "tears"
+              ]
+            },
+            {
+              "id": "mom",
+              "x": 0.56,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "mom"
+          },
+          "who": "mom",
+          "vo": "Whoa! Okay! I love you too? It's been one night, honey. Did you have a bad dream?",
+          "chars": [
+            {
+              "id": "mom",
+              "x": 0.6,
+              "expr": "confused",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": {
+            "focus": "zoe"
+          },
+          "vo": "One night. For the adults, it had been one night. They didn't remember anything.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "confused"
+            }
+          ]
+        },
+        {
+          "bg": "livingroom",
+          "camera": "wide",
+          "who": "theo",
+          "vo": "Zoe! Kid City is still in the park! The tents are still there! It was real!",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "shocked",
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.6,
+              "action": "enter-right",
+              "expr": "grin",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "label": "LINCOLN HIGH",
+          "transition": "whip",
+          "crowd": 9,
+          "camera": "wide",
+          "who": "rico",
+          "vo": "Zoe! I'm back, baby! Eighteen and fabulous! Did anyone save me cake?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.35,
+              "expr": "crying",
+              "facing": "right",
+              "fx": [
+                "tears"
+              ]
+            },
+            {
+              "id": "rico",
+              "x": 0.6,
+              "expr": "grin",
+              "action": "celebrate",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "school",
+          "crowd": 9,
+          "camera": "slowzoom",
+          "vo": "Every kid remembered. Every adult forgot. And every kid decided to keep it that way.",
+          "chars": [
+            {
+              "id": "lena",
+              "x": 0.35,
+              "expr": "happy"
+            },
+            {
+              "id": "sam",
+              "x": 0.5,
+              "expr": "smug"
+            },
+            {
+              "id": "rico",
+              "x": 0.65,
+              "expr": "happy"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "label": "CITY HALL",
+          "transition": "whip",
+          "camera": "wide",
+          "vo": "Across town, the mayor stood on the steps of city hall. His son walked up to him.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.38,
+              "expr": "nervous",
+              "facing": "right"
+            },
+            {
+              "id": "dad",
+              "x": 0.65,
+              "expr": "neutral",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": {
+            "focus": "blake"
+          },
+          "who": "blake",
+          "vo": "Dad. I need to tell you something. And I need you to actually listen.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.38,
+              "expr": "determined",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "street",
+          "camera": "slowzoom",
+          "vo": "His dad looked at him for a long time. Then he did something he'd never done. He sat down on the steps. And listened.",
+          "chars": [
+            {
+              "id": "blake",
+              "x": 0.42,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "dad",
+              "x": 0.6,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "label": "THAT EVENING",
+          "time": "evening",
+          "transition": "fade",
+          "camera": "wide",
+          "vo": "That evening, Theo showed Zoe one last drawing. The man in white. Smiling.",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "right"
+            },
+            {
+              "id": "theo",
+              "x": 0.56,
+              "expr": "happy",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "theo"
+          },
+          "who": "theo",
+          "vo": "He said thank you. He said it's a test. Every town gets one. Most towns vote no.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.56,
+              "expr": "neutral",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": {
+            "focus": "zoe"
+          },
+          "who": "zoe",
+          "vo": "And what happens to the towns that vote no?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.4,
+              "expr": "nervous",
+              "action": "sit",
+              "facing": "right"
+            }
+          ]
+        },
+        {
+          "bg": "park",
+          "time": "evening",
+          "camera": "punch",
+          "who": "theo",
+          "vo": "He didn't say. But he said he's going to visit another town tonight.",
+          "chars": [
+            {
+              "id": "theo",
+              "x": 0.56,
+              "expr": "sad",
+              "action": "sit",
+              "facing": "left"
+            }
+          ]
+        },
+        {
+          "bg": "void",
+          "transition": "flash",
+          "camera": "slowzoom",
+          "vo": "Maybe yours. If every adult in your town disappeared tonight... how would you vote?",
+          "chars": [
+            {
+              "id": "zoe",
+              "x": 0.5,
+              "expr": "smug"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

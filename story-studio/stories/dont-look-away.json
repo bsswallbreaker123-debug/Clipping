@@ -1,0 +1,231 @@
+{
+  "id": "dont-look-away",
+  "style": "brick",
+  "title": "Don't Look Away",
+  "mood": "dark",
+  "narrator": "am_puck",
+  "musicVolume": 0.16,
+  "cast": {
+    "me": { "name": "Me", "voice": "am_puck", "shirt": "#f5c400", "pants": "#2f3e66", "hat": "hair", "hatColor": "#5a3a1e", "stripes": true },
+    "kenji": { "name": "Kenji", "voice": "am_echo", "shirt": "#e74c3c", "pants": "#2c3e50", "hat": "beanie", "hatColor": "#2c3e50" },
+    "mom": { "name": "Mom", "voice": "af_sarah", "shirt": "#1f2d55", "pants": "#1f2d55", "hat": "police", "badge": true },
+    "lily": { "name": "Lily", "voice": "af_sky", "shirt": "#ff7eb6", "pants": "#6c5ce7", "hat": "longhair", "hatColor": "#5a3a1e", "scale": 0.75 },
+    "mayor": { "name": "Mayor Grant", "voice": "bm_george", "shirt": "#2d3436", "pants": "#2d3436", "hat": "hair", "hatColor": "#b2bec3", "scale": 1.05 },
+    "reyes": { "name": "Captain Reyes", "voice": "am_fenrir", "shirt": "#556b2f", "pants": "#3d4a2a", "hat": "helmet", "hatColor": "#4b5a2f", "badge": true, "scale": 1.08 },
+    "dad": { "name": "Dad", "voice": "am_michael", "shirt": "#ecf0f1", "pants": "#34495e", "hat": "hair", "hatColor": "#5a3a1e", "stripes": true }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "shots": [
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "transition": "flash", "vo": "In our town, there's a monster that can only move when nobody is looking at it." },
+        { "set": "square", "camera": "establish", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "vo": "And if every single person looks away, even for one second, someone disappears." },
+        { "set": "city", "time": "dusk", "label": "THREE YEARS AGO", "transition": "fade", "camera": "establish", "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "step" }, "crowd": 6, "vo": "Three years ago, it walked into the middle of town. That night, five people vanished." },
+        { "set": "square", "time": "day", "camera": "wide", "crowd": 8, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "vo": "In the morning, a crowd gathered to stare at it. And it froze. Mid step." },
+        { "set": "square", "time": "day", "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "vo": "Cameras don't work. Robots don't work. Only human eyes." },
+        { "set": "square", "camera": "orbit", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "vo": "So the town built six giant floodlights. And a watch tower. Somebody has to look at it. Every second. Forever." },
+        { "set": "rooftop", "label": "THE WATCH TOWER", "transition": "fade", "camera": "wide", "chars": [{ "id": "mom", "x": 0, "z": 2, "face": "determined", "anim": "idle" }], "vo": "My mom is the head of the Watch. She hasn't missed a night in three years." },
+        { "set": "rooftop", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 0, "z": 2, "face": "determined", "anim": "talk" }], "vo": "Rule one. Never look away. Rule two. If you need to blink, say blink, and someone covers you." },
+        { "set": "rooftop", "camera": "wide", "chars": [{ "id": "me", "x": -1.8, "z": 3, "face": "happy", "anim": "idle" }, { "id": "kenji", "x": 1.8, "z": 3, "face": "smug", "anim": "idle" }], "vo": "Tonight was my first shift. Me, my best friend Kenji, and eight other watchers." },
+        { "set": "square", "label": "3:12 AM", "transition": "whip", "camera": { "over": "me", "at": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -22, "anim": "frozen" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "neutral", "turn": 180, "hold": "flashlight", "anim": "aim" }, { "id": "kenji", "x": 1.5, "z": 6, "face": "neutral", "turn": 180 }], "vo": "Everything was normal. Until three twelve a.m." },
+        { "set": "square", "camera": { "close": "kenji" }, "floodlights": 6, "chars": [{ "id": "kenji", "x": 1.5, "z": 6, "face": "neutral", "anim": "sit" }], "vo": "Kenji was asleep in his chair. Two watchers went to get coffee." },
+        { "set": "square", "camera": { "close": "me" }, "floodlights": 6, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "neutral", "hold": "phone", "anim": "radio" }], "sfx": "notify", "vo": "Then my phone buzzed. And for one second, I looked down." },
+        { "set": "square", "camera": "shake", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "transition": "flash", "sfx": "boom", "vo": "When I looked back up, it wasn't in the middle of the square anymore." },
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "reach" }, "vo": "It was standing at the fence. One giant hand pressed against the bars." },
+        { "set": "square", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared", "anim": "idle" }], "vo": "Nobody else had seen it move. Nobody but me." },
+        { "set": "square", "camera": { "close": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen", "eyes": "#ff2a2a" }, "vo": "And its eyes weren't looking at the town anymore." },
+        { "set": "square", "camera": "shake", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen", "eyes": "#ff2a2a" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "screaming", "turn": 180 }], "vo": "They were looking straight at me." }
+      ]
+    },
+    {
+      "part": 2,
+      "shots": [
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen", "eyes": "#ff2a2a" }, "transition": "flash", "vo": "The monster hadn't moved in three years. Then I looked away for one second." },
+        { "set": "square", "camera": "wide", "floodlights": 6, "police": 2, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "sfx": "radio", "vo": "Every alarm in the square went off at once." },
+        { "set": "square", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 1, "z": 5, "face": "angry", "anim": "radio", "hold": "radio" }], "vo": "All eyes on it! Nobody blinks! Nobody!" },
+        { "set": "square", "camera": "wide", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "crowd": 8, "vo": "Within minutes, a hundred people were staring at it. It didn't move again." },
+        { "set": "square", "camera": { "over": "mom", "at": "me" }, "chars": [{ "id": "mom", "x": 1.5, "z": 4, "face": "angry", "turn": -110 }, { "id": "me", "x": -2, "z": 5, "face": "sad", "turn": 70 }], "who": "mom", "vo": "Three years. Not one inch. What happened?" },
+        { "set": "square", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -2, "z": 5, "face": "sad" }], "vo": "My phone buzzed. I looked down. One second, Mom. I swear." },
+        { "set": "square", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 1.5, "z": 4, "face": "shocked" }], "vo": "That's impossible. Eight other people were watching. One second shouldn't matter." },
+        { "set": "school", "time": "day", "label": "TOWN MEETING", "transition": "fade", "camera": "wide", "crowd": 8, "chars": [{ "id": "mayor", "x": 0, "z": 0, "face": "angry", "anim": "point" }], "vo": "The next day, the whole town packed into the school gym." },
+        { "set": "school", "time": "day", "camera": { "close": "mayor" }, "who": "mayor", "chars": [{ "id": "mayor", "x": 0, "z": 0, "face": "angry", "anim": "point" }], "vo": "A teenager on his phone almost got us all killed. He's off the Watch. Permanently." },
+        { "set": "school", "time": "day", "camera": { "close": "me" }, "crowd": 8, "chars": [{ "id": "me", "x": -1, "z": 2, "face": "sad" }], "vo": "Everybody turned to look at me. I wanted to disappear." },
+        { "set": "bedroom", "label": "THAT NIGHT", "transition": "fade", "camera": "wide", "chars": [{ "id": "me", "x": -2, "z": 1, "face": "sad", "anim": "sit" }], "vo": "That night, I couldn't sleep. I kept seeing its eyes." },
+        { "set": "bedroom", "camera": "wide", "who": "lily", "chars": [{ "id": "me", "x": -2.5, "z": 1, "face": "neutral", "turn": 45 }, { "id": "lily", "x": 2, "z": 2, "face": "scared", "turn": -45 }], "vo": "Hey. Why is everyone at the square looking at our house?" },
+        { "set": "bedroom", "camera": { "close": "lily" }, "chars": [{ "id": "lily", "x": 2, "z": 2, "face": "scared" }], "vo": "My little sister Lily. Eight years old. Standing at my door." },
+        { "set": "rooftop", "transition": "whip", "camera": { "over": "me", "at": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -45, "anim": "frozen", "eyes": "#ff2a2a" }, "chars": [{ "id": "me", "x": -1, "z": 4, "face": "shocked", "turn": 180 }], "vo": "I climbed onto our roof. Far away, I could see the floodlights. And the monster." },
+        { "set": "rooftop", "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -45, "anim": "frozen", "eyes": "#ff2a2a" }, "vo": "It hadn't moved its body. But its head had turned. All the way around." },
+        { "set": "rooftop", "camera": "shake", "monster": { "type": "stalker", "x": 0, "z": -45, "anim": "frozen", "eyes": "#ff2a2a" }, "chars": [{ "id": "me", "x": -1, "z": 4, "face": "screaming", "turn": 180 }], "vo": "Toward our street. Toward our house. Toward my window." }
+      ]
+    },
+    {
+      "part": 3,
+      "shots": [
+        { "set": "rooftop", "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -45, "anim": "frozen", "eyes": "#ff2a2a" }, "transition": "flash", "vo": "The monster turned its head toward my house. And nobody knew why." },
+        { "set": "livingroom", "time": "day", "label": "NEXT MORNING", "transition": "fade", "camera": "wide", "chars": [{ "id": "kenji", "x": 1.8, "z": 2, "face": "determined", "anim": "talk", "turn": -40 }, { "id": "me", "x": -1.8, "z": 2, "face": "neutral", "turn": 40 }], "who": "kenji", "vo": "Okay. I have a theory. And you're not gonna like it." },
+        { "set": "livingroom", "time": "day", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 1.8, "z": 2, "face": "determined", "anim": "talk" }], "vo": "Eight people were watching. It still moved. Because it doesn't care about their eyes. It cares about yours." },
+        { "set": "livingroom", "time": "day", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1.8, "z": 2, "face": "shocked" }], "vo": "That's insane. Why me?" },
+        { "set": "livingroom", "time": "day", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 1.8, "z": 2, "face": "smug" }], "vo": "Only one way to find out. We test it. Tonight." },
+        { "set": "square", "label": "MIDNIGHT", "transition": "whip", "camera": "wide", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "chars": [{ "id": "mom", "x": 2.5, "z": 6, "face": "angry", "turn": 180 }, { "id": "me", "x": -1.5, "z": 6, "face": "scared", "turn": 180 }, { "id": "kenji", "x": 0.5, "z": 7, "face": "determined", "turn": 180 }], "vo": "Mom said it was a terrible idea. Then she agreed to it anyway." },
+        { "set": "square", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 2.5, "z": 6, "face": "determined", "anim": "radio", "hold": "radio" }], "vo": "Test one. Every watcher turns around. Only my son keeps looking. Five seconds." },
+        { "set": "square", "camera": { "over": "me", "at": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared", "turn": 180 }], "vo": "Fifty watchers turned their backs. One. Two. Three. Four. Five." },
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -10, "anim": "frozen" }, "vo": "It didn't move. Not an inch." },
+        { "set": "square", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 2.5, "z": 6, "face": "scared", "anim": "radio", "hold": "radio" }], "vo": "Test two. Everyone watches. Except him. One second." },
+        { "set": "square", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared", "turn": 0 }], "sfx": "click", "vo": "I turned around. And I closed my eyes." },
+        { "set": "square", "camera": "shake", "floodlights": 6, "crowd": 6, "monster": { "type": "stalker", "x": 0, "z": -4, "anim": "frozen" }, "transition": "flash", "sfx": "boom", "vo": "Fifty people screamed at the same time." },
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -4, "anim": "reach" }, "vo": "It had taken one giant step. Right through the fence. With fifty people watching it." },
+        { "set": "square", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 2.5, "z": 6, "face": "shocked" }], "vo": "It's not frozen by everyone. It's frozen by you. Only you." },
+        { "set": "square", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared" }], "vo": "For three years, I thought the whole town was keeping it still." },
+        { "set": "square", "camera": "shake", "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -4, "anim": "frozen", "eyes": "#ff2a2a" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "screaming", "turn": 180 }], "vo": "Now it was just me. And I would have to sleep eventually." }
+      ]
+    },
+    {
+      "part": 4,
+      "shots": [
+        { "set": "square", "camera": { "low": "monster" }, "floodlights": 6, "monster": { "type": "stalker", "x": 0, "z": -4, "anim": "frozen", "eyes": "#ff2a2a" }, "transition": "flash", "vo": "Only my eyes can freeze the monster. And I can never look away again." },
+        { "set": "square", "time": "day", "camera": "wide", "police": 3, "chars": [{ "id": "reyes", "x": 0, "z": 3, "face": "determined", "anim": "idle" }], "vo": "By morning, the army had arrived. Captain Reyes." },
+        { "set": "square", "time": "day", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 0, "z": 3, "face": "determined", "anim": "point" }], "vo": "From now on, this kid is the most important person in the country. He doesn't leave that tower." },
+        { "set": "rooftop", "label": "DAY 1", "transition": "whip", "camera": { "over": "me", "at": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "frozen" }, "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "determined", "turn": 180 }], "vo": "Day one. They brought me food. Water. A chair. I wasn't allowed to blink without saying it first." },
+        { "set": "rooftop", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "neutral" }], "vo": "Blink." },
+        { "set": "rooftop", "camera": "wide", "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "frozen" }, "vo": "Every blink was a gamble. A quarter of a second. Enough for one step." },
+        { "set": "rooftop", "label": "DAY 2", "time": "dusk", "transition": "fade", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "sad", "anim": "sit" }], "vo": "Day two. My eyes burned. My head pounded. I hadn't slept in thirty hours." },
+        { "set": "rooftop", "time": "dusk", "camera": "wide", "who": "lily", "chars": [{ "id": "me", "x": -1.8, "z": 4, "face": "sad", "anim": "sit", "turn": 180 }, { "id": "lily", "x": 1.5, "z": 5, "face": "happy", "turn": -60 }], "vo": "I brought you cookies. Mom said you can't look at me. So I'll talk to your back." },
+        { "set": "rooftop", "time": "dusk", "camera": { "close": "lily" }, "who": "lily", "chars": [{ "id": "lily", "x": 1.5, "z": 5, "face": "neutral" }], "vo": "I don't think it's bad, you know. I think it's lonely. It only looks at you because nobody looks back at it." },
+        { "set": "rooftop", "label": "DAY 3, 4:40 AM", "transition": "fade", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "sad", "anim": "sit" }], "vo": "Day three. Forty hours awake. The floodlights started to look blurry. Then double." },
+        { "set": "rooftop", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "neutral", "anim": "sit" }], "vo": "I yawned. And my eyes closed. Just for a moment." },
+        { "set": "rooftop", "camera": "shake", "transition": "flash", "sfx": "boom", "monster": { "type": "stalker", "x": 0, "z": -14, "anim": "reach" }, "vo": "When they opened, it was halfway across the square." },
+        { "set": "rooftop", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 1.5, "z": 5, "face": "angry", "anim": "point" }], "vo": "Eyes open, kid! Eyes open! Do not close them again!" },
+        { "set": "rooftop", "camera": { "low": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -14, "anim": "frozen", "eyes": "#ff2a2a" }, "vo": "It was frozen again. Fifteen meters from the tower." },
+        { "set": "rooftop", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.2, "z": 4, "face": "scared" }], "vo": "I stared at it like my life depended on it. Because it did." },
+        { "set": "rooftop", "blackout": true, "camera": "shake", "transition": "fade", "sfx": "click", "monster": { "type": "stalker", "x": 0, "z": -14, "anim": "frozen" }, "vo": "Then, with a loud click, every floodlight in the square went dark." }
+      ]
+    },
+    {
+      "part": 5,
+      "shots": [
+        { "set": "square", "blackout": true, "camera": "shake", "transition": "flash", "monster": { "type": "stalker", "x": 0, "z": -14, "anim": "frozen" }, "vo": "The floodlights just died. And I can't freeze what I can't see." },
+        { "set": "square", "blackout": true, "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "screaming", "turn": 180 }], "vo": "I can't see it! I can't see it!" },
+        { "set": "square", "blackout": true, "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 1.5, "z": 6, "face": "angry", "anim": "radio", "hold": "radio" }], "sfx": "radio", "vo": "Generators! Now! Somebody get me light!" },
+        { "set": "square", "blackout": true, "camera": "wide", "chars": [{ "id": "kenji", "x": 2, "z": 5, "face": "determined", "anim": "run", "to": [-0.5, 6], "hold": "flashlight" }], "vo": "Then a tiny beam cut through the dark. Kenji. With a flashlight." },
+        { "set": "square", "blackout": true, "camera": { "over": "me", "at": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -9, "anim": "frozen" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared", "turn": 180, "hold": "flashlight", "anim": "aim" }], "vo": "I grabbed it and aimed. There. Frozen. But closer. Way closer." },
+        { "set": "square", "blackout": true, "camera": "wide", "police": 4, "monster": { "type": "stalker", "x": 0, "z": -9, "anim": "frozen" }, "vo": "Police cars screamed into the square. Headlights. Sirens. All pointed at it." },
+        { "set": "square", "blackout": true, "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 2, "z": 5, "face": "determined", "anim": "radio", "hold": "radio" }], "vo": "Keep the light on it. Whatever happens. Don't let him lose sight." },
+        { "set": "square", "blackout": true, "weather": "rain", "camera": "wide", "police": 4, "monster": { "type": "stalker", "x": 0, "z": -9, "anim": "frozen" }, "vo": "Then it started to rain. Hard. Water everywhere. My glasses fogged up." },
+        { "set": "square", "blackout": true, "weather": "storm", "lightning": true, "camera": { "low": "monster" }, "police": 4, "monster": { "type": "stalker", "x": 0, "z": -9, "anim": "frozen" }, "vo": "Thunder. Lightning lit up the whole square." },
+        { "set": "square", "blackout": true, "weather": "storm", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "scared", "hold": "flashlight", "anim": "aim" }], "vo": "I wiped the rain out of my eyes. Just for a second." },
+        { "set": "square", "blackout": true, "weather": "storm", "lightning": true, "camera": "shake", "transition": "flash", "monster": { "type": "stalker", "x": 0, "z": -5, "anim": "frozen" }, "sfx": "boom", "vo": "Flash. It was closer." },
+        { "set": "square", "blackout": true, "weather": "storm", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 1.8, "z": 5, "face": "screaming" }], "vo": "Don't blink! Bro, don't blink!" },
+        { "set": "square", "blackout": true, "weather": "storm", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "angry", "hold": "flashlight", "anim": "aim" }], "vo": "My eyes were on fire. Ten seconds. Twenty. Thirty." },
+        { "set": "square", "blackout": true, "weather": "storm", "lightning": true, "camera": "shake", "transition": "flash", "sfx": "thunder", "vo": "Then the biggest lightning bolt I had ever seen hit the tower behind us." },
+        { "set": "square", "blackout": true, "weather": "storm", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "shocked", "hold": "flashlight", "anim": "aim" }], "vo": "Everyone flinched. Including me." },
+        { "set": "square", "blackout": true, "weather": "storm", "camera": "wide", "police": 4, "vo": "When I opened my eyes, the square was empty. The monster was gone." }
+      ]
+    },
+    {
+      "part": 6,
+      "shots": [
+        { "set": "square", "blackout": true, "weather": "storm", "camera": "wide", "police": 4, "transition": "flash", "vo": "The monster escaped. For the first time in three years, nobody knows where it is." },
+        { "set": "square", "blackout": true, "weather": "rain", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 1, "z": 5, "face": "angry", "anim": "radio", "hold": "radio" }], "sfx": "radio", "vo": "All units. Target is loose. Repeat, target is loose. Find it!" },
+        { "set": "square", "blackout": true, "weather": "rain", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": -1, "z": 5, "face": "scared" }], "vo": "Where would it go? It doesn't want the town. It never did." },
+        { "set": "square", "blackout": true, "weather": "rain", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "shocked" }], "vo": "Then I remembered. Its head. Turned toward our house." },
+        { "set": "square", "blackout": true, "weather": "rain", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1.5, "z": 6, "face": "screaming" }], "vo": "Mom. Lily's home alone." },
+        { "set": "street", "blackout": true, "weather": "storm", "transition": "whip", "camera": "wide", "chars": [{ "id": "me", "x": -1, "z": 4, "face": "scared", "anim": "run", "to": [-1, -10] }, { "id": "kenji", "x": 1.5, "z": 6, "face": "scared", "anim": "run", "to": [1.5, -8] }], "vo": "We ran. Through the rain. Through the dark streets." },
+        { "set": "street", "blackout": true, "weather": "storm", "lightning": true, "camera": "shake", "vo": "Every lightning flash, I looked for it. Between buildings. On rooftops. Nothing." },
+        { "set": "street", "blackout": true, "weather": "rain", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 1, "z": 3, "face": "scared", "anim": "point" }], "vo": "Look! The lamp posts! They're bent!" },
+        { "set": "street", "blackout": true, "weather": "rain", "camera": "wide", "monster": { "type": "stalker", "x": 3, "z": -60, "anim": "step" }, "vo": "Bent like something huge had pushed past them. All the way down our street." },
+        { "set": "livingroom", "blackout": true, "label": "HOME", "transition": "whip", "camera": "wide", "chars": [{ "id": "me", "x": 0, "z": 4, "face": "scared", "anim": "run", "to": [0, 0] }], "vo": "Our front door was wide open." },
+        { "set": "livingroom", "blackout": true, "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": 0, "z": 1, "face": "screaming", "hold": "flashlight", "anim": "aim" }], "vo": "Lily! Lily, where are you?" },
+        { "set": "bedroom", "blackout": true, "camera": "wide", "chars": [{ "id": "me", "x": 0, "z": 4, "face": "scared", "hold": "flashlight", "anim": "aim", "turn": 180 }], "vo": "Her room. Her bed was empty. Her window was smashed open." },
+        { "set": "bedroom", "blackout": true, "camera": { "close": "me" }, "chars": [{ "id": "me", "x": 0, "z": 4, "face": "sad" }], "vo": "On the floor, there was a drawing. Crayon. Still wet from the rain." },
+        { "set": "bedroom", "blackout": true, "camera": { "close": "me" }, "chars": [{ "id": "me", "x": 0, "z": 4, "face": "shocked" }], "vo": "A tall monster. A little girl. Holding hands. And three words." },
+        { "set": "bedroom", "blackout": true, "camera": "shake", "transition": "flash", "sfx": "boom", "vo": "Don't follow us." }
+      ]
+    },
+    {
+      "part": 7,
+      "shots": [
+        { "set": "bedroom", "blackout": true, "camera": "shake", "transition": "flash", "vo": "The monster took my little sister. And she left a note. Don't follow us." },
+        { "set": "street", "blackout": true, "weather": "rain", "transition": "whip", "camera": "wide", "police": 2, "chars": [{ "id": "me", "x": -1.5, "z": 4, "face": "determined", "anim": "run", "to": [-1.5, -10] }], "vo": "Obviously, I followed them." },
+        { "set": "park", "blackout": true, "weather": "rain", "label": "THE PARK", "transition": "fade", "camera": "wide", "chars": [{ "id": "kenji", "x": 1, "z": 3, "face": "determined", "hold": "flashlight", "anim": "aim", "turn": 180 }, { "id": "me", "x": -1.5, "z": 3, "face": "scared", "turn": 180 }], "vo": "The trail of broken branches led to the park. Then past it. Into the woods." },
+        { "set": "park", "blackout": true, "weather": "rain", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 1, "z": 3, "face": "shocked" }], "vo": "Dude. Look. It's walking around trees. It's being careful." },
+        { "set": "park", "blackout": true, "weather": "rain", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1.5, "z": 3, "face": "neutral" }], "vo": "He was right. A monster that big could have crushed everything. It didn't break a single tree." },
+        { "set": "forest", "blackout": true, "transition": "whip", "camera": "wide", "chars": [{ "id": "me", "x": -1, "z": 3, "face": "scared", "anim": "walk", "to": [-1, -6], "hold": "flashlight" }], "vo": "Deeper into the forest. The rain stopped. Everything went quiet." },
+        { "set": "forest", "blackout": true, "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -6, "face": "scared", "hold": "flashlight", "anim": "aim" }], "vo": "Then I heard something. Humming. A little girl humming." },
+        { "set": "forest", "blackout": true, "camera": { "low": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#9fd7ff" }, "vo": "In a clearing, the monster was sitting down. Like a giant dog." },
+        { "set": "forest", "blackout": true, "camera": "wide", "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#9fd7ff" }, "chars": [{ "id": "lily", "x": 0, "z": -20, "face": "happy", "anim": "sit" }], "vo": "And at its feet, completely fine, was Lily." },
+        { "set": "forest", "blackout": true, "camera": { "close": "lily" }, "who": "lily", "chars": [{ "id": "lily", "x": 0, "z": -20, "face": "happy", "anim": "sit" }], "vo": "Hi! You're not supposed to look at him like that. He doesn't like it." },
+        { "set": "forest", "blackout": true, "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1, "z": -14, "face": "shocked" }], "vo": "Lily. Walk to me. Slowly. Don't look away from it." },
+        { "set": "forest", "blackout": true, "camera": { "close": "lily" }, "who": "lily", "chars": [{ "id": "lily", "x": 0, "z": -20, "face": "neutral" }], "vo": "Why? He's not going to hurt us. He wanted to show me something." },
+        { "set": "forest", "blackout": true, "camera": "wide", "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "reach", "eyes": "#9fd7ff" }, "chars": [{ "id": "lily", "x": 0, "z": -20, "face": "happy", "anim": "point", "turn": 180 }], "vo": "Lily pointed at the monster's giant hand. It slowly opened." },
+        { "set": "forest", "blackout": true, "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "reach", "eyes": "#9fd7ff", "holding": true }, "vo": "Inside was a jacket. Old. Torn. With reflective stripes." },
+        { "set": "forest", "blackout": true, "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -14, "face": "shocked" }], "vo": "I knew that jacket. I had seen it in a hundred family photos." },
+        { "set": "forest", "blackout": true, "camera": "shake", "transition": "flash", "vo": "It was my dad's." }
+      ]
+    },
+    {
+      "part": 8,
+      "shots": [
+        { "set": "forest", "blackout": true, "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "reach", "eyes": "#9fd7ff", "holding": true }, "transition": "flash", "vo": "The monster was holding my dad's jacket. My dad left us three years ago. At least, that's what I was told." },
+        { "set": "forest", "blackout": true, "camera": "wide", "police": 3, "chars": [{ "id": "mom", "x": 2, "z": -10, "face": "scared", "anim": "run", "to": [1.5, -14] }], "vo": "Headlights behind us. Mom. Captain Reyes. Ten soldiers." },
+        { "set": "forest", "blackout": true, "camera": { "close": "mom" }, "chars": [{ "id": "mom", "x": 1.5, "z": -14, "face": "shocked" }], "vo": "Mom saw the jacket. And all the color left her face." },
+        { "set": "forest", "blackout": true, "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -1, "z": -14, "face": "angry" }], "vo": "Mom. Why does it have Dad's jacket?" },
+        { "set": "forest", "blackout": true, "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 1.5, "z": -14, "face": "sad" }], "vo": "Because your father didn't leave us. He was the first person it took." },
+        { "set": "forest", "blackout": true, "camera": "wide", "chars": [{ "id": "me", "x": -1, "z": -14, "face": "sad", "turn": 60 }, { "id": "mom", "x": 1.5, "z": -14, "face": "sad", "turn": -60 }], "vo": "Three years of lies. Three years of birthdays without him. And she knew." },
+        { "set": "forest", "blackout": true, "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 1.5, "z": -14, "face": "sad" }], "vo": "He was a scientist. He studied it before anyone knew it existed. The army made me promise. To protect you." },
+        { "set": "forest", "blackout": true, "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 3, "z": -12, "face": "determined" }], "vo": "Your father found out what it is. And he found out why it follows you." },
+        { "set": "bunker", "label": "THE BUNKER", "transition": "fade", "camera": "wide", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "determined", "turn": -30 }, { "id": "me", "x": -2, "z": 2, "face": "neutral", "turn": 30 }], "vo": "They took me to a bunker under the town hall. Screens everywhere. Files with my dad's name." },
+        { "set": "bunker", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "neutral" }], "vo": "It's not a hunter. It's a guardian. The five people it took aren't dead. They're on the other side of a door. Inside it." },
+        { "set": "bunker", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -2, "z": 2, "face": "shocked" }], "vo": "A door? Inside the monster?" },
+        { "set": "bunker", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "neutral" }], "vo": "Your father's last message. It only opens for someone it trusts. Someone who looks at it for sixty seconds. Without blinking." },
+        { "set": "bunker", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -2, "z": 2, "face": "determined" }], "vo": "That's why it watches me. It's been waiting for me to look back." },
+        { "set": "bunker", "camera": "wide", "sfx": "radio", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "angry", "anim": "radio", "hold": "radio" }], "vo": "Then Reyes's radio crackled. A voice from the capital." },
+        { "set": "bunker", "camera": { "close": "reyes" }, "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "shocked", "hold": "radio", "anim": "radio" }], "vo": "Strike authorized. Target the creature at sunrise. Minimum distance, two miles." },
+        { "set": "bunker", "camera": "shake", "transition": "flash", "chars": [{ "id": "me", "x": -2, "z": 2, "face": "screaming" }], "vo": "They were going to blow it up. With my dad still inside." }
+      ]
+    },
+    {
+      "part": 9,
+      "shots": [
+        { "set": "bunker", "camera": "shake", "transition": "flash", "chars": [{ "id": "me", "x": -2, "z": 2, "face": "angry" }], "vo": "The army wants to destroy the monster at sunrise. My dad is trapped inside it." },
+        { "set": "bunker", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "sad" }], "vo": "I'm sorry, kid. It's above me. Sunrise is in two hours." },
+        { "set": "bunker", "camera": { "close": "me" }, "who": "me", "chars": [{ "id": "me", "x": -2, "z": 2, "face": "determined" }], "vo": "Then give me one minute with it. Sixty seconds. That's all I need." },
+        { "set": "bunker", "camera": { "close": "reyes" }, "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "neutral" }], "vo": "Reyes looked at me for a long time. Then he took off his helmet." },
+        { "set": "bunker", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 2, "z": 2, "face": "determined" }], "vo": "Your father saved my life once. I never got to thank him. Go. I'll stall them." },
+        { "set": "forest", "time": "dusk", "label": "5:41 AM", "transition": "whip", "camera": "wide", "chars": [{ "id": "me", "x": -1.5, "z": 4, "face": "determined", "anim": "run", "to": [-1, -10] }, { "id": "kenji", "x": 1.5, "z": 5, "face": "determined", "anim": "run", "to": [1.5, -8] }, { "id": "mom", "x": 0, "z": 6, "face": "determined", "anim": "run", "to": [0, -9] }], "vo": "Five forty one a.m. Me, Kenji and Mom. Running back to the clearing." },
+        { "set": "forest", "time": "dusk", "camera": { "low": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#9fd7ff" }, "vo": "It was still there. Sitting. Waiting. Lily asleep against its leg." },
+        { "set": "forest", "time": "dusk", "camera": "wide", "vo": "Far away, I could hear jets. Coming closer.", "sfx": "boom" },
+        { "set": "forest", "time": "dusk", "camera": { "over": "me", "at": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#9fd7ff" }, "chars": [{ "id": "me", "x": -1, "z": -12, "face": "determined", "turn": 180, "anim": "lookup" }], "vo": "I walked up to it. I looked up. Right into its eyes. And I started counting." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "kenji" }, "who": "kenji", "chars": [{ "id": "kenji", "x": 2, "z": -8, "face": "determined" }], "vo": "One. Two. Three. You got this, bro." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -12, "face": "angry", "anim": "lookup" }], "vo": "Twenty seconds. My eyes started burning. Like sand. Like fire." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#ffffff" }, "vo": "Thirty. Its eyes started glowing. Brighter. And brighter." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -12, "face": "sad", "anim": "lookup" }], "vo": "Forty. Tears ran down my face. I didn't wipe them." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "mom" }, "who": "mom", "chars": [{ "id": "mom", "x": 1.5, "z": -9, "face": "sad" }], "vo": "Fifty. Ten more, baby. Ten more." },
+        { "set": "forest", "time": "dusk", "camera": "shake", "sfx": "boom", "vo": "Fifty five. The jets were right above us. The ground started shaking." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -12, "face": "angry", "anim": "lookup" }], "vo": "Fifty eight. Fifty nine." },
+        { "set": "forest", "time": "dusk", "camera": "shake", "transition": "flash", "lightning": true, "vo": "And then a flash of light so bright, the whole forest turned white." }
+      ]
+    },
+    {
+      "part": 10,
+      "shots": [
+        { "set": "forest", "time": "dusk", "camera": "shake", "transition": "flash", "vo": "I stared at the monster for sixty seconds without blinking. Then everything turned white." },
+        { "set": "forest", "time": "dusk", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -1, "z": -12, "face": "shocked", "anim": "lookup" }], "vo": "Was it the strike? Was I dead?" },
+        { "set": "forest", "time": "day", "camera": { "low": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "reach", "eyes": "#ffffff" }, "vo": "No. The light was coming from the monster. Its chest was opening. Like a door." },
+        { "set": "forest", "time": "day", "camera": "wide", "chars": [{ "id": "dad", "x": 0, "z": -20, "face": "neutral", "anim": "walk", "to": [0, -15] }], "vo": "And somebody stepped out." },
+        { "set": "forest", "time": "day", "camera": { "close": "dad" }, "chars": [{ "id": "dad", "x": 0, "z": -15, "face": "happy" }], "vo": "Older. Thinner. Wearing a shirt with reflective stripes." },
+        { "set": "forest", "time": "day", "camera": { "close": "dad" }, "who": "dad", "chars": [{ "id": "dad", "x": 0, "z": -15, "face": "happy" }], "vo": "Hey, buddy. You got tall." },
+        { "set": "forest", "time": "day", "camera": "wide", "chars": [{ "id": "me", "x": -0.8, "z": -13, "face": "happy", "turn": 120 }, { "id": "dad", "x": 0.8, "z": -14, "face": "happy", "turn": -120 }], "vo": "I don't remember running. I just remember hugging him so hard we both fell over." },
+        { "set": "forest", "time": "day", "camera": "wide", "crowd": 5, "vo": "Behind him, five more people walked out. The five people who vanished that first night. All of them alive." },
+        { "set": "forest", "time": "day", "camera": { "close": "reyes" }, "who": "reyes", "chars": [{ "id": "reyes", "x": 3, "z": -10, "face": "happy", "anim": "radio", "hold": "radio" }], "sfx": "radio", "vo": "Abort the strike. Abort. Repeat. Everybody's coming home." },
+        { "set": "forest", "time": "day", "camera": { "close": "dad" }, "who": "dad", "chars": [{ "id": "dad", "x": 0.8, "z": -14, "face": "neutral" }], "vo": "It wasn't keeping us prisoner. It was keeping us safe. From something on the other side." },
+        { "set": "forest", "time": "day", "camera": { "close": "dad" }, "who": "dad", "chars": [{ "id": "dad", "x": 0.8, "z": -14, "face": "happy" }], "vo": "It needed someone to trust it before it could let us go. It picked you. Because you're mine." },
+        { "set": "forest", "time": "day", "camera": { "low": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -30, "anim": "idle", "eyes": "#9fd7ff" }, "vo": "The monster stood up. Slowly. And for the first time, it didn't freeze when we looked at it." },
+        { "set": "forest", "time": "day", "camera": "wide", "monster": { "type": "stalker", "x": 0, "z": -45, "anim": "step", "eyes": "#9fd7ff" }, "chars": [{ "id": "lily", "x": 0, "z": -8, "face": "happy", "anim": "wave", "turn": 180 }], "vo": "It walked into the forest. Lily waved until it was gone." },
+        { "set": "square", "time": "day", "label": "ONE MONTH LATER", "transition": "fade", "camera": "wide", "crowd": 6, "chars": [{ "id": "me", "x": -1.5, "z": 4, "face": "happy" }, { "id": "dad", "x": 1.5, "z": 4, "face": "happy" }], "vo": "One month later, the floodlights came down. The square became a park again." },
+        { "set": "bedroom", "label": "THAT NIGHT", "transition": "fade", "camera": "wide", "chars": [{ "id": "me", "x": -2, "z": 2, "face": "neutral", "anim": "sit" }], "vo": "But some nights, I still look out my window. Just in case." },
+        { "set": "forest", "camera": { "close": "monster" }, "monster": { "type": "stalker", "x": 0, "z": -40, "anim": "idle", "eyes": "#9fd7ff" }, "transition": "flash", "vo": "And sometimes, far away at the edge of the forest, two blue lights are looking back." },
+        { "set": "bedroom", "camera": { "close": "me" }, "chars": [{ "id": "me", "x": -2, "z": 2, "face": "happy" }], "vo": "Could you stare at something for sixty seconds without blinking? Try it. Right now." }
+      ]
+    }
+  ]
+}
