@@ -678,6 +678,7 @@ const Card: React.FC<{ card: NonNullable<TimedShot["card"]>; f: number; children
 
 const PartPill: React.FC<{ part: number; total: number; f: number }> = ({ part, total, f }) => {
   const k = interpolate(f, [0, 8, 75, 90], [0, 1, 1, 0], clamp);
+  if (total <= 1) return null; // a standalone episode has no part label
   return (
     <div style={{ position: "absolute", top: 120, left: 60, opacity: k, fontFamily: "Montserrat", fontWeight: 900, fontSize: 40, color: "#fff", background: "#d62828", padding: "8px 24px", borderRadius: 12, letterSpacing: 2 }}>
       PART {part}

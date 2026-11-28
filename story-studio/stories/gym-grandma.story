@@ -17,9 +17,9 @@ scenes:
   street: outside sky=day far=hills ground=road light=day | house .2 s=.6 y=-40 c=#f2b8c6 | house .8 s=.6 y=-40 c=#bfe3f0 | streetlamp .5 v=off
   garden: outside sky=day far=hills ground=grass light=day | house .5 s=.9 c=#f6e2a8 | fence .5 y=-30
   garage: room wall=#c8ccd2:concrete floor=#8a8e96:concrete light=cold | car .72 c=#e8c22a | shelf .18 | lamp .45
-  kitchen: room wall=#f2e6c8:tile floor=#c8b89a:check light=warm | fridge .78 | counter .32 c=#8a6a4a | window .5 y=-700
-  park: outside sky=day far=hills ground=grass light=day | crowd .5 v=14 y=80 c=#5a5a68 | sign .84 v=STRONGEST_IN_TOWN c=#ffd23a | lights .5 y=-900
-  bakery: room wall=#f6d8b8:stripes floor=#c8a07a:wood light=warm | counter .5 c=#c88a4a | window .2 y=-700 | picture .82
+  kitchen: room wall=#f2e6c8:tile floor=#c8b89a:check light=warm | fridge .78 | counter .32 c=#8a6a4a | window .5 y=-700 v=day
+  park: outside sky=day far=hills ground=grass light=day | crowd .5 v=14 y=80 c=#5a5a68 | sign .72 v=STRONGEST_IN_TOWN c=#ffd23a | lights .5 y=-900
+  bakery: room wall=#f6d8b8:stripes floor=#c8a07a:wood light=warm | counter .5 c=#c88a4a | window .2 y=-700 v=day | picture .82
   void: void
 
 == 1

@@ -379,9 +379,11 @@ def ensure_music(style: str) -> Path:
     return p
 
 
-# music sits this many LU under the voice track (measured on popular story videos: about 6.5),
+# music sits this many LU under the voice+sfx stem; after ducking and the final loudnorm that lands the music
+# about 6 LU under the voice itself
+# (measured on popular story videos: 6 to 6.5),
 # with only a light dip while someone speaks, so it is heard all the way through
-MUSIC_GAP_LU = float(os.environ.get("MUSIC_GAP_LU", "6.5"))
+MUSIC_GAP_LU = float(os.environ.get("MUSIC_GAP_LU", "3.5"))
 
 
 def loudness(path: Path) -> float:

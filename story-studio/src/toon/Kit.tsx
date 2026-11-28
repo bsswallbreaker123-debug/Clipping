@@ -1267,7 +1267,7 @@ export function buildItem(it: Item, ctx: Ctx): Built {
         body: T(
           <g>
             <rect x={-8} y={-300} width={16} height={300} fill="#3a2a1a" />
-            <rect x={-150} y={-360} width={300} height={90} rx={8} fill={c ?? "#e8dfc8"} stroke="#3a2a1a" strokeWidth={6} />
+            <rect x={-Math.max(150, (it.v ?? "").length * 13 + 30)} y={-360} width={2 * Math.max(150, (it.v ?? "").length * 13 + 30)} height={90} rx={8} fill={c ?? "#e8dfc8"} stroke="#3a2a1a" strokeWidth={6} />
             <text x={0} y={-302} fontSize={40} fontFamily="Montserrat" fontWeight={900} textAnchor="middle" fill="#2a1d14">
               {(it.v ?? "").replace(/_/g, " ")}
             </text>
