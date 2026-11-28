@@ -381,7 +381,7 @@ def ensure_music(style: str) -> Path:
 
 # music sits this many LU under the voice track (measured on popular story videos: about 6.5),
 # with only a light dip while someone speaks, so it is heard all the way through
-MUSIC_GAP_LU = float(os.environ.get("MUSIC_GAP_LU", "7"))
+MUSIC_GAP_LU = float(os.environ.get("MUSIC_GAP_LU", "6.5"))
 
 
 def loudness(path: Path) -> float:
@@ -399,7 +399,7 @@ def mix_level(stem: Path, music: Path, out: Path, offset: float = 0.0) -> None:
     fc = (
         f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={gain:.2f}dB,afade=t=in:d=0.8[m];"
         "[0:a]aformat=sample_rates=48000:channel_layouts=stereo,asplit=2[v][sc];"
-        "[m][sc]sidechaincompress=threshold=0.06:ratio=2:attack=40:release=500[md];"
+        "[m][sc]sidechaincompress=threshold=0.1:ratio=1.5:attack=40:release=500[md];"
         f"[v][md]amix=inputs=2:normalize=0:duration=first,afade=t=out:st={max(0, dur - 1.5):.2f}:d=1.5,"
         "loudnorm=I=-14:TP=-1.5:LRA=11[a]"
     )

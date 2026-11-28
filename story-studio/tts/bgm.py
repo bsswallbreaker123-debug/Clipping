@@ -10,6 +10,7 @@ STYLES = {
     # the reference video: ~140 bpm, A harmonic minor, melodic mid-range, very little percussion
     "mystery": "mysterious playful pizzicato strings and celesta with soft piano, curious sneaky detective storytelling background music, light finger snaps, bouncy, instrumental, no vocals",
     "dark": "eerie music box melody with soft piano and low string drone, dark mysterious horror storytelling background, subtle ticking percussion, instrumental, no vocals",
+    "quirky": "quirky bouncy comedic pizzicato and ukulele with glockenspiel and whistling, playful funny meme background music, light claps, upbeat, instrumental, no vocals",
     "tense": "suspenseful cinematic pizzicato and piano ostinato with pulsing low strings, tense thriller storytelling background, light drums, instrumental, no vocals",
 }
 out, name, secs = sys.argv[1], sys.argv[2], float(sys.argv[3])
