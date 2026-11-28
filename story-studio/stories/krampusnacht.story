@@ -1,7 +1,7 @@
 title: Krampusnacht
 id: krampusnacht
 narrator: bm_george
-music: eerie
+music: dark
 accent: #ffb020
 tempo: 1.06
 

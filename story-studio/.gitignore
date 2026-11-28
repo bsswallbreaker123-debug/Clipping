@@ -7,3 +7,5 @@ public/gen/
 tts/.venv/
 tts/ref/*.raw.wav
 tts/ref/
+tts/acestep/
+tts/voxcpm/.venv/

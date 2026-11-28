@@ -1,7 +1,7 @@
 title: Inside
 id: inside
 narrator: bm_george
-music: tension
+music: tense
 accent: #ffb020
 tempo: 1.07
 

@@ -1,7 +1,7 @@
 title: Left Behind
 id: left-behind
 narrator: bm_george
-music: festive
+music: mystery
 accent: #ffd23a
 tempo: 1.05
 

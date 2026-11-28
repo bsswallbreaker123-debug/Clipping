@@ -367,12 +367,51 @@ def mouth_track(wav: Path, frames: int) -> str:
 def ensure_music(style: str) -> Path:
     import cine_audio
 
+    # melodic background tracks composed with ACE-Step (tts/acestep/bgm.py): mystery, dark, tense
+    bgm = PUBLIC / "gen" / "music" / f"bgm-{style}.wav"
+    if bgm.exists():
+        return bgm
     p = PUBLIC / "gen" / "music" / f"cine-{style}.wav"
     if not p.exists():
         p.parent.mkdir(parents=True, exist_ok=True)
         print(f"  composing {style} music ...", flush=True)
         sf.write(p, cine_audio.cine_music(style, 150), cine_audio.SR)
     return p
+
+
+# music sits this many LU under the voice track (measured on popular story videos: about 6.5),
+# with only a light dip while someone speaks, so it is heard all the way through
+MUSIC_GAP_LU = float(os.environ.get("MUSIC_GAP_LU", "7"))
+
+
+def loudness(path: Path) -> float:
+    r = subprocess.run(["ffmpeg", "-nostats", "-i", str(path), "-vn", "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True)
+    m = re.findall(r"I:\s+(-?[0-9.]+) LUFS", r.stderr)
+    return float(m[-1]) if m else -23.0
+
+
+def mix_level(stem: Path, music: Path, out: Path, offset: float = 0.0) -> None:
+    """Music level-matched to the voice (MUSIC_GAP_LU under it), lightly ducked, whole mix at -14 LUFS."""
+    out.parent.mkdir(parents=True, exist_ok=True)
+    dur = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", str(stem)],
+                               capture_output=True, text=True, check=True).stdout.strip())
+    gain = (loudness(stem) - MUSIC_GAP_LU) - loudness(music)
+    fc = (
+        f"[1:a]aformat=sample_rates=48000:channel_layouts=stereo,volume={gain:.2f}dB,afade=t=in:d=0.8[m];"
+        "[0:a]aformat=sample_rates=48000:channel_layouts=stereo,asplit=2[v][sc];"
+        "[m][sc]sidechaincompress=threshold=0.06:ratio=2:attack=40:release=500[md];"
+        f"[v][md]amix=inputs=2:normalize=0:duration=first,afade=t=out:st={max(0, dur - 1.5):.2f}:d=1.5,"
+        "loudnorm=I=-14:TP=-1.5:LRA=11[a]"
+    )
+    cmd = ["ffmpeg", "-v", "error", "-y", "-i", str(stem), "-stream_loop", "-1", "-ss", f"{offset:.2f}", "-i", str(music),
+           "-filter_complex", fc, "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-t", f"{dur:.3f}",
+           "-c:a", "aac", "-b:a", "192k", "-ar", "48000", "-movflags", "+faststart", str(out)]
+    subprocess.run(cmd, check=True)
+
+
+def music_offset(n: int) -> float:
+    # every part starts somewhere else in the track
+    return float((n - 1) * 37 % 120)
 
 
 def ensure_sfx(name: str) -> str | None:
@@ -554,7 +593,10 @@ def cmd_build(args) -> None:
         stem = pdir / f"part-{n:02d}.stem.mp4"
         render(pp, stem, entry, preview=args.preview)
         out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
-        mix(stem, music, out, float(story.get("musicVolume", 0.16)))
+        if music.name.startswith("bgm-"):
+            mix_level(stem, music, out, music_offset(n))
+        else:
+            mix(stem, music, out, float(story.get("musicVolume", 0.16)))
         print(f"  -> {out.relative_to(ROOT)}", flush=True)
 
 
@@ -576,6 +618,18 @@ def cmd_still(args) -> None:
         out = outdir / f"{story['id']}-p{args.part}-s{sh:02d}.png"
         subprocess.run(["npx", "remotion", "still", "src/index.ts", "ToonEpisode", str(out), f"--props={pp}", f"--frame={fr}", "--log=error", "--scale=0.5"], cwd=ROOT, check=True)
         print(out)
+
+
+def cmd_remix(args) -> None:
+    """New music on finished parts, from the saved stems (no re-render)."""
+    for f in args.stories:
+        story = parse_story(Path(f))
+        music = ensure_music(args.music or story.get("music", "eerie"))
+        for stem in sorted((BUILD / story["id"]).glob("part-*.stem.mp4")):
+            n = int(stem.name.split("-")[1].split(".")[0])
+            out = OUT / story["id"] / f"{story['id']}-part-{n:02d}.mp4"
+            mix_level(stem, music, out, music_offset(n))
+            print(f"  -> {out.relative_to(ROOT)} ({music.name})", flush=True)
 
 
 def cmd_check(args) -> None:
@@ -607,6 +661,10 @@ def main() -> None:
     s.add_argument("--at", type=float, default=0.6)
     s.add_argument("--out", default=str(BUILD / "stills"))
     s.set_defaults(fn=cmd_still)
+    r = sub.add_parser("remix")
+    r.add_argument("stories", nargs="+")
+    r.add_argument("--music")
+    r.set_defaults(fn=cmd_remix)
     c = sub.add_parser("check")
     c.add_argument("stories", nargs="+")
     c.set_defaults(fn=cmd_check)

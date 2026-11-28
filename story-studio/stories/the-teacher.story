@@ -1,7 +1,7 @@
 title: The Teacher
 id: the-teacher
 narrator: bm_george
-music: heist
+music: mystery
 accent: #ff4a3a
 tempo: 1.06
 

@@ -1,7 +1,7 @@
 title: The Impostor
 id: the-impostor
 narrator: bm_george
-music: synth80s
+music: mystery
 accent: #3ad1ff
 tempo: 1.06
 

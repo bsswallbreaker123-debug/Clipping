@@ -1,7 +1,7 @@
 title: The Long Road
 id: the-long-road
 narrator: bm_george
-music: emotional
+music: tense
 accent: #e0b84a
 tempo: 1.04
 
